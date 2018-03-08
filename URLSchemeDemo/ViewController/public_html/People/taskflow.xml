@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="taskflow">
+    <default-activity>router</default-activity>
+    <managed-bean id="__6">
+      <managed-bean-name>HandlerBean</managed-bean-name>
+      <managed-bean-class>mobile.HandlerBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="Detail">
+      <page>/People/Detail.amx</page>
+    </view>
+    <router id="router">
+      <description>Navigate to home or detail view</description>
+      <display-name>Router</display-name>
+      <case id="__14">
+        <expression>#{pageFlowScope.HandlerBean.detail}</expression>
+        <outcome>urllaunch</outcome>
+      </case>
+      <default-outcome>toAbout</default-outcome>
+    </router>
+    <view id="About">
+      <page>/People/Home.amx</page>
+    </view>
+    <control-flow-rule id="__10">
+      <from-activity-id>router</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome>urllaunch</from-outcome>
+        <to-activity-id>Detail</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__1">
+        <from-outcome>toAbout</from-outcome>
+        <to-activity-id>About</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__2">
+      <from-activity-id>About</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>toDetail</from-outcome>
+        <to-activity-id>Detail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>Detail</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>toAbout</from-outcome>
+        <to-activity-id>About</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-mobile-config>

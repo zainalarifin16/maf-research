@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.21.53" id="sharedAttributeGroupsPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="SharedAttributeGroupsDataList"
+              id="SharedAttributeGroupsDataListIterator"/>
+    <accessorIterator MasterBinding="SharedAttributeGroupsDataListIterator" Binds="articles" RangeSize="25"
+                      DataControl="SharedAttributeGroupsDataList" BeanClass="model.SharedAttributeGroupsData"
+                      id="articlesIterator"/>
+    <accessorIterator MasterBinding="SharedAttributeGroupsDataListIterator" Binds="articlesPerYear2011" RangeSize="-1"
+                      DataControl="SharedAttributeGroupsDataList" BeanClass="model.SharedAttributeGroupsData"
+                      id="articlesPerYear2011Iterator"/>
+    <accessorIterator MasterBinding="SharedAttributeGroupsDataListIterator" Binds="articlesPerYear2012" RangeSize="25"
+                      DataControl="SharedAttributeGroupsDataList" BeanClass="model.SharedAttributeGroupsData"
+                      id="articlesPerYear2012Iterator"/>
+    <accessorIterator MasterBinding="SharedAttributeGroupsDataListIterator" Binds="articlesPerYear2013" RangeSize="25"
+                      DataControl="SharedAttributeGroupsDataList" BeanClass="model.SharedAttributeGroupsData"
+                      id="articlesPerYear2013Iterator"/>
+    <accessorIterator MasterBinding="SharedAttributeGroupsDataListIterator" Binds="articlesPerYear2014" RangeSize="25"
+                      DataControl="SharedAttributeGroupsDataList" BeanClass="model.SharedAttributeGroupsData"
+                      id="articlesPerYear2014Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="articlesIterator" id="articles">
+      <nodeDefinition DefName="model.SharedAttributeGroupsData" Name="articles0">
+        <AttrNames>
+          <Item Value="year"/>
+          <Item Value="author"/>
+          <Item Value="count"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="articlesPerYear2011Iterator" id="articlesPerYear2011">
+      <nodeDefinition DefName="model.SharedAttributeGroupsData" Name="articlesPerYear20110">
+        <AttrNames>
+          <Item Value="count"/>
+          <Item Value="year"/>
+          <Item Value="author"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="articlesPerYear2012Iterator" id="articlesPerYear2012">
+      <nodeDefinition DefName="model.SharedAttributeGroupsData" Name="articlesPerYear20120">
+        <AttrNames>
+          <Item Value="year"/>
+          <Item Value="author"/>
+          <Item Value="count"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="articlesPerYear2013Iterator" id="articlesPerYear2013">
+      <nodeDefinition DefName="model.SharedAttributeGroupsData" Name="articlesPerYear20130">
+        <AttrNames>
+          <Item Value="year"/>
+          <Item Value="author"/>
+          <Item Value="count"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="articlesPerYear2014Iterator" id="articlesPerYear2014">
+      <nodeDefinition DefName="model.SharedAttributeGroupsData" Name="articlesPerYear20140">
+        <AttrNames>
+          <Item Value="year"/>
+          <Item Value="author"/>
+          <Item Value="count"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                <amx:image inlineStyle="width:32px;height:32px;" source="/images/springboard.png" id="i1"/>  
+            </amx:commandLink>
+        </amx:facet>
+        <amx:facet name="header">
+            <amx:outputText value="About" id="hddr"/>
+        </amx:facet>
+        <amx:spacer height="10" id="s1"/>
+        <amx:outputText value="This application demonstrates how to skin applications and add a unique look and feel by either overriding the supplied style sheets or extending them with their own style sheets. This application also shows how skins control the styling of Mobile Applications Framework AMX UI components based on the type of device.  "
+                        id="ot3"/>
+        <amx:outputText value="Skinning" id="ot1" styleClass="adfmf-outputText-sectionTitle"/>
+        <amx:outputText value="This feature demonstates the following skinning functionality "
+                        id="ot2"/>
+        <amx:outputText value="1.Demonstrate how to extend out-of-the-box skin families like mobileAlta to create custom skin families"
+                        id="ot5"/>
+
+        <amx:outputText value="2.Demonstrate how to switch skin families at runtime"
+                        id="ot4"/>
+      
+    </amx:panelPage>
+</amx:view>
+

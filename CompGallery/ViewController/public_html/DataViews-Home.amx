@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Data Views"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton text="Home" id="back" action="return" styleClass="amx-commandButton-back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dataviews" shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:fragment src="/fragments/compListView.amxf" id="f1" inlineStyle="height: 100%;">
+      <amx:attributeList name="components" id="al1">
+        <amx:attributeSet id="as1">
+          <amx:attribute name="name" value="carousel" id="a1"/>
+          <amx:attribute name="displayName" value="Carousel" id="a2"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as2">
+          <amx:attribute name="name" value="carouselItem" id="a3"/>
+          <amx:attribute name="displayName" value="Carousel Item" id="a4"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as3">
+          <amx:attribute name="name" value="dottedPageControl" id="a5"/>
+          <amx:attribute name="displayName" value="Dotted Page Control" id="a6"/>
+          <amx:attribute name="imagePrefix" value="filmStrip" id="a7"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as4">
+          <amx:attribute name="name" value="filmStrip" id="a8"/>
+          <amx:attribute name="displayName" value="Film Strip" id="a9"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as5">
+          <amx:attribute name="name" value="filmStripItem" id="a10"/>
+          <amx:attribute name="displayName" value="Film Strip Item" id="a11"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as6">
+          <amx:attribute name="name" value="iterator" id="a12"/>
+          <amx:attribute name="displayName" value="Iterator" id="a13"/>
+          <amx:attribute name="hasDemoPage" value="false" id="a14"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as7">
+          <amx:attribute name="name" value="listItem" id="a15"/>
+          <amx:attribute name="displayName" value="List Item" id="a16"/>
+          <amx:attribute name="imagePrefix" value="selectItem" id="a17"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as8">
+          <amx:attribute name="name" value="listView" id="a18"/>
+          <amx:attribute name="displayName" value="List View" id="a19"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as9">
+          <amx:attribute name="name" value="listView" id="a20"/>
+          <amx:attribute name="displayName" value="List View + Indexer" id="a21"/>
+          <amx:attribute name="imagePrefix" value="listView" id="a22"/>
+          <amx:attribute name="compPropKey" value="#{GlobalProperties['hostedMode'] ? 'listViewIndexerHosted' : 'listViewIndexer'}"
+                         id="a23"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as10">
+          <amx:attribute name="name" value="refreshContainer" id="a24"/>
+          <amx:attribute name="displayName" value="Pull to Refresh" id="a25"/>
+        </amx:attributeSet>
+      </amx:attributeList>
+    </amx:fragment>
+  </amx:panelPage>
+</amx:view>

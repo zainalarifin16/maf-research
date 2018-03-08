@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1">
+          <description id="d1">Generic  fragment for masonry layout</description>
+        <attribute id="a1">
+            <attribute-name id="a3n">contentText1</attribute-name>
+            <attribute-type id="a3t">String</attribute-type>
+        </attribute>
+        <attribute id="a2">
+            <attribute-name id="ad">contentText2</attribute-name>
+            <attribute-type id="a3dt">String</attribute-type>
+        </attribute>
+        <attribute id="a3">
+            <attribute-name id="ad3n">contentText3</attribute-name>
+            <attribute-type id="ad3t">String</attribute-type>
+        </attribute>
+        <attribute id="a4">
+            <attribute-name id="a3dn">contentText4</attribute-name>
+            <attribute-type id="a3cdt">String</attribute-type>
+        </attribute>
+        <attribute id="a5">
+            <attribute-name id="add">contentText5</attribute-name>
+            <attribute-type id="a3ddt">String</attribute-type>
+        </attribute>
+        <attribute id="a6">
+            <attribute-name id="adcd">contentText6</attribute-name>
+            <attribute-type id="a3ccddt">String</attribute-type>
+        </attribute>
+</fragment>
+  
+        <amx:masonryLayout  id="ml1">
+            <amx:masonryLayoutItem dimension="1x2" id="mli1">
+                <amx:flexLayout id="Link2" itemFlexibility="inflexible" itemAlignment="center"
+                                itemJustification="center"
+                                inlineStyle="background-color:#DAE9F5;border: 1px solid #AED8FA;"
+                                styleClass="amx-fitParent" orientation="vertical">
+                    <amx:outputText value="#{contentText1}" id="otc1"/>
+                </amx:flexLayout>
+            </amx:masonryLayoutItem>
+            <amx:masonryLayoutItem dimension="1x1" id="mli2">
+                <amx:flexLayout id="Linkx2" itemFlexibility="inflexible" itemAlignment="center"
+                                itemJustification="center"
+                                inlineStyle="background-color:#DAE9F5;border: 1px solid #AED8FA;"
+                                styleClass="amx-fitParent" orientation="vertical">
+                    <amx:outputText value="#{contentText2}" id="otxc1"/>
+                </amx:flexLayout>
+            </amx:masonryLayoutItem>
+            <amx:masonryLayoutItem dimension="1x1" id="mli3">
+                <amx:flexLayout id="Linxk2" itemFlexibility="inflexible" itemAlignment="center"
+                                itemJustification="center"
+                                inlineStyle="background-color:#DAE9F5;border: 1px solid #AED8FA;"
+                                styleClass="amx-fitParent" orientation="vertical">
+                    <amx:outputText value="#{contentText3}" id="otxxc1"/>
+                </amx:flexLayout>
+            </amx:masonryLayoutItem>
+            <amx:masonryLayoutItem dimension="1x1" id="mli4">
+                <amx:flexLayout id="Lixnk2" itemFlexibility="inflexible" itemAlignment="center"
+                                itemJustification="center"
+                                inlineStyle="background-color:#DAE9F5;border: 1px solid #AED8FA;"
+                                styleClass="amx-fitParent" orientation="vertical">
+                    <amx:outputText value="#{contentText4}" id="oxtc1"/>
+                </amx:flexLayout>
+            </amx:masonryLayoutItem>
+            <amx:masonryLayoutItem dimension="1x1" id="mli5">
+                <amx:flexLayout id="Lixnxk2" itemFlexibility="inflexible" itemAlignment="center"
+                                itemJustification="center"
+                                inlineStyle="background-color:#DAE9F5;border: 1px solid #AED8FA;"
+                                styleClass="amx-fitParent" orientation="vertical">
+                    <amx:outputText value="#{contentText5}" id="oxxtc1"/>
+                </amx:flexLayout>
+            </amx:masonryLayoutItem>
+            <amx:masonryLayoutItem dimension="2x1" id="mli7">
+                <amx:flexLayout id="LiDnk2" itemFlexibility="inflexible" itemAlignment="center"
+                                itemJustification="center"
+                                inlineStyle="background-color:#DAE9F5;border: 1px solid #AED8FA;"
+                                styleClass="amx-fitParent" orientation="vertical">
+                    <amx:outputText value="#{contentText6}" id="oxXCc1"/>
+                </amx:flexLayout>
+            </amx:masonryLayoutItem>
+        </amx:masonryLayout>
+</amx:fragmentDef>

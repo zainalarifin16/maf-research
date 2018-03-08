@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="App Preferences" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:outputText id="ot2" value="Top Group" styleClass="amx-text-sectiontitle"/>
+        <amx:panelFormLayout id="pfl1" labelPosition="end" fieldHalign="start">
+            <amx:selectBooleanSwitch label="Boolean" id="sbs1"
+                                     value="#{preferenceScope.application.apptop.appBoolean}"/>
+            <amx:inputText label="Number" id="it1" inputType="number"
+                           value="#{preferenceScope.application.apptop.appNumber}"/>
+            <amx:panelLabelAndMessage label="List" id="plam1">
+                <amx:panelGroupLayout id="pgl1">
+                    <amx:selectOneChoice value="#{preferenceScope.application.apptop.appList}" simple="true" id="smc1">
+                        <amx:selectItem label="item1" value="item1" id="si1"/>
+                        <amx:selectItem label="item2" value="item2" id="si2"/>
+                        <amx:selectItem label="item3" value="item3" id="si3"/>
+                    </amx:selectOneChoice>
+                </amx:panelGroupLayout>
+            </amx:panelLabelAndMessage>
+            <amx:inputText label="Text" id="it3" value="#{preferenceScope.application.apptop.apptext}"/>
+            <amx:inputText label="Secret Text" id="it7" secret="true" value="#{preferenceScope.application.apptop.appSecretText}"/>
+        </amx:panelFormLayout>
+        <amx:outputText id="ot3" value="Sub Group" styleClass="amx-text-sectiontitle"/>
+        <amx:panelFormLayout id="pfl2">
+            <amx:selectBooleanSwitch label="Sub Boolean" id="sbs2"
+                                     value="#{preferenceScope.application.apptop.appPage.appSubGroup.appSubBoolean}"/>
+            <amx:inputText label="Sub Number" id="it4" inputType="number"
+                           value="#{preferenceScope.application.apptop.appPage.appSubGroup.appSubNumber}"/>
+            <amx:panelLabelAndMessage label="Sub List" id="plam11">
+                <amx:panelGroupLayout id="pgl12">
+                    <amx:selectOneChoice value="#{preferenceScope.application.apptop.appPage.appSubGroup.appSubList}" simple="true" id="scmc1">
+                        <amx:selectItem label="item1" value="item1" id="si11"/>
+                        <amx:selectItem label="item2" value="item2" id="si22"/>
+                        <amx:selectItem label="item3" value="item3" id="si32"/>
+                    </amx:selectOneChoice>
+                </amx:panelGroupLayout>
+            </amx:panelLabelAndMessage>
+            <amx:inputText label="Sub Text" id="it6"
+                           value="#{preferenceScope.application.apptop.appPage.appSubGroup.appSubText}"/>
+            <amx:inputText label="Sub Secret Text" id="it8" secret="true"
+                           value="#{preferenceScope.application.apptop.appPage.appSubGroup.appSubSecretText}"/>
+        </amx:panelFormLayout>
+    </amx:panelPage>
+</amx:view>

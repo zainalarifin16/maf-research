@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
+  <adfmf:feature id="Springboard" name="Springboard">
+    <adfmf:content id="Springboard.1">
+      <adfmf:amx file="Springboard/springboard.amx">
+        <adfmf:includes/>
+      </adfmf:amx>
+    </adfmf:content>
+    <adfmf:properties id="p3">
+      <adfmf:property name="iOSWebView" value="default" id="p4"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="About" name="About" securityEnabled="false">
+    <adfmf:content id="About.1">
+      <adfmf:amx file="About/about.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p5">
+      <adfmf:property name="iOSWebView" value="default" id="p6"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="Beacon" name="Beacon">
+    <adfmf:content id="Beacon.1">
+      <adfmf:constraints/>
+      <adfmf:amx file="Beacon/beacon.amx">
+        <adfmf:includes>
+          <adfmf:include type="JavaScript" file="resources/js/beacon.js" id="i1"/>
+        </adfmf:includes>
+      </adfmf:amx>
+    </adfmf:content>
+    <adfmf:properties id="p1">
+      <adfmf:property name="iOSWebView" value="default" id="p2"/>
+    </adfmf:properties>
+  </adfmf:feature>
+</adfmf:features>

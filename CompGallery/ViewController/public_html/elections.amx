@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="Elections" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton id="back" action="__back" text="Back"/>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandButton id="cb2"/>
+        </amx:facet>
+        <amx:panelStretchLayout id="psl1">
+            <amx:facet name="top">
+                <amx:outputText value="Chamber of Deputies Elections" id="ot3" inlineStyle="font-size: 24px"/>
+                <amx:selectOneChoice value="#{ElectionDataList.currentElectionIndex}" label="Year:"
+                                     id="soc2">
+                    <amx:selectItems value="#{bindings.electionList.items}" id="si1"/>
+                </amx:selectOneChoice>
+            </amx:facet>
+            <amx:facet name="center">
+                <dvtm:pictoChart id="graph1" var="row" value="#{bindings.electionDataList.collectionModel}"
+                                 dataSelection="multiple" selectionListener="#{ElectionDataList.selectionListener}"
+                                 inlineStyle="margin: 10px;">
+                    <dvtm:pictoChartItem count="#{row.value}" name="#{row.label}" shape="human">
+                        <dvtm:attributeGroups id="ag1" type="color" value="#{row.label}" discriminant="ag1"/>
+                    </dvtm:pictoChartItem>
+                </dvtm:pictoChart>
+                <dvtm:legend id="l1" orientation="horizontal" >
+                    <dvtm:legendSection id="ls1" source="ag1"/>
+                </dvtm:legend>
+            </amx:facet>
+            <amx:facet name="bottom">
+                <amx:outputText value="Coalition: #{ElectionDataList.coalition} => #{ElectionDataList.coalitionChairs}"
+                                id="ot2" inlineStyle="font-size:18px;"
+                                rendered="#{not (empty ElectionDataList.coalition)}"/>
+            </amx:facet>
+        </amx:panelStretchLayout>
+    </amx:panelPage>
+</amx:view>

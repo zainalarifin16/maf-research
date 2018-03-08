@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="General"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton text="Home" id="back" action="return" styleClass="amx-commandButton-back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink id="pBookmark" url="public_html/bookmark.html?feature=Gallery&amp;p=general"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:fragment src="/fragments/compListView.amxf" id="f1" inlineStyle="height: 100%;">
+      <amx:attributeList name="components" id="al1">
+        <amx:attributeSet id="as1">
+          <amx:attribute name="name" value="attribute" id="a1"/>
+          <amx:attribute name="displayName" value="Attribute" id="a2"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as2">
+          <amx:attribute name="name" value="commandButton" id="a4"/>
+          <amx:attribute name="displayName" value="Button" id="a5"/>
+          <amx:attribute name="imagePrefix" value="button" id="a3"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as3">
+          <amx:attribute name="name" value="custom" id="a6"/>
+          <amx:attribute name="customName" value="custom:example" id="aCustom"/>
+          <amx:attribute name="displayName" value="Custom Component" id="a7"/>
+          <amx:attribute name="imagePrefix" value="tag" id="a8"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as4">
+          <amx:attribute name="name" value="facetRef" id="a9"/>
+          <amx:attribute name="displayName" value="Facet Reference" id="a10"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as5">
+          <amx:attribute name="name" value="fragment" id="a11"/>
+          <amx:attribute name="displayName" value="Fragment" id="a12"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as6">
+          <amx:attribute name="name" value="fragmentDef" id="a13"/>
+          <amx:attribute name="displayName" value="Fragment Definition" id="a14"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as10">
+          <amx:attribute name="name" value="outputHtml" id="a23"/>
+          <amx:attribute name="displayName" value="HTML Output" id="a24"/>
+          <amx:attribute name="imagePrefix" value="html" id="a25"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as7">
+          <amx:attribute name="name" value="image" id="a15"/>
+          <amx:attribute name="displayName" value="Image" id="a16"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as8">
+          <amx:attribute name="name" value="commandLink" id="a17"/>
+          <amx:attribute name="displayName" value="Link (Command)" id="a18"/>
+          <amx:attribute name="imagePrefix" value="link" id="a19"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as9">
+          <amx:attribute name="name" value="goLink" id="a20"/>
+          <amx:attribute name="displayName" value="Link (Go)" id="a21"/>
+          <amx:attribute name="imagePrefix" value="link" id="a22"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as11">
+          <amx:attribute name="name" value="verbatim" id="a26"/>
+          <amx:attribute name="displayName" value="Verbatim" id="a27"/>
+          <amx:attribute name="imagePrefix" value="text" id="a28"/>
+        </amx:attributeSet>
+      </amx:attributeList>
+    </amx:fragment>
+  </amx:panelPage>
+</amx:view>

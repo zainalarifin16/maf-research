@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1" styleClass="custom-panelPage-with-springboard">
+        <amx:facet name="header">
+            <amx:outputText id="outputText1" value="Photo"/>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandButton actionListener="#{bindings.GetPicture.execute}" text="Get"
+                                id="commandButton1"
+                               />
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" styleClass="custom-springboard-link" id="cl1">
+                    <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:panelFormLayout id="panelFormLayout1" labelPosition="start" fieldHalign="start">
+            <amx:inputNumberSlider id="quality" value="#{bindings.quality.inputValue}" label="Quality" minimum="1"
+                                   maximum="50" stepSize="1"/>
+            <amx:selectOneChoice value="#{bindings.source.inputValue}" label="Source" id="source">
+                <amx:selectItem label="Library" value="0"/>
+                <amx:selectItem label="Camera" value="1"/>
+                <amx:selectItem label="Album" value="2"/>
+            </amx:selectOneChoice>
+            <amx:selectOneChoice value="#{bindings.destination.inputValue}" label="Destination" id="destination">
+                <amx:selectItem label="File" value="1"/>
+                <amx:selectItem label="Data" value="0"/>
+            </amx:selectOneChoice>
+            <amx:selectBooleanSwitch value="#{bindings.allowEdit.inputValue}" label="Allow Edit" id="allowedit"
+                                     offLabel="No" onLabel="Yes"/>
+            <amx:selectOneChoice value="#{bindings.encoding.inputValue}" label="Encoding" id="encoding">
+                <amx:selectItem label="JPEG" value="0"/>
+                <amx:selectItem label="PNG" value="1"/>
+            </amx:selectOneChoice>
+            <amx:inputText value="#{bindings.targetWidth.inputValue}" label="Width in Pixels" id="width" inputType="number"/>
+            <amx:inputText value="#{bindings.targetHeight.inputValue}" label="Height in Pixels" id="height" inputType="number"/>
+        </amx:panelFormLayout>        
+        <amx:panelGroupLayout   layout="vertical" halign="center" id="pgl1">
+         <amx:image id="file" rendered="#{bindings.destination.inputValue=='1'}" source="#{bindings.pictureData.inputValue}" />
+         <amx:image id="data" rendered="#{bindings.destination.inputValue=='0'}" source="data:image/png;base64,#{bindings.pictureData.inputValue}" />
+        <amx:outputText id="outputText2" value="#{bindings.pictureData.inputValue}"/>
+        </amx:panelGroupLayout> 
+    </amx:panelPage>
+</amx:view>

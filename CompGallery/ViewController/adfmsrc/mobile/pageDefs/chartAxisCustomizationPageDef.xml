@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.15.15" id="chartAxisCustomizationPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="BubbleDataList" id="BubbleDataListIterator"/>
+    <accessorIterator MasterBinding="BubbleDataListIterator" Binds="bubbleData" RangeSize="-1"
+                      DataControl="BubbleDataList" BeanClass="model.BubbleData" id="bubbleDataIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="bubbleDataIterator" id="bubbleData">
+      <nodeDefinition DefName="model.BubbleData" Name="bubbleData0">
+        <AttrNames>
+          <Item Value="group"/>
+          <Item Value="series"/>
+          <Item Value="x"/>
+          <Item Value="y"/>
+          <Item Value="z"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

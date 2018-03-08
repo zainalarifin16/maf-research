@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.1.30" id="thematicMapInvisibleAreaPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="ThematicMapInvisibleAreaDataList"
+              id="ThematicMapInvisibleAreaDataListIterator"/>
+    <accessorIterator MasterBinding="ThematicMapInvisibleAreaDataListIterator" Binds="globalGDP" RangeSize="25"
+                      DataControl="ThematicMapInvisibleAreaDataList" BeanClass="model.ThematicMapInvisibleAreaData"
+                      id="globalGDPIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="globalGDPIterator" id="globalGDP">
+      <nodeDefinition DefName="model.ThematicMapInvisibleAreaData" Name="globalGDP0">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="value"/>
+          <Item Value="color"/>
+          <Item Value="sqrtGDP"/>
+          <Item Value="formattedGDP"/>
+          <Item Value="countryName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

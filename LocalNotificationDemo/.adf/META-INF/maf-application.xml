@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
+                   version="1.0" name="LocalDemo" id="com.oraclecorp.internal.LocalNotificationDemo"
+                   appControllerFolder="ApplicationController" listener-class="application.LifeCycleListenerImpl">
+  <adfmf:featureReference refId="Springboard" id="fr1" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:featureReference refId="About" id="fr2"/>
+  <adfmf:featureReference refId="DataControl" id="fr3"/>
+  <adfmf:featureReference refId="ManagedBean" id="fr4"/>
+  <adfmf:featureReference refId="Notification" id="fr5"/>
+  <adfmf:navigation>
+    <adfmf:navigationBar enabled="false"/>
+    <adfmf:springboard enabled="true" showSpringboardAtStartup="false" displayGotoSpringboardControl="false"
+                       width="250">
+      <adfmf:springboardFeatureReference refId="Springboard" id="sfr1"/>
+    </adfmf:springboard>
+  </adfmf:navigation>
+</adfmf:application>

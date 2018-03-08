@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1" inlineStyle="background-color:#ededed">
+        <amx:facet name="header">
+            <amx:outputText value="Dashboard" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink id="cl1" actionListener="#{bindings.toggleSpringboard.execute}"
+                             styleClass="springboard-icon" shortDesc="Springboard Link">
+                <amx:image id="i1" source="/images/springboard.svg" shortDesc="Springboard Image"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:masonryLayout id="ml1">
+            <amx:masonryLayoutItem id="mli1" dimension="1x1">
+                <amx:fragment src="/wb.Dashboard/Organization.amxf" id="f1"/>
+            </amx:masonryLayoutItem>
+            <amx:masonryLayoutItem id="mli2"
+                                   dimension="#{UserBean.activitiesSize eq 'small' ? '1x1' : ( deviceScope.hardware.screen.diagonalSize ge 6 ? '2x1' : (deviceScope.hardware.screen.availableHeight gt deviceScope.hardware.screen.availableWidth ? '1x2' : '2x1') )}"
+                                   inlineStyle="background-color:#313132" rendered="#{UserBean.userEmpid ne 100}">
+                <amx:fragment src="/wb.Dashboard/MyActivities.amxf" id="f2"/>
+            </amx:masonryLayoutItem>
+            <amx:masonryLayoutItem id="mli8"
+                                   dimension="#{deviceScope.hardware.screen.diagonalSize lt 6 ? ( deviceScope.hardware.screen.height gt deviceScope.hardware.screen.width ? '1x2' : '2x1') : '2x1'}"
+                                   rendered="#{UserBean.userEmpid eq 100}">
+                <amx:fragment src="/wb.Dashboard/DeptAvgCompRatio.amxf" id="f8"/>
+            </amx:masonryLayoutItem>
+            <amx:masonryLayoutItem id="mli3" dimension="1x1">
+                <amx:fragment src="/wb.Dashboard/OrgCompRatio.amxf" id="f3"/>
+            </amx:masonryLayoutItem>
+            <amx:masonryLayoutItem id="mli4" dimension="#{UserBean.riskSize eq 'small' ? '1x1' : '2x2'}">
+                <amx:fragment src="/wb.Dashboard/RiskManagement.amxf" id="f4"/>
+            </amx:masonryLayoutItem>
+            <amx:masonryLayoutItem id="mli5" dimension="1x1">
+                <amx:fragment src="/wb.Dashboard/OrgAvgRating.amxf" id="f5"/>
+            </amx:masonryLayoutItem>
+            <amx:masonryLayoutItem id="mli7"
+                                   dimension="#{deviceScope.hardware.screen.diagonalSize lt 6 ? '1x1' : '2x2'}"
+                                   rendered="#{UserBean.userEmpid eq 100}">
+                <amx:fragment src="/wb.Dashboard/DeptAvgPerf.amxf" id="f7"/>
+            </amx:masonryLayoutItem>
+            <amx:masonryLayoutItem id="mli9" dimension="1x1">
+                <amx:fragment src="/wb.Dashboard/Attrition.amxf" id="f9"/>
+            </amx:masonryLayoutItem>
+            <amx:masonryLayoutItem id="mli6" dimension="1x1">
+                <amx:fragment src="/wb.Dashboard/MyProfile.amxf" id="f6"/>
+            </amx:masonryLayoutItem>
+        </amx:masonryLayout>
+    </amx:panelPage>
+</amx:view>

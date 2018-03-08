@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1">
+        <description id="d1">Generic list fragment for a reusable list</description>
+        <attribute id="a3">
+            <attribute-name id="a3n">col</attribute-name>
+            <attribute-type id="a3t">Collection</attribute-type>
+        </attribute>
+        <attribute id="a1a">
+            <attribute-name id="a1an">maintextA</attribute-name>
+            <attribute-type id="a1at">String</attribute-type>
+        </attribute>
+        <attribute id="a1b">
+            <attribute-name id="a1bn">maintextB</attribute-name>
+            <attribute-type id="a1bt">String</attribute-type>
+        </attribute>
+        <attribute id="a2">
+            <attribute-name id="a2n">subtext</attribute-name>
+            <attribute-type id="a2t">String</attribute-type>
+        </attribute>
+        <attribute id="a4">
+            <attribute-name id="a4n">action</attribute-name>
+            <attribute-type id="a4t">String</attribute-type>
+        </attribute>
+        <popup id="p1">
+            <popup-id id="p2">popup1</popup-id>
+        </popup>
+    </fragment>
+    <amx:listView var="row" value="#{col.collectionModel}" fetchSize="#{col.rangeSize}"
+                  selectedRowKeys="#{col.collectionModel.selectedRow}"
+                  selectionListener="#{col.collectionModel.makeCurrent}" id="lv1">
+        <!--We use this special bean, MyBean here to simply return the explicit string reference.-->
+        <!--Because all attributes are treated as EL, we need to call a method here so we create our own 'getAsString' method.-->
+        <amx:listItem id="li1" action="#{applicationScope.MyBean.getAsString(action)}">
+            <amx:tableLayout width="100%" id="tl1">
+                <amx:rowLayout id="rl1">
+                    <amx:cellFormat width="10px" rowSpan="2" id="cf2"/>
+                    <amx:cellFormat width="100%" height="28px" id="cf1">
+                        <amx:outputText value="#{row[maintextA]}" id="ot2"/>
+                        <amx:outputText value=" #{row[maintextB]}" rendered="#{not(empty(maintextB))}" id="ot4"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl2">
+                    <amx:cellFormat width="100%" height="12px" id="cf3">
+                        <amx:outputText value="#{row[subtext]}" styleClass="adfmf-listItem-captionText" id="ot31"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:listItem>
+    </amx:listView>
+    <amx:popup id="popup1" shortDesc="popup ">
+        <amx:panelGroupLayout id="pgl1" inlineStyle="width:200px;" halign="center">
+            <amx:outputText value="This is a popup that is exposed through a fragment" id="ot1"/>
+            <amx:commandButton text="Close" id="cb1" styleClass="adfmf-commandButton-large" shortDesc="Close button">
+                <amx:closePopupBehavior id="cpb1" popupId="popup1"/>
+            </amx:commandButton>
+        </amx:panelGroupLayout>
+    </amx:popup>
+</amx:fragmentDef>

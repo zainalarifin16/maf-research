@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="LinkedIn_Icon_Grid_View" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
+<g>
+	<g>
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M0,0v30h30V0H0z M9.01,23.91h-4V11.03h4V23.91z M6.97,8.98
+			c-1.16,0-1.94-0.85-1.94-2c0-1.15,0.78-2,1.94-2c1.16,0,2.06,0.85,2.06,2C9.03,8.13,8.13,8.98,6.97,8.98z M25.04,23.93h-4.02
+			v-7.94c-0.67-1.05-2-1.03-2-1.03s-2.33-0.18-3.1,1.41l-0.01,7.55H12v-12.9h3.93l0,1.53c1.34-1.82,4.25-1.57,4.25-1.57
+			s5.03-0.01,4.84,4.73c0,0.07-0.01,0.12-0.01,0.16h0.03V23.93z"/>
+	</g>
+</g>
+</svg>

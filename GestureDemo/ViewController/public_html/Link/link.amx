@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText id="outputText1" value="Gesture: (#{pageFlowScope.gesture})"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                  <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:panelGroupLayout id="panelGroupLayout2" inlineStyle="background-color:white;font-size:25px;">
+            <amx:commandLink id="pSR" text="Swipe Right (property)" inlineStyle="color:black">
+                <amx:setPropertyListener from="p:SR" to="#{pageFlowScope.gesture}" type="swipeEnd"/>
+            </amx:commandLink>
+            <amx:commandLink id="pSL" text="Swipe Left (property)" inlineStyle="color:black">
+                <amx:setPropertyListener from="p:SL" to="#{pageFlowScope.gesture}" type="swipeStart"/>
+            </amx:commandLink>
+            <amx:commandLink id="pSU" text="Swipe Up (property)" inlineStyle="color:black">
+                <amx:setPropertyListener from="p:SU" to="#{pageFlowScope.gesture}" type="swipeUp"/>
+            </amx:commandLink>
+            <amx:commandLink id="pSD" text="Swipe Down (property)" inlineStyle="color:black">
+                <amx:setPropertyListener from="p:SD" to="#{pageFlowScope.gesture}" type="swipeDown"/>
+            </amx:commandLink>
+            <amx:commandLink id="pTH" text="Tap and Hold (property)" inlineStyle="color:black">
+                <amx:setPropertyListener from="p:TH" to="#{pageFlowScope.gesture}" type="tapHold"/>
+            </amx:commandLink>
+            <amx:commandLink id="mSR" text="Swipe Right (method)" inlineStyle="color:black">
+                <amx:actionListener binding="#{GestureBean.SwipeRightHandler}" type="swipeEnd"/>
+            </amx:commandLink>
+            <amx:commandLink id="mSL" text="Swipe Left (method)" inlineStyle="color:black">
+                <amx:actionListener binding="#{GestureBean.SwipeLeftHandler}" type="swipeStart"/>
+            </amx:commandLink>
+            <amx:commandLink id="mSU" text="Swipe Up (method)" inlineStyle="color:black">
+                <amx:actionListener binding="#{GestureBean.SwipeUpHandler}" type="swipeUp"/>
+            </amx:commandLink>
+            <amx:commandLink id="mSD" text="Swipe Down (method)" inlineStyle="color:black">
+                <amx:actionListener binding="#{GestureBean.SwipeDownHandler}" type="swipeDown"/>
+            </amx:commandLink>
+            <amx:commandLink id="mTH" text="Tap and Hold (method)" inlineStyle="color:black">
+                <amx:actionListener binding="#{GestureBean.TapHoldHandler}" type="tapHold"/>
+            </amx:commandLink>
+            <amx:commandLink id="dSR" text="Swipe Right to show popup" inlineStyle="color:black">
+                <amx:showPopupBehavior popupId="popup1" type="swipeEnd" align="overlapBottom" alignId="pp1"/>
+            </amx:commandLink>
+            <amx:commandLink id="dSL" text="Swipe Left to show popup" inlineStyle="color:black">
+                <amx:showPopupBehavior popupId="popup1" type="swipeStart" align="overlapBottom" alignId="pp1"/>
+            </amx:commandLink>
+            <amx:commandLink id="dSU" text="Swipe Up to show popup" inlineStyle="color:black">
+                <amx:showPopupBehavior popupId="popup1" type="swipeUp" align="overlapBottom" alignId="pp1"/>
+            </amx:commandLink>
+            <amx:commandLink id="dSD" text="Swipe Down to show popup" inlineStyle="color:black">
+                <amx:showPopupBehavior popupId="popup1" type="swipeDown" align="overlapBottom" alignId="pp1"/>
+            </amx:commandLink>
+            <amx:commandLink id="dTH" text="Tap and Hold to show popup" inlineStyle="color:black">
+                <amx:showPopupBehavior popupId="popup1" type="tapHold" align="overlapBottom" alignId="pp1"/>
+            </amx:commandLink>
+        </amx:panelGroupLayout>
+    </amx:panelPage>
+    <amx:popup id="popup1" animation="slideUp" inlineStyle="background-color:white;">
+        <amx:panelGroupLayout id="panelGroupLayout1">
+            <amx:spacer id="sp20" inlineStyle="width:100px;height:20px;"/>
+            <amx:commandLink id="clSR" text="Swipe Right to close popup" inlineStyle="color:black">
+                <amx:closePopupBehavior popupId="popup1" type="swipeEnd"/>
+            </amx:commandLink>
+            <amx:spacer id="sp21" inlineStyle="width:100px;height:20px;"/>
+            <amx:commandLink id="clSL" text="Swipe Left to close popup" inlineStyle="color:black">
+                <amx:closePopupBehavior popupId="popup1" type="swipeStart"/>
+            </amx:commandLink>
+            <amx:spacer id="sp22" inlineStyle="width:100px;height:20px;"/>
+            <amx:commandLink id="clSU" text="Swipe Up to close popup" inlineStyle="color:black">
+                <amx:closePopupBehavior popupId="popup1" type="swipeUp"/>
+            </amx:commandLink>
+            <amx:spacer id="sp23" inlineStyle="width:100px;height:20px;"/>
+            <amx:commandLink id="clSD" text="Swipe Down to close popup" inlineStyle="color:black">
+                <amx:closePopupBehavior popupId="popup1" type="swipeDown"/>
+            </amx:commandLink>
+            <amx:spacer id="sp24" inlineStyle="width:100px;height:20px;"/>
+            <amx:commandLink id="clTH" text="Tap and Hold to close popup" inlineStyle="color:black">
+                <amx:closePopupBehavior popupId="popup1" type="tapHold"/>
+            </amx:commandLink>
+        </amx:panelGroupLayout>
+    </amx:popup>
+</amx:view>

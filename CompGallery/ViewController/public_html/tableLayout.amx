@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Table"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Layout"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:tableLayout"
+                  shortDesc="Tag documentation" disabled="#{GlobalProperties['tagdocUrl'] == ''}"
+                  id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=layout/tableLayout" shortDesc="Bookmarkable Link"
+                  styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:outputText id="otprops" value="Property Editor Example"
+                    styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:tableLayout id="tableLayout1" rendered="#{pageFlowScope.componentProperties.rendered}"
+                     styleClass="#{pageFlowScope.componentProperties.styleClass}"
+                     inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+                     borderWidth="#{pageFlowScope.componentProperties.borderWidth}"
+                     cellPadding="#{pageFlowScope.componentProperties.cellPadding}"
+                     cellSpacing="#{pageFlowScope.componentProperties.cellSpacing}"
+                     halign="#{pageFlowScope.componentProperties.halign}"
+                     layout="#{pageFlowScope.componentProperties.layoutTL}"
+                     shortDesc="#{pageFlowScope.componentProperties.shortDesc}"
+                     summary="#{pageFlowScope.componentProperties.summary}"
+                     width="#{pageFlowScope.componentProperties.width}">
+      <amx:rowLayout id="rowLayout1">
+        <amx:cellFormat id="cellFormatA" rowSpan="2" halign="center">
+          <amx:outputText id="otA" value="Cell A"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cellFormatB" rowSpan="2" halign="center">
+          <amx:outputText id="otB" value="Cell B (wide content)"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cellFormatC" columnSpan="2" halign="center">
+          <amx:outputText id="otC" value="Cell C"/>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      <amx:rowLayout id="rowLayout2">
+        <amx:cellFormat id="cellFormatD" halign="end">
+          <amx:outputText id="otD" value="Cell D"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cellFormatE">
+          <amx:outputText id="otE" value="Cell E"/>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
+    <amx:spacer id="s1" width="1" height="20"/>
+    <amx:outputText id="ottiles" value="Tiled Layout Example"
+                    styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:tableLayout id="tlTiled" cellSpacing="10" width="100%">
+      <amx:rowLayout id="rl1Tiled">
+        <amx:cellFormat id="cf1Tiled" width="50%" halign="center"
+                        inlineStyle="background-color:black;border-bottom:1px dashed white">
+          <amx:outputText id="otTiled1" value="Team" inlineStyle="color:white;font-size:36px"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf2Tiled" width="50%" halign="center"
+                        inlineStyle="background-color:black;border-bottom:1px dashed white">
+          <amx:outputText id="otTiled2" value="Event" inlineStyle="color:white;font-size:36px"/>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      <amx:rowLayout id="rl2Tiled">
+        <amx:cellFormat id="cf3Tiled" columnSpan="2">
+          <amx:panelGroupLayout id="swimLane" layout="horizontal" scrollPolicy="scroll">
+            <amx:image id="iSwim1" source="images/person.svg"
+                       inlineStyle="width:36px;height:36px;vertical-align:middle;display: inline-block;"/>
+            <amx:spacer id="sSwim1" width="10" height="10"/>
+            <amx:outputText id="otSwim1" inlineStyle="white-space:nowrap;font-size:24px"
+                            value="Celebrate!"/>
+            <amx:spacer id="sSwim2" width="10" height="10"/>
+            <amx:image id="iSwim2" source="images/person.svg"
+                       inlineStyle="width:36px;height:36px;vertical-align:middle;display: inline-block;"/>
+            <amx:spacer id="sSwim3" width="10" height="10"/>
+            <amx:outputText id="otSwim2" inlineStyle="white-space:nowrap;font-size:24px"
+                            value="Eat food!"/>
+            <amx:spacer id="sSwim4" width="10" height="10"/>
+            <amx:image id="iSwim3" source="images/person.svg"
+                       inlineStyle="width:36px;height:36px;vertical-align:middle;display: inline-block;"/>
+            <amx:spacer id="sSwim5" width="10" height="10"/>
+            <amx:outputText id="otSwim3" inlineStyle="white-space:nowrap;font-size:24px"
+                            value="Have fun!"/>
+            <amx:spacer id="sSwim6" width="10" height="10"/>
+            <amx:image id="iSwim4" source="images/person.svg"
+                       inlineStyle="width:36px;height:36px;vertical-align:middle;display: inline-block;"/>
+            <amx:spacer id="sSwim7" width="10" height="10"/>
+            <amx:outputText id="otSwim4" inlineStyle="white-space:nowrap;font-size:24px"
+                            value="Play games!"/>
+            <amx:spacer id="sSwim8" width="10" height="10"/>
+            <amx:image id="iSwim5" source="images/person.svg"
+                       inlineStyle="width:36px;height:36px;vertical-align:middle;display: inline-block;"/>
+            <amx:spacer id="sSwim9" width="10" height="10"/>
+            <amx:outputText id="otSwim5" inlineStyle="white-space:nowrap;font-size:24px"
+                            value="We hope to see you there!"/>
+            <amx:spacer id="sSwim10" width="10" height="10"/>
+            <amx:image id="iSwim6" source="images/person.svg"
+                       inlineStyle="width:36px;height:36px;vertical-align:middle;display: inline-block;"/>
+          </amx:panelGroupLayout>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      <amx:rowLayout id="rl3Tiled">
+        <amx:cellFormat id="cf4Tiled" valign="top">
+          <amx:panelFormLayout id="pfl1" labelPosition="topStart" inlineStyle="margin:0">
+            <amx:inputText id="it1" readOnly="true" label="Event" value="Party!"/>
+            <amx:inputText id="it2" readOnly="true" label="Date" value="Saturday"/>
+            <amx:inputText id="it3" readOnly="true" label="Time" value="Noon"/>
+          </amx:panelFormLayout>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf5Tiled" valign="top">
+          <amx:panelFormLayout id="pfl2" labelPosition="topStart" inlineStyle="margin:0">
+            <amx:inputText id="it4" readOnly="true" label="Where" value="1 Main Street"/>
+            <amx:inputText id="it5" readOnly="true" label="RSVP" value="555-6789"/>
+          </amx:panelFormLayout>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
+  </amx:panelPage>
+</amx:view>

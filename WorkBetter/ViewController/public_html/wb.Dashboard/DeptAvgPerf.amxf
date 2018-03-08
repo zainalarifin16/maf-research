@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1"/>
+    <amx:outputText value="#{deviceScope.hardware.screen.diagonalSize lt 6 ? 'Avg Perf by Department' : 'Average Performance by Department'}"
+                    id="ot1" styleClass="tile-title title-white"/>
+    <amx:tableLayout id="tl1" width="100%" inlineStyle="background-color:#3a3d3e" shortDesc="table">
+        <amx:rowLayout id="rl3">
+            <amx:cellFormat id="cf5" height="25px" shortDesc="cell"/>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl1">
+            <amx:cellFormat id="cf1" height="#{deviceScope.hardware.screen.diagonalSize lt 6 ? '222' : '469'}"
+                            width="100%" halign="center" shortDesc="cell">
+                <dvtm:lineChart var="row" value="#{bindings.orgDepartments.collectionModel}" id="lc1"
+                                polarGridShape="polygon" coordinateSystem="polar" animationDuration="250"
+                                animationOnDataChange="auto" rolloverBehavior="dim" animationOnDisplay="auto"
+                                styleClass="fullSize" shortDesc="Department Performance Chart">
+                    <amx:facet name="dataStamp">
+                        <dvtm:chartDataItem group="#{row.deptname}" value="#{row.deptavgrating}" id="cdi1"
+                                            series="Dept">
+                            <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                        </dvtm:chartDataItem>
+                    </amx:facet>
+                    <amx:facet name="seriesStamp">
+                        <dvtm:seriesStyle series="Dept" lineWidth="6" color="#47bdef" type="line" id="ss1"/>
+                    </amx:facet>
+                    <dvtm:legend rendered="false" id="l2"/>
+                    <dvtm:yAxis id="ya2" axisMaxValue="5" axisMinValue="1" majorIncrement="1" minimumIncrement="1">
+                        <dvtm:tickLabel labelStyle="color:white;fill:transparent;font-weight:bold;font-sze:16px"
+                                        id="tl2"></dvtm:tickLabel>
+                        <dvtm:referenceArea id="ra1" color="#b53e37">
+                            <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                            <amx:iterator id="i1" value="#{bindings.orgDepartments.collectionModel}" var="points">
+                                <dvtm:referenceAreaItem id="rai1" maxValue="#{points.deptminrating}" minValue="1"/>
+                            </amx:iterator>
+                        </dvtm:referenceArea>
+                        <dvtm:referenceArea id="ra3" color="#d1523f">
+                            <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                            <amx:iterator id="i2" value="#{bindings.orgDepartments.collectionModel}" var="points">
+                                <dvtm:referenceAreaItem id="rai2" maxValue="#{points.deptmaxrating}"
+                                                        minValue="#{points.deptminrating}"/>
+                            </amx:iterator>
+                        </dvtm:referenceArea>
+                        <dvtm:referenceArea id="ra4" color="#b53e37">
+                            <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                            <amx:iterator id="i3" value="#{bindings.orgDepartments.collectionModel}" var="points">
+                                <dvtm:referenceAreaItem id="rai3" maxValue="5" minValue="#{points.deptmaxrating}"/>
+                            </amx:iterator>
+                        </dvtm:referenceArea>
+                    </dvtm:yAxis>
+                    <dvtm:xAxis id="ax1">
+                        <dvtm:tickLabel labelStyle="color:white;fill:transparent;font-weight:bold;font-sze:16px"
+                                        id="tl3"/>
+                    </dvtm:xAxis>
+                </dvtm:lineChart>
+            </amx:cellFormat>
+        </amx:rowLayout>
+    </amx:tableLayout>
+</amx:fragmentDef>

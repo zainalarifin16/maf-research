@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="dvt-thematicmap-taskflow">
+    <default-activity>dvtThematicmap</default-activity>
+    <view id="dvtThematicmap">
+      <page>dvtThematicmap.amx</page>
+    </view>
+    
+    <view id="thematicMap">
+      <page>thematicMap.amx</page>
+    </view>
+    <view id="thematicMapIsolate">
+      <page>thematicMapIsolate.amx</page>
+    </view>
+    <view id="thematicMapZoom">
+      <page>thematicMapZoom.amx</page>
+    </view>
+    <view id="sales">
+      <page>sales.amx</page>
+    </view>
+    <view id="thematicMapAreaMarker">
+      <page>thematicMapAreaMarker.amx</page>
+    </view>    
+    <view id="ThematicMapProperties">
+      <page>ThematicMapProperties.amx</page>
+    </view>
+    
+    <task-flow-return id="return">
+      <outcome>
+        <name>return</name>
+      </outcome>
+    </task-flow-return>
+    
+    <view id="thematicMapCustomMap">
+      <page>/thematicMapCustomMap.amx</page>
+    </view>
+    <view id="thematicMapCustomMarker">
+      <page>/thematicMapCustomMarker.amx</page>
+    </view>
+    <view id="thematicMapBaseLayerSwitcher">
+      <page>/thematicMapBaseLayerSwitcher.amx</page>
+    </view>
+    <view id="thematicMapInvisible">
+      <page>/thematicMapInvisibleArea.amx</page>
+    </view>
+    
+    <control-flow-rule id="__1">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>properties</from-outcome>
+        <to-activity-id>Properties</to-activity-id>
+        <transition>flipStart</transition>
+      </control-flow-case>    
+    </control-flow-rule>
+    <control-flow-rule id="__29">
+      <from-activity-id>dvtThematicmap</from-activity-id>
+      <control-flow-case id="__57">
+        <from-outcome>thematicMap</from-outcome>
+        <to-activity-id>thematicMap</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__58">
+        <from-outcome>thematicMapIsolate</from-outcome>
+        <to-activity-id>thematicMapIsolate</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__59">
+        <from-outcome>thematicMapZoom</from-outcome>
+        <to-activity-id>thematicMapZoom</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__73">
+        <from-outcome>thematicMapAreaMarker</from-outcome>
+        <to-activity-id>thematicMapAreaMarker</to-activity-id>
+      </control-flow-case>    
+      <control-flow-case id="__7">
+        <from-outcome>thematicMapCustomMap</from-outcome>
+        <to-activity-id>thematicMapCustomMap</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>thematicMapCustomMarker</from-outcome>
+        <to-activity-id>thematicMapCustomMarker</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>thematicMapBaseLayerSwitcher</from-outcome>
+        <to-activity-id>thematicMapBaseLayerSwitcher</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__23">
+        <from-outcome>thematicMapInvisible</from-outcome>
+        <to-activity-id>thematicMapInvisible</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__60">
+      <from-activity-id>thematicMap</from-activity-id>
+      <control-flow-case id="__61">
+        <from-outcome>sales</from-outcome>
+        <to-activity-id>sales</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__45">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>return</from-outcome>
+        <to-activity-id>return</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__68">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__69">
+        <from-outcome>thematicMapProperties</from-outcome>
+        <to-activity-id>ThematicMapProperties</to-activity-id>
+        <transition>flipStart</transition>
+      </control-flow-case>
+    </control-flow-rule>
+ </task-flow-definition>
+</adfc-mobile-config>

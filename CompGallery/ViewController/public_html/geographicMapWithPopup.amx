@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" styleClass="amx-header-title" value="GeoMap with Popup"/>
+    </amx:facet>
+    <amx:facet name="primary">
+        <amx:commandButton id="back" text="Back" action="__back">
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapProperties.mapType}" from="#{pageFlowScope.mapType}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapProperties.centerX}" from="#{pageFlowScope.centerX}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapProperties.centerY}" from="#{pageFlowScope.centerY}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapProperties.zoomLevel}" from="#{pageFlowScope.zoomLevel}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapProperties.inlineStyle}" from="#{pageFlowScope.inlineStyle}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapProperties.shortDesc}" from="#{pageFlowScope.shortDesc}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapProperties.animationOnDisplay}" from="#{pageFlowScope.animationOnDisplay}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapProperties.initialZooming}" from="#{pageFlowScope.initialZooming}" type="action"/>
+          <amx:setPropertyListener to="#{viewScope.valuechangenew}" from="" type="action"/>
+        </amx:commandButton>
+    </amx:facet>
+    <amx:facet name="secondary">
+        <amx:commandLink id="props" action="geographicMapProperties" shortDesc="Properties">
+          <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+        </amx:commandLink>
+        <amx:goLink url="#{GlobalProperties['tagdocUrl']}#dvtm:geographicMap" shortDesc="Tag documentation" disabled="#{GlobalProperties['tagdocUrl'] == ''}"
+                    id="pTagdocUrl">
+          <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+        </amx:goLink>
+        <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/dvtGeo/geographicMapWithPopup" shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                    id="pBookmark">
+          <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+        </amx:goLink>
+    </amx:facet>
+    <amx:outputText value="Click on markers to display a popup." id="ot1" inlineStyle="#{DvtProperties.selectedValuesInlineStyle}"/>
+    <dvtm:geographicMap id="map1"
+                         mapType="#{pageFlowScope.mapType}"
+                         centerX="#{pageFlowScope.centerX}"
+                         centerY="#{pageFlowScope.centerY}"
+                         zoomLevel="#{pageFlowScope.zoomLevel}"
+                         inlineStyle="#{pageFlowScope.inlineStyle}"
+                         animationOnDisplay="#{pageFlowScope.animationOnDisplay}"
+                         initialZooming="#{pageFlowScope.initialZooming}"
+                         shortDesc="#{pageFlowScope.shortDesc}">
+      <dvtm:pointDataLayer id="pdl1" var="row"
+                             value="#{bindings.geographicMapPointData.collectionModel}">
+        <dvtm:pointLocation pointX="#{row.pointX}" pointY="#{row.pointY}" id="ptl1" type="pointXY">
+            <dvtm:marker id="marker1" shortDesc="#{row.shortDesc}" rendered="true">
+                <amx:showPopupBehavior id="spb1" popupId="popup1" alignId="marker1" align="topCenter"
+                                       decoration="anchor"/>
+                <amx:setPropertyListener id="spl1" from="#{row.shortDesc}"
+                                         to="#{pageFlowScope.currentCity}" type="action"/>
+            </dvtm:marker>
+        </dvtm:pointLocation>
+      </dvtm:pointDataLayer>
+    </dvtm:geographicMap>
+  </amx:panelPage>
+  <amx:popup id="popup1" backgroundDimming="off" autoDismiss="true">
+    <amx:outputText id="otTest" value="City: #{pageFlowScope.currentCity}"/>
+    <dvtm:barChart var="row" value="#{bindings.barData.collectionModel}" id="bc1"
+                   inlineStyle="width:150px;height:100px;">
+      <amx:facet name="dataStamp">
+        <dvtm:chartDataItem group="#{row.group}" value="#{row.value}"
+                            series="#{row.series}" id="cdi1"/>
+      </amx:facet>
+      <dvtm:legend rendered="false" id="l1"/>
+    </dvtm:barChart>
+  </amx:popup>
+</amx:view>

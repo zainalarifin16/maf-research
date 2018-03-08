@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1"/>
+    <amx:tableLayout id="tl2" width="100%" shortDesc="table">
+        <amx:rowLayout id="rl14">
+            <amx:cellFormat id="cf32" rowSpan="2" width="90" height="100" shortDesc="cell">
+                <amx:image source="#{bindings.mgrPic.inputValue}" id="i8" shortDesc="Person Image"
+                           styleClass="mgrProfileImage"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="cf33" height="50" valign="bottom" shortDesc="cell">
+                <amx:outputText value="#{bindings.mgrFirstname.inputValue} #{bindings.mgrLastname.inputValue}" id="ot10"
+                                styleClass="mgrName"/>
+            </amx:cellFormat>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl15">
+            <amx:cellFormat id="cf34" height="50" valign="top" shortDesc="cell">
+                <amx:outputText value="#{bindings.mgrTitle.inputValue}" id="ot11" styleClass="mgrTitle"/>
+            </amx:cellFormat>
+        </amx:rowLayout>
+    </amx:tableLayout>
+</amx:fragmentDef>

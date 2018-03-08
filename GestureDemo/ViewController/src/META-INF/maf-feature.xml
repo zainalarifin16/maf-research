@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
+  <adfmf:feature id="List" name="List" listener-class="mobile.GestureHandler">
+    <adfmf:description>This feature demonstrates how to use gestures in a list.</adfmf:description>
+    <adfmf:content id="List.1">
+      <adfmf:amx file="List/list.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p7">
+      <adfmf:property name="iOSWebView" value="default" id="p8"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="Link" name="Link" listener-class="mobile.GestureHandler">
+    <adfmf:description>This feature demonstrates how to use gestures on links.</adfmf:description>
+    <adfmf:content id="Link.1">
+      <adfmf:amx file="Link/link.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p5">
+      <adfmf:property name="iOSWebView" value="default" id="p6"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="Deck" name="Deck">
+    <adfmf:content id="Deck.1">
+      <adfmf:amx file="Deck/deck.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p9">
+      <adfmf:property name="iOSWebView" value="default" id="p10"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="Springboard" name="Springboard">
+    <adfmf:content id="Springboard.1">
+      <adfmf:amx file="Springboard/springboard.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p1">
+      <adfmf:property name="iOSWebView" value="default" id="p2"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="About" name="About">
+    <adfmf:content id="About.1">
+      <adfmf:amx file="About/about.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p3">
+      <adfmf:property name="iOSWebView" value="default" id="p4"/>
+    </adfmf:properties>
+  </adfmf:feature>
+</adfmf:features>

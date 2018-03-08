@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="About" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                <amx:image inlineStyle="width:32px;height:32px;" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:outputText value="This application shows you how to use the AdfmfSlidingWindowUtilities API as a programmatic interface to display multiple features on the screen at the same time. "
+                        id="ot3"/>
+        <amx:outputText value="Examples" id="cot1" styleClass="adfmf-outputText-sectionTitle"/>
+        <amx:outputText value="This functionality demonstrates how to create, show or hide a window which contains a specific feature. The Examples feature demonstrates how to use the AdfmfSlidingWindowOptions API to create and show different styles of windows in different directions. Users can tap on the springboard icon to expand or collapse the springboad. The springboard icon acts like a toggle button . For implementation details refer to SlidingDrawerBean.java in ViewController project."
+                        id="ot2"/>
+            <amx:outputText value="This functionality also demonstrates how to  use a sliding window for defining navigation while displaying Remote URL feature. For more details look at how controlBar feature is being used within the Examples feature."
+                        id="ot31"/>
+    </amx:panelPage>
+</amx:view>

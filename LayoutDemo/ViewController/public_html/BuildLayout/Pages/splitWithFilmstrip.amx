@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Split &amp; Filmstrip" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton action="__back" id="cb1"/>
+    </amx:facet>
+        <amx:panelStretchLayout id="psl1">
+      <amx:facet name="top">
+        <amx:panelGroupLayout styleClass="summary-section-style" layout="horizontal" halign="center" id="pgl1">
+        <amx:outputText value="Summary Section" id="ot2"/>
+        </amx:panelGroupLayout>
+      </amx:facet>
+      <amx:facet name="center">
+         <amx:panelSplitter inlineStyle="height:100%;" id="ps1">
+                    <amx:facet name="navigator">
+                <amx:fragment src="/BuildLayout/Fragments/listItemContentLayout.amxf" id="Tab1">
+                    <amx:attribute name="contentText1" value="Item1" id="a1"/>
+                    <amx:attribute name="contentText2" value="Item2" id="a2"/>
+                    <amx:attribute name="contentText3" value="Item3" id="a3"/>
+                    <amx:attribute name="contentText4" value="Item4" id="a4"/>
+                    <amx:attribute name="contentText5" value="Item5" id="a5"/>
+                    <amx:attribute name="contentText6" value="Item6" id="a6"/>
+                    <amx:attribute name="contentText7" value="Item7" id="a7"/>
+                    <amx:attribute name="contentText8" value="Item8" id="a8"/>
+                    <amx:attribute name="contentText9" value="Item9" id="a9"/>
+                    <amx:attribute name="contentText10" value="Item10" id="a10"/>
+                    <amx:attribute name="contentText11" value="Item11" id="a11"/>
+                    <amx:attribute name="contentText12" value="Item12" id="a12"/>
+                    <amx:attribute name="contentText13" value="Item13" id="a13"/>
+                    <amx:attribute name="contentText14" value="Item14" id="a14"/>
+                    <amx:attribute name="contentText15" value="Item15" id="a15"/>
+                    <amx:attribute name="contentText16" value="Item16" id="a16"/>
+                    <amx:attribute name="contentText17" value="Item17" id="a17"/>
+                    <amx:attribute name="contentText18" value="Item18" id="a18"/>
+                    <amx:attribute name="contentText19" value="Item19" id="a19"/>
+                    <amx:attribute name="contentText20" value="Item20" id="a20"/>
+                    <amx:attribute name="contentText21" value="Item21" id="a21"/>
+                    <amx:attribute name="contentText22" value="Item22" id="a22"/>
+                    <amx:attribute name="contentText23" value="Item23" id="a23"/>
+                    <amx:attribute name="contentText24" value="Item24" id="a24"/>
+                    <amx:attribute name="contentText25" value="Item25" id="a25"/>
+                    <amx:attribute name="contentText26" value="Item26" id="a26"/>
+                    <amx:attribute name="contentText27" value="Item27" id="a27"/>
+                    <amx:attribute name="contentText28" value="Item28" id="a28"/>
+                    <amx:attribute name="contentText29" value="Item29" id="a29"/>
+                    <amx:attribute name="contentText30" value="Item30" id="a30"/>
+                </amx:fragment>
+                    </amx:facet>
+                    <amx:panelItem id="pi1">
+                <amx:fragment src="/BuildLayout/Fragments/filmStripContentLayout.amxf" inlineStyle="height:100%;" id="f1">
+                    <amx:attribute name="contentText1" value="Item1" id="ac1"/>
+                    <amx:attribute name="contentText2" value="Item2" id="ac2"/>
+                    <amx:attribute name="contentText3" value="Item3" id="ac3"/>                
+                </amx:fragment>
+                </amx:panelItem>
+                </amx:panelSplitter>
+      
+      </amx:facet>
+    </amx:panelStretchLayout>
+
+  </amx:panelPage>
+</amx:view>

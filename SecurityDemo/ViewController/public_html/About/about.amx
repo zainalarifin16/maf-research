@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="About" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+        <amx:image id="i1" inlineStyle="width:32px;height:32px" source="/images/springboard.png"/>
+      </amx:commandLink>
+    </amx:facet>
+    <amx:outputText value="Overview" id="ot6" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:outputText value="This application demonstrates how to secure a MAF application, configure authentication, use access control service and access secure web services. "
+                    id="ot3"/>
+    <amx:outputText value="Pre-requisites" id="ot61" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:outputText value="Please deploy the web application in ACS sample to Weblogic server and configure the Login Server, Access Control Service and REST Service URI in this application's connections.xml as follows: " id="ot7"/>
+    <amx:panelFormLayout id="pfl1" labelPosition="topStart">
+        <amx:panelLabelAndMessage label="Login URI:" id="plam1">
+            <amx:outputText value="http://host-ip:port/acs/login.jspx" id="ot8"/>
+        </amx:panelLabelAndMessage>
+        <amx:panelLabelAndMessage label="ACS URI:" id="plam2">
+            <amx:outputText value="http://host-ip:port/acs/resources/roles" id="ot9"/>
+        </amx:panelLabelAndMessage>
+        <amx:panelLabelAndMessage label="REST Service URI:" id="plam3">
+            <amx:outputText value="http://host-ip:port/empservice" id="ot10"/>
+        </amx:panelLabelAndMessage>
+    </amx:panelFormLayout>
+    <amx:outputText value="Authentication" id="cot1" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:outputText value="This application is provisioned with two test users: " id="ot31"/>
+    <amx:outputText value="1. Srini/welcome1" id="ot32"/>
+    <amx:outputText value="2. James/welcome1" id="ot33"/>
+    <amx:outputText value="Access Control Service" id="cot13" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:outputText value="User Srini is provisioned with Manager Role hence can see salary and hire date in details page"
+                    id="ot22"/>
+    <amx:image id="i2" source="/images/hasprivs.png" inlineStyle="width:304px;height:204px"/>
+    
+    <amx:outputText value="User James is provisioned with Individual Contributor Role can not see slaray and hire date in details page"
+                    id="ot42"/>
+    <amx:image id="i3" source="/images/noprivs.png" inlineStyle="width:302px;height:209px"/>
+  </amx:panelPage>
+</amx:view>

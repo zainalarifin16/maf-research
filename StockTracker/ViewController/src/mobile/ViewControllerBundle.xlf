@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="mobile.ViewControllerBundle" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="Portfolio.Stock.price_Rule_0">
+        <source>Price: Enter a value between 1 and 1000</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Portfolio.Stock.previous_Rule_0">
+        <source>Enter a value between 1 and 1000</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Portfolio.Stock.previous_Rule_1">
+        <source>Enter a value between 1 and 1000</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Portfolio.Stock.previous_Rule_2">
+        <source>Enter a value between 1 and 1000</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Portfolio.Stock.previous_Rule_3">
+        <source>Previous: Enter a value between 1 and 1000</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Portfolio.Stock.volume_Rule_0">
+        <source>Enter a value between 1 and 1000</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Portfolio.Stock.volume_Rule_1">
+        <source>Volume: Enter a value between 1 and 1000</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Portfolio.Stock.ticker.Property_VALUE">
+        <source>value</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Portfolio.Stock.ticker_Rule_0">
+        <source>Ticker: Value cannot be empty</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Portfolio.Stock.ticker_Rule_1">
+        <source>Ticker: Cannot be empty</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Portfolio.Stock.ticker_Rule_2">
+        <source>Ticker: Cannot be null</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Portfolio.Stock.ticker_Rule_3">
+        <source>Ticker: Cannot be null</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Portfolio.Stock.company_Rule_0">
+        <source>Company: Cannot be null</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Portfolio.Stock.company_Rule_1">
+        <source>Company: Cannot be null</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Portfolio.Stock.company_Rule_2">
+        <source>Company: Cannot be null</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Portfolio.Stock.company_Rule_3">
+        <source>Company: Cannot be null</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Portfolio.Stock.company_Rule_4">
+        <source>Cannot be null</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Portfolio.Stock.company_Rule_5">
+        <source>Company: Cannot be null</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

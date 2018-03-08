@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1"/>
+    <amx:tableLayout id="tl7" width="100%" shortDesc="table">
+        <amx:rowLayout id="rl23">
+            <amx:cellFormat id="cf41" width="100%" halign="center" height="40" shortDesc="cell">
+                <amx:outputText value="History" id="ot31" styleClass="profileHeaderText"/>
+            </amx:cellFormat>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl33">
+            <amx:cellFormat id="cf52" halign="center" width="100%" shortDesc="cell">
+                <amx:fragment src="/fragments/Loading.amxf" id="f2"/>
+                <dvtm:comboChart var="row" value="#{bindings.perfHistory.collectionModel}" id="bc1"
+                                 animationOnDisplay="auto" animationDuration="300" rolloverBehavior="dim"
+                                 animationOnDataChange="auto" animationIndicators="none" timeAxisType="enabled"
+                                 shortDesc="Historic Performance Chart"
+                                 rendered="#{bindings.loading.inputValue ne 'true'}"
+                                 inlineStyle="height:#{deviceScope.hardware.screen.diagonalSize ge 6 ? (deviceScope.hardware.screen.height gt deviceScope.hardware.screen.width ? deviceScope.hardware.screen.availableHeight-770 : deviceScope.hardware.screen.availableHeight-300) : (deviceScope.hardware.screen.availableHeight-210)}px;width:100%"
+                                 >
+                                 <!--  TODO Fix the inline sizing when 21817692 is fixed -->
+                    <amx:facet name="dataStamp">
+                        <dvtm:chartDataItem group="#{row.effective}" value="#{row.rating}"
+                                            series="#{bindings.perfHistory.hints.rating.label}" id="cdi2">
+                            <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                        </dvtm:chartDataItem>
+                        <dvtm:chartDataItem group="#{row.effective}" value="#{row.potential}"
+                                            series="#{bindings.perfHistory.hints.potential.label}" id="cdi1">
+                            <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                        </dvtm:chartDataItem>
+                    </amx:facet>
+                    <dvtm:legend rendered="false" id="l1"/>
+                    <amx:facet name="seriesStamp">
+                        <dvtm:seriesStyle series="#{bindings.perfHistory.hints.rating.label}" type="bar" id="ss1"/>
+                        <dvtm:seriesStyle series="#{bindings.perfHistory.hints.potential.label}" type="line" id="ss2"/>
+                    </amx:facet>
+                    <dvtm:chartValueFormat type="value" id="cvf1">
+                        <amx:convertNumber id="cn3" integerOnly="true"/>
+                    </dvtm:chartValueFormat>
+                    <dvtm:chartValueFormat type="series" id="cvf2" tooltipLabel="Attribute"/>
+                    <dvtm:chartValueFormat type="group" id="cvf3" tooltipLabel="Year"/>
+                </dvtm:comboChart>
+            </amx:cellFormat>
+        </amx:rowLayout>
+    </amx:tableLayout>
+</amx:fragmentDef>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="About" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                    <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:outputText value="This application demonstrates how to bind the user interface to Java beans. It also demonstrates how to invoke EL bindings from the Java layer using the supplied utility classes."
+                        id="ot3"/>
+        <amx:outputText value="Note: This app makes use of 3rd party Cordova plugins that are not supported by Oracle." id="ot33"/>
+        <amx:outputText value="JavaScript" id="cot1" styleClass="adfmf-outputText-sectionTitle"/>
+        <amx:outputText value="This feature shows you how to invoke a container JavaScript function from a ManagedBean."
+                        id="ot2"/>
+        <amx:outputText value="ActionListener" id="cot13" styleClass="adfmf-outputText-sectionTitle"/>
+        <amx:outputText value="This feature shows you how to call an actionListener handler in a Java bean. It demonstrates how a tap on a button can invoke Java that will navigate you to a hidden feature."
+                        id="ot22"/>
+        <amx:outputText value="ValueChangeListener" id="ot5" styleClass="adfmf-outputText-sectionTitle"/>
+        <amx:outputText value="This feature shows you how to call a valueChangeListener handler in a Java bean. It demonstrates how to change the value of a Boolean switch to call the Java method that will toggle the navigation bar on/off." id="ot4"/>
+        
+        <amx:outputText value="Method Invocation" id="ots5" styleClass="adfmf-outputText-sectionTitle"/>
+        <amx:outputText value="This feature shows you how to call a method from a bean wrapped in a Data Control wrapper via the methodAction.  Here the BeanDC.java is wrapped in a Data Control and then the DoMyMethod is invoked which navigates to a hidden feature."
+                        id="ot40"/>
+
+        <amx:outputText value="EL Resolution" id="ots52" styleClass="adfmf-outputText-sectionTitle"/>
+        <amx:outputText value="This feature shows you how to use getValueExpression and getMethodExpression calls."
+                        id="ot420"/>
+    </amx:panelPage>
+</amx:view>

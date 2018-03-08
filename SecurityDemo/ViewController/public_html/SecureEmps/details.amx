@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Details" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="cb1" text="Back" action="__back"/>
+    </amx:facet>
+    <amx:panelFormLayout id="pfl1">
+      <amx:panelLabelAndMessage label="#{bindings.first.hints.label}" id="plam2">
+        <amx:outputText value="#{bindings.first.inputValue}" id="ot3"/>
+      </amx:panelLabelAndMessage>
+      <amx:panelLabelAndMessage label="#{bindings.last.hints.label}" id="plam4">
+        <amx:outputText value="#{bindings.last.inputValue}" id="ot5"/>
+      </amx:panelLabelAndMessage>
+      <amx:panelLabelAndMessage label="#{bindings.phone.hints.label}" id="plam5">
+        <amx:outputText value="#{bindings.phone.inputValue}" id="ot6"/>
+      </amx:panelLabelAndMessage>
+      <amx:panelLabelAndMessage label="#{bindings.email.hints.label}" id="plam3">
+        <amx:outputText value="#{bindings.email.inputValue}" id="ot4"/>
+      </amx:panelLabelAndMessage>
+      <amx:panelLabelAndMessage label="#{bindings.deptId.hints.label}" id="plam8">
+        <amx:outputText value="#{bindings.deptId.inputValue}" id="ot9"/>
+      </amx:panelLabelAndMessage>
+      <amx:panelLabelAndMessage label="#{bindings.salary.hints.label}" id="plam7"
+                                rendered="#{securityContext.userInRole['MGR_ROLE']}">
+        <amx:outputText value="#{bindings.salary.inputValue}" id="ot8"/>
+      </amx:panelLabelAndMessage>
+      <amx:panelLabelAndMessage label="#{bindings.commPct.hints.label}" id="plam1"
+                                rendered="#{securityContext.userInRole['MGR_ROLE']}">
+        <amx:outputText value="#{bindings.commPct.inputValue}" id="ot2"/>
+      </amx:panelLabelAndMessage>
+      <amx:panelLabelAndMessage label="#{bindings.hireDate.hints.label}" id="plam6"
+                                rendered="#{securityContext.userInRole['MGR_ROLE']}">
+        <amx:outputText value="#{bindings.hireDate.inputValue}" id="ot7">
+          <amx:convertDateTime pattern="#{bindings.hireDate.format}" id="cdt1"/>
+        </amx:outputText>
+      </amx:panelLabelAndMessage>
+    </amx:panelFormLayout>
+    <amx:outputText value="No Privileges to access data below" id="ot26" 
+                    styleClass="adfmf-outputText-sectionTitle"
+                    rendered="#{!securityContext.userInRole['MGR_ROLE']}"/>
+    <amx:facet name="footer">
+      <amx:outputText value="User has : #{securityContext.userInRole['MGR_ROLE'] ? 'Manager Role' : 'IC Role'}" id="ot10"/>
+    </amx:facet>
+  </amx:panelPage>
+</amx:view>

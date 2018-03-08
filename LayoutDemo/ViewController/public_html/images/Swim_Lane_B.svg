@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px"
+	 height="194px" viewBox="0 15 150 194" enable-background="new 0 15 150 194" xml:space="preserve">
+<g id="Background_Panel">
+	<rect y="15" fill="#FFFFFF" width="150" height="194"/>
+</g>
+<g id="Swim_Lane_Layout">
+	<g id="Bottom_Row">
+		<g id="Square_4_copy_2">
+			<g id="Top_Horizontal_Bar_36_">
+				<rect x="114.38" y="172.58" fill="#DAE9F5" width="29" height="29"/>
+				<path fill="#AED8FA" d="M142.88,173.08v28h-28v-28H142.88 M143.88,172.08h-30v30h30V172.08L143.88,172.08z"/>
+			</g>
+		</g>
+		<g id="Square3_copy_2">
+			<g id="Top_Horizontal_Bar_66_">
+				<rect x="78.38" y="172.58" fill="#DAE9F5" width="29" height="29"/>
+				<path fill="#AED8FA" d="M106.88,173.08v28h-28v-28H106.88 M107.88,172.08h-30v30h30V172.08L107.88,172.08z"/>
+			</g>
+		</g>
+		<g id="Square_2_copy_2">
+			<g id="Top_Horizontal_Bar_18_">
+				<rect x="42.38" y="172.58" fill="#DAE9F5" width="29" height="29"/>
+				<path fill="#AED8FA" d="M70.88,173.08v28h-28v-28H70.88 M71.88,172.08h-30v30h30V172.08L71.88,172.08z"/>
+			</g>
+		</g>
+		<g id="Square_1_copy_2">
+			<g id="Top_Horizontal_Bar_57_">
+				<rect x="6.38" y="172.58" fill="#DAE9F5" width="29" height="29"/>
+				<path fill="#AED8FA" d="M34.88,173.08v28h-28v-28H34.88 M35.88,172.08h-30v30h30V172.08L35.88,172.08z"/>
+			</g>
+		</g>
+	</g>
+	<text id="Lane_3" transform="matrix(1 0 0 1 5.584 165)" fill="#333333" font-family="'HelveticaNeue'" font-size="14">Lane 3</text>
+	<g id="Middle_Row">
+		<g id="Square_4_copy">
+			<g id="Top_Horizontal_Bar_24_">
+				<rect x="114.38" y="107.58" fill="#DAE9F5" width="29" height="29"/>
+				<path fill="#AED8FA" d="M142.88,108.08v28h-28v-28H142.88 M143.88,107.08h-30v30h30V107.08L143.88,107.08z"/>
+			</g>
+		</g>
+		<g id="Square3_copy">
+			<g id="Top_Horizontal_Bar_48_">
+				<rect x="78.38" y="107.58" fill="#DAE9F5" width="29" height="29"/>
+				<path fill="#AED8FA" d="M106.88,108.08v28h-28v-28H106.88 M107.88,107.08h-30v30h30V107.08L107.88,107.08z"/>
+			</g>
+		</g>
+		<g id="Square_2_copy">
+			<g id="Top_Horizontal_Bar_15_">
+				<rect x="42.38" y="107.58" fill="#DAE9F5" width="29" height="29"/>
+				<path fill="#AED8FA" d="M70.88,108.08v28h-28v-28H70.88 M71.88,107.08h-30v30h30V107.08L71.88,107.08z"/>
+			</g>
+		</g>
+		<g id="Square_1_copy">
+			<g id="Top_Horizontal_Bar_39_">
+				<rect x="6.38" y="107.58" fill="#DAE9F5" width="29" height="29"/>
+				<path fill="#AED8FA" d="M34.88,108.08v28h-28v-28H34.88 M35.88,107.08h-30v30h30V107.08L35.88,107.08z"/>
+			</g>
+		</g>
+	</g>
+	<text id="Lane_2" transform="matrix(1 0 0 1 5.584 100)" fill="#333333" font-family="'HelveticaNeue'" font-size="14">Lane 2</text>
+	<g id="Top_Row">
+		<g id="Square3">
+			<g id="Top_Horizontal_Bar_27_">
+				<rect x="78.38" y="42.58" fill="#DAE9F5" width="29" height="29"/>
+				<path fill="#AED8FA" d="M106.88,43.08v28h-28v-28H106.88 M107.88,42.08h-30v30h30V42.08L107.88,42.08z"/>
+			</g>
+		</g>
+		<g id="Square_2_2_">
+			<g id="Top_Horizontal_Bar_9_">
+				<rect x="42.38" y="42.58" fill="#DAE9F5" width="29" height="29"/>
+				<path fill="#AED8FA" d="M70.88,43.08v28h-28v-28H70.88 M71.88,42.08h-30v30h30V42.08L71.88,42.08z"/>
+			</g>
+		</g>
+		<g id="Square_1">
+			<g id="Top_Horizontal_Bar_5_">
+				<rect x="6.38" y="42.58" fill="#DAE9F5" width="29" height="29"/>
+				<path fill="#AED8FA" d="M34.88,43.08v28h-28v-28H34.88 M35.88,42.08h-30v30h30V42.08L35.88,42.08z"/>
+			</g>
+		</g>
+	</g>
+	<text transform="matrix(1 0 0 1 5.584 35)" fill="#333333" font-family="'HelveticaNeue'" font-size="14">Lane 1</text>
+</g>
+</svg>

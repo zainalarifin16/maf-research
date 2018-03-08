@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Facet Reference"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="General" />
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="properties" shortDesc="Properties" rendered="false">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:facetRef"
+                  shortDesc="Tag documentation" disabled="#{GlobalProperties['tagdocUrl'] == ''}"
+                  id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg"
+                   shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=general/facetRef"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:fragment id="fragment" src="simpleFragment.amxf">
+      <amx:facet name="facet">
+        <amx:outputText id="ot1" value="Example of a facet being passed to a fragment" />
+      </amx:facet>
+    </amx:fragment>
+  </amx:panelPage>
+</amx:view>

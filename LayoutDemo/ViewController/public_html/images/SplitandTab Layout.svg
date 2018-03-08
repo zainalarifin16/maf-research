@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Split_and_Tabs_Layout" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" width="150px" height="224px" viewBox="0 0 150 224" enable-background="new 0 0 150 224" xml:space="preserve">
+<rect id="Background_Panel" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" width="150" height="224"/>
+<rect id="Split" x="0.48" y="29.92" fill="#E2E2E5" width="57.6" height="194"/>
+<g id="Splitter_Divide">
+	<rect x="58" y="30.83" fill-rule="evenodd" clip-rule="evenodd" fill="#D7D7D9" width="1" height="193.25"/>
+</g>
+<path id="Title" fill-rule="evenodd" clip-rule="evenodd" fill="#F6F6F7" d="M0,0h150.05v30H0V0z"/>
+<rect id="Divide" y="29.88" fill-rule="evenodd" clip-rule="evenodd" fill="#F3F3F4" width="150" height="1"/>
+<path id="Border" fill-rule="evenodd" clip-rule="evenodd" fill="#D6DFE6" d="M0-0.04h150.05V224H0V-0.04z M0.96,1.03h148v222h-148
+	V1.03z"/>
+<text transform="matrix(1 0 0 1 68.5835 24)" fill="#333333" font-family="'HelveticaNeue'" font-size="9">Title</text>
+<g id="Springboard_Icon_1_">
+	<g>
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="#0572CE" d="M13.97,24.01H5.04c-0.57,0-1.03,0.45-1.03,1s0.46,1,1.03,1h8.94
+			c0.57,0,1.03-0.45,1.03-1S14.54,24.01,13.97,24.01z M13.97,20.01H5.04c-0.57,0-1.03,0.45-1.03,1s0.46,1,1.03,1h8.94
+			c0.57,0,1.03-0.45,1.03-1S14.54,20.01,13.97,20.01z M5.04,18.01h8.94c0.57,0,1.03-0.45,1.03-1s-0.46-1-1.03-1H5.04
+			c-0.57,0-1.03,0.45-1.03,1S4.47,18.01,5.04,18.01z"/>
+	</g>
+</g>
+<g id="Segmented_Control">
+	<path fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#0572CE" stroke-width="0.9995" stroke-miterlimit="10" d="
+		M66.56,36.49h74.97c1.14,0,2.06,0.92,2.06,2.06v8.93c0,1.14-0.92,2.06-2.06,2.06H66.56c-1.14,0-2.06-0.92-2.06-2.06v-8.93
+		C64.5,37.41,65.42,36.49,66.56,36.49z"/>
+	<path fill-rule="evenodd" clip-rule="evenodd" fill="#0572CE" d="M66.53,36.49h37.41v13.06H66.53c-1.12,0-2.03-0.92-2.03-2.06
+		v-8.93C64.5,37.41,65.41,36.49,66.53,36.49z"/>
+	<text transform="matrix(1 0 0 1 114 46.084)" fill="#0572CE" font-family="'HelveticaNeue'" font-size="8">Tab 2</text>
+	<text id="Tab_1" transform="matrix(1 0 0 1 74 46.084)" fill="#FFFFFF" font-family="'HelveticaNeue'" font-size="8">Tab 1</text>
+</g>
+</svg>

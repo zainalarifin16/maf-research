@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Flexbox"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Layout"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" shortDesc="Properties" action="flexLayoutProperties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:flexLayout" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=layout/flexLayout" shortDesc="Bookmarkable Link"
+                  styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+
+    <amx:flexLayout
+      id="fl1"
+      itemFlexibility="equal"
+      orientation="#{pageFlowScope.componentProperties.layoutOrientation}"
+      rendered="#{pageFlowScope.componentProperties.fl1Rendered}">
+
+      <amx:panelStretchLayout
+        inlineStyle="background-color: #ff0000; text-align: center;"
+        rendered="#{pageFlowScope.componentProperties.p1Rendered}">
+        <amx:facet name="center">
+          <amx:outputText value="1" inlineStyle="font-size: 36px"/>
+        </amx:facet>
+      </amx:panelStretchLayout>
+
+      <amx:panelStretchLayout
+        inlineStyle="background-color: #00ff00; text-align: center;"
+        rendered="#{pageFlowScope.componentProperties.p2Rendered}">
+        <amx:facet name="center">
+          <amx:outputText value="2" inlineStyle="font-size: 36px"/>
+        </amx:facet>
+      </amx:panelStretchLayout>
+
+      <amx:flexLayout
+        id="fl3"
+        itemFlexibility="#{pageFlowScope.componentProperties.fixedComponentSize ? pageFlowScope.componentProperties.itemFlexibility : 'equal'}"
+        itemAlignment="#{pageFlowScope.componentProperties.fixedComponentSize ? pageFlowScope.componentProperties.itemAlignment : 'stretch'}"
+        itemJustification="#{pageFlowScope.componentProperties.fixedComponentSize ? pageFlowScope.componentProperties.itemJustification : 'space-between'}"
+        orientation="#{pageFlowScope.componentProperties.innerLayoutOrientation}"
+        rendered="#{pageFlowScope.componentProperties.fl2Rendered}">
+
+        <amx:panelStretchLayout
+          inlineStyle="background-color: #0000ff; text-align: center; #{pageFlowScope.componentProperties.fixedComponentSize ? pageFlowScope.componentProperties.sizingStyle : ''}"
+          rendered="#{pageFlowScope.componentProperties.p3Rendered}">
+          <amx:facet name="center">
+            <amx:outputText value="3" inlineStyle="color: #fff; font-size: 36px"/>
+          </amx:facet>
+        </amx:panelStretchLayout>
+
+        <amx:panelStretchLayout
+          inlineStyle="background-color: #0000cf; text-align: center; #{pageFlowScope.componentProperties.fixedComponentSize ? pageFlowScope.componentProperties.sizingStyle : ''}"
+          rendered="#{pageFlowScope.componentProperties.p4Rendered}">
+          <amx:facet name="center">
+            <amx:outputText value="4" inlineStyle="color: #fff; font-size: 36px"/>
+          </amx:facet>
+        </amx:panelStretchLayout>
+
+        <amx:panelStretchLayout
+          inlineStyle="background-color: #00009f; text-align: center; #{pageFlowScope.componentProperties.fixedComponentSize ? pageFlowScope.componentProperties.sizingStyle : ''}"
+          rendered="#{pageFlowScope.componentProperties.p5Rendered}">
+          <amx:facet name="center">
+            <amx:outputText value="5" inlineStyle="color: #fff; font-size: 36px"/>
+          </amx:facet>
+        </amx:panelStretchLayout>
+
+        <amx:panelStretchLayout
+          inlineStyle="background-color: #00006f; text-align: center; #{pageFlowScope.componentProperties.fixedComponentSize ? pageFlowScope.componentProperties.sizingStyle : ''}"
+          rendered="#{pageFlowScope.componentProperties.p6Rendered}">
+          <amx:facet name="center">
+            <amx:outputText value="6" inlineStyle="color: #fff; font-size: 36px"/>
+          </amx:facet>
+        </amx:panelStretchLayout>
+
+      </amx:flexLayout>
+    </amx:flexLayout>
+  </amx:panelPage>
+
+</amx:view>

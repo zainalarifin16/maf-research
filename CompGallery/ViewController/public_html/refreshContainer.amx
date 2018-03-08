@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Pull to Refresh"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:refreshContainer" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dataviews/refreshContainer" shortDesc="Bookmarkable Link"
+                  styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:facet name="footer">
+      <amx:outputText id="lastUpdated" inlineStyle="font-weight:normal;font-size:14px;"
+        value="#{pageFlowScope.componentProperties.subText}"/>
+    </amx:facet>
+    <amx:refreshContainer id="rc1"
+      refreshDesc="#{pageFlowScope.componentProperties.refreshDesc}"
+      pullText="#{pageFlowScope.componentProperties.pullText}"
+      busyText="#{pageFlowScope.componentProperties.busyText}"
+      subText="#{pageFlowScope.componentProperties.subText}"
+      actionListener="#{PropertyBean.RefreshActionHandler}">
+      <amx:setPropertyListener
+        from="Last updated: Recently"
+        to="#{pageFlowScope.componentProperties.subText}"
+        type="action"/>
+      <amx:listView
+        id="listView1" var="row" value="#{bindings.contacts.collectionModel}"
+        bufferStrategy="viewport"
+        collapsibleDividers="true"
+        dividerAttribute="last"
+        dividerMode="firstLetter"
+        rendered="#{pageFlowScope.componentProperties.rendered}"
+        showDividerCount="true"
+        showMoreStrategy="autoScroll">
+        <amx:listItem id="listItem1" action="details">
+          <amx:outputText value="#{row.first} #{row.last}" id="outputText1"/>
+          <amx:setPropertyListener from="#{row.rowKey}" to="#{pageFlowScope.currentContact}"
+                                   type="action"/>
+          <amx:setPropertyListener from="#{row.first}" to="#{pageFlowScope.currentContactFirst}"
+                                   type="action"/>
+          <amx:setPropertyListener from="#{row.last}" to="#{pageFlowScope.currentContactLast}"
+                                   type="action"/>
+          <amx:setPropertyListener from="#{row.address}" to="#{pageFlowScope.currentContactAddress}"
+                                   type="action"/>
+          <amx:setPropertyListener from="#{row.city}" to="#{pageFlowScope.currentContactCity}"
+                                   type="action"/>
+          <amx:setPropertyListener from="#{row.state}" to="#{pageFlowScope.currentContactState}"
+                                   type="action"/>
+          <amx:setPropertyListener from="#{row.zip}" to="#{pageFlowScope.currentContactZip}"
+                                   type="action"/>
+          <amx:setPropertyListener from="#{row.phone}" to="#{pageFlowScope.currentContactPhone}"
+                                   type="action"/>
+          <amx:setPropertyListener from="#{row.mobile}" to="#{pageFlowScope.currentContactMobile}"
+                                   type="action"/>
+        </amx:listItem>
+      </amx:listView>
+    </amx:refreshContainer>
+  </amx:panelPage>
+</amx:view>

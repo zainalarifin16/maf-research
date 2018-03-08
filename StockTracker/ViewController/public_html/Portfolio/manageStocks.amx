@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="Manage Portfolio" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandButton action="toEditView" text="Add" id="cb3as">
+                  <amx:actionListener id="adw2" binding="#{bindings.addStock.execute}"/>
+                   <amx:actionListener id="addw2" binding="#{bindings.Last.execute}"/>
+                <amx:actionListener id="aw2" binding="#{pageFlowScope.HandlerBean.enableEditMode}"/>
+                <amx:actionListener id="al3" binding="#{pageFlowScope.HandlerBean.enableNewStockFlag}"/>
+            </amx:commandButton>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton text="Back" action="__back" id="cb1"/>
+        </amx:facet>
+      
+        <amx:listView moveListener="#{pageFlowScope.HandlerBean.handleMoveListener}" editMode="false" var="row"
+                      value="#{bindings.stocks.collectionModel}" fetchSize="#{bindings.stocks.rangeSize}"
+                      selectedRowKeys="#{bindings.stocks.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.stocks.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
+                      bufferStrategy="viewport" id="lv1">
+            <amx:listItem showLinkIcon="false" styleClass="amx-listItem-noCaret " id="li1">
+                <amx:tableLayout width="100%" id="tl1">
+                    <amx:rowLayout id="rl2">
+                        <amx:cellFormat width="40px" halign="center" rowSpan="2" id="cf3">
+                            <amx:commandLink id="cb3">
+                                <amx:image inlineStyle="width:20px;height:20px" source="/images/deleteStock.png" id="i1"/>
+                                <amx:setPropertyListener from="#{row.rowKey}" to="#{pageFlowScope.rowKey}"/>                          
+                                <amx:actionListener binding="#{bindings.setCurrentRowWithKey.execute}" id="aa3"/>
+                                <amx:actionListener binding="#{bindings.Delete.execute}" id="ald4"/>
+                            </amx:commandLink>
+                        </amx:cellFormat>
+                        <amx:cellFormat width="100%" height="28px" id="cf2">
+                            <amx:outputText value="#{row.ticker}" id="ot3"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout id="rl1">
+                        <amx:cellFormat width="100%" height="12px" id="cf1">
+                            <amx:outputText value="#{row.company}" styleClass="adfmf-listItem-captionText" id="ot2"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:listItem>
+        </amx:listView>
+    </amx:panelPage>
+</amx:view>

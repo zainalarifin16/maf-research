@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1" inlineStyle="background-color:#313334;;">
+        <amx:panelStretchLayout id="psl2" scrollPolicy="scroll">
+            <amx:facet name="center">
+                <amx:panelGroupLayout rendered="#{!SlidingDrawerBean.showTopAndBottomFacets}" layout="wrap" id="pglTable" inlineStyle="display:table;width:100%;height:100%;">
+                    <amx:panelGroupLayout layout="wrap" id="pglRow" inlineStyle="display:table-row">
+                        <amx:panelGroupLayout layout="wrap" id="pglCell"
+                                              inlineStyle="display:table-cell;vertical-align:middle;">
+                            <!-- add "text-align:center;" if you want to center horizontally too -->
+                            <amx:tableLayout id="tl2">
+                                <amx:rowLayout id="rl5">
+                                    <amx:cellFormat inlineStyle="padding:10px;" id="cf5">
+                                        <amx:tableLayout  cellSpacing="0" width="100%" id="tl1">
+                                            <amx:rowLayout id="rl2">
+                                                <amx:cellFormat halign="center" valign="bottom" id="cdf1" height="100%">
+                                                    <amx:panelGroupLayout halign="start" layout="vertical" id="pgld1">
+                                                        <amx:commandLink inlineStyle="margin-top:20px;margin-bottom:20px"
+                                                                         actionListener="#{SlidingDrawerBean.gotoAboutFeature}"
+                                                                         id="cld1">
+                                                            <amx:image inlineStyle="width:32px;height:32px;margin-top:20px;margin-bottom:20px"
+                                                                       source="/images/abouticon.svg" id="id1"/>
+                                                        </amx:commandLink>
+                                                    </amx:panelGroupLayout>
+                                                </amx:cellFormat>
+                                            </amx:rowLayout>
+                                            <amx:rowLayout id="rl3">
+                                                <amx:cellFormat halign="center" valign="bottom" id="cf3" height="100%">
+                                                    <amx:panelGroupLayout halign="start" layout="vertical" id="pgl3">
+                                                        <amx:commandLink actionListener="#{SlidingDrawerBean.gotoExamplesFeature}"
+                                                                         id="cl3">
+                                                            <amx:image inlineStyle="width:32px;height:32px;margin-top:20px;margin-bottom:20px"
+                                                                       source="/images/exampleicon.svg" id="i6"/>
+                                                        </amx:commandLink>
+                                                    </amx:panelGroupLayout>
+                                                </amx:cellFormat>
+                                            </amx:rowLayout>
+                                            <amx:rowLayout id="rl4">
+                                                <amx:cellFormat halign="center" valign="bottom" id="cf4" height="100%">
+                                                    <amx:panelGroupLayout halign="start" layout="vertical" id="pgl4">
+                                                        <amx:commandLink actionListener="#{SlidingDrawerBean.hideWindow}"
+                                                                         id="cl4">
+                                                            <amx:image inlineStyle="width:32px;height:32px;margin-top:20px;margin-bottom:20px"
+                                                                       source="/images/closeIcon.svg" id="i4"/>
+                                                        </amx:commandLink>
+                                                    </amx:panelGroupLayout>
+                                                </amx:cellFormat>
+                                            </amx:rowLayout>
+                                        </amx:tableLayout>
+                                    </amx:cellFormat>
+                                </amx:rowLayout>
+                            </amx:tableLayout>
+                        </amx:panelGroupLayout>
+                    </amx:panelGroupLayout>
+                </amx:panelGroupLayout>
+            </amx:facet>
+              <amx:facet name="bottom">
+                  <amx:tableLayout   rendered="#{SlidingDrawerBean.showTopAndBottomFacets}" cellSpacing="0" width="100%" id="tls1">
+                                            <amx:rowLayout id="rsl2">
+                                                <amx:cellFormat halign="center" valign="middle" id="cdsf1" height="100%">
+                                                    <amx:panelGroupLayout halign="start" layout="vertical" id="pglssd1">
+                                                        <amx:commandLink inlineStyle="margin-top:20px;margin-bottom:20px"
+                                                                         actionListener="#{SlidingDrawerBean.gotoAboutFeature}"
+                                                                         id="clds1">
+                                                            <amx:image inlineStyle="width:32px;height:32px;margin-top:20px;margin-bottom:20px"
+                                                                       source="/images/abouticon.svg" id="isd1"/>
+                                                        </amx:commandLink>
+                                                    </amx:panelGroupLayout>
+                                                </amx:cellFormat>
+                                                 <amx:cellFormat halign="center" valign="middle" id="cfb3" height="100%">
+                                                    <amx:panelGroupLayout halign="start" layout="vertical" id="pgbl3">
+                                                        <amx:commandLink actionListener="#{SlidingDrawerBean.gotoExamplesFeature}"
+                                                                         id="clb3">
+                                                            <amx:image inlineStyle="width:32px;height:32px;margin-top:20px;margin-bottom:20px"
+                                                                       source="/images/exampleicon.svg" id="bi6"/>
+                                                        </amx:commandLink>
+                                                    </amx:panelGroupLayout>
+                                                </amx:cellFormat>
+                                                 <amx:cellFormat halign="center" valign="middle" id="cbf4" height="100%">
+                                                    <amx:panelGroupLayout halign="start" layout="vertical" id="pglb4">
+                                                        <amx:commandLink actionListener="#{SlidingDrawerBean.hideWindow}"
+                                                                         id="cbl4">
+                                                            <amx:image inlineStyle="width:32px;height:32px;margin-top:20px;margin-bottom:20px"
+                                                                       source="/images/closeIcon.svg" id="fdi4"/>
+                                                        </amx:commandLink>
+                                                    </amx:panelGroupLayout>
+                                                </amx:cellFormat>
+                                            </amx:rowLayout>
+                                        </amx:tableLayout>
+            </amx:facet>
+        </amx:panelStretchLayout>
+    </amx:panelPage>
+</amx:view>

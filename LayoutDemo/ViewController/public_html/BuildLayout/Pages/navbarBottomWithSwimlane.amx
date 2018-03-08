@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="Navbar Bottom &amp; Swimlane" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton action="__back" id="cb1"/>
+        </amx:facet>
+        <amx:panelStretchLayout scrollPolicy="scroll" id="psl1">
+            <amx:facet name="top">
+                <amx:panelGroupLayout styleClass="summary-section-style"
+                                      rendered="#{pageFlowScope.useFixedSummaryView=='true'}" layout="horizontal"
+                                      halign="center" id="pgl1">
+                    <amx:outputText value="Summary Section" id="ot2"/>
+                </amx:panelGroupLayout>
+            </amx:facet>
+            <amx:facet name="center">
+                <amx:deck displayedChild="#{pageFlowScope.currentThumbnailContentValue =='' ? 'Tab1' : pageFlowScope.currentThumbnailContentValue}"
+                          id="d1" styleClass="amx-fitParent">
+                    <amx:transition id="tBack" triggerType="backNavigate" transition="slideEnd"/>
+                    <amx:transition id="tFwd" triggerType="forwardNavigate" transition="slideStart"/>
+                    <amx:fragment src="/BuildLayout/Fragments/swimlaneContentLayout.amxf" id="Tab1">
+                        <amx:attribute name="contentText1" value="LANE 1" id="a1"/>
+                        <amx:attribute name="contentText2" value="LANE 2" id="a2"/>
+                        <amx:attribute name="contentText3" value="LANE 3" id="a3"/>
+                        <amx:attribute name="contentText4" value="LANE 4" id="a4"/>
+                        <amx:attribute name="contentText5" value="LANE 5" id="a5"/>
+                    </amx:fragment>
+                    <amx:fragment src="/BuildLayout/Fragments/swimlaneContentLayout.amxf" id="Tab2">
+                        <amx:attribute name="contentText1" value="LANE 6" id="ad1"/>
+                        <amx:attribute name="contentText2" value="LANE 7" id="ad2"/>
+                        <amx:attribute name="contentText3" value="LANE 8" id="da3"/>
+                        <amx:attribute name="contentText4" value="LANE 9" id="da4"/>
+                        <amx:attribute name="contentText5" value="LANE 10" id="ad5"/>
+                    </amx:fragment>
+                    <amx:fragment src="/BuildLayout/Fragments/swimlaneContentLayout.amxf" id="Tab3">
+                        <amx:attribute name="contentText1" value="LANE 11" id="add1"/>
+                        <amx:attribute name="contentText2" value="LANE 12" id="bab2"/>
+                        <amx:attribute name="contentText3" value="LANE 13" id="ab3"/>
+                        <amx:attribute name="contentText4" value="LANE 14" id="ab4"/>
+                        <amx:attribute name="contentText5" value="LANE 15" id="ab5"/>
+                    </amx:fragment>
+                    <amx:fragment src="/BuildLayout/Fragments/swimlaneContentLayout.amxf" id="Tab4">
+                        <amx:attribute name="contentText1" value="LANE 16" id="ma1"/>
+                        <amx:attribute name="contentText2" value="LANE 17" id="ma2"/>
+                        <amx:attribute name="contentText3" value="LANE 18" id="am3"/>
+                        <amx:attribute name="contentText4" value="LANE 19" id="am4"/>
+                        <amx:attribute name="contentText5" value="LANE 20" id="am5"/>
+                    </amx:fragment>
+                </amx:deck>
+            </amx:facet>
+            <amx:facet name="bottom">
+                <amx:tableLayout halign="center" borderWidth="0" width="100%"
+                                 inlineStyle="height:64px;background-color:#F6F6F7" id="tl1">
+                    <amx:rowLayout id="rl1">
+                        <amx:cellFormat inlineStyle="margin:5px;" halign="center" height="64px;" width="25%" id="cf1">
+                            <amx:commandLink id="cl1">
+                                <amx:image source="/images/tabicon1.png" id="i1"/>
+                                <amx:setPropertyListener from="Tab1" to="#{pageFlowScope.currentThumbnailContentValue}"
+                                                         id="spl1"/>
+                            </amx:commandLink>
+                        </amx:cellFormat>
+                        <amx:cellFormat inlineStyle="margin:5px;" halign="center" height="64px;" width="25%" id="cf2">
+                            <amx:commandLink id="cl2">
+                                <amx:image source="/images/tabicon2.png" id="i2"/>
+                                <amx:setPropertyListener from="Tab2" to="#{pageFlowScope.currentThumbnailContentValue}"
+                                                         id="spl2"/>
+                            </amx:commandLink>
+                        </amx:cellFormat>
+                        <amx:cellFormat inlineStyle="margin:5px;" halign="center" height="64px;" width="25%" id="cf3">
+                            <amx:commandLink id="cl3">
+                                <amx:image source="/images/tabicon3.png" id="i3"/>
+                                <amx:setPropertyListener from="Tab3" to="#{pageFlowScope.currentThumbnailContentValue}"
+                                                         id="spl3"/>
+                            </amx:commandLink>
+                        </amx:cellFormat>
+                        <amx:cellFormat inlineStyle="margin:5px;" halign="center" height="64px;" width="25%" id="cf4">
+                            <amx:commandLink id="cl4">
+                                <amx:image source="/images/tabicon4.png" id="i4"/>
+                                <amx:setPropertyListener from="Tab4" to="#{pageFlowScope.currentThumbnailContentValue}"
+                                                         id="spl4"/>
+                            </amx:commandLink>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:facet>
+        </amx:panelStretchLayout>
+    </amx:panelPage>
+</amx:view>

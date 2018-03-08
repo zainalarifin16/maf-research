@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="oracle.adfmf.demo.push.model.RegistrationModule" default="RegistrationModuleLocal">
+      <AppModuleConfig DeployPlatform="LOCAL" JDBCName="pushServerDB" name="RegistrationModuleLocal" ApplicationName="oracle.adfmf.demo.push.model.RegistrationModule" jbo.project="oracle.adfmf.demo.push.model.model.Model">
+         <Security AppModuleJndiName="oracle.adfmf.demo.push.model.RegistrationModule"/>
+         <Custom ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" JDBCName="pushServerDB" name="RegistrationModuleShared" ApplicationName="oracle.adfmf.demo.push.model.RegistrationModule" jbo.project="oracle.adfmf.demo.push.model.model.Model">
+         <Security AppModuleJndiName="oracle.adfmf.demo.push.model.RegistrationModule"/>
+         <Custom ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

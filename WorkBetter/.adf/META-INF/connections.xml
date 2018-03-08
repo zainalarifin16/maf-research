@@ -1,0 +1,15 @@
+
+
+<!--adc-fap1112-gse.oracledemos.com-->
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+  <Reference name="WBService" className="oracle.adf.model.connection.url.HttpURLConnection" xmlns="">
+    <Factory className="oracle.adf.model.connection.url.URLConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="WBService">
+        <Contents>
+          <urlconnection name="WBService" url="https://mcssvc1prod-mcsidd1.mobileenv.us2.oraclecloud.com:443/mobile"/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+</References>

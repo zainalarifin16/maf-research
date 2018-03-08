@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
+  <adfmf:feature id="Feature1" name="Feature1" listener-class="mobile.Feature1Handler">
+    <adfmf:description>This is a sample feature to show the feature lifecycle handlers.</adfmf:description>
+    <adfmf:content id="Feature1.1">
+      <adfmf:amx file="Feature1/feature1.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p3">
+      <adfmf:property name="iOSWebView" value="default" id="p4"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="Feature2" name="Feature2" listener-class="mobile.Feature2Handler">
+    <adfmf:description>This is a sample feature to show the feature lifecycle handlers.</adfmf:description>
+    <adfmf:content id="feature2.1">
+      <adfmf:amx file="Feature2/feature2.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p1">
+      <adfmf:property name="iOSWebView" value="default" id="p2"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="About" name="About">
+    <adfmf:content id="About.1">
+      <adfmf:amx file="About/about.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p5">
+      <adfmf:property name="iOSWebView" value="default" id="p6"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="Springboard" name="Springboard">
+    <adfmf:content id="Springboard.1">
+      <adfmf:amx file="Springboard/springboard.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p7">
+      <adfmf:property name="iOSWebView" value="default" id="p8"/>
+    </adfmf:properties>
+  </adfmf:feature>
+</adfmf:features>

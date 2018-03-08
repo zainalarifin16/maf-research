@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:panelPage id="gmp2">
+    <amx:facet name="header">
+      <amx:outputText id="header" styleClass="amx-header-title" value="Map Routes (collection)"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" text="Back" action="__back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="geographicMapRouteProperties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+        <amx:setPropertyListener from="false" to="#{pageFlowScope.waypointsEditable}"/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#dvtm:route" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/dvtGeo/geographicMapRoutesCollection" shortDesc="Bookmarkable Link"
+                  styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:panelSplitter>
+      <amx:facet name="navigator">
+        <amx:listView var="row" value="#{bindings.routeScenarios.collectionModel}"
+                      selectedRowKeys="#{bindings.routeScenarios.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.routeScenarios.collectionModel.makeCurrent}"
+                      id="lv1">
+          <amx:listItem id="li1">
+            <amx:outputText value="#{row.name}" id="ot1"/>
+          </amx:listItem>
+        </amx:listView>
+      </amx:facet>
+      <amx:panelItem>
+        <dvtm:geographicMap id="geographicMap_1" mapType="#{bindings.map.inputValue}" initialZooming="auto">
+          <dvtm:route id="route" travelMode="#{pageFlowScope.travelMode || bindings.type.inputValue}" lineColor="#{pageFlowScope.lineColor}" lineWidth="#{pageFlowScope.lineWidth}"
+                      lineOpacity="#{pageFlowScope.lineOpacity}">
+            <amx:iterator id="points" value="#{bindings.routePoints.collectionModel}" var="row">
+              <dvtm:pointLocation id="pl1" pointX="#{row.pointX}" pointY="#{row.pointY}" type="#{row.type}">
+                <dvtm:marker id="marker1" shortDesc="#{row.shortDesc}" rendered="#{pageFlowScope.showMarkers}">
+                  <amx:setPropertyListener from="#{row.shortDesc}" to="#{pageFlowScope.desc}"/>
+                  <amx:showPopupBehavior alignId="marker1" popupId="markerPopup" decoration="anchor"/>
+                </dvtm:marker>
+              </dvtm:pointLocation>
+            </amx:iterator>
+            <amx:showPopupBehavior alignId="route" popupId="routePopup" decoration="anchor"/>
+          </dvtm:route>
+        </dvtm:geographicMap>
+      </amx:panelItem>
+    </amx:panelSplitter>
+  </amx:panelPage>
+  <amx:popup id="markerPopup" animation="pop" autoDismiss="true" backgroundDimming="off">
+    <amx:outputText value="#{pageFlowScope.desc}"/>
+  </amx:popup>
+  <amx:popup id="routePopup" animation="pop" autoDismiss="true" inlineStyle="width:300px;">
+    <amx:outputText value="Route '#{bindings.name.inputValue} (#{bindings.type.inputValue})'"
+                    inlineStyle="font-weight:bold"/>
+    <amx:panelFormLayout styleClass="routePopup" maxColumns="1" labelPosition="topStart" fieldHalign="start">
+      <amx:iterator value="#{bindings.routePoints.collectionModel}" var="row">
+        <amx:panelLabelAndMessage>
+          <amx:outputText value="#{row.shortDesc}"/>
+        </amx:panelLabelAndMessage>
+      </amx:iterator>
+    </amx:panelFormLayout>
+  </amx:popup>
+</amx:view>

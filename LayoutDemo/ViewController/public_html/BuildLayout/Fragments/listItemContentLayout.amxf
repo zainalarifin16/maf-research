@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1">
+        <description id="d1">Generic  fragment for listview layout</description>
+        <attribute id="a1">
+            <attribute-name id="a3n">contentText1</attribute-name>
+            <attribute-type id="a3t">String</attribute-type>
+        </attribute>
+        <attribute id="a2">
+            <attribute-name id="ad">contentText2</attribute-name>
+            <attribute-type id="a3dt">String</attribute-type>
+        </attribute>
+        <attribute id="a3">
+            <attribute-name id="ad3n">contentText3</attribute-name>
+            <attribute-type id="ad3t">String</attribute-type>
+        </attribute>
+        <attribute id="a4">
+            <attribute-name id="a3dn">contentText4</attribute-name>
+            <attribute-type id="a3cdt">String</attribute-type>
+        </attribute>
+        <attribute id="a5">
+            <attribute-name id="add">contentText5</attribute-name>
+            <attribute-type id="a3ddt">String</attribute-type>
+        </attribute>
+        <attribute id="a6">
+            <attribute-name id="axd3n">contentText6</attribute-name>
+            <attribute-type id="axd3t">String</attribute-type>
+        </attribute>
+        <attribute id="a7">
+            <attribute-name id="a3xn">contentText7</attribute-name>
+            <attribute-type id="a3xt">String</attribute-type>
+        </attribute>
+        <attribute id="a8">
+            <attribute-name id="axd">contentText8</attribute-name>
+            <attribute-type id="a3xdt">String</attribute-type>
+        </attribute>
+        <attribute id="a9">
+            <attribute-name id="adx3n">contentText9</attribute-name>
+            <attribute-type id="axxd3t">String</attribute-type>
+        </attribute>
+        <attribute id="a10">
+            <attribute-name id="ax3n">contentText10</attribute-name>
+            <attribute-type id="ax3t">String</attribute-type>
+        </attribute>
+        <attribute id="a11">
+            <attribute-name id="axwd">contentText11</attribute-name>
+            <attribute-type id="axs3dt">String</attribute-type>
+        </attribute>
+        <attribute id="a12">
+            <attribute-name id="axnd3n">contentText12</attribute-name>
+            <attribute-type id="aaxd3t">String</attribute-type>
+        </attribute>
+        <attribute id="a13">
+            <attribute-name id="a3gxn">contentText13</attribute-name>
+            <attribute-type id="a3gxt">String</attribute-type>
+        </attribute>
+        <attribute id="a14">
+            <attribute-name id="axxd">contentText14</attribute-name>
+            <attribute-type id="a3fdt">String</attribute-type>
+        </attribute>
+        <attribute id="a15">
+            <attribute-name id="ad3qwn">contentText15</attribute-name>
+            <attribute-type id="ade3t">String</attribute-type>
+        </attribute>
+        <attribute id="a16">
+            <attribute-name id="a3rn">contentText16</attribute-name>
+            <attribute-type id="ar3t">String</attribute-type>
+        </attribute>
+        <attribute id="a17">
+            <attribute-name id="ead">contentText17</attribute-name>
+            <attribute-type id="a3dqt">String</attribute-type>
+        </attribute>
+        <attribute id="a18">
+            <attribute-name id="aqd3n">contentText18</attribute-name>
+            <attribute-type id="ad3at">String</attribute-type>
+        </attribute>
+        <attribute id="a19">
+            <attribute-name id="add3n">contentText19</attribute-name>
+            <attribute-type id="a3lt">String</attribute-type>
+        </attribute>
+        <attribute id="a20">
+            <attribute-name id="agd">contentText20</attribute-name>
+            <attribute-type id="a3qdt">String</attribute-type>
+        </attribute>
+        <attribute id="a21">
+            <attribute-name id="ad3fdn">contentText21</attribute-name>
+            <attribute-type id="ad43t">String</attribute-type>
+        </attribute>
+        <attribute id="a22">
+            <attribute-name id="ae3n">contentText22</attribute-name>
+            <attribute-type id="a3rrt">String</attribute-type>
+        </attribute>
+        <attribute id="a23">
+            <attribute-name id="fad">contentText23</attribute-name>
+            <attribute-type id="a3f3dt">String</attribute-type>
+        </attribute>
+        <attribute id="a24">
+            <attribute-name id="adf3n">contentText24</attribute-name>
+            <attribute-type id="afd3t">String</attribute-type>
+        </attribute>
+        <attribute id="a25">
+            <attribute-name id="af3n">contentText25</attribute-name>
+            <attribute-type id="a3fft">String</attribute-type>
+        </attribute>
+        <attribute id="a26">
+            <attribute-name id="afd">contentText26</attribute-name>
+            <attribute-type id="a3fedt">String</attribute-type>
+        </attribute>
+        <attribute id="a27">
+            <attribute-name id="ad3fwn">contentText27</attribute-name>
+            <attribute-type id="add3t">String</attribute-type>
+        </attribute>
+        <attribute id="a28">
+            <attribute-name id="a3we3n">contentText28</attribute-name>
+            <attribute-type id="aku83t">String</attribute-type>
+        </attribute>
+        <attribute id="a29">
+            <attribute-name id="ad4d">contentText29</attribute-name>
+            <attribute-type id="a3dfft">String</attribute-type>
+        </attribute>
+        <attribute id="a30">
+            <attribute-name id="adk4d">contentText30</attribute-name>
+            <attribute-type id="a3dfcft">String</attribute-type>
+        </attribute>
+    </fragment>
+        <amx:listView showDividerCount="true" var="row" showMoreStrategy="autoScroll" bufferStrategy="viewport" inlineStyle="background-color:white;" id="lv1">
+        <amx:listItem id="li1">
+            <amx:outputText value="#{contentText1}" id="ot1"/>
+        </amx:listItem>
+        <amx:listItem id="li2">
+            <amx:outputText value="#{contentText2}" id="ot2"/>
+        </amx:listItem>
+        <amx:listItem id="li3">
+            <amx:outputText value="#{contentText3}" id="ot3"/>
+        </amx:listItem>
+        <amx:listItem id="li4">
+            <amx:outputText value="#{contentText4}" id="ot4"/>
+        </amx:listItem>
+        <amx:listItem id="lis4">
+            <amx:outputText value="#{contentText5}" id="ots4"/>
+        </amx:listItem>
+        <amx:listItem id="lqai4">
+            <amx:outputText value="#{contentText6}" id="otdd4"/>
+        </amx:listItem>
+        <amx:listItem id="lsi4">
+            <amx:outputText value="#{contentText7}" id="ot4ls"/>
+        </amx:listItem>
+        <amx:listItem id="liss4">
+            <amx:outputText value="#{contentText8}" id="odsdt4"/>
+        </amx:listItem>
+        <amx:listItem id="llfi4">
+            <amx:outputText value="#{contentText9}" id="otdfd4"/>
+        </amx:listItem>
+        <amx:listItem id="li4pwe">
+            <amx:outputText value="#{contentText10}" id="ot4wasd"/>
+        </amx:listItem>
+        <amx:listItem id="aali4">
+            <amx:outputText value="#{contentText11}" id="ot4dfd"/>
+        </amx:listItem>
+        <amx:listItem id="lesdwi4">
+            <amx:outputText value="#{contentText12}" id="ofgft4"/>
+        </amx:listItem>
+        <amx:listItem id="li4df">
+            <amx:outputText value="#{contentText13}" id="otesd4"/>
+        </amx:listItem>
+        <amx:listItem id="li4qa">
+            <amx:outputText value="#{contentText14}" id="otvf4"/>
+        </amx:listItem>
+        <amx:listItem id="lqais4">
+            <amx:outputText value="#{contentText15}" id="oq1wt4"/>
+        </amx:listItem>
+        <amx:listItem id="l2qws4">
+            <amx:outputText value="#{contentText16}" id="otws4"/>
+        </amx:listItem>
+        <amx:listItem id="livnf4">
+            <amx:outputText value="#{contentText17}" id="otdsf4"/>
+        </amx:listItem>
+        <amx:listItem id="liqas">
+            <amx:outputText value="#{contentText18}" id="olfet4"/>
+        </amx:listItem>
+        <amx:listItem id="limhyt4">
+            <amx:outputText value="#{contentText19}" id="otqasd4"/>
+        </amx:listItem>
+        <amx:listItem id="leesdwi4">
+            <amx:outputText value="#{contentText20}" id="oat4"/>
+        </amx:listItem>
+        <amx:listItem id="lplw4">
+            <amx:outputText value="#{contentText21}" id="ofqw2"/>
+        </amx:listItem>
+        <amx:listItem id="wsdw4">
+            <amx:outputText value="#{contentText22}" id="plew4"/>
+        </amx:listItem>
+        <amx:listItem id="ldpei4">
+            <amx:outputText value="#{contentText23}" id="esdw"/>
+        </amx:listItem>
+        <amx:listItem id="mvkdew">
+            <amx:outputText value="#{contentText24}" id="opldes"/>
+        </amx:listItem>
+        <amx:listItem id="ldpew">
+            <amx:outputText value="#{contentText25}" id="q2qw1"/>
+        </amx:listItem>
+        <amx:listItem id="mkol8">
+            <amx:outputText value="#{contentText26}" id="sd3"/>
+        </amx:listItem>
+        <amx:listItem id="sw32">
+            <amx:outputText value="#{contentText27}" id="jhy67"/>
+        </amx:listItem>
+        <amx:listItem id="as23445">
+            <amx:outputText value="#{contentText28}" id="nht66"/>
+        </amx:listItem>
+        <amx:listItem id="jyu780">
+            <amx:outputText value="#{contentText29}" id="gf546"/>
+        </amx:listItem>
+        <amx:listItem id="jyuf780">
+            <amx:outputText value="#{contentText30}" id="gff546"/>
+        </amx:listItem>
+    </amx:listView>
+</amx:fragmentDef>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="taskflow">
+    <default-activity>router1</default-activity>
+    <view id="empList">
+      <page>/Employees/EmpList.amx</page>
+    </view>
+    <view id="empDetail">
+      <page>/Employees/EmpDetail.amx</page>
+    </view>
+    <router id="router1">
+      <description>Navigate to list view</description>
+      <display-name>Router</display-name>
+      <case id="__8">
+        <expression>#{applicationScope.RouterBean.isDetail}</expression>
+        <outcome>toDetail</outcome>
+      </case>
+      <default-outcome>toList</default-outcome>
+    </router>
+    <control-flow-rule id="__1">
+      <from-activity-id>empList</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>toDetail</from-outcome>
+        <to-activity-id>empDetail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>empDetail</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>toList</from-outcome>
+        <to-activity-id>empList</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>router1</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>toList</from-outcome>
+        <to-activity-id>empList</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>toDetail</from-outcome>
+        <to-activity-id>empDetail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-mobile-config>

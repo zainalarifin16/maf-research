@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="springboard-task-flow">
+    <default-activity>springboard</default-activity>
+    <view id="springboard">
+      <page>/Springboard/springboard.amx</page>
+    </view>
+  </task-flow-definition>
+</adfc-mobile-config>

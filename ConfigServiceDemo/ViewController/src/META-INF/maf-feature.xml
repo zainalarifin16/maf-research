@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
+  <adfmf:feature id="About" name="About" icon="images/feature_icon.png">
+    <adfmf:content id="About.1">
+      <adfmf:amx file="About/about.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p1">
+      <adfmf:property name="iOSWebView" value="modern" id="p2"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="Configuration" name="Configuration"  icon="images/feature_icon.png">
+    <adfmf:content id="Configuration.1">
+      <adfmf:amx file="Configuration/configuration.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p9">
+      <adfmf:property name="iOSWebView" value="modern" id="p10"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="DownloadConfig" name="DownloadConfig" securityEnabled="true" icon="images/feature_icon.png">
+    <adfmf:content id="DownloadConfig.1">
+      <adfmf:amx file="DownloadConfig/downloadConfig.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p5">
+      <adfmf:property name="iOSWebView" value="modern" id="p6"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="RemoteURL" name="RemoteURL" icon="images/feature_icon.png">
+    <adfmf:content id="RemoteURL.1">
+      <adfmf:remoteURL connection="remotePage"/>
+    </adfmf:content>
+    <adfmf:properties id="p3">
+      <adfmf:property name="iOSWebView" value="modern" id="p4"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="Springboard" name="Springboard" icon="images/feature_icon.png">
+    <adfmf:content id="Springboard.1">
+      <adfmf:amx file="Springboard/springboard.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p7">
+      <adfmf:property name="iOSWebView" value="modern" id="p8"/>
+    </adfmf:properties>
+  </adfmf:feature>
+</adfmf:features>

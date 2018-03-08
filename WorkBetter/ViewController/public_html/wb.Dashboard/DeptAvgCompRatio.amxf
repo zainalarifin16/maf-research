@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1"/>
+    <amx:outputText value="#{deviceScope.hardware.screen.diagonalSize lt 6 ? ( deviceScope.hardware.screen.height gt deviceScope.hardware.screen.width ? 'Compa Ratio by Dept' : 'Compensation Ratio by Department') : 'Compensation Ratio by Department'}" id="ot1" styleClass="tile-title title-white"/>
+    <amx:tableLayout id="tl1" width="100%" inlineStyle="background-color:#5a5e63;" shortDesc="table">
+        <amx:rowLayout id="rl6">
+            <amx:cellFormat id="cf4" height="25" shortDesc="cell"/>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl3">
+            <amx:cellFormat id="cf1" height="60" inlineStyle="top:15px" shortDesc="cell">
+                <amx:panelGroupLayout id="pgl1"
+                                      layout="#{deviceScope.hardware.screen.diagonalSize lt 6 ? ( deviceScope.hardware.screen.height gt deviceScope.hardware.screen.width ? 'vertical' : 'horizontal') : 'horizontal'}">
+                    <amx:tableLayout id="tl3" width="200px" inlineStyle="padding-left:30px" shortDesc="table">
+                        <amx:rowLayout id="rl8">
+                            <amx:cellFormat id="cf12" width="40" rowSpan="2" rendered="#{deviceScope.hardware.screen.diagonalSize lt 6 ? ( deviceScope.hardware.screen.height gt deviceScope.hardware.screen.width ? 'false' : 'true') : 'true'}"
+                                            shortDesc="cell"/>
+                            <amx:cellFormat id="cf6" rowSpan="2" width="40" height="50" valign="bottom"
+                                            shortDesc="cell">
+                                <amx:image id="i1" source="/images/decline_graphic_32.svg" shortDesc="Decline Image"/>
+                            </amx:cellFormat>
+                            <amx:cellFormat id="cf7" width="100%" inlineStyle="top:8px;" shortDesc="cell">
+                                <amx:outputText value="Administration" id="ot2" styleClass="metriclabelyellow"/>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                        <amx:rowLayout id="rl9">
+                            <amx:cellFormat id="cf8" width="100%" shortDesc="cell">
+                                <amx:outputText value="Lowest" id="ot4" styleClass="metriclabelsmall"/>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                    </amx:tableLayout>
+                    <amx:tableLayout id="tl4" width="200px" inlineStyle="padding-left:30px" shortDesc="table">
+                        <amx:rowLayout id="rl10">
+                            <amx:cellFormat id="cf9" rowSpan="2" width="40" height="50" valign="bottom"
+                                            shortDesc="cell">
+                                <amx:image id="i2" source="/images/incline_graphic_32.svg" shortDesc="Incline Image"/>
+                            </amx:cellFormat>
+                            <amx:cellFormat id="cf10" width="100%" inlineStyle="top:8px;" shortDesc="cell">
+                                <amx:outputText value="Purchasing" id="ot3" styleClass="metriclabelyellow"/>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                        <amx:rowLayout id="rl11">
+                            <amx:cellFormat id="cf11" width="100%" shortDesc="cell">
+                                <amx:outputText value="Highest" id="ot5" styleClass="metriclabelsmall"/>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                    </amx:tableLayout>
+                </amx:panelGroupLayout>
+            </amx:cellFormat>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl7"
+                       rendered="#{deviceScope.hardware.screen.diagonalSize lt 6 ? ( deviceScope.hardware.screen.height gt deviceScope.hardware.screen.width ? 'true' : 'false') : 'false'}">
+            <amx:cellFormat id="cf5" height="30" shortDesc="cell"/>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl4">
+            <amx:cellFormat id="cf2" width="100%" inlineStyle="padding-left:20px;padding-right:20px"
+                            height="#{deviceScope.hardware.screen.diagonalSize lt 6 ? ( deviceScope.hardware.screen.height gt deviceScope.hardware.screen.width ? '309' : '137') : '137'}"
+                            shortDesc="cell">
+                <dvtm:barChart var="row" value="#{bindings.orgDepartments.collectionModel}" id="bc1"
+                               orientation="#{deviceScope.hardware.screen.diagonalSize lt 6 ? ( deviceScope.hardware.screen.height gt deviceScope.hardware.screen.width ? 'horizontal' : 'vertical') : 'vertical'}"
+                               rolloverBehavior="dim" animationDuration="250" animationOnDisplay="auto" styleClass="fullSize"
+                               shortDesc="Department Compa Ratio Chart">
+                    <amx:facet name="dataStamp">
+                        <dvtm:chartDataItem series="Dept" group="#{row.deptname}" value="#{row.deptavgcompratio}"
+                                            id="cdi2">
+                            <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                        </dvtm:chartDataItem>
+                    </amx:facet>
+                    <amx:facet name="seriesStamp">
+                        <dvtm:seriesStyle series="Dept" lineWidth="6" color="#68c182" type="bar">
+                            <?audit suppress oracle.maf.warning-empty-id-found?>
+                        </dvtm:seriesStyle>
+                    </amx:facet>
+                    <dvtm:legend rendered="false" id="l3"/>
+                    <dvtm:yAxis id="ya1" axisMaxValue="110" axisMinValue="80">
+                        <dvtm:referenceLine id="rl1" value="100" text="Above" color="#419b71" shortDesc="Above"/>
+                        <dvtm:referenceLine id="rl2" value="90" text="Below" color="#419b71" shortDesc="Below"/>
+                        <dvtm:tickLabel id="ctl2" rendered="false"/>
+                        <dvtm:majorTick id="mt2" rendered="false"/>
+                        <dvtm:axisLine id="cal2" rendered="false"/>
+                    </dvtm:yAxis>
+                    <dvtm:xAxis id="xa1">
+                        <dvtm:tickLabel id="tl2" rendered="false"/>
+                        <dvtm:majorTick id="mt3" rendered="false"/>
+                        <dvtm:axisLine id="al1" rendered="false"/>
+                    </dvtm:xAxis>
+                    <dvtm:chartValueFormat type="series" id="cvf1" tooltipDisplay="off"/>
+                    <dvtm:chartValueFormat type="group" id="cvf2" tooltipLabel="Department"/>
+                    <dvtm:chartValueFormat type="value" id="cvf3" tooltipLabel="Avg Comp Ratio"/>
+                </dvtm:barChart>
+            </amx:cellFormat>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl5">
+            <amx:cellFormat id="cf3" height="20" shortDesc="cell"/>
+        </amx:rowLayout>
+    </amx:tableLayout>
+</amx:fragmentDef>

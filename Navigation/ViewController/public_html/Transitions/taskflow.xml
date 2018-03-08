@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="transitions-task-flow">
+    <default-activity>Transitions</default-activity>
+    <view id="Transitions">
+      <page>/Transitions/Transitions.amx</page>
+    </view>
+    <view id="Destination">
+      <page>/Transitions/Destination.amx</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>Transitions</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>none</from-outcome>
+        <to-activity-id>Destination</to-activity-id>
+        <transition>none</transition>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>slideRight</from-outcome>
+        <to-activity-id>Destination</to-activity-id>
+        <transition>slideRight</transition>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>slideLeft</from-outcome>
+        <to-activity-id>Destination</to-activity-id>
+        <transition>slideLeft</transition>
+      </control-flow-case>
+      <control-flow-case id="__6">
+        <from-outcome>slideUp</from-outcome>
+        <to-activity-id>Destination</to-activity-id>
+        <transition>slideUp</transition>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>slideDown</from-outcome>
+        <to-activity-id>Destination</to-activity-id>
+        <transition>slideDown</transition>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>flipRight</from-outcome>
+        <to-activity-id>Destination</to-activity-id>
+        <transition>flipRight</transition>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>flipLeft</from-outcome>
+        <to-activity-id>Destination</to-activity-id>
+        <transition>flipLeft</transition>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome>flipUp</from-outcome>
+        <to-activity-id>Destination</to-activity-id>
+        <transition>flipUp</transition>
+      </control-flow-case>
+      <control-flow-case id="__11">
+        <from-outcome>flipDown</from-outcome>
+        <to-activity-id>Destination</to-activity-id>
+        <transition>flipDown</transition>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome>fade</from-outcome>
+        <to-activity-id>Destination</to-activity-id>
+        <transition>fade</transition>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-mobile-config>

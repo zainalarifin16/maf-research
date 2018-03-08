@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1"/>
+    <amx:fragment src="/fragments/Loading.amxf" id="f2"/>
+    <dvtm:timeline id="t3" startTime="#{UserBean.timelineStart}" endTime="#{UserBean.timelineEnd}"
+                   inlineStyle="width:100%;height:#{deviceScope.hardware.screen.diagonalSize lt 6 ? deviceScope.hardware.screen.availableHeight-114 : deviceScope.hardware.screen.availableHeight-250}px" itemSelection="none" shortDesc="Timeline"
+                   orientation="#{deviceScope.hardware.screen.height gt deviceScope.hardware.screen.width ? 'vertical' : 'horizontal'}"
+                   viewportStart="#{UserBean.timelineStart}" viewportEnd="#{UserBean.timelineViewportEnd}"
+                   rendered="#{bindings.loading.inputValue ne 'true'}">
+        <dvtm:timelineSeries id="ts2" var="evt" value="#{bindings.events.collectionModel}">
+            <dvtm:timelineItem startTime="#{evt.eventStart}" endTime="#{evt.eventEnd}" title="#{evt.eventName}" id="ti2"
+                               description="#{evt.description}" durationFillColor="#{evt.color}"/>
+        </dvtm:timelineSeries>
+        <dvtm:timeAxis id="ta1" scale="weeks"/>
+        <dvtm:overview id="o1" inlineStyle="height:50px;"/>
+    </dvtm:timeline>
+</amx:fragmentDef>

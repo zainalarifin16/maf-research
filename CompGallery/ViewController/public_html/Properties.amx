@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Properties"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandButton id="back" action="__back" text="Done"
+                         shortDesc="Go back to the previous page"/>
+    </amx:facet>
+    <amx:panelFormLayout id="propform" labelWidth="40%" fieldWidth="60%">
+      <amx:inputText value="#{pageFlowScope.componentProperties.action}" label="Action"
+                     id="pAction"
+                     rendered="#{pageFlowScope.componentProperties['action'] ne null}"/>
+      <amx:selectOneChoice label="Align" value="#{pageFlowScope.componentProperties.align}"
+                           id="pAlign"
+                           rendered="#{pageFlowScope.componentProperties['align'] ne null}">
+        <amx:selectItem label="cornerTopStart" value="cornerTopStart"/>
+        <amx:selectItem label="topStart" value="topStart"/>
+        <amx:selectItem label="topCenter" value="topCenter"/>
+        <amx:selectItem label="topEnd" value="topEnd"/>
+        <amx:selectItem label="cornerTopEnd" value="cornerTopEnd"/>
+        <amx:selectItem label="startTop" value="startTop"/>
+        <amx:selectItem label="overlapTopStart" value="overlapTopStart"/>
+        <amx:selectItem label="overlapTopCenter" value="overlapTopCenter"/>
+        <amx:selectItem label="overlapTopEnd" value="overlapTopEnd"/>
+        <amx:selectItem label="endTop" value="endTop"/>
+        <amx:selectItem label="startMiddle" value="startMiddle"/>
+        <amx:selectItem label="overlapMiddleStart" value="overlapMiddleStart"/>
+        <amx:selectItem label="overlapMiddleCenter" value="overlapMiddleCenter"/>
+        <amx:selectItem label="overlapMiddleEnd" value="overlapMiddleEnd"/>
+        <amx:selectItem label="endMiddle" value="endMiddle"/>
+        <amx:selectItem label="startBottom" value="startBottom"/>
+        <amx:selectItem label="overlapBottomStart" value="overlapBottomStart"/>
+        <amx:selectItem label="overlapBottomCenter" value="overlapBottomCenter"/>
+        <amx:selectItem label="overlapBottomEnd" value="overlapBottomEnd"/>
+        <amx:selectItem label="endBottom" value="endBottom"/>
+        <amx:selectItem label="cornerBottomStart" value="cornerBottomStart"/>
+        <amx:selectItem label="bottomStart" value="bottomStart"/>
+        <amx:selectItem label="bottomCenter" value="bottomCenter"/>
+        <amx:selectItem label="bottomEnd" value="bottomEnd"/>
+        <amx:selectItem label="cornerBottomEnd" value="cornerBottomEnd"/>
+        <amx:selectItem label="after (deprecated, match bottomStart)" value="after"/>
+        <amx:selectItem label="before (deprecated, match topStart)" value="before"/>
+        <amx:selectItem label="overlapTop (deprecated, match overlapTopStart)" value="overlapTop"/>
+        <amx:selectItem label="overlapBottom (deprecated, match overlapBottomStart)"
+                        value="overlapBottom"/>
+      </amx:selectOneChoice>
+      <amx:inputText value="#{pageFlowScope.componentProperties.alignId}"
+                     label="Align ID" id="pAlignId"
+                     rendered="#{pageFlowScope.componentProperties['alignId'] ne null}"/>
+      <amx:selectOneChoice label="Animation"
+                           value="#{pageFlowScope.componentProperties.animation}" id="pAnimation"
+                           rendered="#{pageFlowScope.componentProperties['animation'] ne null}">
+        <amx:selectItem label="pop" value="pop"/>
+        <amx:selectItem label="slideUp" value="slideUp"/>
+        <amx:selectItem label="slideDown" value="slideDown"/>
+        <amx:selectItem label="slideStart" value="slideStart"/>
+        <amx:selectItem label="slideEnd" value="slideEnd"/>
+        <amx:selectItem label="slideLeft" value="slideLeft"/>
+        <amx:selectItem label="slideRight" value="slideRight"/>
+        <amx:selectItem label="zoom" value="zoom"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice label="Animation"
+                           value="#{pageFlowScope.componentProperties.animationPS}"
+                           id="pAnimationPS"
+                           rendered="#{pageFlowScope.componentProperties['animationPS'] ne null}">
+        <amx:selectItem label="none" value="none"/>
+        <amx:selectItem label="coverUp" value="coverUp"/>
+        <amx:selectItem label="coverDown" value="coverDown"/>
+        <amx:selectItem label="coverStart" value="coverStart"/>
+        <amx:selectItem label="coverEnd" value="coverEnd"/>
+        <amx:selectItem label="coverLeft" value="coverLeft"/>
+        <amx:selectItem label="coverRight" value="coverRight"/>
+        <amx:selectItem label="flipUp" value="flipUp"/>
+        <amx:selectItem label="flipDown" value="flipDown"/>
+        <amx:selectItem label="flipStart" value="flipStart"/>
+        <amx:selectItem label="flipEnd" value="flipEnd"/>
+        <amx:selectItem label="flipLeft" value="flipLeft"/>
+        <amx:selectItem label="flipRight" value="flipRight"/>
+        <amx:selectItem label="revealUp" value="revealUp"/>
+        <amx:selectItem label="revealDown" value="revealDown"/>
+        <amx:selectItem label="revealStart" value="revealStart"/>
+        <amx:selectItem label="revealEnd" value="revealEnd"/>
+        <amx:selectItem label="revealLeft" value="revealLeft"/>
+        <amx:selectItem label="revealRight" value="revealRight"/>
+        <amx:selectItem label="slideUp" value="slideUp"/>
+        <amx:selectItem label="slideDown" value="slideDown"/>
+        <amx:selectItem label="slideStart" value="slideStart"/>
+        <amx:selectItem label="slideEnd" value="slideEnd"/>
+        <amx:selectItem label="slideLeft" value="slideLeft"/>
+        <amx:selectItem label="slideRight" value="slideRight"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice value="#{pageFlowScope.componentProperties.autoCapitalize}"
+                           label="Auto Capitalize" id="pAutoCapitalize"
+                           rendered="#{pageFlowScope.componentProperties['autoCapitalize'] ne null}">
+        <amx:selectItem label="auto" value="auto"/>
+        <amx:selectItem label="sentences" value="sentences"/>
+        <amx:selectItem label="none" value="none"/>
+        <amx:selectItem label="words" value="words"/>
+        <amx:selectItem label="characters" value="characters"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice value="#{pageFlowScope.componentProperties.autoCorrect}"
+                           label="Auto Correct" id="pAutoCorrect"
+                           rendered="#{pageFlowScope.componentProperties['autoCorrect'] ne null}">
+        <amx:selectItem label="auto" value="auto"/>
+        <amx:selectItem label="on" value="on"/>
+        <amx:selectItem label="off" value="off"/>
+      </amx:selectOneChoice>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.autoDismiss}"
+                               label="Auto Dismiss" id="pAutoDismiss"
+                               rendered="#{pageFlowScope.componentProperties['autoDismiss'] ne null}"
+                               offLabel="False" onLabel="True"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.auxiliaryOffset}"
+                     label="Auxiliary Offset" id="pAuxiliaryOffset"
+                     rendered="#{pageFlowScope.componentProperties['auxiliaryOffset'] ne null}"/>
+      <amx:selectOneChoice label="AuxiliaryPopOut"
+                           value="#{pageFlowScope.componentProperties.auxiliaryPopOut}"
+                           id="pAuxiliaryPopOut"
+                           rendered="#{pageFlowScope.componentProperties['auxiliaryPopOut'] ne null}">
+        <amx:selectItem label="off" value="off"/>
+        <amx:selectItem label="hover" value="hover"/>
+      </amx:selectOneChoice>
+      <amx:inputText value="#{pageFlowScope.componentProperties.auxiliaryScale}"
+                     label="Auxiliary Scale" id="pAuxiliaryScale"
+                     rendered="#{pageFlowScope.componentProperties['auxiliaryScale'] ne null}"/>
+      <amx:selectOneChoice label="Background Dimming"
+                           value="#{pageFlowScope.componentProperties.backgroundDimming}"
+                           id="pBackgroundDimming"
+                           rendered="#{pageFlowScope.componentProperties['backgroundDimming'] ne null}">
+        <amx:selectItem label="on" value="on"/>
+        <amx:selectItem label="off" value="off"/>
+      </amx:selectOneChoice>
+      <amx:inputText value="#{pageFlowScope.componentProperties.borderWidth}"
+                     label="Border Width" id="pBorderWidth"
+                     rendered="#{pageFlowScope.componentProperties['borderWidth'] ne null}"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.bufferSize}" label="Buffer Size"
+                     id="pBufferSize"
+                     rendered="#{pageFlowScope.componentProperties['bufferSize'] ne null}"/>
+      <amx:selectOneChoice value="#{pageFlowScope.componentProperties.bufferStrategy}"
+                           label="Buffer Strategy"
+                           rendered="#{pageFlowScope.componentProperties['bufferStrategy'] ne null}"
+                           id="pBufferStrategy">
+        <amx:selectItem label="additive" value="additive"/>
+        <amx:selectItem label="viewport" value="viewport"/>
+      </amx:selectOneChoice>
+      <amx:inputText value="#{pageFlowScope.componentProperties.busyText}" label="Busy Text"
+                     id="pBusyText"
+                     rendered="#{pageFlowScope.componentProperties['busyText'] ne null}"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.cellPadding}"
+                     label="Cell Padding" id="pCellPadding"
+                     rendered="#{pageFlowScope.componentProperties['cellPadding'] ne null}"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.cellSpacing}"
+                     label="Cell Spacing" id="pCellSpacing"
+                     rendered="#{pageFlowScope.componentProperties['cellSpacing'] ne null}"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.collapsedDividers}"
+                     label="Collapsed Dividers" id="pCollapsedDividers"
+                     rendered="#{pageFlowScope.componentProperties['collapsedDividers'] ne null}"
+                     disabled="true" hintText="Array value; not editable via inputText"/>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.collapsibleDividers}"
+                               label="Collapsible Dividers" id="pCollapsibleDividers"
+                               rendered="#{pageFlowScope.componentProperties['collapsibleDividers'] ne null}"
+                               offLabel="False" onLabel="True"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.columnSpan}" label="Column Span"
+                     id="pColumnSpan"
+                     rendered="#{pageFlowScope.componentProperties['columnSpan'] ne null}"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.contentClass}"
+                     label="Content Class" id="pContentClass"
+                     rendered="#{pageFlowScope.componentProperties['contentClass'] ne null}"
+                     autoCapitalize="none" autoCorrect="off"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.contentStyle}"
+                     label="Content Style" id="pContentStyle"
+                     rendered="#{pageFlowScope.componentProperties['contentStyle'] ne null}"
+                     autoCapitalize="none" autoCorrect="off"/>
+      <amx:selectOneChoice label="Control Area"
+                           value="#{pageFlowScope.componentProperties.controlArea}"
+                           id="pControlArea"
+                           rendered="#{pageFlowScope.componentProperties['controlArea'] ne null}">
+        <amx:selectItem label="full" value="full"/>
+        <amx:selectItem label="small" value="small"/>
+        <amx:selectItem label="compact" value="compact"/>
+        <amx:selectItem label="none" value="none"/>
+      </amx:selectOneChoice>
+      <amx:inputText value="#{pageFlowScope.componentProperties.currencyCode}"
+                     label="Currency Code" id="pCurrencyCode"
+                     rendered="#{pageFlowScope.componentProperties['currencyCode'] ne null}"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.currencySymbol}"
+                     label="Currency Symbol" id="pCurrencySymbol"
+                     rendered="#{pageFlowScope.componentProperties['currencySymbol'] ne null}"/>
+      <amx:selectOneChoice label="Date Style"
+                           value="#{pageFlowScope.componentProperties.dateStyle}" id="pDateStyle"
+                           rendered="#{pageFlowScope.componentProperties['dateStyle'] ne null}">
+        <amx:selectItem label="default" value="default"/>
+        <amx:selectItem label="short" value="small"/>
+        <amx:selectItem label="medium" value="medium"/>
+        <amx:selectItem label="long" value="long"/>
+        <amx:selectItem label="full" value="full"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice label="Decoration"
+                           value="#{pageFlowScope.componentProperties.decoration}"
+                           id="pDecoration"
+                           rendered="#{pageFlowScope.componentProperties['decoration'] ne null}">
+        <amx:selectItem label="simple" value="simple"/>
+        <amx:selectItem label="anchor" value="anchor"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice label="Display Page Count"
+                           value="#{pageFlowScope.componentProperties.displayArrowLabels}"
+                           id="pDisplayArrowLabels"
+                           rendered="#{pageFlowScope.componentProperties['displayArrowLabels'] ne null}">
+        <amx:selectItem label="none" value="none"/>
+        <amx:selectItem label="inside" value="inside"/>
+        <amx:selectItem label="outside" value="outside"/>
+      </amx:selectOneChoice>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.disabled}"
+                               label="Disabled" id="pDisabled"
+                               rendered="#{pageFlowScope.componentProperties['disabled'] ne null}"
+                               offLabel="False" onLabel="True"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.dividerAttribute}"
+                     label="Divider Attribute" id="pDividerAttribute"
+                     rendered="#{pageFlowScope.componentProperties['dividerAttribute'] ne null}"
+                     autoCapitalize="none" autoCorrect="off"/>
+      <amx:selectOneChoice value="#{pageFlowScope.componentProperties.dividerMode}"
+                           label="Divider Mode" id="pDividerMode"
+                           rendered="#{pageFlowScope.componentProperties['dividerMode'] ne null}">
+        <amx:selectItem label="all" value="all"/>
+        <amx:selectItem label="firstLetter" value="firstLetter"/>
+      </amx:selectOneChoice>
+      <amx:inputText value="#{pageFlowScope.componentProperties.displayedChild}"
+                     label="Displayed Child" id="pDisplayedChild"
+                     rendered="#{pageFlowScope.componentProperties['displayedChild'] ne null}"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.displayedItemKey}" label="Displayed Item Key"
+                     id="pDisplayedItemKey" rendered="#{pageFlowScope.componentProperties['displayedItemKey'] ne null}"/>
+      <amx:selectOneChoice label="Display Items"
+                           value="#{pageFlowScope.componentProperties.displayItems}"
+                           id="pDisplayItems"
+                           rendered="#{pageFlowScope.componentProperties['displayItems'] ne null}">
+        <amx:selectItem label="circular" value="circular"/>
+        <amx:selectItem label="oneByOne" value="oneByOne"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice label="Direction"
+                           value="#{pageFlowScope.componentProperties.direction}" id="pDirection"
+                           rendered="#{pageFlowScope.componentProperties['direction'] ne null}">
+        <amx:selectItem label="back" value="back"/>
+        <amx:selectItem label="forward" value="forward"/>
+      </amx:selectOneChoice>
+      <amx:inputText inputType="number" label="Dots in Page Set"
+                           value="#{pageFlowScope.componentProperties.dotsPerGroup}"
+                           id="pDotsPerGroup"
+                           rendered="#{pageFlowScope.componentProperties['dotsPerGroup'] ne null}"/>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.editMode}"
+                               label="Edit Mode" id="pEditMode"
+                               rendered="#{pageFlowScope.componentProperties['editMode'] ne null}"
+                               offLabel="False" onLabel="True"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.endClass}"
+                     label="End Class" id="pEndClass"
+                     rendered="#{pageFlowScope.componentProperties['endClass'] ne null}"
+                     autoCapitalize="none" autoCorrect="off"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.endDesc}"
+                     label="End Desc" id="pEndDesc"
+                     rendered="#{pageFlowScope.componentProperties['endDesc'] ne null}"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.endFullTriggerSelector}"
+                     label="End Full Trigger Selector" id="pEndFullTriggerSelector"
+                     rendered="#{pageFlowScope.componentProperties['endFullTriggerSelector'] ne null}"
+                     autoCapitalize="none" autoCorrect="off"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.endStyle}"
+                     label="End Style" id="pEndStyle"
+                     rendered="#{pageFlowScope.componentProperties['endStyle'] ne null}"
+                     autoCapitalize="none" autoCorrect="off"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.endWidth}"
+                     label="End Width" id="pEndWidth"
+                     rendered="#{pageFlowScope.componentProperties['endWidth'] ne null}"
+                     autoCapitalize="none" autoCorrect="off"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.fieldWidth}" label="Field Width"
+                     id="pFieldWidth"
+                     rendered="#{pageFlowScope.componentProperties['fieldWidth'] ne null}"/>
+      <amx:selectOneChoice value="#{pageFlowScope.componentProperties.fieldHalign}"
+                           label="Field Halign" id="pFieldHalign"
+                           rendered="#{pageFlowScope.componentProperties['fieldHalign'] ne null}">
+        <amx:selectItem label="Start" value="start"/>
+        <amx:selectItem label="Center" value="center"/>
+        <amx:selectItem label="End" value="end"/>
+      </amx:selectOneChoice>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.header}" label="Header"
+                               id="pHeader"
+                               rendered="#{pageFlowScope.componentProperties['header'] ne null}"
+                               offLabel="False" onLabel="True"/>
+      <amx:selectOneChoice label="Halign" value="#{pageFlowScope.componentProperties.halign}"
+                           id="pHalign"
+                           rendered="#{pageFlowScope.componentProperties['halign'] ne null}">
+        <amx:selectItem label="start" value="start"/>
+        <amx:selectItem label="center" value="center"/>
+        <amx:selectItem label="end" value="end"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice label="Halign"
+                           value="#{pageFlowScope.componentProperties.filmStripHalign}"
+                           id="pFilmStripHalign"
+                           rendered="#{pageFlowScope.componentProperties['filmStripHalign'] ne null}">
+        <amx:selectItem label="start" value="start"/>
+        <amx:selectItem label="center" value="center"/>
+        <amx:selectItem label="end" value="end"/>
+        <amx:selectItem label="justify" value="justify"/>
+      </amx:selectOneChoice>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.groupingUsed}"
+                               label="Grouping Used" id="pGroupingUsed"
+                               rendered="#{pageFlowScope.componentProperties['groupingUsed'] ne null}"
+                               offLabel="False" onLabel="True"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.height}" label="Height"
+                     id="pHeight"
+                     rendered="#{pageFlowScope.componentProperties['height'] ne null}"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.hintText}" label="Hint Text"
+                     id="pHintText"
+                     rendered="#{pageFlowScope.componentProperties['hintText'] ne null}"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.icon}" label="Icon" id="pIcon"
+                     rendered="#{pageFlowScope.componentProperties['icon'] ne null}"
+                     autoCapitalize="none" autoCorrect="off"/>
+      <amx:selectOneChoice value="#{pageFlowScope.componentProperties.iconDelivery}"
+                           label="Icon Delivery" id="pIconDelivery"
+                           rendered="#{pageFlowScope.componentProperties['iconDelivery'] ne null}">
+        <amx:selectItem label="reference" value="reference"/>
+        <amx:selectItem label="fetchAndInline" value="fetchAndInline"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice value="#{pageFlowScope.componentProperties.iconPosition}"
+                           label="Icon Position" id="pIconPosition"
+                           rendered="#{pageFlowScope.componentProperties['iconPosition'] ne null}">
+        <amx:selectItem label="leading" value="leading"/>
+        <amx:selectItem label="trailing" value="trailing"/>
+      </amx:selectOneChoice>
+      <amx:inputText value="#{pageFlowScope.componentProperties.inlineStyle}"
+                     label="Inline Style" id="pInlineStyle"
+                     rendered="#{pageFlowScope.componentProperties['inlineStyle'] ne null}"
+                     autoCapitalize="none" autoCorrect="off"/>
+      <amx:selectOneChoice value="#{pageFlowScope.componentProperties.inputType}"
+                           label="Input Type" id="pInputType"
+                           rendered="#{pageFlowScope.componentProperties['inputType'] ne null}">
+        <amx:selectItem label="Text" value="text"/>
+        <amx:selectItem label="Number" value="number"/>
+        <amx:selectItem label="Email" value="email"/>
+        <amx:selectItem label="Tel" value="tel"/>
+        <amx:selectItem label="Url" value="url"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice label="Input Type"
+                           value="#{pageFlowScope.componentProperties.dateInputType}"
+                           id="pDateInputType"
+                           rendered="#{pageFlowScope.componentProperties['dateInputType'] ne null}">
+        <amx:selectItem label="date" value="date"/>
+        <amx:selectItem label="time" value="time"/>
+        <amx:selectItem label="datetime" value="datetime"/>
+      </amx:selectOneChoice>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.dateLegacyMode}"
+                               label="Legacy Mode" id="pdateLegacyMode"
+                               rendered="#{pageFlowScope.componentProperties['dateLegacyMode'] ne null}"
+                               offLabel="False" onLabel="True"/>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.integerOnly}"
+                               label="Integer Only" id="pIntegerOnly"
+                               rendered="#{pageFlowScope.componentProperties['integerOnly'] ne null}"
+                               offLabel="False" onLabel="True"/>
+      <amx:selectOneChoice label="Item Sizing"
+                           value="#{pageFlowScope.componentProperties.itemSizing}"
+                           id="pItemSizing"
+                           rendered="#{pageFlowScope.componentProperties['itemSizing'] ne null}">
+        <amx:selectItem label="fixed" value="fixed"/>
+        <amx:selectItem label="stretched" value="stretched"/>
+      </amx:selectOneChoice>
+      <amx:inputText value="#{pageFlowScope.componentProperties.itemsPerPage}"
+                     label="Items Per Page" id="pItemsPerPage"
+                     rendered="#{pageFlowScope.componentProperties['itemsPerPage'] ne null}"/>
+      <amx:selectOneChoice value="#{pageFlowScope.componentProperties.keyboardDismiss}"
+                           label="Keyboard Dismiss" id="pKeyboardDismiss"
+                           rendered="#{pageFlowScope.componentProperties['keyboardDismiss'] ne null}">
+        <amx:selectItem label="normal" value="normal"/>
+        <amx:selectItem label="go" value="go"/>
+        <amx:selectItem label="search" value="search"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice value="#{pageFlowScope.componentProperties.showClear}"
+                           label="Show Clear" id="pShowClear"
+                           rendered="#{pageFlowScope.componentProperties['showClear'] ne null}">
+        <amx:selectItem label="auto (default)" value="normal"/>
+        <amx:selectItem label="on" value="on"/>
+        <amx:selectItem label="off" value="off"/>
+      </amx:selectOneChoice>
+      <amx:inputText value="#{pageFlowScope.componentProperties.label}" label="Label" id="pLabel"
+                     rendered="#{pageFlowScope.componentProperties['label'] ne null}"/>
+      <amx:selectOneChoice value="#{pageFlowScope.componentProperties.labelPosition}"
+                           label="Label Position" id="pLabelPosition"
+                           rendered="#{pageFlowScope.componentProperties['labelPosition'] ne null}">
+        <amx:selectItem label="Start" value="start"/>
+        <amx:selectItem label="Center" value="center"/>
+        <amx:selectItem label="End" value="end"/>
+        <amx:selectItem label="TopStart" value="topStart"/>
+        <amx:selectItem label="TopCenter" value="topCenter"/>
+        <amx:selectItem label="TopEnd" value="topEnd"/>
+      </amx:selectOneChoice>
+      <amx:inputText value="#{pageFlowScope.componentProperties.labelWidth}" label="Label Width"
+                     id="pLabelWidth"
+                     rendered="#{pageFlowScope.componentProperties['labelWidth'] ne null}"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.landmark}" label="Landmark"
+                     id="pLandmark"
+                     rendered="#{pageFlowScope.componentProperties['landmark'] ne null}"/>
+      <amx:selectOneChoice label="Last Page Set Behavior"
+                           value="#{pageFlowScope.componentProperties.lastGroupBehavior}"
+                           id="pLastGroupBehavior"
+                           rendered="#{pageFlowScope.componentProperties['lastGroupBehavior'] ne null}">
+        <amx:selectItem label="remaining" value="remaining"/>
+        <amx:selectItem label="full" value="full"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice value="#{pageFlowScope.componentProperties.layout}" label="Layout"
+                           id="pLayout"
+                           rendered="#{pageFlowScope.componentProperties['layout'] ne null}">
+        <amx:selectItem label="horizontal" value="horizontal"/>
+        <amx:selectItem label="vertical" value="vertical"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice value="#{pageFlowScope.componentProperties.layoutPGL}" label="Layout"
+                           id="pLayoutPGL"
+                           rendered="#{pageFlowScope.componentProperties['layoutPGL'] ne null}">
+        <amx:selectItem label="horizontal" value="horizontal"/>
+        <amx:selectItem label="vertical" value="vertical"/>
+        <amx:selectItem label="wrap" value="wrap"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice value="#{pageFlowScope.componentProperties.layoutLV}" label="Layout"
+                           id="pLayoutLV"
+                           rendered="#{pageFlowScope.componentProperties['layoutLV'] ne null}">
+        <amx:selectItem label="rows" value="rows"/>
+        <amx:selectItem label="cards" value="cards"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice value="#{pageFlowScope.componentProperties.layoutTL}" label="Layout"
+                           id="pLayoutTL"
+                           rendered="#{pageFlowScope.componentProperties['layoutTL'] ne null}">
+        <amx:selectItem label="fixed" value="fixed"/>
+        <amx:selectItem label="weighted" value="weighted"/>
+      </amx:selectOneChoice>
+      <amx:inputText value="#{pageFlowScope.componentProperties.maxColumns}" label="Max Columns"
+                     id="pMaxColumns"
+                     rendered="#{pageFlowScope.componentProperties['maxColumns'] ne null}"/>
+      <amx:inputNumberSlider id="pMaxFractionDigits"
+                             value="#{pageFlowScope.componentProperties.maxFractionDigits}"
+                             rendered="#{pageFlowScope.componentProperties['maxFractionDigits'] ne null}"
+                             label="Max Fraction Digits" minimum="0" maximum="20"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.maximum}" label="Maximum"
+                     id="pMaximum"
+                     rendered="#{pageFlowScope.componentProperties['maximum'] ne null}"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.maximumLength}"
+                     label="Maximum Length" id="pMaximumLength"
+                     rendered="#{pageFlowScope.componentProperties['maximumLength'] ne null}"/>
+      <amx:inputNumberSlider id="pMaxIntegerDigits"
+                             value="#{pageFlowScope.componentProperties.maxIntegerDigits}"
+                             rendered="#{pageFlowScope.componentProperties['maxIntegerDigits'] ne null}"
+                             label="Max Integer Digits" minimum="0" maximum="20"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.method}" label="Method"
+                     id="pMethod" rendered="#{pageFlowScope.componentProperties['method'] ne null}"
+                     autoCapitalize="none" autoCorrect="off"/>
+      <amx:inputNumberSlider id="pMinFractionDigits"
+                             value="#{pageFlowScope.componentProperties.minFractionDigits}"
+                             rendered="#{pageFlowScope.componentProperties['minFractionDigits'] ne null}"
+                             label="Min Fraction Digits" minimum="0" maximum="20"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.minimum}" label="Minimum"
+                     id="pMinimum"
+                     rendered="#{pageFlowScope.componentProperties['minimum'] ne null}"/>
+      <amx:inputNumberSlider id="pMinIntegerDigits"
+                             value="#{pageFlowScope.componentProperties.minIntegerDigits}"
+                             rendered="#{pageFlowScope.componentProperties['minIntegerDigits'] ne null}"
+                             label="Min Integer Digits" minimum="0" maximum="20"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.offLabel}" label="Off Label"
+                     id="pOffLabel"
+                     rendered="#{pageFlowScope.componentProperties['offLabel'] ne null}"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.onLabel}" label="On Label"
+                     id="pOnLabel"
+                     rendered="#{pageFlowScope.componentProperties['onLabel'] ne null}"/>
+      <amx:selectOneChoice label="Orientation"
+                           value="#{pageFlowScope.componentProperties.orientation}"
+                           id="pOrientation"
+                           rendered="#{pageFlowScope.componentProperties['orientation'] ne null}">
+        <amx:selectItem label="horizontal" value="horizontal"/>
+        <amx:selectItem label="vertical" value="vertical"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice label="Page Control Position"
+                           value="#{pageFlowScope.componentProperties.pageControlPosition}"
+                           id="pPageControlPosition"
+                           rendered="#{pageFlowScope.componentProperties['pageControlPosition'] ne null}">
+        <amx:selectItem label="top" value="top"/>
+        <amx:selectItem label="bottom" value="bottom"/>
+        <amx:selectItem label="start" value="start"/>
+        <amx:selectItem label="end" value="end"/>
+        <amx:selectItem label="insideTop" value="insideTop"/>
+        <amx:selectItem label="insideBottom" value="insideBottom"/>
+        <amx:selectItem label="insideStart" value="insideStart"/>
+        <amx:selectItem label="insideEnd" value="insideEnd"/>
+      </amx:selectOneChoice>
+      <amx:inputText value="#{pageFlowScope.componentProperties.convertDateTimePattern}"
+                     label="Pattern" id="pConvertDateTimePattern"
+                     rendered="#{pageFlowScope.componentProperties['convertDateTimePattern'] ne null}"
+                     hintText="e.g. yyyy.MM.dd HH:mm:ss z"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.popupId}"
+                     label="Popup ID" id="pPopupId"
+                     rendered="#{pageFlowScope.componentProperties['popupId'] ne null}"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.position}" label="Position"
+                     id="pPosition"
+                     rendered="#{pageFlowScope.componentProperties['position'] ne null}"/>
+      <amx:selectOneChoice value="#{pageFlowScope.componentProperties.navigatorDisplay}"
+                           label="navigatorDisplay" 
+                           id="pNavigatorDisplay"
+                           rendered="#{pageFlowScope.componentProperties['navigatorDisplay'] ne null}">
+        <amx:selectItem label="auto" value="auto"/>
+        <amx:selectItem label="inline" value="inline"/>
+        <amx:selectItem label="overlay" value="overlay"/>
+      </amx:selectOneChoice>
+
+      <amx:selectOneChoice value="#{pageFlowScope.componentProperties.navigatorDisclosureState}"
+                           label="navigatorDisclosureState"
+                           id="pNavigatorDisclosureState"
+                           rendered="#{pageFlowScope.componentProperties['navigatorDisclosureState'] ne null}">
+        <amx:selectItem label="auto" value="auto"/>
+        <amx:selectItem label="open" value="open"/>
+        <amx:selectItem label="closed" value="closed"/>
+      </amx:selectOneChoice>
+      <amx:inputText value="#{pageFlowScope.componentProperties.pullText}" label="Pull Text"
+                     id="pPullText"
+                     rendered="#{pageFlowScope.componentProperties['pullText'] ne null}"/>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.readOnly}"
+                               label="Read Only" id="pReadOnly"
+                               rendered="#{pageFlowScope.componentProperties['readOnly'] ne null}"
+                               offLabel="False" onLabel="True"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.refreshDesc}" label="Refresh Desc"
+                     id="pRefreshDesc"
+                     rendered="#{pageFlowScope.componentProperties['refreshDesc'] ne null}"/>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.rendered}"
+                               label="Rendered" id="pRendered"
+                               rendered="#{pageFlowScope.componentProperties['rendered'] ne null}"
+                               offLabel="False" onLabel="True"/>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.required}"
+                               label="Required" id="pRequired"
+                               rendered="#{pageFlowScope.componentProperties['required'] ne null}"
+                               offLabel="False" onLabel="True"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.rowSpan}" label="Row Span"
+                     id="pRowSpan"
+                     rendered="#{pageFlowScope.componentProperties['rowSpan'] ne null}"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.rows}" label="Rows" id="pRows"
+                     rendered="#{pageFlowScope.componentProperties['rows'] ne null}"/>
+      <amx:selectOneChoice value="#{pageFlowScope.componentProperties.scrollPolicy}"
+                           label="Scroll Policy" id="pScrollPolicy"
+                           rendered="#{pageFlowScope.componentProperties['scrollPolicy'] ne null}">
+        <amx:selectItem label="auto" value="auto"/>
+        <amx:selectItem label="none" value="none"/>
+        <amx:selectItem label="scroll" value="scroll"/>
+      </amx:selectOneChoice>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.secret}" label="Secret"
+                               id="pSecret"
+                               rendered="#{pageFlowScope.componentProperties['secret'] ne null}"
+                               styleClass="notdone" offLabel="False" onLabel="True"/>
+      <amx:selectOneChoice value="#{pageFlowScope.componentProperties.sectionIndex}"
+                           label="Section Index"
+                           rendered="#{pageFlowScope.componentProperties['sectionIndex'] ne null}"
+                           id="pSectionIndex">
+        <amx:selectItem label="auto" value="auto"/>
+        <amx:selectItem label="off" value="off"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice label="Security" value="#{pageFlowScope.componentProperties.security}"
+                           id="pSecurity"
+                           rendered="#{pageFlowScope.componentProperties['security'] ne null}">
+        <amx:selectItem label="high" value="high"/>
+        <amx:selectItem label="none" value="none"/>
+      </amx:selectOneChoice>
+      <amx:inputText value="#{pageFlowScope.componentProperties.selectedItem}"
+                     label="Selected Item" id="pSelectedItem"
+                     rendered="#{pageFlowScope.componentProperties['selectedItem'] ne null}"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.shortDesc}" label="Short Desc"
+                     id="pShortDesc"
+                     rendered="#{pageFlowScope.componentProperties['shortDesc'] ne null}"/>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.showDividerCount}"
+                               label="Show Count" id="pShowDividerCount"
+                               rendered="#{pageFlowScope.componentProperties['showDividerCount'] ne null}"
+                               offLabel="False" onLabel="True"/>
+      <amx:selectOneChoice value="#{pageFlowScope.componentProperties.showHorizontalDividers}"
+                           label="Show Horizontal Dividers"
+                           rendered="#{pageFlowScope.componentProperties['showHorizontalDividers'] ne null}"
+                           id="pShowHorizontalDividers">
+        <amx:selectItem label="true" value="true"/>
+        <amx:selectItem label="false" value="false"/>
+      </amx:selectOneChoice>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.showLinkIcon}"
+                               label="ShowLinkIcon" id="pShowLinkIcon"
+                               rendered="#{pageFlowScope.componentProperties['showLinkIcon'] ne null}"
+                               offLabel="False" onLabel="True"/>
+      <amx:selectOneChoice value="#{pageFlowScope.componentProperties.showMoreStrategy}"
+                           label="Show More Strategy"
+                           rendered="#{pageFlowScope.componentProperties['showMoreStrategy'] ne null}"
+                           id="pShowMoreStrategy">
+        <amx:selectItem label="off" value="off"/>
+        <amx:selectItem label="autoLink" value="autoLink"/>
+        <amx:selectItem label="forceLink" value="forceLink"/>
+        <amx:selectItem label="autoScroll" value="autoScroll"/>
+        <amx:selectItem label="forceScroll" value="forceScroll"/>
+      </amx:selectOneChoice>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.showRequired}"
+                               label="Show Required" id="pShowRequired"
+                               rendered="#{pageFlowScope.componentProperties['showRequired'] ne null}"
+                               offLabel="False" onLabel="True"/>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.simple}" label="Simple"
+                               id="pSimple"
+                               rendered="#{pageFlowScope.componentProperties['simple'] ne null}"
+                               offLabel="False" onLabel="True"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.source}" label="Source"
+                     id="pSource" autoCapitalize="none" autoCorrect="off"
+                     rendered="#{pageFlowScope.componentProperties['source'] ne null}"/>
+      <amx:selectOneChoice value="#{pageFlowScope.componentProperties.sourceDelivery}"
+                           label="Source Delivery" id="pSourceDelivery"
+                           rendered="#{pageFlowScope.componentProperties['sourceDelivery'] ne null}">
+        <amx:selectItem label="reference" value="reference"/>
+        <amx:selectItem label="fetchAndInline" value="fetchAndInline"/>
+      </amx:selectOneChoice>
+      <amx:inputText value="#{pageFlowScope.componentProperties.startClass}"
+                     label="Start Class" id="pStartClass"
+                     rendered="#{pageFlowScope.componentProperties['startClass'] ne null}"
+                     autoCapitalize="none" autoCorrect="off"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.startDesc}"
+                     label="Start Desc" id="pStartDesc"
+                     rendered="#{pageFlowScope.componentProperties['startDesc'] ne null}"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.startFullTriggerSelector}"
+                     label="Start Full Trigger Selector" id="pStartFullTriggerSelector"
+                     rendered="#{pageFlowScope.componentProperties['startFullTriggerSelector'] ne null}"
+                     autoCapitalize="none" autoCorrect="off"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.startStyle}"
+                     label="Start Style" id="pStartStyle"
+                     rendered="#{pageFlowScope.componentProperties['startStyle'] ne null}"
+                     autoCapitalize="none" autoCorrect="off"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.startWidth}"
+                     label="Start Width" id="pStartWidth"
+                     rendered="#{pageFlowScope.componentProperties['startWidth'] ne null}"
+                     autoCapitalize="none" autoCorrect="off"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.stepSize}" label="Step Size"
+                     id="pStepSize"
+                     rendered="#{pageFlowScope.componentProperties['stepSize'] ne null}"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.styleClass}" label="Style Class"
+                     id="pStyleClass"
+                     rendered="#{pageFlowScope.componentProperties['styleClass'] ne null}"
+                     autoCapitalize="none" autoCorrect="off"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.subText}" label="Sub Text"
+                     id="pSubText"
+                     rendered="#{pageFlowScope.componentProperties['subText'] ne null}"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.summary}" label="Summary"
+                     id="pSummary"
+                     rendered="#{pageFlowScope.componentProperties['summary'] ne null}"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.text}" label="Text" id="pText"
+                     rendered="#{pageFlowScope.componentProperties['text'] ne null}"/>
+      <amx:selectOneChoice label="Time Style"
+                           value="#{pageFlowScope.componentProperties.timeStyle}" id="pTimeStyle"
+                           rendered="#{pageFlowScope.componentProperties['timeStyle'] ne null}">
+        <amx:selectItem label="default" value="default"/>
+        <amx:selectItem label="short" value="small"/>
+        <amx:selectItem label="medium" value="medium"/>
+        <amx:selectItem label="long" value="long"/>
+        <amx:selectItem label="full" value="full"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice label="Transition for the &quot;backNavigate&quot; triggerType"
+                           value="#{pageFlowScope.componentProperties.transition}"
+                           id="pTransition"
+                           rendered="#{pageFlowScope.componentProperties['transition'] ne null}">
+        <amx:selectItem label="none" value="none"/>
+        <amx:selectItem label="coverUp" value="coverUp"/>
+        <amx:selectItem label="coverDown" value="coverDown"/>
+        <amx:selectItem label="coverStart" value="coverStart"/>
+        <amx:selectItem label="coverEnd" value="coverEnd"/>
+        <amx:selectItem label="coverLeft" value="coverLeft"/>
+        <amx:selectItem label="coverRight" value="coverRight"/>
+        <amx:selectItem label="flipUp" value="flipUp"/>
+        <amx:selectItem label="flipDown" value="flipDown"/>
+        <amx:selectItem label="flipStart" value="flipStart"/>
+        <amx:selectItem label="flipEnd" value="flipEnd"/>
+        <amx:selectItem label="flipLeft" value="flipLeft"/>
+        <amx:selectItem label="flipRight" value="flipRight"/>
+        <amx:selectItem label="revealUp" value="revealUp"/>
+        <amx:selectItem label="revealDown" value="revealDown"/>
+        <amx:selectItem label="revealStart" value="revealStart"/>
+        <amx:selectItem label="revealEnd" value="revealEnd"/>
+        <amx:selectItem label="revealLeft" value="revealLeft"/>
+        <amx:selectItem label="revealRight" value="revealRight"/>
+        <amx:selectItem label="slideUp" value="slideUp"/>
+        <amx:selectItem label="slideDown" value="slideDown"/>
+        <amx:selectItem label="slideStart" value="slideStart"/>
+        <amx:selectItem label="slideEnd" value="slideEnd"/>
+        <amx:selectItem label="slideLeft" value="slideLeft"/>
+        <amx:selectItem label="slideRight" value="slideRight"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice label="Transition for the &quot;forwardNavigate&quot; triggerType"
+                           value="#{pageFlowScope.componentProperties.transition2}"
+                           id="pTransition2"
+                           rendered="#{pageFlowScope.componentProperties['transition2'] ne null}">
+        <amx:selectItem label="none" value="none"/>
+        <amx:selectItem label="coverUp" value="coverUp"/>
+        <amx:selectItem label="coverDown" value="coverDown"/>
+        <amx:selectItem label="coverStart" value="coverStart"/>
+        <amx:selectItem label="coverEnd" value="coverEnd"/>
+        <amx:selectItem label="coverLeft" value="coverLeft"/>
+        <amx:selectItem label="coverRight" value="coverRight"/>
+        <amx:selectItem label="flipUp" value="flipUp"/>
+        <amx:selectItem label="flipDown" value="flipDown"/>
+        <amx:selectItem label="flipStart" value="flipStart"/>
+        <amx:selectItem label="flipEnd" value="flipEnd"/>
+        <amx:selectItem label="flipLeft" value="flipLeft"/>
+        <amx:selectItem label="flipRight" value="flipRight"/>
+        <amx:selectItem label="revealUp" value="revealUp"/>
+        <amx:selectItem label="revealDown" value="revealDown"/>
+        <amx:selectItem label="revealStart" value="revealStart"/>
+        <amx:selectItem label="revealEnd" value="revealEnd"/>
+        <amx:selectItem label="revealLeft" value="revealLeft"/>
+        <amx:selectItem label="revealRight" value="revealRight"/>
+        <amx:selectItem label="slideUp" value="slideUp"/>
+        <amx:selectItem label="slideDown" value="slideDown"/>
+        <amx:selectItem label="slideStart" value="slideStart"/>
+        <amx:selectItem label="slideEnd" value="slideEnd"/>
+        <amx:selectItem label="slideLeft" value="slideLeft"/>
+        <amx:selectItem label="slideRight" value="slideRight"/>
+      </amx:selectOneChoice>
+      <amx:inputText value="#{pageFlowScope.componentProperties.truncateAt}" label="Truncate At"
+                     id="pTruncateAt"
+                     rendered="#{pageFlowScope.componentProperties['truncateAt'] ne null}"
+                     styleClass="notdone"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.type}" label="Type" id="pType"
+                     rendered="#{pageFlowScope.componentProperties['type'] ne null}"
+                     autoCapitalize="none" autoCorrect="off"/>
+      <amx:selectOneChoice label="Type"
+                           value="#{pageFlowScope.componentProperties.convertDateTimeType}"
+                           id="pConvertDateTimeType"
+                           rendered="#{pageFlowScope.componentProperties['convertDateTimeType'] ne null}">
+        <amx:selectItem label="both" value="both"/>
+        <amx:selectItem label="date" value="date"/>
+        <amx:selectItem label="time" value="time"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice label="Type"
+                           value="#{pageFlowScope.componentProperties.convertNumberType}"
+                           id="pConvertNumberType"
+                           rendered="#{pageFlowScope.componentProperties['convertNumberType'] ne null}">
+        <amx:selectItem label="number" value="number"/>
+        <amx:selectItem label="currency" value="currency"/>
+        <amx:selectItem label="percent" value="percent"/>
+      </amx:selectOneChoice>
+      <amx:inputText value="#{pageFlowScope.componentProperties.url}" label="Url" id="pUrl"
+                     rendered="#{pageFlowScope.componentProperties['url'] ne null}"/>
+      <amx:selectOneChoice label="Valign" value="#{pageFlowScope.componentProperties.valign}"
+                           id="pValign"
+                           rendered="#{pageFlowScope.componentProperties['valign'] ne null}">
+        <amx:selectItem label="top" value="top"/>
+        <amx:selectItem label="middle" value="middle"/>
+        <amx:selectItem label="bottom" value="bottom"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice label="Valign"
+                           value="#{pageFlowScope.componentProperties.filmStripValign}"
+                           id="pFilmStripValign"
+                           rendered="#{pageFlowScope.componentProperties['filmStripValign'] ne null}">
+        <amx:selectItem label="top" value="top"/>
+        <amx:selectItem label="middle" value="middle"/>
+        <amx:selectItem label="bottom" value="bottom"/>
+        <amx:selectItem label="justify" value="justify"/>
+      </amx:selectOneChoice>
+      <amx:inputText value="#{pageFlowScope.componentProperties.value}" label="Value" id="pValue"
+                     rendered="#{pageFlowScope.componentProperties['value'] ne null}"
+                     readOnly="#{pageFlowScope.componentProperties.valueIsReadOnly}"/>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.valueBool}"
+                               label="Value" id="pValueBool"
+                               rendered="#{pageFlowScope.componentProperties['valueBool'] ne null}"
+                               offLabel="False" onLabel="True"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.width}" label="Width" id="pWidth"
+                     rendered="#{pageFlowScope.componentProperties['width'] ne null}"/>
+    </amx:panelFormLayout>
+  </amx:panelPage>
+</amx:view>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="My Org" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton id="cb1" text="Back" action="__back" rendered="#{pageFlowScope.showBackButton eq 'true'}"
+                               shortDesc="Back Button"/>
+            <amx:commandLink id="cl1" actionListener="#{bindings.toggleSpringboard.execute}"
+                             styleClass="springboard-icon" rendered="#{pageFlowScope.showBackButton ne 'true'}"
+                             shortDesc="Springboard Link">
+                <amx:image id="i1" source="/images/springboard.svg" shortDesc="Springboard Image"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandLink id="cl4" styleClass="springboard-icon" shortDesc="Sort Link">
+                <amx:image id="i2" source="/images/arrowssort_func.svg" shortDesc="Springboard Image"/>
+                <amx:showPopupBehavior id="spb1" popupId="p1" align="overlapMiddleCenter" alignId="pp1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:facet name="footer">
+            <amx:tableLayout id="tl2" width="100%" shortDesc="table">
+                <amx:rowLayout id="rl15">
+                    <amx:cellFormat id="cf22" width="33%" height="44" shortDesc="cell">
+                        <amx:commandLink id="cl2"
+                                         styleClass="fullSize phoneToolbarItem#{UserBean.orgListTab eq 'summary' ? 'Selected' : 'Enabled'}"
+                                         shortDesc="Summary Toolbar Link">
+                            <amx:panelGroupLayout id="pgl10" halign="center">
+                                <amx:image id="i9"
+                                           source="/images/summary_#{UserBean.orgListTab eq 'summary' ? 'selected' : 'enabled'}_nav_bar_icon.svg"
+                                           shortDesc="Summary Toolbar Image"/>
+                                <amx:outputText value="Summary" id="ot17"/>
+                            </amx:panelGroupLayout>
+                            <amx:setPropertyListener id="spl2" from="summary" to="#{UserBean.orgListTab}"/>
+                        </amx:commandLink>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf27" width="33%" shortDesc="cell">
+                        <amx:commandLink id="cl3"
+                                         styleClass="fullSize phoneToolbarItem#{UserBean.orgListTab eq 'perf' ? 'Selected' : 'Enabled'}"
+                                         shortDesc="Performance Toolbar Link">
+                            <amx:panelGroupLayout id="pgl11" halign="center">
+                                <amx:image id="i10"
+                                           source="/images/perf_#{UserBean.orgListTab eq 'perf' ? 'selected' : 'enabled'}_nav_bar_icon.svg"
+                                           shortDesc="Performance Toolbar Image"/>
+                                <amx:outputText value="Performance" id="ot18"/>
+                            </amx:panelGroupLayout>
+                            <amx:setPropertyListener id="spl3" from="perf" to="#{UserBean.orgListTab}"/>
+                        </amx:commandLink>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf29" width="33%" shortDesc="cell">
+                        <amx:commandLink id="cl5"
+                                         styleClass="fullSize phoneToolbarItem#{UserBean.orgListTab eq 'comp' ? 'Selected' : 'Enabled'}"
+                                         shortDesc="Compensation Toolbar Link">
+                            <amx:panelGroupLayout id="pgl12" halign="center">
+                                <amx:image id="i11"
+                                           source="/images/comp_#{UserBean.orgListTab eq 'comp' ? 'selected' : 'enabled'}_nav_bar_icon.svg"
+                                           shortDesc="Compensation Toolbar Image"/>
+                                <amx:outputText value="Compensation" id="ot19"/>
+                            </amx:panelGroupLayout>
+                            <amx:setPropertyListener id="spl4" from="comp" to="#{UserBean.orgListTab}"/>
+                        </amx:commandLink>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:facet>
+        <amx:fragment src="/fragments/emplist_phone.amxf" id="f1" styleClass="fullSize">
+            <amx:attribute name="Collection" value="#{bindings.orgEmployees}" id="a1"/>
+            <amx:attribute name="DirectoryMode" value="false" id="a2"/>
+        </amx:fragment>
+    </amx:panelPage>
+    <amx:popup id="p1" autoDismiss="true" animation="zoom" inlineStyle="padding:0;" shortDesc="Sort Popup">
+        <amx:panelGroupLayout id="pgl3" styleClass="sortpopup">
+            <amx:selectOneRadio id="sor1" valueChangeListener="#{bindings.sortOrgEmployees.execute}" simple="true"
+                                value="#{UserBean.orgListFilter}">
+                <?audit suppress oracle.maf.warning-missing-label?>
+                <amx:selectItem id="si4" label="Alphabetical" value="alpha"/>
+                <amx:selectItem id="si7" label="Compa Ratio" value="compratio"/>
+                <amx:selectItem id="si6" label="Potential" value="potential"/>
+                <amx:selectItem id="si5" label="Rating" value="rating"/>
+                <amx:selectItem id="si10" label="Retention Impact" value="lossimpact"/>
+                <amx:selectItem id="si9" label="Retention Risk" value="lossrisk"/>
+                <amx:selectItem id="si8" label="Total Comp" value="totalcomp"/>
+            </amx:selectOneRadio>
+        </amx:panelGroupLayout>
+    </amx:popup>
+</amx:view>

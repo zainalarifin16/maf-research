@@ -1,0 +1,52 @@
+<?xml version = '1.0' encoding = 'UTF-8' standalone = 'yes'?>
+<jazn-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="http://xmlns.oracle.com/oracleas/schema/jazn-data.xsd">
+  <jazn-realm default="jazn.com">
+    <realm>
+      <name>jazn.com</name>
+      <users>
+        <user>
+          <name>Srini</name>
+          <credentials>{903}GjuO+pPvjs+OEp5MyrM7j3yHHxN0SIom</credentials>
+          <display-name>Srini</display-name>
+        </user>
+        <user>
+          <name>James</name>
+          <credentials>{903}HfWxOoJuXcXt3BnGXtudIs8IMzHvH3GO</credentials>
+          <description>IC</description>
+        </user>
+      </users>
+    </realm>
+  </jazn-realm>
+  <policy-store>
+    <applications>
+      <application>
+        <name>ACS</name>
+        <app-roles>
+          <app-role>
+            <name>MGR_ROLE</name>
+            <class>oracle.security.jps.service.policystore.ApplicationRole</class>
+            <display-name>Manager</display-name>
+            <members>
+              <member>
+                <class>oracle.security.jps.internal.core.principals.JpsXmlUserImpl</class>
+                <name>Srini</name>
+              </member>
+            </members>
+          </app-role>
+          <app-role>
+            <name>IC_ROLE</name>
+            <class>oracle.security.jps.service.policystore.ApplicationRole</class>
+            <display-name>Individual Contributor</display-name>
+            <members>
+              <member>
+                <class>oracle.security.jps.internal.core.principals.JpsXmlUserImpl</class>
+                <name>James</name>
+              </member>
+            </members>
+          </app-role>
+        </app-roles>
+      </application>
+    </applications>
+  </policy-store>
+</jazn-data>

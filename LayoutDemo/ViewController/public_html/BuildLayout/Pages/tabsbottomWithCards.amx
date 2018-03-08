@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="Tabs Bottom &amp; Cards" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton action="__back" id="cb1"/>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandButton id="cb2"/>
+        </amx:facet>
+        <amx:panelStretchLayout id="psl1">
+            <amx:facet name="top">
+                <amx:panelGroupLayout styleClass="summary-section-style"  
+                                      rendered="#{pageFlowScope.useFixedSummaryView=='true'}" layout="horizontal"
+                                      halign="center" id="pgl1">
+                    <amx:outputText value="Summary Section" id="ot2"/>
+                </amx:panelGroupLayout>
+            </amx:facet>
+            <amx:facet name="center">
+                <amx:deck displayedChild="#{HandlerBean.selectedTabsBottomContent =='' ? 'Link1' : HandlerBean.selectedTabsBottomContent}"
+                          id="d1">
+                    <amx:transition id="tBack" triggerType="backNavigate" transition="slideEnd"/>
+                    <amx:transition id="tFwd" triggerType="forwardNavigate" transition="slideStart"/>
+                    <amx:fragment src="/BuildLayout/Fragments/cardsContentLayout.amxf" id="Tab1">
+                        <amx:attribute name="contentText1" value="A" id="a1"/>
+                        <amx:attribute name="contentText2" value="B" id="a2"/>
+                        <amx:attribute name="contentText3" value="C" id="a3"/>
+                        <amx:attribute name="contentText4" value="D" id="a4"/>
+                        <amx:attribute name="contentText5" value="E" id="a5"/>
+                    </amx:fragment>
+                    <amx:fragment src="/BuildLayout/Fragments/cardsContentLayout.amxf" id="Tab2">
+                        <amx:attribute name="contentText1" value="F" id="b1"/>
+                        <amx:attribute name="contentText2" value="G" id="b2"/>
+                        <amx:attribute name="contentText3" value="H" id="b3"/>
+                        <amx:attribute name="contentText4" value="I" id="b4"/>
+                        <amx:attribute name="contentText5" value="J" id="b5"/>
+                    </amx:fragment>
+                    <amx:fragment src="/BuildLayout/Fragments/cardsContentLayout.amxf" id="Tab3">
+                        <amx:attribute name="contentText1" value="K" id="c1"/>
+                        <amx:attribute name="contentText2" value="L" id="c2"/>
+                        <amx:attribute name="contentText3" value="M" id="c3"/>
+                        <amx:attribute name="contentText4" value="N" id="c4"/>
+                        <amx:attribute name="contentText5" value="O" id="c5"/>
+                    </amx:fragment>
+                    <amx:fragment src="/BuildLayout/Fragments/cardsContentLayout.amxf" id="Tab4">
+                        <amx:attribute name="contentText1" value="O" id="dd1"/>
+                        <amx:attribute name="contentText2" value="P" id="d2"/>
+                        <amx:attribute name="contentText3" value="Q" id="d3"/>
+                        <amx:attribute name="contentText4" value="R" id="d4"/>
+                        <amx:attribute name="contentText5" value="S" id="d5"/>
+                    </amx:fragment>
+                </amx:deck>
+            </amx:facet>
+            <amx:facet name="bottom">
+                <amx:selectOneButton inlineStyle="background-color:#F6F6F7;"
+                                     value="#{HandlerBean.selectedTabsBottomContent}" simple="true" layout="horizontal"
+                                     valueChangeListener="#{HandlerBean.handleTabsBottomContentSelection}" id="sob1">
+                    <amx:selectItem label="Tab1" value="Tab1" id="si1"/>
+                    <amx:selectItem label="Tab2" value="Tab2" id="si2"/>
+                    <amx:selectItem label="Tab3" value="Tab3" id="si3"/>
+                    <amx:selectItem label="Tab4" value="Tab4" id="si4"/>
+                </amx:selectOneButton>
+            </amx:facet>
+        </amx:panelStretchLayout>
+    </amx:panelPage>
+</amx:view>

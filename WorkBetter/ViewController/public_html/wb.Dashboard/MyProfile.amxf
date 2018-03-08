@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1"/>
+    <amx:outputText value="My Profile" id="ot1" styleClass="tile-title title-white"/>
+    <amx:commandLink id="cl1" action="myProfile" shortDesc="Profile Link">
+        <amx:tableLayout id="tl1" width="100%" styleClass="profile-color-#{UserBean.firstname}" shortDesc="table">
+            <amx:rowLayout id="rl1">
+                <amx:cellFormat id="cf1" height="242" width="100%" halign="center" shortDesc="cell">
+                    <amx:image id="i1" source="/images/avatar_#{UserBean.firstname}_144@2x.png"
+                               styleClass="login-avatar" shortDesc="Avatar Image"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener id="spl1" from="summary" to="#{pageFlowScope.summaryView}"/>
+        <amx:setPropertyListener id="spl2" from="true" to="#{pageFlowScope.showBackButton}"/>
+    </amx:commandLink>
+</amx:fragmentDef>

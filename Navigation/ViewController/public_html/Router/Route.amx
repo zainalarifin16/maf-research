@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="outputText1" value="Home"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="commandButton2" text="Back" action="__back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+        <amx:commandButton id="commandButton1" text="Goto Router" action="route">
+      <amx:setPropertyListener from="" to="#{applicationScope.empid}" type="action"/>
+    </amx:commandButton>
+   </amx:facet>
+    <amx:selectOneChoice id="selectOneChoice1" label="Goto: " value="#{pageFlowScope.outcome}">
+      <amx:selectItem label="View 1" value="view1"/>
+      <amx:selectItem label="View 2" value="view2"/>
+    </amx:selectOneChoice>
+    <amx:panelGroupLayout layout="horizontal" halign="center" id="pgl1">
+    <amx:image source="/images/router2.png" id="i2"/>
+    </amx:panelGroupLayout>
+  </amx:panelPage>
+</amx:view>

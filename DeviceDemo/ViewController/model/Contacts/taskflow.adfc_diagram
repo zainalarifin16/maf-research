@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">Search</property>
+      <property
+         name="page">Contacts/Search.amx</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Search&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">251.36719</property>
+      <property
+         name="x">182.5</property>
+   </View>
+   <View
+      id="View3">
+      <property
+         name="activityId">Results</property>
+      <property
+         name="page">Contacts/Results.amx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Results&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">251.60156</property>
+      <property
+         name="x">371.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="View3">
+      <property
+         name="fromOutcome">results</property>
+      <property
+         name="sdm:polyPoints">R50,223.5,251.30078,330.0,251.53516,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View5">
+      <property
+         name="activityId">Details</property>
+      <property
+         name="page">Contacts/Details.amx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Details&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">251.46875</property>
+      <property
+         name="x">558.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="View3"
+      to="View5">
+      <property
+         name="fromOutcome">details</property>
+      <property
+         name="sdm:polyPoints">R50,412.0,251.53516,517.0,251.40234,L50</property>
+   </ControlFlowCase>
+</SDM>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Flex_Layout" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="150px" height="224px" viewBox="0 0 150 224" enable-background="new 0 0 150 224" xml:space="preserve">
+<rect id="Background_Panel" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" width="150" height="224"/>
+<path id="Title" fill-rule="evenodd" clip-rule="evenodd" fill="#F6F6F7" d="M0,0h150.05v30H0V0z"/>
+<text transform="matrix(1 0 0 1 68.5835 24)" fill="#333333" font-family="'HelveticaNeue'" font-size="9">Title</text>
+<rect id="Divide" y="29.88" fill-rule="evenodd" clip-rule="evenodd" fill="#F3F3F4" width="150" height="1"/>
+<g id="Springboard_Icon_1_">
+	<g>
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="#0572CE" d="M13.97,24.01H5.04c-0.57,0-1.03,0.45-1.03,1s0.46,1,1.03,1h8.94
+			c0.57,0,1.03-0.45,1.03-1S14.54,24.01,13.97,24.01z M13.97,20.01H5.04c-0.57,0-1.03,0.45-1.03,1s0.46,1,1.03,1h8.94
+			c0.57,0,1.03-0.45,1.03-1S14.54,20.01,13.97,20.01z M5.04,18.01h8.94c0.57,0,1.03-0.45,1.03-1s-0.46-1-1.03-1H5.04
+			c-0.57,0-1.03,0.45-1.03,1S4.47,18.01,5.04,18.01z"/>
+	</g>
+</g>
+<g id="Bottom_Horizonatal_Bar">
+	<rect id="Top_Horizontal_Bar" y="175" fill="#DAE9F5" width="150" height="48"/>
+	<path fill="#AED8FA" d="M150,223H0v-48h150V223z M149,176H1v46h148V176z"/>
+</g>
+<g id="Top_Horizontal_Bar_3_">
+	<rect id="Top_Horizontal_Bar_6_" y="31.04" fill="#DAE9F5" width="150" height="48"/>
+	<path fill="#AED8FA" d="M150,79.04H0v-48h150V79.04z M149,32.04H1v46h148V32.04z"/>
+</g>
+<path id="Border" fill-rule="evenodd" clip-rule="evenodd" fill="#D6DFE6" d="M0-0.04h150.05V224H0V-0.04z M0.96,1.03h148v222h-148
+	V1.03z"/>
+</svg>

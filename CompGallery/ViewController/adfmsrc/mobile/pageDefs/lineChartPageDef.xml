@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.61.87" id="lineChartPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="LineData2List" id="LineData2ListIterator"/>
+    <accessorIterator MasterBinding="LineData2ListIterator" Binds="lineData" RangeSize="-1" DataControl="LineData2List"
+                      BeanClass="model.LineData2" id="lineDataIterator1"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="lineDataIterator1" id="lineData1">
+      <nodeDefinition DefName="model.LineData2" Name="lineData10">
+        <AttrNames>
+          <Item Value="value"/>
+          <Item Value="group"/>
+          <Item Value="series"/>
+          <Item Value="shape"/>
+          <Item Value="color"/>
+          <Item Value="lineColor"/>
+          <Item Value="lineWidth"/>
+          <Item Value="lineStyle"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

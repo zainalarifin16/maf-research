@@ -1,0 +1,14 @@
+<basemap id="bikeMap">
+  <layer id="bike" >
+    <image source="/basemap/bicycleBaseMap.png" width="1593" height="1162" />
+  </layer>
+  <points>
+    <point name="Body" x="680" y="330"/>
+    <point name="Handle" x="1200" y="144"/>
+    <point name="Tire" x="1350" y="818"/>
+    <point name="Seat" x="350" y="56"/>
+    <point name="Gears" x="212" y="810"/>
+  </points>
+</basemap>
+
+

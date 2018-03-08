@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:clientListener type="mafviewvisible" method="handleClientListenerBlue"/>
+  <amx:clientListener type="mafviewhidden" method="handleClientListenerBlue"/>
+  <amx:clientListener type="amxnavigatestart" method="handleClientListenerBlue"/>
+  <amx:clientListener type="amxnavigateend" method="handleClientListenerBlue"/>
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Client Listener"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:clientListener"
+                  shortDesc="Tag documentation" disabled="#{GlobalProperties['tagdocUrl'] == ''}"
+                  id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=operations/clientListener"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:panelGroupLayout id="pgl1" layout="vertical">
+      <amx:commandButton id="button1" text="Button with Client Listener">
+        <amx:clientListener method="#{pageFlowScope.componentProperties.method}"
+                            type="#{pageFlowScope.componentProperties.type}"/>
+      </amx:commandButton>
+      <amx:commandButton id="showpagecompleteFromHome" text="First View's showpagecomplete">
+        <!-- There is a clientListener on the view of the first page that stores this window variable. -->
+        <amx:clientListener
+          method="function(event){_handleClientListener(window._customClientListenerShowPageComplete, 'purple');}"
+          type="action"/>
+      </amx:commandButton>
+      <amx:inputText id="text1" label="Input Text" value="I react to valueChange">
+        <amx:clientListener method="handleClientListenerOrange" type="valueChange"/>
+      </amx:inputText>
+      <amx:commandButton id="clearRecent" text="Clear">
+        <amx:clientListener type="action" method="clearRecentEvents"/>
+      </amx:commandButton>
+      <amx:verbatim id="v1"><![CDATA[
+        <script type="text/javascript">
+        function handleClientListenerGray(clientEvent)
+        {
+          _handleClientListener(clientEvent, "gray");
+        }
+        function handleClientListenerBlue(clientEvent)
+        {
+          _handleClientListener(clientEvent, "blue");
+        }
+        function handleClientListenerOrange(clientEvent)
+        {
+          _handleClientListener(clientEvent, "orange");
+        }
+        function clearRecentEvents(clientEvent)
+        {
+          for (var i=9; i>=0; --i)
+          {
+            var row = document.getElementsByClassName("recent"+i)[0];
+            row.textContent = "n/a";
+            row.style.color = "";
+          }
+        }
+        function _handleClientListener(clientEvent, color)
+        {
+          try
+          {
+            for (var i=9; i>0; --i)
+            {
+              var currentRow = document.getElementsByClassName("recent"+i)[0];
+              var olderRow = document.getElementsByClassName("recent"+(i-1))[0];
+              currentRow.textContent = olderRow.textContent;
+              currentRow.style.color = olderRow.style.color;
+            }
+            document.getElementsByClassName("recent0")[0].textContent = clientEvent;
+            document.getElementsByClassName("recent0")[0].style.color = color;
+          }
+          catch (problem)
+          {
+            alert("Error in verbatim code: " + clientEvent + "\n\n" + problem);
+          }
+        }
+        </script>
+        <style type="text/css">
+        .recentLine {
+          white-space: normal;
+          word-wrap: break-word;
+          font-size: 12px;
+          color: gray;
+        }
+        </style>
+        <fieldset style="min-width: 50px;">
+          <legend style="color: gray;">Recent Events</legend>
+          <div id="recent0" class="recent0 recentLine">n/a</div>
+          <div id="recent1" class="recent1 recentLine">n/a</div>
+          <div id="recent2" class="recent2 recentLine">n/a</div>
+          <div id="recent3" class="recent3 recentLine">n/a</div>
+          <div id="recent4" class="recent4 recentLine">n/a</div>
+          <div id="recent5" class="recent5 recentLine">n/a</div>
+          <div id="recent6" class="recent6 recentLine">n/a</div>
+          <div id="recent7" class="recent7 recentLine">n/a</div>
+          <div id="recent8" class="recent8 recentLine">n/a</div>
+          <div id="recent9" class="recent9 recentLine">n/a</div>
+        </fieldset>
+      ]]></amx:verbatim>
+    </amx:panelGroupLayout>
+  </amx:panelPage>
+</amx:view>

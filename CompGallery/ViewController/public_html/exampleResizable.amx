@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt"
+          xmlns:custom="http://xmlns.example.com/custom">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Resizable"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Other" shortDesc="Go back to Other"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <!-- TODO link this page to documentation on custom components -->
+      <amx:goLink shortDesc="Tag documentation" disabled="true" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=general/custom/exampleResizable" shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:spacer id="s1" inlineStyle="height:20px;"/>
+    <amx:panelGroupLayout id="pgl1" layout="horizontal"  inlineStyle="z-index:1">
+      <custom:resizable id="resizable" start="80" top="80" width="150" height="20">
+        <amx:outputText id="resizableOt" value="Move or resize me" inlineStyle="-webkit-user-select:none;"/>
+      </custom:resizable>
+    </amx:panelGroupLayout>
+    <amx:spacer id="s2" inlineStyle="height:20px;"/>
+  </amx:panelPage>
+</amx:view>

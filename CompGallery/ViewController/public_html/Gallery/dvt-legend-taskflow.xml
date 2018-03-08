@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="dvt-legend-taskflow">
+    <default-activity>dvtLegend</default-activity>
+    <view id="commonLegend">
+      <page>/standaloneLegend.amx</page>
+    </view>
+    <view id="dvtLegend">
+      <page>/dvtLegend.amx</page>
+    </view>
+    <task-flow-return id="return">
+      <outcome>
+        <name>return</name>
+      </outcome>
+    </task-flow-return>
+    <view id="commonLegendItem">
+      <page>/standaloneLegendItem.amx</page>
+    </view>
+    <view id="commonLegendSection">
+      <page>/standaloneLegendSection.amx</page>
+    </view>
+    <view id="LegendProperties">
+      <page>/LegendProperties.amx</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>dvtLegend</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>commonLegend</from-outcome>
+        <to-activity-id>commonLegend</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>return</from-outcome>
+        <to-activity-id>return</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>commonLegendSection</from-outcome>
+        <to-activity-id>commonLegendSection</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>commonLegendItem</from-outcome>
+        <to-activity-id>commonLegendItem</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>legendProperties</from-outcome>
+        <to-activity-id>LegendProperties</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <page-flow-scope-behavior>
+      <push-new/>
+    </page-flow-scope-behavior>
+  </task-flow-definition>
+</adfc-mobile-config>

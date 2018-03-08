@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="List_View_Enabled" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="31px" height="31px" viewBox="0 0 31 31" enable-background="new 0 0 31 31" xml:space="preserve">
+<g>
+	<g>
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="#0572CE" d="M27.99,14H11v3h16.98V14z M27.95,6.04H11v2.97h16.95V6.04z
+			 M5.08,9.93h2.79c0.62,0,1.12-0.5,1.12-1.12V6.1c0-0.62-0.5-1.12-1.12-1.12H5.08c-0.62,0-1.12,0.5-1.12,1.12v2.72
+			C3.96,9.43,4.46,9.93,5.08,9.93z M0,0v31h31V0H0z M29.97,30.04H0.96V1.02h29.01V30.04z M5.08,25.92h2.79
+			c0.62,0,1.12-0.5,1.12-1.12v-2.72c0-0.62-0.5-1.12-1.12-1.12H5.08c-0.62,0-1.12,0.5-1.12,1.12v2.72
+			C3.96,25.42,4.46,25.92,5.08,25.92z M5.08,17.93h2.79c0.62,0,1.12-0.5,1.12-1.12v-2.72c0-0.62-0.5-1.12-1.12-1.12H5.08
+			c-0.62,0-1.12,0.5-1.12,1.12v2.72C3.96,17.43,4.46,17.93,5.08,17.93z M11,25h16.95v-2.97H11V25z"/>
+	</g>
+</g>
+</svg>

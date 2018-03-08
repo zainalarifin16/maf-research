@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="dvt-gauges-taskflow">
+    <default-activity>dvtGauges</default-activity>
+    <view id="dvtGauges">
+      <page>dvtGauges.amx</page>
+    </view>
+    <view id="ledGauge">
+      <page>ledGauge.amx</page>
+    </view>
+    <view id="statusMeterGaugeHorizontal">
+      <page>/statusMeterGaugeHorizontal.amx</page>
+    </view>
+    <view id="dialGauge">
+      <page>dialGauge.amx</page>
+    </view>
+    <view id="StatusMeterGaugeProperties">
+      <page>/StatusMeterGaugeProperties.amx</page>
+    </view>
+    <view id="RatingGaugeProperties">
+      <page>ratingGaugeProperties.amx</page>
+    </view>
+    <view id="ratingGauge">
+      <page>ratingGauge.amx</page>
+    </view>
+    <view id="LedGaugeProperties">
+      <page>LedGaugeProperties.amx</page>
+    </view>
+    <view id="DialGaugeProperties">
+      <page>DialGaugeProperties.amx</page>
+    </view>
+    <task-flow-return id="return">
+      <outcome>
+        <name>return</name>
+      </outcome>
+    </task-flow-return>
+    <view id="statusMeterGaugeVertical">
+      <page>/statusMeterGaugeVertical.amx</page>
+    </view>
+    <view id="statusMeterGaugeCircular">
+      <page>/statusMeterGaugeCircular.amx</page>
+    </view>
+    <view id="ratingGaugeVertical">
+      <page>/ratingGaugeVertical.amx</page>
+    </view>
+    <view id="StatusMeterGaugeCircularProperties">
+      <page>/StatusMeterGaugeCircularProperties.amx</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>properties</from-outcome>
+        <to-activity-id>Properties</to-activity-id>
+        <transition>flipStart</transition>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>ratingGaugeProperties</from-outcome>
+        <to-activity-id>RatingGaugeProperties</to-activity-id>
+        <transition>flipStart</transition>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome>statusMeterGaugeCircularProperties</from-outcome>
+        <to-activity-id>StatusMeterGaugeCircularProperties</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__29">
+      <from-activity-id>dvtGauges</from-activity-id>
+      <control-flow-case id="__41">
+        <from-outcome>ledGauge</from-outcome>
+        <to-activity-id>ledGauge</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__42">
+        <from-outcome>statusMeterGaugeHorizontal</from-outcome>
+        <to-activity-id>statusMeterGaugeHorizontal</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__53">
+        <from-outcome>dialGauge</from-outcome>
+        <to-activity-id>dialGauge</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__6">
+        <from-outcome>ratingGauge</from-outcome>
+        <to-activity-id>ratingGauge</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>statusMeterGaugeVertical</from-outcome>
+        <to-activity-id>statusMeterGaugeVertical</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>statusMeterGaugeCircular</from-outcome>
+        <to-activity-id>statusMeterGaugeCircular</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>ratingGaugeVertical</from-outcome>
+        <to-activity-id>ratingGaugeVertical</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__45">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__46">
+        <from-outcome>ledGaugeProperties</from-outcome>
+        <to-activity-id>LedGaugeProperties</to-activity-id>
+        <transition>flipStart</transition>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>return</from-outcome>
+        <to-activity-id>return</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__55">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__56">
+        <from-outcome>dialGaugeProperties</from-outcome>
+        <to-activity-id>DialGaugeProperties</to-activity-id>
+        <transition>flipStart</transition>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>statusMeterGaugeProperties</from-outcome>
+        <to-activity-id>StatusMeterGaugeProperties</to-activity-id>
+        <transition>flipStart</transition>
+      </control-flow-case>
+    </control-flow-rule>
+ </task-flow-definition>
+</adfc-mobile-config>

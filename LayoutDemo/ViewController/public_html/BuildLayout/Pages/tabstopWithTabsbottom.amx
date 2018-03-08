@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="Tabs Top &amp; Tabs Bottom" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton action="__back" id="cb1"/>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandButton id="cb2"/>
+        </amx:facet>
+        <amx:panelStretchLayout id="psl1">
+            <amx:facet name="top">
+                <amx:panelGroupLayout styleClass="summary-section-style"
+                                      rendered="#{pageFlowScope.useFixedSummaryView=='true'}" layout="horizontal"
+                                      halign="center" id="pgl1">
+                    <amx:outputText value="Summary Section" id="ot2"/>
+                </amx:panelGroupLayout>
+                <amx:selectOneButton value="#{HandlerBean.selectedTabsTopContent}" simple="true" layout="horizontal"
+                                     valueChangeListener="#{HandlerBean.handleTabsTopContentSelection}" id="sobdf1">
+                    <amx:selectItem label="Tab1" value="Tab1" id="sid1"/>
+                    <amx:selectItem label="Tab2" value="Tab2" id="sddi2"/>
+                    <amx:selectItem label="Tab3" value="Tab3" id="sdddi3"/>
+                    <amx:selectItem label="Tab4" value="Tab4" id="sid4"/>
+                </amx:selectOneButton>
+            </amx:facet>
+            <amx:facet name="center">
+                <amx:deck displayedChild="#{HandlerBean.selectedTabsTopContent =='' ? 'Tab1' : HandlerBean.selectedTabsTopContent}"
+                          inlineStyle="text-align:center;" id="d1" styleClass="amx-fitParent">
+                    <amx:transition id="tBack" triggerType="backNavigate" transition="slideEnd"/>
+                    <amx:transition id="tFwd" triggerType="forwardNavigate" transition="slideStart"/>
+                    <amx:panelStretchLayout inlineStyle="background-color:#DAE9F5;"
+                                            id="Tab1">
+                        <amx:facet name="center">
+                            <amx:fragment src="/BuildLayout/Fragments/noneContentLayout.amxf" id="f1">
+                                <amx:attribute name="contentText1"
+                                               value="#{HandlerBean.selectedTabsTopContent} with #{HandlerBean.selectedTabsTopTabsBottomContent1}"
+                                               id="c1"/>
+                            </amx:fragment>
+                        </amx:facet>
+                        <amx:facet name="bottom">
+                            <amx:selectOneButton value="#{HandlerBean.selectedTabsTopTabsBottomContent1}" simple="true"
+                                                 layout="horizontal"
+                                                 valueChangeListener="#{HandlerBean.handleTabsTopTabsBottomContentSelection1}"
+                                                 id="sob1">
+                                <amx:selectItem label="Tab5" value="Tab5" id="si1"/>
+                                <amx:selectItem label="Tab6" value="Tab6" id="si2"/>
+                                <amx:selectItem label="Tab7" value="Tab7" id="si3"/>
+                                <amx:selectItem label="Tab8" value="Tab8" id="si4"/>
+                            </amx:selectOneButton>
+                        </amx:facet>
+                    </amx:panelStretchLayout>
+                    <amx:panelStretchLayout inlineStyle="background-color:#DAE9F5;"
+                                            id="Tab2">
+                        <amx:facet name="center">
+                            <amx:fragment src="/BuildLayout/Fragments/noneContentLayout.amxf" id="f2">
+                                <amx:attribute name="contentText1"
+                                               value="#{HandlerBean.selectedTabsTopContent} with #{HandlerBean.selectedTabsTopTabsBottomContent2}"
+                                               id="cd1"/>
+                            </amx:fragment>
+                        </amx:facet>
+                        <amx:facet name="bottom">
+                            <amx:selectOneButton value="#{HandlerBean.selectedTabsTopTabsBottomContent2}" simple="true"
+                                                 layout="horizontal"
+                                                 valueChangeListener="#{HandlerBean.handleTabsTopTabsBottomContentSelection2}"
+                                                 id="sobn1">
+                                <amx:selectItem label="Tab9" value="Tab9" id="siq1"/>
+                                <amx:selectItem label="Tab10" value="Tab10" id="qsi2"/>
+                                <amx:selectItem label="Tab11" value="Tab11" id="sqqi3"/>
+                                <amx:selectItem label="Tab12" value="Tab12" id="qsi4"/>
+                            </amx:selectOneButton>
+                        </amx:facet>
+                    </amx:panelStretchLayout>
+                    <amx:panelStretchLayout inlineStyle="background-color:#DAE9F5;"
+                                            id="Tab3">
+                        <amx:facet name="center">
+                            <amx:fragment src="/BuildLayout/Fragments/noneContentLayout.amxf" id="f3">
+                                <amx:attribute name="contentText1"
+                                               value="#{HandlerBean.selectedTabsTopContent} with #{HandlerBean.selectedTabsTopTabsBottomContent3}"
+                                               id="c3"/>
+                            </amx:fragment>
+                        </amx:facet>
+                        <amx:facet name="bottom">
+                            <amx:selectOneButton value="#{HandlerBean.selectedTabsTopTabsBottomContent3}" simple="true"
+                                                 layout="horizontal"
+                                                 valueChangeListener="#{HandlerBean.handleTabsTopTabsBottomContentSelection3}"
+                                                 id="sojjb1">
+                                <amx:selectItem label="Tab13" value="Tab13" id="sin1"/>
+                                <amx:selectItem label="Tab14" value="Tab14" id="sni2"/>
+                                <amx:selectItem label="Tab15" value="Tab15" id="sinn3"/>
+                                <amx:selectItem label="Tab16" value="Tab16" id="sni4"/>
+                            </amx:selectOneButton>
+                        </amx:facet>
+                    </amx:panelStretchLayout>
+                    <amx:panelStretchLayout inlineStyle="background-color:#DAE9F5;"
+                                            id="Tab4">
+                        <amx:facet name="center">
+                            <amx:fragment src="/BuildLayout/Fragments/noneContentLayout.amxf" id="fds1">
+                                <amx:attribute name="contentText1"
+                                               value="#{HandlerBean.selectedTabsTopContent} with #{HandlerBean.selectedTabsTopTabsBottomContent4}"
+                                               id="cdsd1"/>
+                            </amx:fragment>
+                        </amx:facet>
+                        <amx:facet name="bottom">
+                            <amx:selectOneButton value="#{HandlerBean.selectedTabsTopTabsBottomContent4}" simple="true"
+                                                 layout="horizontal"
+                                                 valueChangeListener="#{HandlerBean.handleTabsTopTabsBottomContentSelection4}"
+                                                 id="sobqq1">
+                                <amx:selectItem label="Tab17" value="Tab17" id="siq1j"/>
+                                <amx:selectItem label="Tab18" value="Tab18" id="sqi2"/>
+                                <amx:selectItem label="Tab19" value="Tab19" id="sqi3"/>
+                                <amx:selectItem label="Tab20" value="Tab20" id="siqqq4"/>
+                            </amx:selectOneButton>
+                        </amx:facet>
+                    </amx:panelStretchLayout>
+                </amx:deck>
+            </amx:facet>
+        </amx:panelStretchLayout>
+    </amx:panelPage>
+</amx:view>

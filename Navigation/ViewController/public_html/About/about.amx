@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="About" id="ot1"/>
+    </amx:facet>
+        <amx:facet name="primary">
+          <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+              <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+          </amx:commandLink>
+        </amx:facet>
+    <amx:outputText value="This application demonstrates the various navigation techniques in ADF Mobile, including bounded task flows and routers. It also demonstrates the various page transitions."
+                    id="ot3"/>
+    <amx:outputText value="Transitions" id="cot1" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:outputText value="This feature demonstrates how to use various transition behaviors while navigating between two different amx views."
+                    id="ot2"/>
+    <amx:outputText value="Router" id="cot2" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:outputText value="This feature demonstrates how to use the Router component to control the flow conditionally based on an expression value."
+                    id="ot31"/>
+
+    <amx:outputText value="Taskflow Return" id="cot3" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:outputText value="This feature demonstrates how to use the CallReturn component to return the control back to the calling taskflow."
+                    id="ot4"/>
+
+    <amx:outputText value="Programmatic" id="cot7" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:outputText value="This feature demonstates how to programatically navigate to a particular view by invoking a container JavaScript function for navigation."
+                    id="ot2i"/>
+
+    <amx:outputText value="Launch Hidden Feature" id="cot8" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:outputText value="This feature demonstates how to programatically launch a hidden feature and navigate to a specific view within the feature."
+                    id="ot2id"/>
+
+  </amx:panelPage>
+</amx:view>

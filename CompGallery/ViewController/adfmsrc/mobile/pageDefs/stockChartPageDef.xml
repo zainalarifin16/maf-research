@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.9.18" id="stockChartPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="StockDataList2" id="StockDataList2Iterator"/>
+    <accessorIterator MasterBinding="StockDataList2Iterator" Binds="stockChartData" RangeSize="25"
+                      DataControl="StockDataList2" BeanClass="model.StockChartData" id="stockDataIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="StockReferenceDataList" id="StockReferenceDataListIterator"/>
+    <accessorIterator MasterBinding="StockReferenceDataListIterator" Binds="stockReferenceData" RangeSize="25"
+                      DataControl="StockReferenceDataList" BeanClass="model.StockReferenceData"
+                      id="stockReferenceDataIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="StockReferenceDataList" id="StockReferenceDataListIterator1"/>
+    <accessorIterator MasterBinding="StockReferenceDataListIterator1" Binds="stockReferenceData2" RangeSize="25"
+                      DataControl="StockReferenceDataList" BeanClass="model.StockReferenceData"
+                      id="stockReferenceData2Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="stockDataIterator" id="stockChartData">
+      <nodeDefinition DefName="model.StockChartData" Name="stockData0">
+        <AttrNames>
+          <Item Value="close"/>
+          <Item Value="high"/>
+          <Item Value="low"/>
+          <Item Value="open"/>
+          <Item Value="x"/>
+          <Item Value="volume"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="stockReferenceDataIterator" id="stockReferenceData">
+      <nodeDefinition DefName="model.StockReferenceData" Name="stockReferenceData0">
+        <AttrNames>
+          <Item Value="value"/>
+          <Item Value="x"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="stockReferenceData2Iterator" id="stockReferenceData2">
+      <nodeDefinition DefName="model.StockReferenceData" Name="stockReferenceData20">
+        <AttrNames>
+          <Item Value="value"/>
+          <Item Value="x"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

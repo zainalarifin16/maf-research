@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Carousel"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Data Views"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:carousel" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg"
+                   shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dataviews/carousel" shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:panelGroupLayout id="pgl" layout="vertical" styleClass="adfmf-panelGroupLayout-groupBox">
+      <amx:carousel
+        id="carousel" var="item" value="#{bindings.contacts.collectionModel}"
+        auxiliaryOffset="#{pageFlowScope.componentProperties.auxiliaryOffset}"
+        auxiliaryPopOut="#{pageFlowScope.componentProperties.auxiliaryPopOut}"
+        auxiliaryScale="#{pageFlowScope.componentProperties.auxiliaryScale}"
+        controlArea="#{pageFlowScope.componentProperties.controlArea}"
+        disabled="#{pageFlowScope.componentProperties.disabled}"
+        displayItems="#{pageFlowScope.componentProperties.displayItems}"
+        halign="#{pageFlowScope.componentProperties.halign}"
+        inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+        orientation="#{pageFlowScope.componentProperties.orientation}"
+        rendered="#{pageFlowScope.componentProperties.rendered}"
+        shortDesc="#{pageFlowScope.componentProperties.shortDesc}"
+        styleClass="#{pageFlowScope.componentProperties.styleClass}"
+        valign="#{pageFlowScope.componentProperties.valign}">
+        <amx:facet name="nodeStamp">
+          <amx:carouselItem id="carouselItem" text="#{item.first} #{item.last}" shortDesc="#{item.id}">
+            <amx:commandLink id="ciLink" action="details" shortDesc="Navigate to details">
+              <amx:image id="ciImage" source="images/people/#{item.first}.png"/>
+              <amx:setPropertyListener from="#{item.rowKey}" to="#{pageFlowScope.currentContact}" type="action"/>
+              <amx:setPropertyListener from="#{item.first}" to="#{pageFlowScope.currentContactFirst}" type="action"/>
+              <amx:setPropertyListener from="#{item.last}" to="#{pageFlowScope.currentContactLast}" type="action"/>
+              <amx:setPropertyListener from="#{item.address}" to="#{pageFlowScope.currentContactAddress}"
+                                       type="action"/>
+              <amx:setPropertyListener from="#{item.city}" to="#{pageFlowScope.currentContactCity}" type="action"/>
+              <amx:setPropertyListener from="#{item.state}" to="#{pageFlowScope.currentContactState}" type="action"/>
+              <amx:setPropertyListener from="#{item.zip}" to="#{pageFlowScope.currentContactZip}" type="action"/>
+              <amx:setPropertyListener from="#{item.phone}" to="#{pageFlowScope.currentContactPhone}" type="action"/>
+              <amx:setPropertyListener from="#{item.mobile}" to="#{pageFlowScope.currentContactMobile}" type="action"/>
+            </amx:commandLink>
+          </amx:carouselItem>
+        </amx:facet>
+      </amx:carousel>
+    </amx:panelGroupLayout>
+  </amx:panelPage>
+</amx:view>

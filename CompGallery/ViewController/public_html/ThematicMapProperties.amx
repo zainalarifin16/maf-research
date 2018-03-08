@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Properties"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandButton id="back" action="__back" text="Done"/>
+    </amx:facet>
+    <amx:outputText id="outt8" value="maps" inlineStyle="padding-top: 10px;font-weight:bold;"
+                    rendered="#{DvtProperties.thematicMapShowMapsProperties}"/>
+    <amx:panelFormLayout id="mapProps" labelWidth="40%" fieldWidth="60%"
+                         rendered="#{DvtProperties.thematicMapShowMapsProperties}">
+      <amx:selectOneChoice id="pBasemap" label="basemap" value="#{pageFlowScope.basemap}"
+                           valueChangeListener="#{PropertyBean.thematicMapBaseMapChanged}">
+        <amx:selectItem label="usa" value="usa"/>
+        <amx:selectItem label="world" value="world"/>
+        <amx:selectItem label="africa" value="africa"/>
+        <amx:selectItem label="asia" value="asia"/>
+        <amx:selectItem label="australia" value="australia"/>
+        <amx:selectItem label="europe" value="europe"/>
+        <amx:selectItem label="northAmerica" value="northAmerica"/>
+        <amx:selectItem label="southAmerica" value="southAmerica"/>
+        <amx:selectItem label="apac" value="apac"/>
+        <amx:selectItem label="emea" value="emea"/>
+        <amx:selectItem label="latinAmerica" value="latinAmerica"/>
+        <amx:selectItem label="usaAndCanada" value="usaAndCanada"/>
+        <amx:selectItem label="worldRegions" value="worldRegions"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="pLayer1" label="layer" value="#{pageFlowScope.layer}"
+                           rendered="#{pageFlowScope.basemap == 'africa' or pageFlowScope.basemap == 'asia' or pageFlowScope.basemap == 'australia' or pageFlowScope.basemap == 'europe' or pageFlowScope.basemap == 'northAmerica' or pageFlowScope.basemap == 'southAmerica'}">
+        <amx:selectItem label="continent" value="continent"/>
+        <amx:selectItem label="countries" value="countries"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="pLayer2" label="layer" value="#{pageFlowScope.layer}"
+                           rendered="#{pageFlowScope.basemap == 'apac' or pageFlowScope.basemap == 'emea' or pageFlowScope.basemap == 'latinAmerica' or pageFlowScope.basemap == 'usaAndCanada'}">
+        <amx:selectItem label="countries" value="countries"/>
+        <amx:selectItem label="region" value="region"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="pLayer3" label="layer" value="#{pageFlowScope.layer}"
+                           rendered="#{pageFlowScope.basemap == 'usa'}">
+        <amx:selectItem label="country" value="country"/>
+        <amx:selectItem label="states" value="states"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="pLayer4" label="layer" value="#{pageFlowScope.layer}"
+                           rendered="#{pageFlowScope.basemap == 'world'}">
+        <amx:selectItem label="continents" value="continents"/>
+        <amx:selectItem label="countries" value="countries"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="pLayer5" label="layer" value="#{pageFlowScope.layer}"
+                           rendered="#{pageFlowScope.basemap == 'worldRegions'}">
+        <amx:selectItem label="countries" value="countries"/>
+        <amx:selectItem label="regions" value="regions"/>
+      </amx:selectOneChoice>
+    </amx:panelFormLayout>
+    <amx:outputText id="outt1" value="thematicMap" inlineStyle="padding-top: 10px;font-weight:bold;"/>
+    <amx:panelFormLayout id="generalProps" labelWidth="40%" fieldWidth="60%">
+      <amx:selectOneChoice id="pAnimationOnDisplay" label="animationOnDisplay"
+                           value="#{pageFlowScope.animationOnDisplay}">
+        <amx:selectItem label="none" value="none"/>
+        <amx:selectItem label="alphaFade" value="alphaFade"/>
+        <amx:selectItem label="zoom" value="zoom"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="pAnimationOnMapChange" label="animationOnMapChange"
+                           value="#{pageFlowScope.animationOnMapChange}">
+        <amx:selectItem label="none" value="none"/>
+        <amx:selectItem label="alphaFade" value="alphaFade"/>
+        <amx:selectItem label="slideToLeft" value="slideToLeft"/>
+        <amx:selectItem label="slideToRight" value="slideToRight"/>
+        <amx:selectItem label="cubeToRight" value="cubeToRight"/>
+        <amx:selectItem label="cubeToLeft" value="cubeToLeft"/>
+        <amx:selectItem label="flipRight" value="flipRight"/>
+        <amx:selectItem label="flipLeft" value="flipLeft"/>
+        <amx:selectItem label="zoom" value="zoom"/>
+      </amx:selectOneChoice>
+      <amx:inputText id="pAnimationDuration" label="animationDuration" value="#{pageFlowScope.animationDuration}"/>
+      <amx:selectOneChoice id="pTooltipDisplay" label="tooltipDisplay" value="#{pageFlowScope.tooltipDisplay}">
+        <amx:selectItem label="none" value="none"/>
+        <amx:selectItem label="labelAndShortDesc" value="labelAndShortDesc"/>
+        <amx:selectItem label="shortDesc" value="shortDesc"/>
+        <amx:selectItem label="auto" value="auto"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="pZooming" label="zooming" value="#{pageFlowScope.zooming}">
+        <amx:selectItem label="none" value="none"/>
+        <amx:selectItem label="auto" value="auto"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="pPanning" label="panning" value="#{pageFlowScope.panning}">
+        <amx:selectItem label="none" value="none"/>
+        <amx:selectItem label="auto" value="auto"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="pInitialZooming" label="initialZooming" value="#{pageFlowScope.initialZooming}">
+        <amx:selectItem label="none" value="none"/>
+        <amx:selectItem label="auto" value="auto"/>
+      </amx:selectOneChoice>
+      <amx:inputText id="pInlineStyle" label="inlineStyle" value="#{pageFlowScope.inlineStyle}"/>
+    </amx:panelFormLayout>
+    <amx:outputText id="outt2" value="areaLayer" inlineStyle="padding-top: 10px;font-weight:bold;"/>
+    <amx:panelFormLayout id="areaProps" labelWidth="40%" fieldWidth="60%">
+      <amx:selectOneChoice id="pAnimationOnLayerChange" label="animationOnLayerChange"
+                           value="#{pageFlowScope.animationOnLayerChange}">
+        <amx:selectItem label="none" value="none"/>
+        <amx:selectItem label="alphaFade" value="alphaFade"/>
+        <amx:selectItem label="slideToLeft" value="slideToLeft"/>
+        <amx:selectItem label="slideToRight" value="slideToRight"/>
+        <amx:selectItem label="cubeToRight" value="cubeToRight"/>
+        <amx:selectItem label="cubeToLeft" value="cubeToLeft"/>
+        <amx:selectItem label="flipRight" value="flipRight"/>
+        <amx:selectItem label="flipLeft" value="flipLeft"/>
+        <amx:selectItem label="zoom" value="zoom"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="pAreaLabelDisplay" label="areaLabelDisplay" value="#{pageFlowScope.areaLabelDisplay}">
+        <amx:selectItem label="off" value="off"/>
+        <amx:selectItem label="on" value="on"/>
+        <amx:selectItem label="auto" value="auto"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="pLabelType" label="labelType" value="#{pageFlowScope.labelType}">
+        <amx:selectItem label="short" value="short"/>
+        <amx:selectItem label="long" value="long"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="pRendered" label="rendered" value="#{pageFlowScope.rendered}">
+        <amx:selectItem label="true" value="true"/>
+        <amx:selectItem label="false" value="false"/>
+      </amx:selectOneChoice>
+    </amx:panelFormLayout>
+    <amx:outputText id="outt3" value="areaLayer: areaDataLayer" inlineStyle="padding-top: 10px;font-weight:bold;"/>
+    <amx:panelFormLayout id="areaDataProps" labelWidth="40%" fieldWidth="60%">
+      <amx:inputText id="pDataAnimationDuration" label="animationDuration"
+                     value="#{pageFlowScope.dataAnimationDuration}"/>
+      <amx:selectOneChoice id="pDataAnimationOnDataChange" label="animationOnDataChange"
+                           value="#{pageFlowScope.dataAnimationOnDataChange}">
+        <amx:selectItem label="none" value="none"/>
+        <amx:selectItem label="alphaFade" value="alphaFade"/>
+        <amx:selectItem label="cubeToRight" value="cubeToRight"/>
+        <amx:selectItem label="cubeToLeft" value="cubeToLeft"/>
+        <amx:selectItem label="flipRight" value="flipRight"/>
+        <amx:selectItem label="flipLeft" value="flipLeft"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="pDataSelection" label="dataSelection" value="#{pageFlowScope.dataSelection}">
+        <amx:selectItem label="none" value="none"/>
+        <amx:selectItem label="single" value="single"/>
+        <amx:selectItem label="multiple" value="multiple"/>
+      </amx:selectOneChoice>
+    </amx:panelFormLayout>
+    <amx:outputText id="outt5" value="pointDataLayer" inlineStyle="padding-top: 10px;font-weight:bold;"
+                    rendered="#{DvtProperties.thematicMapShowPointDataProperties}"/>
+    <amx:panelFormLayout id="area2PointDataProps" labelWidth="40%" fieldWidth="60%"
+                         rendered="#{DvtProperties.thematicMapShowPointDataProperties}">
+      <amx:inputText id="pPointDataAnimationDuration" label="animationDuration"
+                     value="#{pageFlowScope.pointDataAnimationDuration}"/>
+      <amx:selectOneChoice id="pPointDataAnimationOnDataChange" label="animationOnDataChange"
+                           value="#{pageFlowScope.pointDataAnimationOnDataChange}">
+        <amx:selectItem label="none" value="none"/>
+        <amx:selectItem label="alphaFade" value="alphaFade"/>
+        <amx:selectItem label="cubeToRight" value="cubeToRight"/>
+        <amx:selectItem label="cubeToLeft" value="cubeToLeft"/>
+        <amx:selectItem label="flipRight" value="flipRight"/>
+        <amx:selectItem label="flipLeft" value="flipLeft"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="pPointDataSelection" label="dataSelection" value="#{pageFlowScope.pointDataSelection}">
+        <amx:selectItem label="none" value="none"/>
+        <amx:selectItem label="single" value="single"/>
+        <amx:selectItem label="multiple" value="multiple"/>
+      </amx:selectOneChoice>
+    </amx:panelFormLayout>
+    <amx:outputText id="outt6" value="Area" inlineStyle="padding-top: 10px;font-weight:bold;"
+                    rendered="#{DvtProperties.thematicMapShowAreaProperties}"/>
+    <amx:panelFormLayout id="areaProps2" labelWidth="40%" fieldWidth="60%"
+                         rendered="#{DvtProperties.thematicMapShowAreaProperties}">
+      <!--amx:inputText id="pAreaFillColor" label="fillColor" value="#{pageFlowScope.areaFillColor}"/-->
+      <amx:inputText id="pAreaOpacity" label="opacity" value="#{pageFlowScope.areaOpacity}"/>
+      <amx:inputText id="pAreaLabelStyle" label="labelStyle" value="#{pageFlowScope.areaLabelStyle}"/>
+      <amx:selectOneChoice id="pAreaLabelDisplay2" label="labelDisplay" value="#{pageFlowScope.areaLabelDisplay2}">
+        <amx:selectItem label="off" value="off"/>
+        <amx:selectItem label="on" value="on"/>
+      </amx:selectOneChoice>
+      <amx:inputText id="pAreaShortDesc" label="shortDesc" value="#{pageFlowScope.areaShortDesc}"
+                     rendered="#{DvtProperties.thematicMapShowAreaShortDesc}"/>
+      <amx:inputText id="pAreaValue" label="value" value="#{pageFlowScope.areaValue}"/>
+    </amx:panelFormLayout>
+    <amx:outputText id="outt7" value="Marker" inlineStyle="padding-top: 10px;font-weight:bold;"
+                    rendered="#{DvtProperties.thematicMapShowMarkerProperties}"/>
+    <amx:panelFormLayout id="markerProps" labelWidth="40%" fieldWidth="60%"
+                         rendered="#{DvtProperties.thematicMapShowMarkerProperties}">
+      <amx:selectOneChoice id="pMarkerGradientEffect" label="gradientEffect"
+                           value="#{pageFlowScope.markerGradientEffect}">
+        <amx:selectItem label="auto" value="auto"/>
+        <amx:selectItem label="none" value="none"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="pMarkerLabelPosition" label="labelPosition" value="#{pageFlowScope.markerLabelPosition}">
+        <amx:selectItem label="center" value="center"/>
+        <amx:selectItem label="top" value="top"/>
+        <amx:selectItem label="bottom" value="bottom"/>
+      </amx:selectOneChoice>
+      <amx:inputText id="pMarkerScaleX" label="scaleX" value="#{pageFlowScope.markerScaleX}"/>
+      <amx:inputText id="pMarkerScaleY" label="scaleY" value="#{pageFlowScope.markerScaleY}"/>
+      <amx:selectOneChoice id="pMarkerShape" label="shape" value="#{pageFlowScope.markerShape}">
+        <amx:selectItem label="circle" value="circle"/>
+        <amx:selectItem label="square" value="square"/>
+        <amx:selectItem label="plus" value="plus"/>
+        <amx:selectItem label="diamond" value="diamond"/>
+        <amx:selectItem label="triangleUp" value="triangleUp"/>
+        <amx:selectItem label="triangleDown" value="triangleDown"/>
+        <amx:selectItem label="human" value="human"/>
+      </amx:selectOneChoice>
+      <amx:inputText id="pMarkerFillColor" label="fillColor" value="#{pageFlowScope.markerFillColor}"/>
+      <amx:inputText id="pMarkerOpacity" label="opacity" value="#{pageFlowScope.markerOpacity}"/>
+      <amx:inputText id="pMarkerLabelStyle" label="labelStyle" value="#{pageFlowScope.markerLabelStyle}"/>
+      <amx:selectOneChoice id="pMarkerLabelDisplay" label="labelDisplay" value="#{pageFlowScope.markerLabelDisplay}">
+        <amx:selectItem label="off" value="off"/>
+        <amx:selectItem label="on" value="on"/>
+      </amx:selectOneChoice>
+      <amx:inputText id="pMarkerShortDesc" label="shortDesc" value="#{pageFlowScope.markerShortDesc}"
+                     rendered="#{DvtProperties.thematicMapShowMarkerShortDesc}"/>
+      <amx:inputText id="pMarkerValue" label="value" value="#{pageFlowScope.markerValue}"
+                     rendered="#{DvtProperties.thematicMapShowMarkerValue}"/>
+    </amx:panelFormLayout>
+  </amx:panelPage>
+</amx:view>

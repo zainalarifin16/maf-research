@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Basic &amp; Tabs Top" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton action="__back" id="cb1"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandButton id="cb2"/>
+    </amx:facet>
+       <amx:panelStretchLayout id="psl1">
+      <amx:facet name="top">
+        <amx:panelGroupLayout inlineStyle="border-bottom-style:solid;border-color:#F6F6F7;padding:5px;" rendered="#{pageFlowScope.useFixedSummaryView=='true'}" layout="horizontal" halign="center" id="pgl1">
+        <amx:outputText value="Summary Section" id="ot2"/>
+        </amx:panelGroupLayout>
+      </amx:facet>
+      <amx:facet name="center">
+        <amx:fragment src="/BuildLayout/Fragments/tabsTopContentLayout.amxf" id="f1"/>
+      </amx:facet>
+    </amx:panelStretchLayout>
+  </amx:panelPage>
+</amx:view>

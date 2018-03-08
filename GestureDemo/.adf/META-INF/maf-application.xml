@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:adfmf="http://xmlns.oracle.com/adf/mf" name="GestureDemo"
+                   version="1.0" id="com.oraclecorp.internal.GestureDemo"
+                   appControllerFolder="ApplicationController">
+  <adfmf:featureReference id="fr1" refId="About"/>
+  <adfmf:featureReference id="fr2" refId="List"/>
+  <adfmf:featureReference id="fr3" refId="Link"/>
+  <adfmf:featureReference id="fr4" refId="Deck"/>
+  <adfmf:featureReference id="fr5" refId="Springboard" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:navigation>
+    <adfmf:springboard enabled="true" showSpringboardAtStartup="false" displayGotoSpringboardControl="false"
+                       width="250">
+      <adfmf:springboardFeatureReference id="sfr1" refId="Springboard"/>
+    </adfmf:springboard>
+    <adfmf:navigationBar enabled="false"/>
+  </adfmf:navigation>
+</adfmf:application>

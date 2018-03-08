@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:navigationDragBehavior id="ndb2" direction="forward" action="chartProperties">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Bubble Chart"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back">
+        <amx:setPropertyListener to="#{DvtProperties.bubbleChartProperties.dataSelection}"
+                                 from="#{pageFlowScope.dataSelection}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.bubbleChartProperties.footnote}" from="#{pageFlowScope.footnote}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.bubbleChartProperties.footnoteHalign}"
+                                 from="#{pageFlowScope.footnoteHalign}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.bubbleChartProperties.hideAndShowBehavior}"
+                                 from="#{pageFlowScope.hideAndShowBehavior}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.bubbleChartProperties.inlineStyle}"
+                                 from="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.bubbleChartProperties.rolloverBehavior}"
+                                 from="#{pageFlowScope.rolloverBehavior}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.bubbleChartProperties.rolloverBehaviorDelay}"
+                                 from="#{pageFlowScope.rolloverBehaviorDelay}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.bubbleChartProperties.subtitle}" from="#{pageFlowScope.subtitle}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.bubbleChartProperties.title}" from="#{pageFlowScope.title}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.bubbleChartProperties.titleHalign}"
+                                 from="#{pageFlowScope.titleHalign}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.bubbleChartProperties.animationOnDataChange}"
+                                 from="#{pageFlowScope.animationOnDataChange}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.bubbleChartProperties.animationDuration}"
+                                 from="#{pageFlowScope.animationDuration}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.bubbleChartProperties.animationOnDisplay}"
+                                 from="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.bubbleChartProperties.shortDesc}" from="#{pageFlowScope.shortDesc}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.bubbleChartProperties.seriesEffect}"
+                                 from="#{pageFlowScope.seriesEffect}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.bubbleChartProperties.zoomAndScroll}"
+                                 from="#{pageFlowScope.zoomAndScroll}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.bubbleChartProperties.zoomDirection}"
+                                 from="#{pageFlowScope.zoomDirection}" type="action"/>
+      </amx:commandButton>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="chartProperties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#dvtm:bubbleChart" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/dvtCharts/bubbleChart"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:flexLayout id="fl1">
+      <amx:panelStretchLayout id="psl1" styleClass="dvtm-gallery-component-panel">
+        <amx:facet name="center">
+          <dvtm:bubbleChart var="row" value="#{bindings.bubbleData.collectionModel}" id="bubbleChart1"
+                            styleClass=" dvtm-gallery-component" dataLabelPosition="#{pageFlowScope.labelPosition}"
+                            dataSelection="#{pageFlowScope.dataSelection}" footnote="#{pageFlowScope.footnote}"
+                            footnoteHalign="#{pageFlowScope.footnoteHalign}"
+                            hideAndShowBehavior="#{pageFlowScope.hideAndShowBehavior}"
+                            rolloverBehavior="#{pageFlowScope.rolloverBehavior}"
+                            rolloverBehaviorDelay="#{pageFlowScope.rolloverBehaviorDelay}"
+                            seriesEffect="#{pageFlowScope.seriesEffect}"
+                            subtitle="#{pageFlowScope.titleDisplay ? pageFlowScope.subtitle : ''}"
+                            title="#{pageFlowScope.titleDisplay ? pageFlowScope.title : ''}"
+                            titleHalign="#{pageFlowScope.titleHalign}" zoomAndScroll="#{pageFlowScope.zoomAndScroll}"
+                            zoomDirection="#{pageFlowScope.zoomDirection}"
+                            animationOnDataChange="#{pageFlowScope.animationOnDataChange}"
+                            animationDuration="#{pageFlowScope.animationDuration}"
+                            animationOnDisplay="#{pageFlowScope.animationOnDisplay}"
+                            shortDesc="#{pageFlowScope.shortDesc}">
+            <amx:facet name="dataStamp">
+              <dvtm:chartDataItem group="#{row.group}" series="#{row.series}" x="#{row.x}" y="#{row.y}" z="#{row.z}"
+                                  label="#{pageFlowScope.labelDisplay ? row.z : ''}">
+                <dvtm:attributeGroups id="ag1" type="color" value="#{row.series}"/>
+                <dvtm:attributeGroups id="ag2" type="shape" value="#{row.group}"/>
+              </dvtm:chartDataItem>
+            </amx:facet>
+            <dvtm:legend position="#{pageFlowScope.legendPosition}" id="l1" rendered="#{pageFlowScope.legendDisplay}">
+              <dvtm:legendSection id="lgs1" source="ag1" title="Cat 1"/>
+              <dvtm:legendSection id="lgs2" source="ag2" title="Cat 2"/>
+            </dvtm:legend>
+            <dvtm:xAxis scale="#{pageFlowScope.scaleX}">
+              <dvtm:axisLine rendered="#{pageFlowScope.xAxisDisplay}"/>
+              <dvtm:tickLabel rendered="#{pageFlowScope.xAxisDisplay}"/>
+            </dvtm:xAxis>
+            <dvtm:yAxis scale="#{pageFlowScope.scaleY}">
+              <dvtm:axisLine rendered="#{pageFlowScope.yAxisDisplay}"/>
+              <dvtm:tickLabel rendered="#{pageFlowScope.yAxisDisplay}"/>
+            </dvtm:yAxis>
+            <dvtm:chartValueFormat id="cvf1" type="group" tooltipDisplay="off"/>
+            <dvtm:chartValueFormat id="cvf2" type="x" tooltipLabel="AB"/>
+            <dvtm:chartValueFormat id="cvf3" type="y" tooltipLabel="CD"/>
+            <dvtm:chartValueFormat id="cvf4" type="z" tooltipLabel="EF"/>
+          </dvtm:bubbleChart>
+        </amx:facet>
+        <amx:facet name="bottom"></amx:facet>
+      </amx:panelStretchLayout>
+      <amx:panelGroupLayout id="pglOptionsPanel" scrollPolicy="scroll">
+        <amx:panelFormLayout id="pflOptionsForm" maxColumns="2" rows="4" styleClass="dvtm-gallery-options"
+                             fieldWidth="60%" labelWidth="40%">
+          <amx:selectBooleanCheckbox id="sbcLegend" label="Legend" value="#{pageFlowScope.legendDisplay}"/>
+          <amx:selectBooleanCheckbox id="sbcLabels" label="Labels" value="#{pageFlowScope.labelDisplay}"/>
+          <amx:selectBooleanCheckbox id="sbcTitles" label="Titles" value="#{pageFlowScope.titleDisplay}"/>
+          <amx:selectBooleanCheckbox id="sbcXAxis" label="XAxis" value="#{pageFlowScope.xAxisDisplay}"/>
+          <amx:selectOneChoice id="socLegendPosition" label="Position" value="#{pageFlowScope.legendPosition}"
+                               disabled="#{!pageFlowScope.legendDisplay}">
+            <amx:selectItem id="siLegendPositionAuto" label="auto" value="auto"/>
+            <amx:selectItem id="siLegendPositionBottom" label="bottom" value="bottom"/>
+            <amx:selectItem id="siLegendPositionEnd" label="end" value="end"/>
+            <amx:selectItem id="siLegendPositionStart" label="start" value="start"/>
+            <amx:selectItem id="siLegendPositionTop" label="top" value="top"/>
+          </amx:selectOneChoice>
+          <amx:selectOneChoice id="socLabelPosition" label="Position" value="#{pageFlowScope.labelPosition}"
+                               disabled="#{!pageFlowScope.labelDisplay}">
+            <amx:selectItem id="siLabelPositionAuto" label="auto" value="auto"/>
+            <amx:selectItem id="siLabelPositionAboveMarker" label="aboveMarker" value="aboveMarker"/>
+            <amx:selectItem id="siLabelPositionAfterMarker" label="afterMarker" value="afterMarker"/>
+            <amx:selectItem id="siLabelPositionBeforeMarker" label="beforeMarker" value="beforeMarker"/>
+            <amx:selectItem id="siLabelPositionBelowMarker" label="belowMarker" value="belowMarker"/>
+            <amx:selectItem id="siLabelPositionCenter" label="center" value="center"/>
+          </amx:selectOneChoice>
+          <amx:selectOneChoice id="socSelection" label="Select" value="#{pageFlowScope.dataSelection}">
+            <amx:selectItem id="siSelectionNone" label="none" value="none"/>
+            <amx:selectItem id="siSelectionSingle" label="single" value="single"/>
+            <amx:selectItem id="siSelectionMultiple" label="multiple" value="multiple"/>
+          </amx:selectOneChoice>
+          <amx:selectBooleanCheckbox id="sbcYAxis" label="YAxis" value="#{pageFlowScope.yAxisDisplay}"/>
+        </amx:panelFormLayout>
+        <amx:panelGroupLayout id="pglCommandButtons" layout="horizontal">
+          <amx:commandButton text="Data Refresh" id="cbRefresh" actionListener="#{BarDataList.refreshChart}"
+                             disabled="true"/>
+          <amx:commandButton text="More Options..." id="cbMore">
+            <amx:showPopupBehavior popupId="pAdvancedOptions" type="action" align="overlapTopCenter"
+                                   alignId="pflOptionsForm" decoration="anchor"/>
+          </amx:commandButton>
+        </amx:panelGroupLayout>
+      </amx:panelGroupLayout>
+    </amx:flexLayout>
+  </amx:panelPage>
+  <amx:popup id="pAdvancedOptions" styleClass="dvtm-gallery-options-dialog">
+    <amx:panelFormLayout id="pflAdvancedOptions">
+      <amx:selectOneChoice id="socHideAndShowBehavior" label="hideAndShowBehavior"
+                           value="#{pageFlowScope.hideAndShowBehavior}">
+        <amx:selectItem id="sliHideAndShowBehaviorNone" label="none" value="none"/>
+        <amx:selectItem id="sliHideAndShowBehaviorWithRescale" label="withRescale" value="withRescale"/>
+        <amx:selectItem id="sliHideAndShowBehaviorWithoutRescale" label="withoutRescale" value="withoutRescale"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="socRolloverBehavior" label="rolloverBehavior" value="#{pageFlowScope.rolloverBehavior}">
+        <amx:selectItem id="rolloverBehaviorNone" label="none" value="none"/>
+        <amx:selectItem id="rolloverBehaviorDim" label="dim" value="dim"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="socScaleX" label="scaleX" value="#{pageFlowScope.scaleX}">
+        <amx:selectItem id="siScaleXLinear" label="linear" value="linear"/>
+        <amx:selectItem id="siScaleXLog" label="log" value="log"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="socScaleY" label="scaleY" value="#{pageFlowScope.scaleY}">
+        <amx:selectItem id="siScaleYLinear" label="linear" value="linear"/>
+        <amx:selectItem id="siScaleYLog" label="log" value="log"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="socSeriesEffect" label="seriesEffect" value="#{pageFlowScope.seriesEffect}">
+        <amx:selectItem id="siSeriesEffectColor" label="color" value="color"/>
+        <amx:selectItem id="siSeriesEffectGradient" label="gradient" value="gradient"/>
+        <amx:selectItem id="siSeriesEffectPattern" label="pattern" value="pattern"/>
+      </amx:selectOneChoice>
+      <amx:inputText id="itShortdesc" label="shortDesc" value="#{pageFlowScope.shortDesc}"/>
+      <amx:inputText id="itSubtitle" label="subtitle" value="#{pageFlowScope.subtitle}"/>
+      <amx:inputText id="itTitle" label="title" value="#{pageFlowScope.title}"/>
+    </amx:panelFormLayout>
+    <amx:commandButton id="cbClose" styleClass="adfmf-commandButton-actionSheet" text="Close">
+      <amx:closePopupBehavior popupId="pAdvancedOptions" type="action"/>
+    </amx:commandButton>
+  </amx:popup>
+</amx:view>

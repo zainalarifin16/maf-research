@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" title="Push Registration">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelGroupLayout layout="scroll"
+                             xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                             id="pgl2">
+          <af:button actionListener="#{bindings.Execute.execute}"
+                                   text="Refresh"
+                                   disabled="#{!bindings.Execute.enabled}"
+                                   id="ctb1" immediate="true"/>
+          <af:table value="#{bindings.RegistrationsView1.collectionModel}"
+                    var="row"
+                    rows="#{bindings.RegistrationsView1.rangeSize}"
+                    emptyText="#{bindings.RegistrationsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    fetchSize="#{bindings.RegistrationsView1.rangeSize}"
+                    rowBandingInterval="0"
+                    selectedRowKeys="#{bindings.RegistrationsView1.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.RegistrationsView1.collectionModel.makeCurrent}"
+                    rowSelection="single" id="t1"
+                    partialTriggers="::ctb1" width="633" inlineStyle="height:189px;">
+            <af:column sortProperty="DeviceToken" sortable="false"
+                       headerText="Device Token" id="c1" width="100">
+              <af:outputText value="#{row.DeviceToken}" id="ot5"/>
+            </af:column>
+            <af:column sortProperty="DeviceModel" sortable="false"
+                       headerText="Device Model" id="c3" width="100">
+              <af:outputText value="#{row.DeviceModel}" id="ot4"/>
+            </af:column>
+            <af:column sortProperty="ApplicationId" sortable="false"
+                       headerText="Application" id="c5" width="205">
+              <af:outputText value="#{row.ApplicationId}" id="ot1"/>
+            </af:column>
+            <af:column sortProperty="UserId" sortable="false"
+                       headerText="User Id" id="c2" width="-5">
+              <af:outputText value="#{row.UserId}" id="ot3"/>
+            </af:column>
+            <af:column sortProperty="SenderId" sortable="false"
+                       headerText="Sender Id" id="c4" width="100">
+              <af:outputText value="#{row.SenderId}" id="ot2"/>
+            </af:column>
+          </af:table>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout layout="scroll"
+                             xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                             id="pgl1">
+          <af:panelFormLayout id="pfl1" partialTriggers="t1">
+            <af:panelLabelAndMessage label="#{bindings.DeviceToken.hints.label}"
+                                     id="plam4">
+              <af:outputText value="#{bindings.DeviceToken.inputValue}"
+                             id="ot7"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.DeviceModel.hints.label}"
+                                     id="plam2">
+              <af:outputText value="#{bindings.DeviceModel.inputValue}"
+                             id="ot6"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.UserId.hints.label}"
+                                     id="plam1">
+              <af:outputText value="#{bindings.UserId.inputValue}"
+                             id="ot9"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.ApplicationId.hints.label}"
+                                     id="plam3">
+              <af:outputText value="#{bindings.ApplicationId.inputValue}"
+                             id="ot8"/>
+            </af:panelLabelAndMessage>
+            <af:inputText label="Message" id="it1"
+                          value="#{MessageBean.message}"/>
+          </af:panelFormLayout>
+          <af:button text="Push Message" id="cb1" 
+                     actionListener="#{MessageBean.pushMessage}"/>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

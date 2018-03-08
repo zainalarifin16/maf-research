@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="Basic &amp; Swimlane" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton action="__back" id="cb1"/>
+        </amx:facet>
+        <amx:panelStretchLayout scrollPolicy="scroll" id="psl1">
+            <amx:facet name="top">
+                <amx:panelGroupLayout styleClass="summary-section-style" 
+                                      rendered="#{pageFlowScope.useFixedSummaryView=='true'}" layout="horizontal"
+                                      halign="center" id="pgl1">
+                    <amx:outputText value="Summary Section" id="ot2"/>
+                </amx:panelGroupLayout>
+            </amx:facet>
+            <amx:facet name="center">
+                <amx:fragment src="/BuildLayout/Fragments/swimlaneContentLayout.amxf" id="Tab1">
+                    <amx:attribute name="contentText1" value="LANE 1" id="a1"/>
+                    <amx:attribute name="contentText2" value="LANE 2" id="a2"/>
+                    <amx:attribute name="contentText3" value="LANE 3" id="a3"/>
+                    <amx:attribute name="contentText4" value="LANE 4" id="a4"/>
+                    <amx:attribute name="contentText5" value="LANE 5" id="a5"/>
+                </amx:fragment>
+            </amx:facet>
+        </amx:panelStretchLayout>
+    </amx:panelPage>
+</amx:view>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt"
+          xmlns:custom="http://xmlns.example.com/custom">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Overflow"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Other" shortDesc="Go back to Other"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <!-- TODO link this page to documentation on custom components -->
+      <amx:goLink shortDesc="Tag documentation" disabled="true" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=general/custom/exampleOverflow" shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+        id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+
+    <amx:outputText id="message" value="#{pageFlowScope.message}"/>
+
+    <amx:inputText id="it1" label="Limit until overflow" value="#{pageFlowScope.overflowLimit}"
+      hintText="Enter a number"/>
+
+    <amx:outputText id="otOther" value="Example with a Series of Buttons"
+      styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:panelGroupLayout id="pgl1" styleClass="adfmf-panelGroupLayout-groupBox">
+      <custom:overflow id="o1" limit="#{pageFlowScope.overflowLimit}">
+        <amx:iterator id="iter" var="item"
+                      value="#{bindings.contacts.collectionModel}">
+          <amx:commandButton id="clStamp" text="#{item.first} #{item.last}">
+            <amx:setPropertyListener type="action"
+              from="You chose #{item.first} #{item.last}" to="#{pageFlowScope.message}"/>
+          </amx:commandButton>
+        </amx:iterator>
+        <amx:facet name="more">
+          <amx:commandButton id="showMore" text="More">
+            <amx:setPropertyListener from="#{bindings.contacts.collectionModel}"
+              to="#{pageFlowScope.overflownItems}" type="action"/>
+            <amx:showPopupBehavior popupId="overflowPopup" type="action"
+              alignId="pp1" align="overlapBottomCenter"/>
+          </amx:commandButton>
+        </amx:facet>
+      </custom:overflow>
+    </amx:panelGroupLayout>
+
+    <amx:outputText id="otOther2" value="Example in a Swipe-to-Reveal"
+      styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:listView id="lv1">
+      <amx:listItem id="li1">
+        <amx:accessoryLayout id="al1" endFullTriggerSelector=".full-trigger">
+          <amx:outputText id="otAl1" value="Swipe Me"/>
+          <amx:facet name="start">
+            <amx:outputText id="otherWay" value="Swipe the other way"/>
+          </amx:facet>
+          <amx:facet name="end">
+            <custom:overflow id="oAl" limit="#{pageFlowScope.overflowLimit}">
+              <amx:iterator id="iterAl" var="item"
+                            value="#{bindings.contacts.collectionModel}">
+                <amx:commandLink id="clStampAl" text="#{item.first} #{item.last}"
+                  styleClass="#{item.rowKey == '1' ? 'MyRedLink full-trigger' : 'MyOrangeLink adfmf-accessoryLayout-hideWhenFull' }">
+                  <amx:setPropertyListener type="action"
+                    from="You chose #{item.first} #{item.last}" to="#{pageFlowScope.message}"/>
+                </amx:commandLink>
+              </amx:iterator>
+              <amx:facet name="more">
+                <amx:commandLink id="showMore2" text="More"
+                  styleClass="MyGrayLink adfmf-accessoryLayout-hideWhenFull">
+                  <amx:setPropertyListener from="#{bindings.contacts.collectionModel}"
+                    to="#{pageFlowScope.overflownItems}" type="action"/>
+                  <amx:showPopupBehavior popupId="overflowPopup" type="action"
+                    alignId="pp1" align="overlapBottomCenter"/>
+                </amx:commandLink>
+              </amx:facet>
+            </custom:overflow>
+          </amx:facet>
+        </amx:accessoryLayout>
+      </amx:listItem>
+    </amx:listView>
+
+  </amx:panelPage>
+  <amx:popup id="overflowPopup" animation="slideUp" autoDismiss="true"
+    inlineStyle="background-color: transparent; border-width: 0; box-shadow: none;">
+    <amx:panelGroupLayout id="popupScroll" scrollPolicy="scroll"
+      inlineStyle="max-height: #{deviceScope.hardware.screen.availableHeight - 125}px">
+      <custom:overflow id="overflowContent" start="#{pageFlowScope.overflowLimit}">
+        <amx:iterator id="overflownIter" var="item"
+                      value="#{pageFlowScope.overflownItems}">
+          <amx:commandButton id="clStamp2" text="#{item.first} #{item.last}"
+            styleClass="adfmf-commandButton-actionSheet">
+            <amx:setPropertyListener type="action"
+              from="You chose #{item.first} #{item.last}" to="#{pageFlowScope.message}"/>
+            <amx:closePopupBehavior popupId="overflowPopup" type="action"/>
+          </amx:commandButton>
+        </amx:iterator>
+      </custom:overflow>
+    </amx:panelGroupLayout>
+    <amx:panelGroupLayout id="cancelContent">
+      <amx:commandButton id="cancel" text="Cancel"
+        styleClass="adfmf-commandButton-actionSheet">
+        <amx:closePopupBehavior popupId="overflowPopup" type="action"/>
+      </amx:commandButton>
+    </amx:panelGroupLayout>
+  </amx:popup>
+</amx:view>

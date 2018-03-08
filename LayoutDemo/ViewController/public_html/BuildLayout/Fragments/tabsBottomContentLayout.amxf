@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1">
+        <description id="d1">Generic  fragment for tabsbottom layout</description>
+        <attribute id="a1">
+            <attribute-name id="a3n">contentText1</attribute-name>
+            <attribute-type id="a3t">String</attribute-type>
+        </attribute>
+        <attribute id="a2">
+            <attribute-name id="ad">contentText2</attribute-name>
+            <attribute-type id="a3dt">String</attribute-type>
+        </attribute>
+        <attribute id="a3">
+            <attribute-name id="ad3n">contentText3</attribute-name>
+            <attribute-type id="ad3t">String</attribute-type>
+        </attribute>
+        <attribute id="a4">
+            <attribute-name id="a3dn">contentText4</attribute-name>
+            <attribute-type id="a3cdt">String</attribute-type>
+        </attribute>
+    </fragment>
+    <amx:panelStretchLayout id="psl1" >
+        <amx:facet name="center">
+            <amx:flexLayout id="fl1" itemFlexibility="inflexible" itemAlignment="center" itemJustification="center" inlineStyle="background-color:#DAE9F5">
+                <amx:deck displayedChild="#{HandlerBean.selectedTabsBottomContent =='' ? contentText1 : HandlerBean.selectedTabsBottomContent}"
+                          inlineStyle="text-align:center;" id="dd1">
+                    <amx:panelGroupLayout halign="center" valign="middle" id="Tab1">
+                        <amx:outputText value="#{contentText1}" id="Tadb1"/>
+                    </amx:panelGroupLayout>
+                    <amx:panelGroupLayout halign="center" valign="middle" id="Tab2">
+                        <amx:outputText value="#{contentText2}" id="Tabff2"/>
+                    </amx:panelGroupLayout>
+                    <amx:panelGroupLayout halign="center" valign="middle" id="Tab3">
+                        <amx:outputText value="#{contentText3}" id="Tabff3"/>
+                    </amx:panelGroupLayout>
+                    <amx:panelGroupLayout halign="center" valign="middle" id="Tab4">
+                        <amx:outputText value="#{contentText4}" id="Taffb4"/>
+                    </amx:panelGroupLayout>
+                </amx:deck>
+            </amx:flexLayout>
+        </amx:facet>
+        <amx:facet name="bottom">
+            <amx:selectOneButton inlineStyle="background-color:#F6F6F7;"
+                                 value="#{HandlerBean.selectedTabsBottomContent}" simple="true" layout="horizontal"
+                                 valueChangeListener="#{HandlerBean.handleTabsBottomContentSelection}" id="sob1">
+                <amx:selectItem label="#{contentText1}" value="Tab1" id="si1"/>
+                <amx:selectItem label="#{contentText2}" value="Tab2" id="si2"/>
+                <amx:selectItem label="#{contentText3}" value="Tab3" id="si3"/>
+                <amx:selectItem label="#{contentText4}" value="Tab4" id="si4"/>
+            </amx:selectOneButton>
+        </amx:facet>
+    </amx:panelStretchLayout>
+</amx:fragmentDef>

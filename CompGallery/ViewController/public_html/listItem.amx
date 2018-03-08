@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText id="header" value="List Item"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton id="back" action="__back" text="Data Views"/>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandLink id="styles" action="styles" shortDesc="Styles">
+                <amx:image id="stylesIcon" source="images/styles.svg" shortDesc=""/>
+                <amx:setPropertyListener from="" to="#{pageFlowScope.listItemCardAccentStyle}" type="action"/>
+                <amx:setPropertyListener from="false" to="#{pageFlowScope.listItemCardLayoutOn}" type="action"/>
+                <amx:setPropertyListener from="false" to="#{pageFlowScope.listItemCardShadowOn}" type="action"/>
+                <amx:setPropertyListener from="" to="#{pageFlowScope.listItemSelectionStyle}" type="action"/>
+                <amx:setPropertyListener from="" to="#{pageFlowScope.listViewStyle}" type="action"/>
+            </amx:commandLink>
+            <amx:commandLink id="props" action="properties" shortDesc="Properties">
+                <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+            </amx:commandLink>
+            <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:listItem" shortDesc="Tag documentation"
+                        disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+                <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+            </amx:goLink>
+            <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dataviews/listItem"
+                        shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link" id="pBookmark">
+                <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+            </amx:goLink>
+        </amx:facet>
+        <amx:facet name="footer">
+            <amx:outputText id="outputText7" value="#{viewScope.movedata}"/>
+        </amx:facet>
+        <amx:listView id="listView1">
+            <amx:listItem id="li1" action="properties" inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+                          rendered="#{pageFlowScope.componentProperties.rendered}"
+                          shortDesc="#{pageFlowScope.componentProperties.shortDesc}"
+                          showLinkIcon="#{pageFlowScope.componentProperties.showLinkIcon}"
+                          styleClass="#{pageFlowScope.componentProperties.styleClass}">
+                <amx:outputText value="Simple List Item Variation 1" id="liot1"/>
+            </amx:listItem>
+            <amx:listItem id="li2" action="properties" inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+                          rendered="#{pageFlowScope.componentProperties.rendered}"
+                          shortDesc="#{pageFlowScope.componentProperties.shortDesc}"
+                          showLinkIcon="#{pageFlowScope.componentProperties.showLinkIcon}"
+                          styleClass="#{pageFlowScope.componentProperties.styleClass}">
+                <amx:tableLayout width="100%" id="tl1">
+                    <amx:rowLayout id="rl1">
+                        <!-- Width should be 10px for iOS, 16px for Android and 20px for Windows as per mobileAlta 1.4 spec -->
+                        <amx:cellFormat width="10px" rowSpan="2" id="cfa25"/>
+                        <amx:cellFormat width="32px" halign="center" id="cf2">
+                            <amx:image source="images/person-160.png" inlineStyle="width:32px;height:32px" id="i1"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat width="5px" rowSpan="2" id="cfh25"/>
+                        <amx:cellFormat width="100%" height="43px" id="cf1">
+                            <amx:outputText value="Simple ListItem Variation 3" id="ot3"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:listItem>
+            <amx:listItem id="li3" action="properties" inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+                          rendered="#{pageFlowScope.componentProperties.rendered}"
+                          shortDesc="#{pageFlowScope.componentProperties.shortDesc}"
+                          showLinkIcon="#{pageFlowScope.componentProperties.showLinkIcon}"
+                          styleClass="#{pageFlowScope.componentProperties.styleClass}">
+                <amx:tableLayout width="100%" id="tl2">
+                    <amx:rowLayout id="rl2">
+                        <!-- Width should be 10px for iOS, 16px for Android and 20px for Windows as per mobileAlta 1.4 spec -->
+                        <amx:cellFormat width="10px" rowSpan="2" id="cf3"/>
+                        <!-- height should be 36 for Android and 32 for iOS, for mock mode we have hardcoded the values -->
+                        <amx:cellFormat width="100%" height="34px" id="cf6">
+                            <amx:outputText value="Main Sub Text Variation 1" id="ot4"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout id="rl3">
+                        <!-- height should be 22 for Android and 19 for iOS, for mock mode we have hardcoded the values -->
+                        <amx:cellFormat width="100%" height="20px" id="cf4">
+                            <amx:outputText value="This is the subordinate text" styleClass="adfmf-listItem-captionText"
+                                            id="ot5"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:listItem>
+            <amx:listItem id="li4" action="properties" inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+                          rendered="#{pageFlowScope.componentProperties.rendered}"
+                          shortDesc="#{pageFlowScope.componentProperties.shortDesc}"
+                          showLinkIcon="#{pageFlowScope.componentProperties.showLinkIcon}"
+                          styleClass="#{pageFlowScope.componentProperties.styleClass}">
+                <amx:tableLayout width="100%" id="tl3">
+                    <amx:rowLayout id="rl4">
+                         <!-- Width should be 10px for iOS, 16px for Android and 20px for Windows as per mobileAlta 1.4 spec -->
+                        <amx:cellFormat width="10px" rowSpan="2" id="cfb25"/>
+                        <amx:cellFormat width="32px" halign="center" rowSpan="2" id="cf5">
+                            <amx:image source="images/person-160.png" inlineStyle="width:32px;height:32px" id="i2"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat width="5px" rowSpan="2" id="cfg25"/>
+                        <!-- height should be 36 for Android and 32 for iOS, for mock mode we have hardcoded the values -->
+                        <amx:cellFormat width="100%" height="34px" id="cf7">
+                            <amx:outputText value="Main Sub Text - Variation 3" id="ot1"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout id="rl5">
+                        <!-- height should be 22 for Android and 19 for iOS, for mock mode we have hardcoded the values -->
+                        <amx:cellFormat width="100%" height="20px" id="cf8">
+                            <amx:outputText value="This is the subordinate text" styleClass="adfmf-listItem-captionText"
+                                            id="ot2"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:listItem>
+            <amx:listItem id="li5" action="properties" inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+                          rendered="#{pageFlowScope.componentProperties.rendered}"
+                          shortDesc="#{pageFlowScope.componentProperties.shortDesc}"
+                          showLinkIcon="#{pageFlowScope.componentProperties.showLinkIcon}"
+                          styleClass="#{pageFlowScope.componentProperties.styleClass}">
+                <amx:tableLayout width="100%" id="tl4">
+                    <amx:rowLayout id="rl6">
+                        <!-- Width should be 10px for iOS, 16px for Android and 20px for Windows as per mobileAlta 1.4 spec -->
+                        <amx:cellFormat width="10px" id="cf9"/>
+                        <amx:cellFormat width="60%" height="43px" id="cf10">
+                            <amx:outputText value="Start Text - Variation 1" id="ot6"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat width="10px" id="cf11"/>
+                        <amx:cellFormat width="40%" halign="end" id="cf12">
+                            <amx:outputText value="End Text - Variation 1" styleClass="adfmf-listItem-highlightText"
+                                            id="ot7"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:listItem>
+            <amx:listItem id="li6" action="properties" inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+                          rendered="#{pageFlowScope.componentProperties.rendered}"
+                          shortDesc="#{pageFlowScope.componentProperties.shortDesc}"
+                          showLinkIcon="#{pageFlowScope.componentProperties.showLinkIcon}"
+                          styleClass="#{pageFlowScope.componentProperties.styleClass}">
+                <amx:tableLayout width="100%" id="tl5">
+                    <amx:rowLayout id="rl7">
+                        <!-- Width should be 10px for iOS, 16px for Android and 20px for Windows as per mobileAlta 1.4 spec -->
+                        <amx:cellFormat width="10px" rowSpan="2" id="cfc25"/>
+                        <amx:cellFormat width="32px" halign="center" id="cf13">
+                            <amx:image source="images/person-160.png" inlineStyle="width:32px;height:32px" id="i3"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat width="5px" rowSpan="2" id="cff25"/>
+                        <amx:cellFormat width="60%" height="43px" id="cf14">
+                            <amx:outputText value="Start Text - Variation 3" id="ot8"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat width="10px" id="cf15"/>
+                        <amx:cellFormat width="40%" halign="end" id="cf16">
+                            <amx:outputText value="End Text Variation 3" styleClass="adfmf-listItem-highlightText"
+                                            id="ot9"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:listItem>
+            <amx:listItem id="li7" action="properties" inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+                          rendered="#{pageFlowScope.componentProperties.rendered}"
+                          shortDesc="#{pageFlowScope.componentProperties.shortDesc}"
+                          showLinkIcon="#{pageFlowScope.componentProperties.showLinkIcon}"
+                          styleClass="#{pageFlowScope.componentProperties.styleClass}">
+                <amx:tableLayout width="100%" id="tl6">
+                    <amx:rowLayout id="rl8">
+                        <!-- Width should be 10px for iOS, 16px for Android and 20px for Windows as per mobileAlta 1.4 spec -->
+                        <amx:cellFormat width="10px" rowSpan="2" id="cf17"/>
+                        <!-- height should be 34 for Android and 32 for iOS, for mock mode we have hardcoded the values -->
+                        <amx:cellFormat width="60%" height="34px" id="cf19">
+                            <amx:outputText value="Upper Start Quadrant1" id="ot10"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat width="10px" rowSpan="2" id="cf18"/>
+                        <amx:cellFormat width="40%" halign="end" id="cf20">
+                            <amx:outputText value="Upper End Quadrant1" styleClass="adfmf-listItem-highlightText"
+                                            id="ot11"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout id="rl9">
+                        <!-- height should be 22 for Android and 19 for iOS, for mock mode we have hardcoded the values -->
+                        <amx:cellFormat width="60%" height="20px" id="cf21">
+                            <amx:outputText value="Lower Start Quadrant1" styleClass="adfmf-listItem-captionText"
+                                            id="ot12"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat width="40%" halign="end" id="cf22">
+                            <amx:outputText value="Lower End Quadrant1" styleClass="adfmf-listItem-captionText"
+                                            id="ot13"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:listItem>
+            <amx:listItem id="li8" action="properties" inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+                          rendered="#{pageFlowScope.componentProperties.rendered}"
+                          shortDesc="#{pageFlowScope.componentProperties.shortDesc}"
+                          showLinkIcon="#{pageFlowScope.componentProperties.showLinkIcon}"
+                          styleClass="#{pageFlowScope.componentProperties.styleClass}">
+                <amx:tableLayout width="100%" id="tl7">
+                    <amx:rowLayout id="rl10">
+                        <!-- Width should be 10px for iOS, 16px for Android and 20px for Windows as per mobileAlta 1.4 spec -->
+                         <amx:cellFormat width="10px" rowSpan="2" id="cfd25"/>
+                         <amx:cellFormat width="32px" halign="center" rowSpan="2" id="cf23">
+                            <amx:image source="images/person-160.png" inlineStyle="width:32px;height:32px" id="i4"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat width="5px" rowSpan="2" id="cfe25"/>
+                        <!-- height should be 34 for Android and 32 for iOS, for mock mode we have hardcoded the values -->
+                        <amx:cellFormat width="60%" height="34px" id="cf24">
+                            <amx:outputText value="Upper Start Quadrant3" id="ot14"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat width="10px" rowSpan="2" id="cf25"/>
+                        <amx:cellFormat width="40%" halign="end" id="cf26">
+                            <amx:outputText value="Upper End Quadrant3" styleClass="adfmf-listItem-highlightText"
+                                            id="ot15"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout id="rl11">
+                        <!-- height should be 22 for Android and 19 for iOS, for mock mode we have hardcoded the values -->
+                        <amx:cellFormat width="60%" height="20px" id="cf27">
+                            <amx:outputText value="Lower Start Quadrant3" styleClass="adfmf-listItem-captionText"
+                                            id="ot16"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat width="40%" halign="end" id="cf28">
+                            <amx:outputText value="Lower End Quadrant3" styleClass="adfmf-listItem-captionText"
+                                            id="ot17"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:listItem>
+        </amx:listView>
+    </amx:panelPage>
+</amx:view>

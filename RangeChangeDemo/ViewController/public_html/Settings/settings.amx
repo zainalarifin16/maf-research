@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Settings" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+        <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+            <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+        </amx:commandLink>
+    </amx:facet>
+    <amx:panelFormLayout>
+      <amx:selectOneChoice label="Show More Strategy" id="soc1"
+                           value="#{preferenceScope.application.preferences.showMoreStrategy}">
+        <amx:selectItem label="autoLink" value="autoLink" id="si1"/>
+        <amx:selectItem label="autoScroll" value="autoScroll" id="si2"/>
+        <amx:selectItem label="forceLink" value="forceLink" id="si3"/>
+        <amx:selectItem label="forceScroll" value="forceScroll" id="si4"/>
+        <amx:selectItem label="off" value="off" id="si5"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice label="Buffer Strategy" id="soc2"
+                           value="#{preferenceScope.application.preferences.bufferStrategy}">
+        <amx:selectItem label="additive" value="additive" id="si6"/>
+        <amx:selectItem label="viewport" value="viewport" id="si7"/>
+      </amx:selectOneChoice>
+      <amx:inputText label="Buffer Size" id="it5" inputType="number"
+                     value="#{preferenceScope.application.preferences.bufferSize}"
+                     rendered='#{preferenceScope.application.preferences.bufferStrategy == "viewport"}'/>
+    </amx:panelFormLayout>
+   
+  </amx:panelPage>
+</amx:view>

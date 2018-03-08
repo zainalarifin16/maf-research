@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Swipe to Reveal"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Layout"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:accessoryLayout"
+                  shortDesc="Tag documentation" disabled="#{GlobalProperties['tagdocUrl'] == ''}"
+                  id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=layout/accessoryLayout"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:facet name="footer">
+      <amx:outputText id="tip" value="Drag the rows horizontally"/>
+    </amx:facet>
+    <amx:listView id="lv1">
+      <amx:listItem id="liSimple">
+        <amx:showPopupBehavior popupId="itemPopup" type="action"
+          alignId="pp1" align="overlapMiddleCenter"/>
+        <amx:accessoryLayout id="alSimple" rendered="#{pageFlowScope.componentProperties.rendered}"
+          inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}" styleClass="#{pageFlowScope.componentProperties.styleClass}"
+          contentStyle="#{pageFlowScope.componentProperties.contentStyle}" contentClass="#{pageFlowScope.componentProperties.contentClass}"
+          startDesc="#{pageFlowScope.componentProperties.startDesc}" startWidth="#{pageFlowScope.componentProperties.startWidth}"
+          startStyle="#{pageFlowScope.componentProperties.startStyle}" startClass="#{pageFlowScope.componentProperties.startClass}"
+          startFullTriggerSelector="#{pageFlowScope.componentProperties.startFullTriggerSelector}"
+          endDesc="#{pageFlowScope.componentProperties.endDesc}" endWidth="#{pageFlowScope.componentProperties.endWidth}"
+          endStyle="#{pageFlowScope.componentProperties.endStyle}" endClass="#{pageFlowScope.componentProperties.endClass}"
+          endFullTriggerSelector="#{pageFlowScope.componentProperties.endFullTriggerSelector}">
+          <amx:facet name="start">
+            <amx:commandLink id="clStartSimple" text="Start" styleClass="full-trigger">
+              <amx:showPopupBehavior popupId="startPopup" type="action"
+                alignId="pp1" align="overlapMiddleCenter"/>
+            </amx:commandLink>
+          </amx:facet>
+          <amx:facet name="end">
+            <amx:commandLink id="clEndSimple" text="End" styleClass="full-trigger">
+              <amx:showPopupBehavior popupId="endPopup" type="action"
+                alignId="pp1" align="overlapMiddleCenter"/>
+            </amx:commandLink>
+          </amx:facet>
+          <amx:outputText id="otContentSimple" value="Simple example"/>
+        </amx:accessoryLayout>
+      </amx:listItem>
+      <amx:listItem id="liSpecial">
+        <amx:showPopupBehavior popupId="itemPopup" type="action"
+          alignId="pp1" align="overlapMiddleCenter"/>
+        <amx:accessoryLayout id="alSpecial"
+          startDesc="Show starting tools" startStyle="background-color:#0572CE"
+          startFullTriggerSelector=".full-trigger"
+          endDesc="Show ending tools" endStyle="background-color:#BA0006"
+          endFullTriggerSelector=".full-trigger">
+          <amx:facet name="start">
+            <!-- The &#x000A; entity is for a new line character. -->
+            <amx:commandLink id="clSpecialMark" text="Mark as&#x000A;Unread"
+              inlineStyle="font-size: 14px; line-height: 15px; padding-top: 0; padding-bottom: 0;"
+              styleClass="full-trigger">
+              <amx:showPopupBehavior popupId="startPopup" type="action"
+                alignId="pp1" align="overlapMiddleCenter"/>
+            </amx:commandLink>
+          </amx:facet>
+          <amx:facet name="end">
+            <!-- Applying custom background colors to links works better through
+                 styleClasses because then you can use ":active" pseudoclasses
+                 for better user feedback when tapping (vs. inlineStyle). -->
+            <amx:commandLink id="clMore" text="More"
+              styleClass="MyGrayLink adfmf-accessoryLayout-hideWhenFull">
+              <amx:showPopupBehavior popupId="morePopup" type="action"
+                alignId="pp1" align="overlapMiddleCenter"/>
+            </amx:commandLink>
+            <amx:commandLink id="clFlag" text="Flag"
+              styleClass="MyOrangeLink adfmf-accessoryLayout-hideWhenFull">
+              <amx:showPopupBehavior popupId="flagPopup" type="action"
+                alignId="pp1" align="overlapMiddleCenter"/>
+            </amx:commandLink>
+            <amx:commandLink id="clTrash" text="Trash"
+              styleClass="MyRedLink full-trigger">
+              <amx:showPopupBehavior popupId="endPopup" type="action"
+                alignId="pp1" align="overlapMiddleCenter"/>
+            </amx:commandLink>
+          </amx:facet>
+          <amx:outputText id="otContentSpecial" value="Special example"/>
+        </amx:accessoryLayout>
+      </amx:listItem>
+    </amx:listView>
+  </amx:panelPage>
+  <amx:popup id="itemPopup" animation="slideDown" autoDismiss="true">
+    <amx:panelGroupLayout id="pglItem">
+      <amx:outputText id="otItemPopup" value="List item was triggered"/>
+      <amx:commandButton id="closeItemPopup" text="Close">
+        <amx:closePopupBehavior type="action" popupId="itemPopup"/>
+      </amx:commandButton>
+    </amx:panelGroupLayout>
+  </amx:popup>
+  <amx:popup id="startPopup" animation="slideEnd" autoDismiss="true">
+    <amx:panelGroupLayout id="pglStart">
+      <amx:outputText id="otStartPopup" value="Start was triggered"/>
+      <amx:commandButton id="closeStartPopup" text="Close">
+        <amx:closePopupBehavior type="action" popupId="startPopup"/>
+      </amx:commandButton>
+    </amx:panelGroupLayout>
+  </amx:popup>
+  <amx:popup id="endPopup" animation="slideStart" autoDismiss="true">
+    <amx:panelGroupLayout id="pglEnd">
+      <amx:outputText id="otEndPopup" value="End was triggered"/>
+      <amx:commandButton id="closeEndPopup" text="Close">
+        <amx:closePopupBehavior type="action" popupId="endPopup"/>
+      </amx:commandButton>
+    </amx:panelGroupLayout>
+  </amx:popup>
+  <amx:popup id="morePopup" animation="slideStart" autoDismiss="true">
+    <amx:panelGroupLayout id="pglMore">
+      <amx:outputText id="otMorePopup" value="More was triggered"/>
+      <amx:commandButton id="closeMorePopup" text="Close">
+        <amx:closePopupBehavior type="action" popupId="morePopup"/>
+      </amx:commandButton>
+    </amx:panelGroupLayout>
+  </amx:popup>
+  <amx:popup id="flagPopup" animation="slideStart" autoDismiss="true">
+    <amx:panelGroupLayout id="pglFlag">
+      <amx:outputText id="otFlagPopup" value="Flag was triggered"/>
+      <amx:commandButton id="closeFlagPopup" text="Close">
+        <amx:closePopupBehavior type="action" popupId="flagPopup"/>
+      </amx:commandButton>
+    </amx:panelGroupLayout>
+  </amx:popup>
+</amx:view>

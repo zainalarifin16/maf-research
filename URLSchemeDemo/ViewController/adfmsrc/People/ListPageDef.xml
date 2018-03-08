@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="ListPageDef" Package="People">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="EmployeeList" id="EmployeeListIterator"/>
+    <accessorIterator MasterBinding="EmployeeListIterator" Binds="employees" RangeSize="25" DataControl="EmployeeList"
+                      BeanClass="HR.Employee" id="employeesIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="employeesIterator" id="employees">
+      <nodeDefinition DefName="HR.Employee" Name="employees0">
+        <AttrNames>
+          <Item Value="key"/>
+          <Item Value="address"/>
+          <Item Value="city"/>
+          <Item Value="deptid"/>
+          <Item Value="first"/>
+          <Item Value="id"/>
+          <Item Value="last"/>
+          <Item Value="mobile"/>
+          <Item Value="phone"/>
+          <Item Value="salary"/>
+          <Item Value="state"/>
+          <Item Value="zip"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

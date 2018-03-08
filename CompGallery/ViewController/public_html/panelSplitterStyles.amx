@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Split View Styles" id="hdr"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"
+                         shortDesc="Go back to the previous page"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=layout/panelSplitter/styles"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:panelSplitter id="ps1" styleClass="#{pageFlowScope.panelSplitterStyle}">
+      <amx:facet name="navigator">
+        <amx:panelStretchLayout id="psl2">
+          <amx:facet name="top">
+            <amx:selectOneButton id="sob2" simple="true">
+              <amx:selectItem id="si4" label="Test1" value="test1"/>
+              <amx:selectItem id="si5" label="Test2" value="test2"/>
+            </amx:selectOneButton>
+          </amx:facet>
+          <amx:facet name="center">
+            <amx:listView var="row" id="lv1">
+              <amx:listItem id="li1">
+                <amx:outputText value="ListItem 1" id="ot1"/>
+                <amx:setPropertyListener id="spl1" from="ListItem 1"
+                  to="#{pageFlowScope.listItem}"/>
+              </amx:listItem>
+              <amx:listItem id="li2">
+                <amx:outputText value="ListItem 2" id="ot2"/>
+                <amx:setPropertyListener id="spl2" from="ListItem 2"
+                  to="#{pageFlowScope.listItem}"/>
+              </amx:listItem>
+              <amx:listItem id="li3">
+                <amx:outputText value="ListItem 3" id="ot3"/>
+                <amx:setPropertyListener id="spl3" from="ListItem 3"
+                  to="#{pageFlowScope.listItem}"/>
+              </amx:listItem>
+              <amx:listItem id="li4">
+                <amx:outputText value="ListItem 4" id="ot4"/>
+                <amx:setPropertyListener id="spl4" from="ListItem 4"
+                  to="#{pageFlowScope.listItem}"/>
+              </amx:listItem>
+              <amx:listItem id="li5">
+                <amx:outputText value="ListItem 5" id="ot5"/>
+                <amx:setPropertyListener id="spl5" from="ListItem 5"
+                  to="#{pageFlowScope.listItem}"/>
+              </amx:listItem>
+              <amx:listItem id="li6">
+                <amx:outputText value="ListItem 6" id="ot6"/>
+                <amx:setPropertyListener id="spl6" from="ListItem 6"
+                  to="#{pageFlowScope.listItem}"/>
+              </amx:listItem>
+              <amx:listItem id="li7">
+                <amx:outputText value="ListItem 7" id="ot7"/>
+                <amx:setPropertyListener id="spl7" from="ListItem 7"
+                  to="#{pageFlowScope.listItem}"/>
+              </amx:listItem>
+              <amx:listItem id="li8">
+                <amx:outputText value="ListItem 8" id="ot8"/>
+                <amx:setPropertyListener id="spl8" from="ListItem 8"
+                  to="#{pageFlowScope.listItem}"/>
+              </amx:listItem>
+              <amx:listItem id="li9">
+                <amx:outputText value="ListItem 9" id="ot9"/>
+                <amx:setPropertyListener id="spl9" from="ListItem 9"
+                  to="#{pageFlowScope.listItem}"/>
+              </amx:listItem>
+              <amx:listItem id="li10">
+                <amx:outputText value="ListItem 10" id="ot10"/>
+                <amx:setPropertyListener id="spl10" from="ListItem 10"
+                  to="#{pageFlowScope.listItem}"/>
+              </amx:listItem>
+              <amx:listItem id="li11">
+                <amx:outputText value="ListItem 11" id="ot11"/>
+                <amx:setPropertyListener id="spl11" from="ListItem 11"
+                  to="#{pageFlowScope.listItem}"/>
+              </amx:listItem>
+              <amx:listItem id="li12">
+                <amx:outputText value="ListItem 12" id="ot12"/>
+                <amx:setPropertyListener id="spl12" from="ListItem 12"
+                  to="#{pageFlowScope.listItem}"/>
+              </amx:listItem>
+              <amx:listItem id="li13">
+                <amx:outputText value="ListItem 13" id="ot13"/>
+                <amx:setPropertyListener id="spl13" from="ListItem 13"
+                  to="#{pageFlowScope.listItem}"/>
+              </amx:listItem>
+              <amx:listItem id="li14">
+                <amx:outputText value="ListItem 14" id="ot14"/>
+                <amx:setPropertyListener id="spl14" from="ListItem 14"
+                  to="#{pageFlowScope.listItem}"/>
+              </amx:listItem>
+              <amx:listItem id="li15">
+                <amx:outputText value="ListItem 15" id="ot15"/>
+                <amx:setPropertyListener id="spl15" from="ListItem 15"
+                  to="#{pageFlowScope.listItem}"/>
+              </amx:listItem>
+            </amx:listView>
+          </amx:facet>
+        </amx:panelStretchLayout>
+      </amx:facet>
+      <amx:panelItem id="pi1">
+        <amx:outputText value="#{pageFlowScope.panelSplitterStyle}" id="ot17"
+          styleClass="adfmf-outputText-sectionTitle" inlineStyle="text-transform: none;"/>
+        <amx:selectOneButton id="sob1" simple="true" value="#{pageFlowScope.panelSplitterStyle}">
+          <amx:selectItem id="si1" label="Default" value="Default"/>
+          <amx:selectItem id="si2" label="Background1" value="adfmf-panelSplitter-backgroundAlternate1"/>
+          <amx:selectItem id="si3" label="Background2" value="adfmf-panelSplitter-backgroundAlternate2"/>
+        </amx:selectOneButton>
+        <amx:panelGroupLayout id="pgl1" halign="center" inlineStyle="width:100%">
+          <amx:outputText value="#{pageFlowScope.listItem}" id="ot16"/>
+        </amx:panelGroupLayout>
+      </amx:panelItem>
+    </amx:panelSplitter>
+  </amx:panelPage>
+</amx:view>

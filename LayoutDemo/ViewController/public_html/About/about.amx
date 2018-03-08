@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1" inlineStyle="background-color: #F6F6F7;">
+    <amx:facet name="header">
+      <amx:outputText value="About" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" styleClass="custom-springboard-link" id="cl1">
+                    <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+    </amx:facet>
+     <amx:spacer height="25" id="s1"/>  
+    <amx:panelGroupLayout layout="horizontal" inlineStyle="margin:10px;" halign="center" id="pgl5">
+    <amx:outputText inlineStyle="color:#0572CE;" value="IT IS EASY AS 1,2,3 TO BUILD A MOBILE LAYOUT" id="ot2"/>
+   </amx:panelGroupLayout>
+    <amx:spacer height="25" id="ss1"/>  
+    <amx:panelGroupLayout layout="vertical" halign="center" id="pgl4">
+   
+    <amx:tableLayout  cellPadding="5" width="70%" borderWidth="0" id="tl1">
+      <amx:rowLayout id="rl1">
+        <amx:cellFormat halign="center" valign="top" width="10%" id="cf4">
+        <amx:outputText styleClass="adfmf-outputText-badge" value="1" id="ot3"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf1">
+          <amx:panelGroupLayout halign="start" layout="vertical" id="pgl1">
+          <amx:outputText value="SELECT PAGE LAYOUT" id="ot4"/>
+          <amx:outputText styleClass="adfmf-outputText-small" value="Choose a page structure to start with" id="ot9"/>
+        </amx:panelGroupLayout>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      <amx:rowLayout id="rl2">
+        <amx:cellFormat width="10%" halign="center" valign="top" id="cf5">
+          <amx:outputText styleClass="adfmf-outputText-badge" value="2" id="ot5"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf2">
+          <amx:panelGroupLayout halign="start" layout="vertical" id="pgl3">
+          <amx:outputText value="SELECT CONTENT LAYOUT" id="ot4f"/>
+          <amx:outputText styleClass="adfmf-outputText-small" value="Then choose a content structure to use on the page." id="oft9"/>
+        </amx:panelGroupLayout>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      <amx:rowLayout id="rl3">
+        <amx:cellFormat halign="center" width="10%" valign="top" id="cf6">
+                  <amx:outputText styleClass="adfmf-outputText-badge" value="3" id="otf5"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf3">
+          <amx:panelGroupLayout halign="start" layout="vertical" id="pgdl1">
+          <amx:outputText value="SELECT OPTIONS" id="otd4"/>
+          <amx:outputText styleClass="adfmf-outputText-small" value="Set options that your layout may use." id="ot9g"/>
+        </amx:panelGroupLayout>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
+     <amx:spacer height="25" id="sdd1"/>  
+    <amx:panelGroupLayout layout="horizontal" halign="center" id="pgl2">
+      <amx:commandButton action="buildlayout" styleClass="adfmf-commandButton-large" text="OKAY-Try It" id="cb1"/>
+    </amx:panelGroupLayout>
+    </amx:panelGroupLayout>
+  </amx:panelPage>
+</amx:view>

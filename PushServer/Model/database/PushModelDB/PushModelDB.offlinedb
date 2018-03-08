@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProviderSettings xmlns="http://xmlns.oracle.com/ide/hash">
+   <value n="id" v="12a62439-013d-1000-8002-c0a8010b4953"/>
+   <value n="name" v="PushModelDB"/>
+   <value n="offlineDBSchema" v=""/>
+</ProviderSettings>

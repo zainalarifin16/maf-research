@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:adfmf="http://xmlns.oracle.com/adf/mf" name="Skinning"
+                   version="1.0" id="com.oraclecorp.internal.SkinningDemo"
+                   appControllerFolder="ApplicationController">
+  <adfmf:featureReference id="fr2" refId="Skinning"/>
+  <adfmf:featureReference id="fr1" refId="About"/>
+  <adfmf:featureReference id="fr3" refId="Springboard" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:navigation>
+    <adfmf:navigationBar enabled="false" displayHideShowNavigationBarControl="false"/>
+    <adfmf:springboard enabled="true" showSpringboardAtStartup="false" displayGotoSpringboardControl="false" width="280">
+      <adfmf:springboardFeatureReference id="sfr1" refId="Springboard"/>
+    </adfmf:springboard>
+  </adfmf:navigation>
+</adfmf:application>

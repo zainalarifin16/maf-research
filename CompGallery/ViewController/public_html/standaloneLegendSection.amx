@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Common Legend Section" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back">
+        <amx:setPropertyListener to="#{DvtProperties.commonLegendSectionProperties.sectionTitle}"
+                                 from="#{pageFlowScope.title}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.commonLegendSectionProperties.sectionTitleHalign}"
+                                 from="#{pageFlowScope.halign}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.commonLegendSectionProperties.sectionTitleStyle}"
+                                 from="#{pageFlowScope.titleStyle}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.commonLegendSectionProperties.sectionShowDisclosure}"
+                                 from="#{pageFlowScope.showDisclosure}" type="action"/>
+      </amx:commandButton>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="chartProperties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#dvtm:legendSection" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/dvtCharts/standaloneLegendSection"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:flexLayout id="fl1">
+      <amx:flexLayout id="fl" orientation="horizontal" itemFlexibility="inflexible" itemJustification="center">
+        <dvtm:legend title="Common Legend" orientation="vertical" inlineStyle="margin:auto;" id="l1">
+          <dvtm:legendSection title="#{pageFlowScope.title}" titleHalign="#{pageFlowScope.halign}"
+                              titleStyle="#{pageFlowScope.titleStyle}" showDisclosure="#{pageFlowScope.showDisclosure}"
+                              id="ls1">
+            <amx:iterator var="row" value="#{bindings.legendData.collectionModel}" id="i1">
+              <dvtm:legendItem text="#{row.text}" color="#{row.color}" markerShape="#{row.shape}" id="li1"/>
+            </amx:iterator>
+          </dvtm:legendSection>
+        </dvtm:legend>
+      </amx:flexLayout>
+      <amx:panelGroupLayout id="pglOptionsPanel" scrollPolicy="scroll">
+        <amx:panelFormLayout id="pflOptionsForm2" maxColumns="1" rows="1" styleClass="dvtm-gallery-options"
+                             fieldWidth="60%" labelWidth="40%">
+          <amx:inputText label="Title" value="#{pageFlowScope.title}"/>
+          <amx:selectOneChoice label="Title Halign" value="#{pageFlowScope.halign}">
+            <amx:selectItem label="default"/>
+            <amx:selectItem label="start" value="start"/>
+            <amx:selectItem label="center" value="center"/>
+            <amx:selectItem label="end" value="end"/>
+          </amx:selectOneChoice>
+          <amx:inputText label="Title Style" value="#{pageFlowScope.titleStyle}"/>
+          <amx:selectOneChoice label="Show Disclosure" value="#{pageFlowScope.showDisclosure}">
+            <amx:selectItem label="default"/>
+            <amx:selectItem label="on" value="on"/>
+            <amx:selectItem label="off" value="off"/>
+          </amx:selectOneChoice>
+        </amx:panelFormLayout>
+      </amx:panelGroupLayout>
+    </amx:flexLayout>
+  </amx:panelPage>
+</amx:view>

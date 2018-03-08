@@ -1,0 +1,896 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Charts"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton text="Back" id="back" action="return" styleClass="amx-commandButton-back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/dvtCharts" shortDesc="Bookmarkable Link"
+                  styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg"
+                   shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:listView id="listView1">
+      <amx:listItem id="areaChart" action="areaChart">
+        <amx:tableLayout id="areaChartTL" width="100%">
+          <amx:rowLayout id="areaChartRL1">
+            <amx:cellFormat id="areaChartCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="areaChartI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/areaChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="areaChartCF2" width="100%" height="28px">
+              <amx:outputText id="areaChartOT1" value="Area Chart"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="areaChartRL2">
+            <amx:cellFormat id="areaChartCF3" width="100%" height="12px">
+              <amx:outputText id="areaChartOT2" value="dvtm:areaChart" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="vertical" to="#{pageFlowScope.orientation}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.legendDisplay}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.legendPosition}" type="action"/>
+        <amx:setPropertyListener from="false" to="#{pageFlowScope.labelDisplay}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.labelPosition}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.xAxisDisplay}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.yAxisDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.stack}"
+                                 to="#{pageFlowScope.stack}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.titleDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.areaChartProperties}" to="#{pageFlowScope.chartProperties}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.areaChartProperties.dataCursor}" to="#{pageFlowScope.dataCursor}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.areaChartProperties.dataCursorBehavior}"
+                                 to="#{pageFlowScope.dataCursorBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.areaChartProperties.dataSelection}"
+                                 to="#{pageFlowScope.dataSelection}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.areaChartProperties.footnote}" to="#{pageFlowScope.footnote}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.areaChartProperties.footnoteHalign}"
+                                 to="#{pageFlowScope.footnoteHalign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.areaChartProperties.hideAndShowBehavior}"
+                                 to="#{pageFlowScope.hideAndShowBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.areaChartProperties.inlineStyle}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.areaChartProperties.rolloverBehavior}"
+                                 to="#{pageFlowScope.rolloverBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.areaChartProperties.rolloverBehaviorDelay}"
+                                 to="#{pageFlowScope.rolloverBehaviorDelay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.areaChartProperties.scaleY}" to="#{pageFlowScope.scaleY}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.areaChartProperties.stack}" to="#{pageFlowScope.stack}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.areaChartProperties.subtitle}" to="#{pageFlowScope.subtitle}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.areaChartProperties.title}" to="#{pageFlowScope.title}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.areaChartProperties.titleHalign}"
+                                 to="#{pageFlowScope.titleHalign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.areaChartProperties.animationOnDataChange}"
+                                 to="#{pageFlowScope.animationOnDataChange}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.areaChartProperties.animationIndicators}"
+                                 to="#{pageFlowScope.animationIndicators}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.areaChartProperties.animationDuration}"
+                                 to="#{pageFlowScope.animationDuration}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.areaChartProperties.animationOnDisplay}"
+                                 to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.areaChartProperties.animationUpColor}"
+                                 to="#{pageFlowScope.animationUpColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.areaChartProperties.animationDownColor}"
+                                 to="#{pageFlowScope.animationDownColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.areaChartProperties.shortDesc}" to="#{pageFlowScope.shortDesc}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.areaChartProperties.seriesEffect}"
+                                 to="#{pageFlowScope.seriesEffect}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="barChart" action="barChart">
+        <amx:tableLayout id="barChartTL" width="100%">
+          <amx:rowLayout id="barChartRL1">
+            <amx:cellFormat id="barChartCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="barChartI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/barChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="barChartCF2" width="100%" height="28px">
+              <amx:outputText id="barChartOT1" value="Bar Chart"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="barChartRL2">
+            <amx:cellFormat id="barChartCF3" width="100%" height="12px">
+              <amx:outputText id="barChartOT2" value="dvtm:barChart" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="vertical" to="#{pageFlowScope.orientation}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.legendDisplay}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.legendPosition}" type="action"/>
+        <amx:setPropertyListener from="false" to="#{pageFlowScope.labelDisplay}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.labelPosition}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.xAxisDisplay}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.yAxisDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.stack eq 'on' ? true : false}"
+                                 to="#{pageFlowScope.stacked}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.titleDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties}" to="#{pageFlowScope.chartProperties}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.dataCursor}" to="#{pageFlowScope.dataCursor}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.dataCursorBehavior}"
+                                 to="#{pageFlowScope.dataCursorBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.dataSelection}"
+                                 to="#{pageFlowScope.dataSelection}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.footnote}" to="#{pageFlowScope.footnote}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.footnoteHalign}"
+                                 to="#{pageFlowScope.footnoteHalign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.hideAndShowBehavior}"
+                                 to="#{pageFlowScope.hideAndShowBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.inlineStyle}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.rolloverBehavior}"
+                                 to="#{pageFlowScope.rolloverBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.rolloverBehaviorDelay}"
+                                 to="#{pageFlowScope.rolloverBehaviorDelay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.scaleY}" to="#{pageFlowScope.scaleY}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.stack}" to="#{pageFlowScope.stack}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.stackLabel}"
+                                 to="#{pageFlowScope.stackLabel}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.stackLabelStyle}"
+                                 to="#{pageFlowScope.stackLabelStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.subtitle}" to="#{pageFlowScope.subtitle}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.title}" to="#{pageFlowScope.title}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.titleHalign}"
+                                 to="#{pageFlowScope.titleHalign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.animationOnDataChange}"
+                                 to="#{pageFlowScope.animationOnDataChange}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.animationIndicators}"
+                                 to="#{pageFlowScope.animationIndicators}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.animationDuration}"
+                                 to="#{pageFlowScope.animationDuration}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.animationOnDisplay}"
+                                 to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.animationUpColor}"
+                                 to="#{pageFlowScope.animationUpColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.animationDownColor}"
+                                 to="#{pageFlowScope.animationDownColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.shortDesc}" to="#{pageFlowScope.shortDesc}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.barChartProperties.seriesEffect}"
+                                 to="#{pageFlowScope.seriesEffect}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="bubbleChart" action="bubbleChart">
+        <amx:tableLayout id="bubbleChartTL" width="100%">
+          <amx:rowLayout id="bubbleChartRL1">
+            <amx:cellFormat id="bubbleChartCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="bubbleChartI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/bubbleChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="bubbleChartCF2" width="100%" height="28px">
+              <amx:outputText id="bubbleChartOT1" value="Bubble Chart"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="bubbleChartRL2">
+            <amx:cellFormat id="bubbleChartCF3" width="100%" height="12px">
+              <amx:outputText id="bubbleChartOT2" value="dvtm:bubbleChart" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.legendDisplay}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.legendPosition}" type="action"/>
+        <amx:setPropertyListener from="false" to="#{pageFlowScope.labelDisplay}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.labelPosition}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.xAxisDisplay}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.yAxisDisplay}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.titleDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.bubbleChartProperties}" to="#{pageFlowScope.chartProperties}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.bubbleChartProperties.dataSelection}"
+                                 to="#{pageFlowScope.dataSelection}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.bubbleChartProperties.footnote}" to="#{pageFlowScope.footnote}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.bubbleChartProperties.footnoteHalign}"
+                                 to="#{pageFlowScope.footnoteHalign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.bubbleChartProperties.hideAndShowBehavior}"
+                                 to="#{pageFlowScope.hideAndShowBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.bubbleChartProperties.inlineStyle}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.bubbleChartProperties.rolloverBehavior}"
+                                 to="#{pageFlowScope.rolloverBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.bubbleChartProperties.rolloverBehaviorDelay}"
+                                 to="#{pageFlowScope.rolloverBehaviorDelay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.bubbleChartProperties.scaleX}" to="#{pageFlowScope.scaleX}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.bubbleChartProperties.scaleY}" to="#{pageFlowScope.scaleY}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.bubbleChartProperties.subtitle}" to="#{pageFlowScope.subtitle}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.bubbleChartProperties.title}" to="#{pageFlowScope.title}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.bubbleChartProperties.titleHalign}"
+                                 to="#{pageFlowScope.titleHalign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.bubbleChartProperties.animationOnDataChange}"
+                                 to="#{pageFlowScope.animationOnDataChange}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.bubbleChartProperties.animationDuration}"
+                                 to="#{pageFlowScope.animationDuration}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.bubbleChartProperties.animationOnDisplay}"
+                                 to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.bubbleChartProperties.shortDesc}" to="#{pageFlowScope.shortDesc}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.bubbleChartProperties.seriesEffect}"
+                                 to="#{pageFlowScope.seriesEffect}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.bubbleChartProperties.zoomAndScroll}"
+                                 to="#{pageFlowScope.zoomAndScroll}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.bubbleChartProperties.zoomDirection}"
+                                 to="#{pageFlowScope.zoomDirection}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="comboChart" action="comboChart">
+        <amx:tableLayout id="comboChartTL" width="100%">
+          <amx:rowLayout id="comboChartRL1">
+            <amx:cellFormat id="comboChartCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="comboChartI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/comboChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="comboChartCF2" width="100%" height="28px">
+              <amx:outputText id="comboChartOT1" value="Combo Chart"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="comboChartRL2">
+            <amx:cellFormat id="comboChartCF3" width="100%" height="12px">
+              <amx:outputText id="comboChartOT2" value="dvtm:comboChart" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="vertical" to="#{pageFlowScope.orientation}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.legendDisplay}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.legendPosition}" type="action"/>
+        <amx:setPropertyListener from="false" to="#{pageFlowScope.labelDisplay}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.labelPosition}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.xAxisDisplay}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.yAxisDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties.stack eq 'on' ? true : false}"
+                                 to="#{pageFlowScope.stacked}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties}" to="#{pageFlowScope.chartProperties}"
+                                 type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.titleDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties.dataCursor}"
+                                 to="#{pageFlowScope.dataCursor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties.dataCursorBehavior}"
+                                 to="#{pageFlowScope.dataCursorBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties.dataSelection}"
+                                 to="#{pageFlowScope.dataSelection}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties.footnote}" to="#{pageFlowScope.footnote}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties.footnoteHalign}"
+                                 to="#{pageFlowScope.footnoteHalign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties.hideAndShowBehavior}"
+                                 to="#{pageFlowScope.hideAndShowBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties.inlineStyle}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties.rolloverBehavior}"
+                                 to="#{pageFlowScope.rolloverBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties.rolloverBehaviorDelay}"
+                                 to="#{pageFlowScope.rolloverBehaviorDelay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties.scaleY}" to="#{pageFlowScope.scaleY}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties.stack}" to="#{pageFlowScope.stack}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties.subtitle}" to="#{pageFlowScope.subtitle}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties.title}" to="#{pageFlowScope.title}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties.titleHalign}"
+                                 to="#{pageFlowScope.titleHalign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties.animationOnDataChange}"
+                                 to="#{pageFlowScope.animationOnDataChange}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties.animationIndicators}"
+                                 to="#{pageFlowScope.animationIndicators}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties.animationDuration}"
+                                 to="#{pageFlowScope.animationDuration}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties.animationOnDisplay}"
+                                 to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties.animationUpColor}"
+                                 to="#{pageFlowScope.animationUpColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties.animationDownColor}"
+                                 to="#{pageFlowScope.animationDownColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties.shortDesc}" to="#{pageFlowScope.shortDesc}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.comboChartProperties.seriesEffect}"
+                                 to="#{pageFlowScope.seriesEffect}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="funnelChart" action="funnelChart">
+        <amx:tableLayout id="funnelChartTL" width="100%">
+          <amx:rowLayout id="funnelChartRL1">
+            <amx:cellFormat id="funnelChartCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="funnelChartI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/pieChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="funnelChartCF2" width="100%" height="28px">
+              <amx:outputText id="funnelChartOT1" value="Funnel Chart"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="funnelChartRL2">
+            <amx:cellFormat id="funnelChartCF3" width="100%" height="12px">
+              <amx:outputText id="funnelChartOT2" value="dvtm:funnelChart" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.legendDisplay}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.legendPosition}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.titleDisplay}" type="action"/>
+        <amx:setPropertyListener from="vertical" to="#{pageFlowScope.orientation}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.funnelChartProperties}" to="#{pageFlowScope.chartProperties}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.funnelChartProperties.dataSelection}"
+                                 to="#{pageFlowScope.dataSelection}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.funnelChartProperties.footnote}" to="#{pageFlowScope.footnote}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.funnelChartProperties.footnoteHalign}"
+                                 to="#{pageFlowScope.footnoteHalign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.funnelChartProperties.hideAndShowBehavior}"
+                                 to="#{pageFlowScope.hideAndShowBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.funnelChartProperties.inlineStyle}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.funnelChartProperties.labelPosition}"
+                                 to="#{pageFlowScope.labelPosition}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.funnelChartProperties.rolloverBehavior}"
+                                 to="#{pageFlowScope.rolloverBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.funnelChartProperties.rolloverBehaviorDelay}"
+                                 to="#{pageFlowScope.rolloverBehaviorDelay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.funnelChartProperties.subtitle}" to="#{pageFlowScope.subtitle}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.funnelChartProperties.threeDEffect}"
+                                 to="#{pageFlowScope.threeDEffect}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.funnelChartProperties.title}" to="#{pageFlowScope.title}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.funnelChartProperties.titleHalign}"
+                                 to="#{pageFlowScope.titleHalign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.funnelChartProperties.animationOnDataChange}"
+                                 to="#{pageFlowScope.animationOnDataChange}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.funnelChartProperties.animationIndicators}"
+                                 to="#{pageFlowScope.animationIndicators}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.funnelChartProperties.animationDuration}"
+                                 to="#{pageFlowScope.animationDuration}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.funnelChartProperties.animationOnDisplay}"
+                                 to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.funnelChartProperties.shortDesc}" to="#{pageFlowScope.shortDesc}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.funnelChartProperties.seriesEffect}"
+                                 to="#{pageFlowScope.seriesEffect}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="lineChart" action="lineChart">
+        <amx:tableLayout id="lineChartTL" width="100%">
+          <amx:rowLayout id="lineChartRL1">
+            <amx:cellFormat id="lineChartCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="lineChartI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/lineChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="lineChartCF2" width="100%" height="28px">
+              <amx:outputText id="lineChartOT1" value="Line Chart"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="lineChartRL2">
+            <amx:cellFormat id="lineChartCF3" width="100%" height="12px">
+              <amx:outputText id="lineChartOT2" value="dvtm:lineChart" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="vertical" to="#{pageFlowScope.orientation}" type="action"/>
+        <amx:setPropertyListener from="false" to="#{pageFlowScope.lineWithArea}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.legendDisplay}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.legendPosition}" type="action"/>
+        <amx:setPropertyListener from="false" to="#{pageFlowScope.labelDisplay}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.labelPosition}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.xAxisDisplay}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.yAxisDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.stack eq 'on' ? true : false}"
+                                 to="#{pageFlowScope.stacked}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.titleDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties}" to="#{pageFlowScope.chartProperties}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.dataCursor}" to="#{pageFlowScope.dataCursor}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.dataCursorBehavior}"
+                                 to="#{pageFlowScope.dataCursorBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.dataSelection}"
+                                 to="#{pageFlowScope.dataSelection}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.footnote}" to="#{pageFlowScope.footnote}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.footnoteHalign}"
+                                 to="#{pageFlowScope.footnoteHalign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.hideAndShowBehavior}"
+                                 to="#{pageFlowScope.hideAndShowBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.inlineStyle}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.rolloverBehavior}"
+                                 to="#{pageFlowScope.rolloverBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.rolloverBehaviorDelay}"
+                                 to="#{pageFlowScope.rolloverBehaviorDelay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.scaleX}" to="#{pageFlowScope.scaleX}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.scaleY}" to="#{pageFlowScope.scaleY}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.stack}" to="#{pageFlowScope.stack}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.subtitle}" to="#{pageFlowScope.subtitle}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.title}" to="#{pageFlowScope.title}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.titleHalign}"
+                                 to="#{pageFlowScope.titleHalign}" type="action"/>
+        <amx:setPropertyListener from="none"
+                                 to="#{pageFlowScope.animationOnDataChange}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.animationIndicators}"
+                                 to="#{pageFlowScope.animationIndicators}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.animationDuration}"
+                                 to="#{pageFlowScope.animationDuration}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.animationOnDisplay}"
+                                 to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.animationUpColor}"
+                                 to="#{pageFlowScope.animationUpColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.animationDownColor}"
+                                 to="#{pageFlowScope.animationDownColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.shortDesc}" to="#{pageFlowScope.shortDesc}"
+                                 type="action"/>
+      </amx:listItem>
+      <amx:listItem id="pictoChart" action="pictoChart">
+        <amx:tableLayout id="pictoChartTL" width="100%">
+          <amx:rowLayout id="pictoChartRL1">
+            <amx:cellFormat id="pictoChartCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="pictoChartI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/pictoChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="pictoChartCF2" width="100%" height="28px">
+              <amx:outputText id="pictoChartOT1" value="Picto Chart"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="pictoChartRL2">
+            <amx:cellFormat id="pictoChartCF3" width="100%" height="12px">
+              <amx:outputText id="pictoChartOT2" value="dvtm:pictoChart" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="#{PictoChartProperties.animationDuration}"
+                                 to="#{pageFlowScope.animationDuration}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.animationOnDataChange}"
+                                 to="#{pageFlowScope.animationOnDataChange}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.animationOnDisplay}"
+                                 to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.columnCount}" 
+                                 to="#{pageFlowScope.columnCount}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.columnWidth}" 
+                                 to="#{pageFlowScope.columnWidth}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.dataSelection}" 
+                                 to="#{pageFlowScope.dataSelection}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.drilling}" 
+                                 to="#{pageFlowScope.drilling}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.emptyText}" 
+                                 to="#{pageFlowScope.emptyText}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.inlineStyle}" 
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.layout}" 
+                                 to="#{pageFlowScope.layout}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.layoutOrigin}" 
+                                 to="#{pageFlowScope.layoutOrigin}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.rendered}" 
+                                 to="#{pageFlowScope.rendered}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.rolloverBehavior}" 
+                                 to="#{pageFlowScope.rolloverBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.rolloverBehaviorDelay}" 
+                                 to="#{pageFlowScope.rolloverBehaviorDelay}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.rowCount}" 
+                                 to="#{pageFlowScope.rowCount}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.rowHeight}" 
+                                 to="#{pageFlowScope.rowHeight}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.selectedRowKeys}" 
+                                 to="#{pageFlowScope.selectedRowKeys}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.shortDesc}" 
+                                 to="#{pageFlowScope.shortDesc}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.styleClass}" 
+                                 to="#{pageFlowScope.styleClass}" type="action"/>
+        
+        <amx:setPropertyListener from="#{PictoChartProperties.borderColor}" to="#{pageFlowScope.borderColor}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.borderWidth}" to="#{pageFlowScope.borderWidth}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.shape}" to="#{pageFlowScope.shape}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.color1}" to="#{pageFlowScope.color1}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.count1}" to="#{pageFlowScope.count1}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.span1}" to="#{pageFlowScope.span1}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.color2}" to="#{pageFlowScope.color2}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.count2}" to="#{pageFlowScope.count2}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.span2}" to="#{pageFlowScope.span2}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.color3}" to="#{pageFlowScope.color3}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.count3}" to="#{pageFlowScope.count3}" type="action"/>
+        <amx:setPropertyListener from="#{PictoChartProperties.span3}" to="#{pageFlowScope.span3}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="pieChart" action="pieChart">
+        <amx:tableLayout id="pieChartTL" width="100%">
+          <amx:rowLayout id="pieChartRL1">
+            <amx:cellFormat id="pieChartCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="pieChartI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/pieChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="pieChartCF2" width="100%" height="28px">
+              <amx:outputText id="pieChartOT1" value="Pie Chart"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="pieChartRL2">
+            <amx:cellFormat id="pieChartCF3" width="100%" height="12px">
+              <amx:outputText id="pieChartOT2" value="dvtm:pieChart" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.legendDisplay}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.legendPosition}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.titleDisplay}" type="action"/>
+        <amx:setPropertyListener from="0" to="#{pageFlowScope.sliceGaps}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.pieChartProperties}" to="#{pageFlowScope.chartProperties}"
+                                 type="action"/>
+        <amx:setPropertyListener from="" to="#{pageFlowScope.pieCenterLabel}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.pieChartProperties.dataSelection}"
+                                 to="#{pageFlowScope.dataSelection}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.pieChartProperties.footnote}" to="#{pageFlowScope.footnote}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.pieChartProperties.footnoteHalign}"
+                                 to="#{pageFlowScope.footnoteHalign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.pieChartProperties.hideAndShowBehavior}"
+                                 to="#{pageFlowScope.hideAndShowBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.pieChartProperties.inlineStyle}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="0" to="#{pageFlowScope.innerRadius}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.pieChartProperties.rolloverBehavior}"
+                                 to="#{pageFlowScope.rolloverBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.pieChartProperties.rolloverBehaviorDelay}"
+                                 to="#{pageFlowScope.rolloverBehaviorDelay}" type="action"/>
+        <amx:setPropertyListener from="highlight" to="#{pageFlowScope.pieSelectionEffect}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.pieChartProperties.subtitle}" to="#{pageFlowScope.subtitle}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.pieChartProperties.threeDEffect}"
+                                 to="#{pageFlowScope.threeDEffect}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.pieChartProperties.title}" to="#{pageFlowScope.title}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.pieChartProperties.titleHalign}"
+                                 to="#{pageFlowScope.titleHalign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.pieChartProperties.animationOnDataChange}"
+                                 to="#{pageFlowScope.animationOnDataChange}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.pieChartProperties.animationIndicators}"
+                                 to="#{pageFlowScope.animationIndicators}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.pieChartProperties.animationDuration}"
+                                 to="#{pageFlowScope.animationDuration}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.pieChartProperties.animationOnDisplay}"
+                                 to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.pieChartProperties.shortDesc}" to="#{pageFlowScope.shortDesc}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.pieChartProperties.seriesEffect}"
+                                 to="#{pageFlowScope.seriesEffect}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="polar" action="polar">
+        <amx:tableLayout id="polarTL" width="100%">
+          <amx:rowLayout id="polarRL1">
+            <amx:cellFormat id="polarCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="polarI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/polar-44.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="polarCF2" width="100%" height="28px">
+              <amx:outputText id="polarOT1" value="Polar Charts"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="polarRL2">
+            <amx:cellFormat id="polarCF3" width="100%" height="12px">
+              <amx:outputText id="polarOT2" value="coordinateSystem='polar'" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.legendDisplay}" type="action"/>
+        <amx:setPropertyListener from="areaChart1" to="#{pageFlowScope.displayedChild}" type="action"/>
+        <amx:setPropertyListener from="circle" to="#{pageFlowScope.polarGridShape}" type="action"/>
+        <amx:setPropertyListener from="0" to="#{pageFlowScope.startAngle}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.legendPosition}" type="action"/>
+        <amx:setPropertyListener from="false" to="#{pageFlowScope.threeD}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.titleDisplay}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="scatterChart" action="scatterChart">
+        <amx:tableLayout id="scatterChartTL" width="100%">
+          <amx:rowLayout id="scatterChartRL1">
+            <amx:cellFormat id="scatterChartCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="scatterChartI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/scatterChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="scatterChartCF2" width="100%" height="28px">
+              <amx:outputText id="scatterChartOT1" value="Scatter Chart"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="scatterChartRL2">
+            <amx:cellFormat id="scatterChartCF3" width="100%" height="12px">
+              <amx:outputText id="scatterChartOT2" value="dvtm:scatterChart" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.legendDisplay}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.legendPosition}" type="action"/>
+        <amx:setPropertyListener from="false" to="#{pageFlowScope.labelDisplay}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.labelPosition}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.xAxisDisplay}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.yAxisDisplay}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.titleDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.scatterChartProperties}" to="#{pageFlowScope.chartProperties}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.scatterChartProperties.dataSelection}"
+                                 to="#{pageFlowScope.dataSelection}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.scatterChartProperties.footnote}" to="#{pageFlowScope.footnote}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.scatterChartProperties.footnoteHalign}"
+                                 to="#{pageFlowScope.footnoteHalign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.scatterChartProperties.hideAndShowBehavior}"
+                                 to="#{pageFlowScope.hideAndShowBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.scatterChartProperties.inlineStyle}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.scatterChartProperties.rolloverBehavior}"
+                                 to="#{pageFlowScope.rolloverBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.scatterChartProperties.rolloverBehaviorDelay}"
+                                 to="#{pageFlowScope.rolloverBehaviorDelay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.scatterChartProperties.scaleX}" to="#{pageFlowScope.scaleX}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.scatterChartProperties.scaleY}" to="#{pageFlowScope.scaleY}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.scatterChartProperties.subtitle}" to="#{pageFlowScope.subtitle}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.scatterChartProperties.title}" to="#{pageFlowScope.title}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.scatterChartProperties.titleHalign}"
+                                 to="#{pageFlowScope.titleHalign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.scatterChartProperties.animationOnDataChange}"
+                                 to="#{pageFlowScope.animationOnDataChange}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.scatterChartProperties.animationDuration}"
+                                 to="#{pageFlowScope.animationDuration}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.scatterChartProperties.animationOnDisplay}"
+                                 to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.scatterChartProperties.shortDesc}"
+                                 to="#{pageFlowScope.shortDesc}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.bubbleChartProperties.zoomAndScroll}"
+                                 to="#{pageFlowScope.zoomAndScroll}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.bubbleChartProperties.zoomDirection}"
+                                 to="#{pageFlowScope.zoomDirection}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="sparkChart" action="sparkChart">
+        <amx:tableLayout id="sparkChartTL" width="100%">
+          <amx:rowLayout id="sparkChartRL1">
+            <amx:cellFormat id="sparkChartCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="sparkChartI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/sparkChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="sparkChartCF2" width="100%" height="28px">
+              <amx:outputText id="sparkChartOT1" value="Spark Chart"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="sparkChartRL2">
+            <amx:cellFormat id="sparkChartCF3" width="100%" height="12px">
+              <amx:outputText id="sparkChartOT2" value="dvtm:sparkChart" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="false" to="#{pageFlowScope.markerDisplay}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.highLowDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.sparkChartProperties}" to="#{pageFlowScope.chartProperties}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.sparkChartProperties.color}" to="#{pageFlowScope.color}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.sparkChartProperties.highColor}" to="#{pageFlowScope.highColor}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.sparkChartProperties.lowColor}" to="#{pageFlowScope.lowColor}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.sparkChartProperties.firstColor}"
+                                 to="#{pageFlowScope.firstColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.sparkChartProperties.lastColor}" to="#{pageFlowScope.lastColor}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.sparkChartProperties.inlineStyle}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.sparkChartProperties.scaleY}" to="#{pageFlowScope.scaleY}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.sparkChartProperties.type}" to="#{pageFlowScope.type}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.sparkChartProperties.animationOnDataChange}"
+                                 to="#{pageFlowScope.animationOnDataChange}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.sparkChartProperties.animationDuration}"
+                                 to="#{pageFlowScope.animationDuration}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.sparkChartProperties.animationOnDisplay}"
+                                 to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.sparkChartProperties.shortDesc}" to="#{pageFlowScope.shortDesc}"
+                                 type="action"/>
+      </amx:listItem>
+      <amx:listItem id="stockChart" action="stockChart">
+        <amx:tableLayout id="stockChartTL" width="100%">
+          <amx:rowLayout id="stockChartRL1">
+            <amx:cellFormat id="stockChartCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="stockChartI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/stock-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="stockChartCF2" width="100%" height="28px">
+              <amx:outputText id="stockChartOT1" value="Stock Chart"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="stockChartRL2">
+            <amx:cellFormat id="stockChartCF3" width="100%" height="12px">
+              <amx:outputText id="stockChartOT2" value="dvtm:stockChart" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+         <amx:setPropertyListener from="#{DvtProperties.stockChartProperties.animationOnDataChange}"
+                                 to="#{pageFlowScope.animationOnDataChange}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.stockChartProperties.animationDuration}"
+                                 to="#{pageFlowScope.animationDuration}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.stockChartProperties.animationOnDisplay}"
+                                 to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.stockChartProperties.shortDesc}"
+                                 to="#{pageFlowScope.shortDesc}" type="action"/>
+        <amx:setPropertyListener from="vertical" to="#{pageFlowScope.orientation}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.legendDisplay}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.legendPosition}" type="action"/>
+        <amx:setPropertyListener from="false" to="#{pageFlowScope.labelDisplay}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.labelPosition}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.xAxisDisplay}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.yAxisDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.stockChartProperties.stack eq 'on' ? true : false}"
+                                 to="#{pageFlowScope.stacked}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.titleDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.stockChartProperties}" to="#{pageFlowScope.chartProperties}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.stockChartProperties.dataCursor}" to="#{pageFlowScope.dataCursor}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.stockChartProperties.dataCursorBehavior}"
+                                 to="#{pageFlowScope.dataCursorBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.stockChartProperties.dataSelection}"
+                                 to="#{pageFlowScope.dataSelection}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.stockChartProperties.failingColor}"
+                                 to="#{pageFlowScope.failingColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.stockChartProperties.footnote}" to="#{pageFlowScope.footnote}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.stockChartProperties.footnoteHalign}"
+                                 to="#{pageFlowScope.footnoteHalign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.stockChartProperties.inlineStyle}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.stockChartProperties.rangeColor}" to="#{pageFlowScope.rangeColor}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.stockChartProperties.risingColor}" to="#{pageFlowScope.risingColor}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.stockChartProperties.subtitle}" to="#{pageFlowScope.subtitle}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.stockChartProperties.title}" to="#{pageFlowScope.title}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.stockChartProperties.titleHalign}"
+                                 to="#{pageFlowScope.titleHalign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.stockChartProperties.shortDesc}" to="#{pageFlowScope.shortDesc}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.stockChartProperties.volumeColor}"
+                                 to="#{pageFlowScope.volumeColor}" type="action"/>
+        <amx:setPropertyListener from="1399068000000"
+                                 to="#{pageFlowScope.viewportMinValue}" type="action"/>
+        <amx:setPropertyListener from="1407016800000"
+                                 to="#{pageFlowScope.viewportMaxValue}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.stockChartProperties.zoomAndScroll}"
+                                 to="#{pageFlowScope.zoomAndScroll}" type="action"/>
+        <amx:setPropertyListener to="#{pageFlowScope.seriesType}" from="candlestick" type="action"/>
+        <amx:setPropertyListener to="#{pageFlowScope.data}" from="3month" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.showY2}"
+                                 type="action"/>
+        <amx:setPropertyListener from="false" to="#{pageFlowScope.technicalAnalysis}"
+                                 type="action"/>
+        <amx:setPropertyListener from="false" to="#{pageFlowScope.transactionFees}"
+                                 type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.overview}"
+                                 type="action"/>
+      </amx:listItem>
+      <amx:listItem id="timeAxisChart" action="timeAxisChart">
+        <amx:tableLayout id="timeAxisChartTL" width="100%">
+          <amx:rowLayout id="timeAxisChartRL1">
+            <amx:cellFormat id="timeAxisChartCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="timeAxisChartI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/lineChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="timeAxisChartCF2" width="100%" height="28px">
+              <amx:outputText id="timeAxisChartOT1" value="Time Axis Chart"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="timeAxisChartRL2">
+            <amx:cellFormat id="timeAxisChartCF3" width="100%" height="12px">
+              <amx:outputText id="timeAxisChartOT2" value="dvtm:lineChart"
+                              styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.legendDisplay}"
+                                 type="action"/>
+        <amx:setPropertyListener from="bottom" to="#{pageFlowScope.legendPosition}"
+                                 type="action"/>
+        <amx:setPropertyListener from="false" to="#{pageFlowScope.labelDisplay}"
+                                 type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.labelPosition}"
+                                 type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.overviewDisplay}"
+                                 type="action"/>
+        <amx:setPropertyListener from="delayed" to="#{pageFlowScope.zoomAndScroll}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties}" to="#{pageFlowScope.chartProperties}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.dataCursor}" to="#{pageFlowScope.dataCursor}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.dataCursorBehavior}"
+                                 to="#{pageFlowScope.dataCursorBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.dataSelection}"
+                                 to="#{pageFlowScope.dataSelection}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.footnote}" to="#{pageFlowScope.footnote}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.footnoteHalign}"
+                                 to="#{pageFlowScope.footnoteHalign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.hideAndShowBehavior}"
+                                 to="#{pageFlowScope.hideAndShowBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.inlineStyle}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.rolloverBehavior}"
+                                 to="#{pageFlowScope.rolloverBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.rolloverBehaviorDelay}"
+                                 to="#{pageFlowScope.rolloverBehaviorDelay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.scaleX}" to="#{pageFlowScope.scaleX}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.scaleY}" to="#{pageFlowScope.scaleY}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.stack}" to="#{pageFlowScope.stack}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.subtitle}" to="#{pageFlowScope.subtitle}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.title}" to="#{pageFlowScope.title}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.titleHalign}"
+                                 to="#{pageFlowScope.titleHalign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.animationOnDataChange}"
+                                 to="#{pageFlowScope.animationOnDataChange}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.animationIndicators}"
+                                 to="#{pageFlowScope.animationIndicators}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.animationDuration}"
+                                 to="#{pageFlowScope.animationDuration}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.animationOnDisplay}"
+                                 to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.animationUpColor}"
+                                 to="#{pageFlowScope.animationUpColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.animationDownColor}"
+                                 to="#{pageFlowScope.animationDownColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.lineChartProperties.shortDesc}"
+                                 to="#{pageFlowScope.shortDesc}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="barChartRetirement" action="barChartRetirement" rendered="#{DvtProperties.hostedMode eq false}">
+        <amx:tableLayout id="barChartRetirementTL" width="100%">
+          <amx:rowLayout id="barChartRetirementRL1">
+            <amx:cellFormat id="barChartRetirementCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="barChartRetirementI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/barChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="barChartRetirementCF2" width="100%" height="28px">
+              <amx:outputText id="barChartRetirementOT1" value="Retirement Calculator"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="barChartRetirementRL2">
+            <amx:cellFormat id="barChartRetirementCF3" width="100%" height="12px">
+              <amx:outputText id="barChartRetirementOT2" value="dvtm:barChart"
+                              styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="#{retirementCalculator.rateOfReturn / 10}" to="#{pageFlowScope.rateOfReturnLabel}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{retirementCalculator.retiredRateOfReturn / 10}" to="#{pageFlowScope.retiredRateOfReturnLabel}"
+                                 type="action"/>
+      </amx:listItem>
+    </amx:listView>
+  </amx:panelPage>
+</amx:view>

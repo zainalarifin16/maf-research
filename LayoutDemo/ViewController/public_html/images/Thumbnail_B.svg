@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Thumbnail_Layout" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="150px" height="194px" viewBox="-14.5 15.5 150 194" enable-background="new -14.5 15.5 150 194"
+	 xml:space="preserve">
+<rect id="Background_Panel" x="-14.5" y="15.5" fill="#FFFFFF" width="150" height="194"/>
+<g id="Thumbnails">
+	<g id="Square_4_copy_2">
+		<g id="Top_Horizontal_Bar_36_">
+			<rect x="100.05" y="173.08" fill="#DAE9F5" width="29" height="29"/>
+			<path fill="#AED8FA" d="M128.55,173.58v28h-28v-28H128.55 M129.55,172.58h-30v30h30V172.58L129.55,172.58z"/>
+		</g>
+	</g>
+	<g id="Square3_copy_2">
+		<g id="Top_Horizontal_Bar_66_">
+			<rect x="63.987" y="173.08" fill="#DAE9F5" width="28.812" height="29"/>
+			<path fill="#AED8FA" d="M92.299,173.58v28H64.487v-28H92.299 M93.299,172.58H63.487v30h29.812V172.58L93.299,172.58z"/>
+		</g>
+	</g>
+	<g id="Square_2_copy_2">
+		<g id="Top_Horizontal_Bar_18_">
+			<rect x="27.8" y="173.08" fill="#DAE9F5" width="29" height="29"/>
+			<path fill="#AED8FA" d="M56.3,173.58v28h-28v-28H56.3 M57.3,172.58h-30v30h30V172.58L57.3,172.58z"/>
+		</g>
+	</g>
+	<g id="Square_1_copy_2">
+		<g>
+			<path fill="#FFFFFF" d="M21.5,202.54h-30v-30h30V202.54z M20.88,173.17H-7.87v28.75h28.75V173.17z"/>
+			<path fill="#AED8FA" d="M21.5,172.54h-30v30h30V172.54L21.5,172.54z M-7.87,201.92v-28.75h28.75v28.75H-7.87L-7.87,201.92z"/>
+		</g>
+	</g>
+</g>
+<g id="Large_Image">
+	<g>
+		<rect x="-8.042" y="21.956" fill="#FFFFFF" width="0.086" height="143.084"/>
+		<path fill="#AED8FA" d="M129.5,21.456H-8.542V165.54H129.5V21.456L129.5,21.456z M-7.456,164.607V22.357h136.04v142.25H-7.456
+			L-7.456,164.607z"/>
+	</g>
+</g>
+</svg>

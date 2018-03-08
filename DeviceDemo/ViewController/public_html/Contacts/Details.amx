@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="Details" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton text="Back" id="cb1" action="__back"/>
+        </amx:facet>
+        <amx:panelFormLayout id="pfl1" labelWidth="43%" fieldHalign="start" labelPosition="start">
+            <amx:panelLabelAndMessage label="#{bindings.id.hints.label}" id="plam7">
+                <amx:outputText value="#{bindings.id.inputValue}" id="ot8"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.displayName.hints.label}" id="plam6">
+                <amx:outputText value="#{bindings.displayName.inputValue}" id="ot7"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.nickname.hints.label}" id="plam1">
+                <amx:outputText value="#{bindings.nickname.inputValue}" id="ot2"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.birthday.hints.label}" id="plam8">
+                <amx:outputText value="#{bindings.birthday.inputValue}" id="ot9">
+                    <amx:convertDateTime pattern="#{bindings.birthday.format}"/>
+                </amx:outputText>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.note.hints.label}" id="plam4">
+                <amx:outputText value="#{bindings.note.inputValue}" id="ot5"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.formatted.hints.label}" id="plam10">
+                <amx:outputText value="#{bindings.formatted.inputValue}" id="ot11"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.familyName.hints.label}" id="plam9">
+                <amx:outputText value="#{bindings.familyName.inputValue}" id="ot10"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.givenName.hints.label}" id="plam3">
+                <amx:outputText value="#{bindings.givenName.inputValue}" id="ot4"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.middleName.hints.label}" id="plam2">
+                <amx:outputText value="#{bindings.middleName.inputValue}" id="ot3"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.honorificPrefix.hints.label}" id="plam5">
+                <amx:outputText value="#{bindings.honorificPrefix.inputValue}" id="ot6"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.honorificSuffix.hints.label}" id="plam11">
+                <amx:outputText value="#{bindings.honorificSuffix.inputValue}" id="ot12"/>
+            </amx:panelLabelAndMessage>
+        </amx:panelFormLayout>
+        <amx:outputText id="phonelabel" value="Phone Numbers" styleClass="amx-text-sectiontitle"/>
+        <amx:iterator rendered="#{deviceScope.device.os=='iOS'}" value="#{bindings.phoneNumbers.collectionModel}"
+                      var="row" id="i1">
+            <amx:panelFormLayout maxColumns="1" fieldHalign="end" labelPosition="start"
+                                 rendered="#{(row.type=='mobile') &amp;&amp; (deviceScope.device.os=='iOS')}" id="pfl2">
+                <amx:panelLabelAndMessage label="#{row.type}" id="plam12">
+                    <amx:goLink url="tel:#{row.value}" text="#{row.value}" id="gl1"/>
+                </amx:panelLabelAndMessage>
+                <amx:panelLabelAndMessage label="Facetime" id="plam1d2">
+                    <amx:goLink url="facetime:#{row.value}" id="gql1">
+                        <amx:image inlineStyle="width:30px;height:30px" source="/images/facetime.png" id="i2"/>
+                    </amx:goLink>
+                </amx:panelLabelAndMessage>
+            </amx:panelFormLayout>
+        </amx:iterator>
+        <amx:iterator value="#{bindings.phoneNumbers.collectionModel}" var="row" id="id1">
+            <amx:panelFormLayout rendered="#{!((row.type=='mobile') &amp;&amp; (deviceScope.device.os=='iOS'))}"
+                                 maxColumns="1" fieldHalign="end" labelPosition="start" id="pfdl2">
+                <amx:panelLabelAndMessage label="#{row.type}" id="pldam12">
+                      <amx:goLink url="tel:#{row.value}" text="#{row.value}" styleClass="amx-listItem-maintext" id="glc1"/>
+                </amx:panelLabelAndMessage>
+            </amx:panelFormLayout>
+        </amx:iterator>
+        <amx:outputText id="addrlabel" value="Addresses" styleClass="amx-text-sectiontitle"/>
+        <amx:listView var="row" value="#{bindings.addresses.collectionModel}"
+                      fetchSize="#{bindings.addresses.rangeSize}" id="lv2" styleClass="amx-listView-insetList">
+            <amx:listItem id="li2" showLinkIcon="false">
+                <amx:outputText value="#{row.type}" id="type" styleClass="amx-listItem-maintext"/>
+                <amx:outputText value="#{row.streetAddress}, #{row.locality}" id="address"
+                                styleClass="amx-listItem-subtext"/>
+            </amx:listItem>
+        </amx:listView>
+        <amx:outputText id="emaillabel" value="Emails" styleClass="amx-text-sectiontitle"/>
+        <amx:listView var="row" value="#{bindings.emails.collectionModel}" fetchSize="#{bindings.emails.rangeSize}"
+                      id="lv1" styleClass="amx-listView-insetList">
+            <amx:listItem id="li1" showLinkIcon="false">
+                <amx:outputText value="#{row.type}" id="ot16" styleClass="amx-listItem-maintext"/>
+                <amx:goLink url="mailto:#{row.value}" text="#{row.value}" styleClass="amx-listItem-subtext" id="gcl1"/>
+            </amx:listItem>
+        </amx:listView>
+        <amx:outputText id="orglabel" value="Organizations" styleClass="amx-text-sectiontitle"/>
+        <amx:listView var="row" value="#{bindings.organizations.collectionModel}"
+                      fetchSize="#{bindings.organizations.rangeSize}" id="lv5" styleClass="amx-listView-insetList">
+            <amx:listItem id="li5" showLinkIcon="false">
+                <amx:outputText value="#{row.name}, #{row.title}" id="ot21" styleClass="amx-listItem-maintext"/>
+                <amx:outputText value="#{row.department}" id="ot20" styleClass="amx-listItem-subtext"/>
+            </amx:listItem>
+        </amx:listView>
+        <amx:outputText id="catlabel" value="Categories" styleClass="amx-text-sectiontitle"/>
+        <amx:listView var="row" value="#{bindings.categories.collectionModel}"
+                      fetchSize="#{bindings.categories.rangeSize}" id="lv3" styleClass="amx-listView-insetList">
+            <amx:listItem id="li3" showLinkIcon="false">
+                <amx:outputText value="#{row.type}" id="ot13" styleClass="amx-listItem-maintext"/>
+                <amx:outputText value="#{row.value}" id="ot15" styleClass="amx-listItem-subtext"/>
+            </amx:listItem>
+        </amx:listView>
+        <amx:outputText id="imlabel" value="ims" styleClass="amx-text-sectiontitle"/>
+        <amx:listView var="row" value="#{bindings.ims.collectionModel}" fetchSize="#{bindings.ims.rangeSize}" id="lv4"
+                      styleClass="amx-listView-insetList">
+            <amx:listItem id="li4" showLinkIcon="false">
+                <amx:outputText value="#{row.type}" id="ot18" styleClass="amx-listItem-maintext"/>
+                <amx:outputText value="#{row.value}" id="ot19" styleClass="amx-listItem-subtext"/>
+            </amx:listItem>
+        </amx:listView>
+        <amx:outputText id="photolabel" value="Photos" styleClass="amx-text-sectiontitle"/>
+        <amx:listView var="row" value="#{bindings.photos.collectionModel}" fetchSize="#{bindings.photos.rangeSize}"
+                      id="lv7" styleClass="amx-listView-insetList">
+            <amx:listItem id="li7" showLinkIcon="false">
+                <amx:outputText value="#{row.type}" id="ot112" styleClass="amx-listItem-maintext"/>
+                <amx:outputText value="#{row.value}" id="ot113" styleClass="amx-listItem-subtext"/>
+            </amx:listItem>
+        </amx:listView>
+        <amx:outputText id="urllabel" value="urls" styleClass="amx-text-sectiontitle"/>
+        <amx:listView var="row" value="#{bindings.urls.collectionModel}" fetchSize="#{bindings.urls.rangeSize}" id="lv8"
+                      styleClass="amx-listView-insetList">
+            <amx:listItem id="li8" showLinkIcon="false">
+                <amx:outputText value="#{row.type}" id="ot114" styleClass="amx-listItem-maintext"/>
+                <amx:outputText value="#{row.value}" id="ot115" styleClass="amx-listItem-subtext"/>
+            </amx:listItem>
+        </amx:listView>
+    </amx:panelPage>
+</amx:view>

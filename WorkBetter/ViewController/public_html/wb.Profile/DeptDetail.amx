@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="#{bindings.deptname.inputValue}" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton id="cb1" text="Back" action="__back" shortDesc="Back Button"/>
+        </amx:facet>
+        <amx:panelStretchLayout id="psl1" scrollPolicy="scroll">
+            <amx:facet name="top">
+                <amx:tableLayout width="100%" id="ctl2" inlineStyle="padding-top:15px;" shortDesc="Table">
+                    <amx:rowLayout id="crl2">
+                        <amx:cellFormat id="cf13" rowSpan="3" width="10" shortDesc="cell"/>
+                        <amx:cellFormat shortDesc="Cell" width="120px" halign="center" rowSpan="3" id="ccf3"
+                                        height="44px">
+                            <amx:image source="/images/deptpics/#{bindings.pic.inputValue}" id="ci1"
+                                       shortDesc="Person Image" styleClass="tabletProfileImage"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat shortDesc="Cell" id="ccf6" width="200" height="38px" valign="bottom">
+                            <amx:outputText value="#{bindings.deptname.inputValue}" id="cot2"
+                                            inlineStyle="margin:0;font-size:22px"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf4" height="50%" halign="end" rowSpan="3" shortDesc="cell">
+                            <amx:panelGroupLayout id="pgl2" halign="center" styleClass="circle-container dkgraycolor">
+                                <amx:outputText value="#{bindings.mgrnum.inputValue}" id="ot6"
+                                                rendered="#{bindings.loading.inputValue ne 'true'}"
+                                                styleClass="circle-metrictext3"/>
+                                <amx:outputText value="Managers" id="ot3" styleClass="deptmetriclabel"
+                                                rendered="#{bindings.loading.inputValue ne 'true'}"/>
+                            </amx:panelGroupLayout>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf5" height="50%" halign="end" rowSpan="3" shortDesc="cell">
+                            <amx:panelGroupLayout id="pgl3" halign="center"
+                                                  styleClass="circle-container ltgraycolor ">
+                                <amx:outputText value="#{bindings.empnum.inputValue}" id="ot4"
+                                                rendered="#{bindings.loading.inputValue ne 'true'}"
+                                                styleClass="circle-metrictext3"/>
+                                <amx:outputText value="Employees" id="ot5" styleClass="deptmetriclabel"
+                                                rendered="#{bindings.loading.inputValue ne 'true'}"/>
+                            </amx:panelGroupLayout>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf14" rowSpan="3" width="20" shortDesc="cell"/>
+                    </amx:rowLayout>
+                    <amx:rowLayout id="crl3">
+                        <amx:cellFormat shortDesc="Cell" height="32px" id="ccf4">
+                            <amx:outputText value="#{bindings.city.inputValue}, #{bindings.state.inputValue}" id="cot3"
+                                            rendered="#{bindings.loading.inputValue ne 'true'}"
+                                            inlineStyle="margin:0;font-size:18px;color:#595960;"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout id="crl4">
+                        <amx:cellFormat shortDesc="Cell" height="32px" id="cf1" valign="top">
+                            <amx:outputText value="CC#{bindings.deptid.inputValue}11" id="ot25"
+                                            inlineStyle="margin:0;font-size:18px;font-weight:300"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+                <amx:panelGroupLayout id="pgl1" inlineStyle="width:100%;height:43px">
+                    <amx:selectOneButton id="sob3" simple="true" value="#{pageFlowScope.summaryView}"
+                                         shortDesc="Summary Selector" styleClass="#{deviceScope.device.os eq 'Android' ? 'adfmf-selectOneButton-tabStyle' : ''} profileSelector">
+                        <amx:selectItem id="si10" label="Summary" value="summary"/>
+                        <amx:selectItem id="si11" label="Team" value="team"/>
+                    </amx:selectOneButton>
+                </amx:panelGroupLayout>
+            </amx:facet>
+            <amx:facet name="center">
+                <amx:deck id="d1" displayedChild="#{pageFlowScope.summaryView}" shortDesc="Profile Deck"
+                          inlineStyle="padding-right:25px;padding-left:20px">
+                    <amx:transition triggerType="forwardNavigate" id="t1" transition="slideStart"/>
+                    <amx:transition triggerType="backNavigate" id="t2" transition="slideEnd"/>
+                    <amx:commandLink id="summary" styleClass="profileLink fullSize" shortDesc="Summary Link">
+                        <amx:tableLayout id="summaryt" width="100%" shortDesc="table">
+                            <amx:rowLayout id="rl1">
+                                <amx:cellFormat id="cf15" height="#{deviceScope.hardware.screen.availableHeight-250}"
+                                                width="325" valign="top" shortDesc="cell">
+                                    <amx:fragment src="/wb.Profile/fragments/DeptSummary.amxf" id="f2"
+                                                  styleClass="fullSize"/>
+                                </amx:cellFormat>
+                                <amx:cellFormat id="cf2" width="100%" valign="top" shortDesc="cell">
+                                    <amx:fragment src="/wb.Profile/fragments/DeptMap.amxf" id="f1"
+                                                  styleClass="fullSize"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                        </amx:tableLayout>
+                        <amx:setPropertyListener id="spl2" from="team" to="#{pageFlowScope.summaryView}"
+                                                 type="swipeStart"/>
+                    </amx:commandLink>
+                    <amx:commandLink id="team" styleClass="profileLink fullSize" shortDesc="Team Link">
+                        <amx:fragment src="/wb.Profile/fragments/Team.amxf" id="f12" styleClass="fullSize">
+                            <amx:attribute name="Collection" value="#{bindings.employees}" id="a1"/>
+                        </amx:fragment>
+                        <amx:setPropertyListener id="spl3" from="summary" to="#{pageFlowScope.summaryView}"
+                                                 type="swipeEnd"/>
+                    </amx:commandLink>
+                </amx:deck>
+            </amx:facet>
+        </amx:panelStretchLayout>
+    </amx:panelPage>
+</amx:view>

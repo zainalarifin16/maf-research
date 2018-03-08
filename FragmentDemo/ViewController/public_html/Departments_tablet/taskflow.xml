@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="US-ASCII" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="taskflow">
+    <default-activity>Departments</default-activity>
+    <view id="Departments">
+      <page>/Departments_tablet/Departments.amx</page>
+    </view>
+  </task-flow-definition>
+</adfc-mobile-config>

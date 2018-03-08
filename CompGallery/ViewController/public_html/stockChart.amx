@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:navigationDragBehavior id="ndb2" direction="forward" action="chartProperties">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:panelPage id="ppStockChart" styleClass="dvtm-gallery-panelPage">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Stock Chart"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back">
+        <amx:setPropertyListener to="#{DvtProperties.stockChartProperties.dataCursor}"
+                                 from="#{pageFlowScope.dataCursor}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.stockChartProperties.dataCursorBehavior}"
+                                 from="#{pageFlowScope.dataCursorBehavior}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.stockChartProperties.dataSelection}"
+                                 from="#{pageFlowScope.dataSelection}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.stockChartProperties.failingColor}"
+                                 from="#{pageFlowScope.failingColor}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.stockChartProperties.footnote}" from="#{pageFlowScope.footnote}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.stockChartProperties.footnoteHalign}"
+                                 from="#{pageFlowScope.footnoteHalign}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.stockChartProperties.inlineStyle}"
+                                 from="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.stockChartProperties.rangeColor}"
+                                 from="#{pageFlowScope.rangeColor}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.stockChartProperties.risingColor}"
+                                 from="#{pageFlowScope.risingColor}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.stockChartProperties.subtitle}" from="#{pageFlowScope.subtitle}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.stockChartProperties.title}" from="#{pageFlowScope.title}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.stockChartProperties.titleHalign}"
+                                 from="#{pageFlowScope.titleHalign}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.stockChartProperties.shortDesc}" from="#{pageFlowScope.shortDesc}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.stockChartProperties.zoomAndScroll}"
+                                 from="#{pageFlowScope.zoomAndScroll}" type="action"/>
+        <amx:setPropertyListener to="#{pageFlowScope.selectionEventText}" from="Here it is" type="action"/>
+      </amx:commandButton>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="chartProperties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#dvtm:stockChart" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/dvtCharts/stockChart"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:panelStretchLayout>
+      <amx:facet name="center">
+        <dvtm:stockChart id="stockChart1" dataCursor="#{pageFlowScope.dataCursor}"
+                         dataCursorBehavior="#{pageFlowScope.dataCursorBehavior}"
+                         dataSelection="#{pageFlowScope.dataSelection}" emptyText="No data found"
+                         footnote="#{pageFlowScope.footnote}" footnoteHalign="#{pageFlowScope.footnoteHalign}"
+                         inlineStyle="#{pageFlowScope.inlineStyle}" shortDesc="#{pageFlowScope.shortDesc}"
+                         styleClass="dvtm-gallery-component" subtitle="#{pageFlowScope.subtitle}"
+                         title="#{pageFlowScope.title}" titleHalign="#{pageFlowScope.titleHalign}"
+                         value="#{bindings.stockChartData.collectionModel}" var="row"
+                         volumeColor="#{pageFlowScope.volumeColor}" zoomAndScroll="#{pageFlowScope.zoomAndScroll}"
+                         timeAxisType="mixedFrequency" animationOnDataChange="#{pageFlowScope.animationOnDataChange}"
+                         animationOnDisplay="#{pageFlowScope.animationOnDisplay}"
+                         viewportChangeListener="#{StockChartDataList.ViewportListener}">
+          <amx:facet name="dataStamp">
+            <dvtm:stockDataItem id="cdi1" close="#{row.close}" high="#{row.high}" low="#{row.low}" open="#{row.open}"
+                                volume="#{row.volume}" x="#{row.x}" series="BTC" shortDesc="Stock Data Item"></dvtm:stockDataItem>
+          </amx:facet>
+          <amx:facet name="seriesStamp">
+            <dvtm:seriesStyle series="BTC" type="#{pageFlowScope.seriesType}" id="ss1"></dvtm:seriesStyle>
+          </amx:facet>
+          <amx:facet name="overview">
+            <dvtm:overview id="ovw" rendered="#{pageFlowScope.overview}"></dvtm:overview>
+          </amx:facet>
+          <dvtm:xAxis id="xAxis" viewportMinValue="#{pageFlowScope.viewportMinValue}"
+                      viewportMaxValue="#{pageFlowScope.viewportMaxValue}"></dvtm:xAxis>
+          <dvtm:y2Axis id="y2Axis">
+            <dvtm:tickLabel id="y2TickLabel" rendered="#{pageFlowScope.showY2}" scaling="none">
+              <amx:convertNumber id="cn5" type="number" minFractionDigits="1" maxFractionDigits="1"/>
+            </dvtm:tickLabel>
+          </dvtm:y2Axis>
+          <dvtm:chartValueFormat id="cvf2label" type="close">
+            <amx:convertNumber id="closeConvertNumber" type="currency" minFractionDigits="1" maxFractionDigits="1"
+                               currencySymbol="$"/>
+          </dvtm:chartValueFormat>
+          <dvtm:chartValueFormat id="cvf2label1" type="high" scaling="none">
+            <amx:convertNumber id="highConvertNumber" type="currency" minFractionDigits="1" maxFractionDigits="1"
+                               currencySymbol="$"/>
+          </dvtm:chartValueFormat>
+          <dvtm:chartValueFormat id="cvf2label2" type="low" scaling="none">
+            <amx:convertNumber id="lowConvertNumber" type="currency" minFractionDigits="1" maxFractionDigits="1"
+                               currencySymbol="$"/>
+          </dvtm:chartValueFormat>
+          <dvtm:chartValueFormat id="cvf2label3" type="open" scaling="none">
+            <amx:convertNumber id="openConvertNumber" type="currency" minFractionDigits="1" maxFractionDigits="1"
+                               currencySymbol="$"/>
+          </dvtm:chartValueFormat>
+          <dvtm:chartValueFormat id="cvf2label4" type="volume" scaling="none">
+            <amx:convertNumber id="cn6" type="number" minFractionDigits="1" maxFractionDigits="1"/>
+          </dvtm:chartValueFormat>
+          <dvtm:yAxis id="yAxis">
+            <dvtm:tickLabel id="tc1" scaling="none">
+              <amx:convertNumber id="yAxisConvertNumber" type="currency" minFractionDigits="1" maxFractionDigits="1"
+                                 currencySymbol="$"/>
+            </dvtm:tickLabel>
+            <dvtm:referenceLine color="rgb(255,128,0)" lineWidth="1" lineStyle="solid" location="front"
+                                lineType="straight" text="Technical analysis" shortDesc="Technical Analysis"
+                                displayInLegend="off" rendered="#{pageFlowScope.technicalAnalysis}" id="rl2">
+              <amx:iterator var="ref" value="#{bindings.stockReferenceData2.collectionModel}" id="i2">
+                <dvtm:referenceLineItem value="#{ref.value}" x="#{ref.x}" id="rli2"/>
+              </amx:iterator>
+            </dvtm:referenceLine>
+            <dvtm:referenceLine color="#008000" lineWidth="1" lineStyle="solid" location="front" lineType="straight"
+                                text="" shortDesc="Total Transaction Fees" displayInLegend="off"
+                                rendered="#{pageFlowScope.transactionFees}" id="rl1">
+              <amx:iterator var="ref" value="#{bindings.stockReferenceData.collectionModel}" id="i1">
+                <dvtm:referenceLineItem value="#{ref.value}" x="#{ref.x}" id="rli1"/>
+              </amx:iterator>
+            </dvtm:referenceLine>
+          </dvtm:yAxis>
+          <dvtm:chartValueFormat id="cvf1" type="y" scaling="none"/>
+        </dvtm:stockChart>
+      </amx:facet>
+      <amx:facet name="bottom">
+        <amx:panelGroupLayout id="pglOptionsPanel" halign="start" scrollPolicy="scroll">
+          <amx:panelFormLayout id="pfFormHere" maxColumns="2" rows="1" styleClass="dvtm-gallery-options"
+                               fieldWidth="28%" labelWidth="72%">
+            <amx:selectBooleanCheckbox text="" label="Technical Analysis" id="checkTechnicalAnalysis"
+                                       value="#{pageFlowScope.technicalAnalysis}"/>
+            <amx:selectBooleanCheckbox text="" label="Transaction Fees" id="checkTotalTransactionFees"
+                                       value="#{pageFlowScope.transactionFees}"/>
+          </amx:panelFormLayout>
+          <amx:panelGroupLayout id="pglOptionsPanelAdvanced" layout="horizontal" halign="start">
+            <amx:selectOneChoice id="sobData" styleClass="sobData" value="#{pageFlowScope.data}"
+                                 valueChangeListener="#{StockChartDataList.DataListener}" label="Range">
+              <amx:selectItem id="siMax" label="Max" value="max"/>
+              <amx:selectItem id="si3Months" label="3 Month" value="3month"/>
+              <amx:selectItem id="siMonth" label="Month" value="month"/>
+              <amx:selectItem id="siWeek" label="Week" value="week"/>
+            </amx:selectOneChoice>
+            <amx:selectOneChoice id="socSeriesType" label="Type" value="#{pageFlowScope.seriesType}">
+              <amx:selectItem id="siAuto" label="auto" value="auto"/>
+              <amx:selectItem id="siBar" label="bar" value="bar"/>
+              <amx:selectItem id="siLine" label="line" value="line"/>
+              <amx:selectItem id="siArea" label="area" value="area"/>
+              <amx:selectItem id="siLineWithArea" label="lineWithArea" value="lineWithArea"/>
+              <amx:selectItem id="siCandleStick" label="candlestick" value="candlestick"/>
+            </amx:selectOneChoice>
+          </amx:panelGroupLayout>
+          <amx:commandButton text="More options..." id="cbMore">
+            <amx:showPopupBehavior alignId="ppStockChart" popupId="pAdvancedOptions" type="action"
+                                   align="overlapTopCenter" decoration="anchor"></amx:showPopupBehavior>
+          </amx:commandButton>
+        </amx:panelGroupLayout>
+      </amx:facet>
+    </amx:panelStretchLayout>
+  </amx:panelPage>
+  <amx:popup id="pAdvancedOptions" styleClass="dvtm-gallery-options-dialog">
+    <amx:panelFormLayout id="pflAdvancedOptions">
+      <amx:selectBooleanSwitch id="switchOverview" label="Show Overview" value="#{pageFlowScope.overview}" offLabel="No"
+                               onLabel="Yes">
+      </amx:selectBooleanSwitch>
+      <amx:selectBooleanSwitch id="switchY2" label="Show Y2" value="#{pageFlowScope.showY2}" offLabel="No"
+                               onLabel="Yes">
+      </amx:selectBooleanSwitch>
+      <amx:selectOneChoice id="socSelection" label="Selecion" value="#{pageFlowScope.dataSelection}">
+        <amx:selectItem id="siSelectionNone" label="none" value="none"/>
+        <amx:selectItem id="siSelectionSingle" label="single" value="single"/>
+        <amx:selectItem id="siSelectionMultiple" label="multiple" value="multiple"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="socDataCursor" label="Data Cursor" value="#{pageFlowScope.dataCursor}">
+        <amx:selectItem id="sliDataCursorAuto" label="auto" value="auto"/>
+        <amx:selectItem id="sliDataCursorOff" label="off" value="off"/>
+        <amx:selectItem id="sliDataCursorOn" label="on" value="on"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="socDataCursorBehavior" label="Data Cursor Behaviour"
+                           value="#{pageFlowScope.dataCursorBehavior}">
+        <amx:selectItem id="sliDataCursorBehaviorAuto" label="auto" value="auto"/>
+        <amx:selectItem id="sliDataCursorBehaviorSmooth" label="smooth" value="smooth"/>
+        <amx:selectItem id="sliDataCursorBehaviorSnap" label="snap" value="snap"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="socZoomScroll" label="Zoom" value="#{pageFlowScope.zoomAndScroll}">
+        <amx:selectItem id="siZoomScrollOff" label="off" value="off"/>
+        <amx:selectItem id="siZoomScrollDelayed" label="delayed" value="delayed"/>
+        <amx:selectItem id="siZoomScrollLive" label="live" value="live"/>
+      </amx:selectOneChoice>
+    </amx:panelFormLayout>
+    <amx:commandButton id="cbClose" styleClass="adfmf-commandButton-actionSheet" text="Close">
+      <amx:closePopupBehavior popupId="pAdvancedOptions" type="action"/>
+    </amx:commandButton>
+  </amx:popup>
+</amx:view>

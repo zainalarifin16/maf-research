@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
+                   name="DeviceDemo" id="com.oraclecorp.internal.DeviceDemo" appControllerFolder="ApplicationController"
+                   listener-class="application.LifeCycleListenerImpl" version="1.1">
+  <adfmf:featureReference id="fr1" refId="About"/>
+  <adfmf:featureReference id="fr8" refId="Attachments"/>
+  <adfmf:featureReference id="fr7" refId="Contacts"/>
+  <adfmf:featureReference id="fr3" refId="Email"/>
+  <adfmf:featureReference id="fr6" refId="GPS"/>
+  <adfmf:featureReference id="fr2" refId="Properties"/>
+  <adfmf:featureReference id="fr4" refId="Picture"/>
+  <adfmf:featureReference id="fr5" refId="SMS"/>
+  <adfmf:featureReference id="fr9" refId="Springboard" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:navigation>
+    <adfmf:springboard enabled="true" animation="slideright" width="250" showSpringboardAtStartup="false"
+                       displayGotoSpringboardControl="false">
+      <adfmf:springboardFeatureReference id="sfr1" refId="Springboard"/>
+    </adfmf:springboard>
+    <adfmf:navigationBar enabled="false"/>
+  </adfmf:navigation>
+  <adfmf:configuration>
+    <adfmf:allowedSchemeList>
+      <adfmf:allowedScheme value="facetime" id="as1"/>
+      <adfmf:allowedScheme value="tel" id="as2"/>
+      <adfmf:allowedScheme value="linkedin" id="as3"/>
+      <adfmf:allowedScheme value="fb" id="as4"/>
+      <adfmf:allowedScheme value="twitter" id="as5"/>
+      <adfmf:allowedScheme value="mailto" id="as6"/>
+    </adfmf:allowedSchemeList>
+  </adfmf:configuration>
+</adfmf:application>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.2.36" id="standaloneLegendPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="LegendDataList" id="LegendDataListIterator"/>
+    <accessorIterator MasterBinding="LegendDataListIterator" Binds="model1" RangeSize="-1" DataControl="LegendDataList"
+                      BeanClass="model.BarData" id="model1Iterator"/>
+    <accessorIterator MasterBinding="LegendDataListIterator" Binds="model2" RangeSize="-1" DataControl="LegendDataList"
+                      BeanClass="model.PieData" id="model2Iterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="ThematicMapDataList" id="ThematicMapDataListIterator"/>
+    <accessorIterator MasterBinding="ThematicMapDataListIterator" Binds="thematicMapData" RangeSize="25"
+                      DataControl="ThematicMapDataList" BeanClass="model.ThematicMapData" id="thematicMapDataIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="model1Iterator" id="model1">
+      <nodeDefinition DefName="model.BarData" Name="model10">
+        <AttrNames>
+          <Item Value="group"/>
+          <Item Value="series"/>
+          <Item Value="value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="model2Iterator" id="model2">
+      <nodeDefinition DefName="model.PieData" Name="model20">
+        <AttrNames>
+          <Item Value="label"/>
+          <Item Value="value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="thematicMapDataIterator" id="thematicMapData">
+      <nodeDefinition DefName="model.ThematicMapData" Name="thematicMapData0">
+        <AttrNames>
+          <Item Value="value"/>
+          <Item Value="name"/>
+          <Item Value="color"/>
+          <Item Value="cat1"/>
+          <Item Value="cat2"/>
+          <Item Value="cat3"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="thematicMapDataIterator" id="thematicMapData1">
+      <nodeDefinition DefName="model.ThematicMapData" Name="thematicMapData10">
+        <AttrNames>
+          <Item Value="value"/>
+          <Item Value="name"/>
+          <Item Value="color"/>
+          <Item Value="cat1"/>
+          <Item Value="cat2"/>
+          <Item Value="cat3"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="model1Iterator" id="model11">
+      <nodeDefinition DefName="model.BarData" Name="model110">
+        <AttrNames>
+          <Item Value="group"/>
+          <Item Value="series"/>
+          <Item Value="value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="model2Iterator" id="model21">
+      <nodeDefinition DefName="model.PieData" Name="model210">
+        <AttrNames>
+          <Item Value="label"/>
+          <Item Value="value"/>
+          <Item Value="explode"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="People" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink id="cl1" actionListener="#{bindings.toggleSpringboard.execute}"
+                             shortDesc="Springboard Link">
+                <amx:image id="i1" source="/images/springboard.svg" shortDesc="Springboard Image"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandButton id="cb2" text="Add" action="add">
+                <amx:setPropertyListener id="spl1" from="#{true}" to="#{pageFlowScope.newMode}"/>
+            </amx:commandButton>
+        </amx:facet>
+        <amx:listView var="row" value="#{bindings.person.collectionModel}" fetchSize="#{bindings.person.rangeSize}"
+                      selectedRowKeys="#{bindings.person.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.person.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
+                      bufferStrategy="viewport" id="lv1">
+            <amx:listItem id="li1" action="detail">
+                <amx:accessoryLayout id="al1">
+                    <amx:facet name="end">
+                        <amx:commandLink id="cl2" text="Delete" actionListener="#{bindings.RemoveRow.execute}">
+                            <amx:setPropertyListener id="spl3" from="#{row.id}" to="#{viewScope.selectedId}"/>
+                        </amx:commandLink>
+                    </amx:facet>
+                    <amx:tableLayout width="100%" id="tl1">
+                        <amx:rowLayout id="rl2">
+                            <amx:cellFormat width="10px" rowSpan="2" id="cf3"/>
+                            <amx:cellFormat width="100%" height="#{deviceScope.device.os=='Android'?'36':'32'}px"
+                                            id="cf2">
+                                <amx:outputText value="#{row.first} #{row.last}" id="ot4"/>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                        <amx:rowLayout id="rl1">
+                            <amx:cellFormat width="100%" height="#{deviceScope.device.os=='Android'?'22':'19'}px"
+                                            id="cf1">
+                                <amx:outputText value="#{row.email}" styleClass="adfmf-listItem-captionText" id="ot3"/>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                    </amx:tableLayout>
+                </amx:accessoryLayout>
+            </amx:listItem>
+        </amx:listView>
+    </amx:panelPage>
+</amx:view>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt"
+          xmlns:custom="http://xmlns.example.com/custom">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Close Popup"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:closePopupBehavior" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=operations/closePopupBehavior" shortDesc="Bookmarkable Link"
+                  styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:facet name="footer">
+      <amx:commandButton id="db1" text="Show Popup">
+        <amx:showPopupBehavior align="bottomStart" alignId="pph" decoration="simple"
+                               popupId="popup1" type="action"/>
+      </amx:commandButton>
+    </amx:facet>
+    <amx:spacer id="s1" inlineStyle="height:20px;"/>
+    <amx:panelGroupLayout id="pgl1" layout="horizontal" scrollPolicy="none" inlineStyle="z-index:1">
+      <custom:resizable id="pphResize" start="80" top="80" width="115" height="20">
+        <amx:outputText id="pph" value="Align element" inlineStyle="-webkit-user-select:none;"/>
+      </custom:resizable>
+    </amx:panelGroupLayout>
+  </amx:panelPage>
+  <amx:popup id="popup1" animation="slideDown" autoDismiss="true" backgroundDimming="on">
+    <amx:panelGroupLayout id="pgl2" layout="vertical">
+      <amx:outputText id="outputText2" value="This is a popup!!"/>
+      <amx:commandButton id="commandButton3" text="Close">
+        <amx:closePopupBehavior popupId="#{pageFlowScope.componentProperties.popupId}"
+                                type="#{pageFlowScope.componentProperties.type}"/>
+      </amx:commandButton>
+    </amx:panelGroupLayout>
+  </amx:popup>
+</amx:view>

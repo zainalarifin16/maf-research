@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="dvt-geo-taskflow">
+    <default-activity>dvtGeo</default-activity>
+    <view id="dvtGeo">
+      <page>dvtGeo.amx</page>
+    </view>
+    <view id="geographicMap">
+      <page>geographicMap.amx</page>
+    </view>
+    <view id="geographicMap2">
+      <page>geographicMap2.amx</page>
+    </view>        
+    <view id="GeographicMapProperties">
+      <page>GeographicMapProperties.amx</page>
+    </view>
+    <task-flow-return id="return">
+      <outcome>
+        <name>return</name>
+      </outcome>
+    </task-flow-return>
+    <view id="geographicMapWithPopup">
+      <page>/geographicMapWithPopup.amx</page>
+    </view>
+    <view id="geographicMapRoutes">
+      <page>/geographicMapRoutes.amx</page>
+    </view>
+    <view id="geographicMapRouteStatic">
+      <page>/geographicMapRouteStatic.amx</page>
+    </view>
+    <view id="GeographicMapRouteProperties">
+      <page>/GeographicMapRouteProperties.amx</page>
+    </view>
+    <view id="GeographicMapProperties2">
+      <page>/GeographicMapProperties2.amx</page>
+    </view>
+    <view id="geographicMapInfoBubbles">
+      <page>/geographicMapInfoBubbles.amx</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>properties</from-outcome>
+        <to-activity-id>Properties</to-activity-id>
+        <transition>flipStart</transition>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>geographicMapRouteProperties</from-outcome>
+        <to-activity-id>GeographicMapRouteProperties</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>geographicMapProperties2</from-outcome>
+        <to-activity-id>GeographicMapProperties2</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__29">
+      <from-activity-id>dvtGeo</from-activity-id>
+      <control-flow-case id="__62">
+        <from-outcome>goto-geographicMap</from-outcome>
+        <to-activity-id>geographicMap</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__63">
+        <from-outcome>goto-geographicMap2</from-outcome>
+        <to-activity-id>geographicMap2</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>goto-geographicMapWithPopup</from-outcome>
+        <to-activity-id>geographicMapWithPopup</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__6">
+        <from-outcome>goto-geographicMapRoutes</from-outcome>
+        <to-activity-id>geographicMapRoutes</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>goto-geographicMapRouteStatic</from-outcome>
+        <to-activity-id>geographicMapRouteStatic</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>geographicMapInfoBubbles</from-outcome>
+        <to-activity-id>geographicMapInfoBubbles</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__45">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>return</from-outcome>
+        <to-activity-id>return</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__65">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__66">
+        <from-outcome>geographicMapProperties</from-outcome>
+        <to-activity-id>GeographicMapProperties</to-activity-id>
+        <transition>flipStart</transition>
+      </control-flow-case>
+    </control-flow-rule>
+ </task-flow-definition>
+</adfc-mobile-config>

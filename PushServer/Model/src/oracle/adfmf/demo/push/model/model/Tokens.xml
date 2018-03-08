@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Tokens"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  DBObjectType="table"
+  DBObjectName="TOKENS"
+  AliasName="Tokens"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="ApplicationId"
+    IsNotNull="true"
+    Precision="120"
+    ColumnName="APPLICATION_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="TOKENS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FeatureId"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="FEATURE_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="TOKENS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DeviceToken"
+    IsNotNull="true"
+    Precision="360"
+    ColumnName="DEVICE_TOKEN"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="TOKENS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="120"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TokenCount"
+    ColumnName="TOKEN_COUNT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="TOKENS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Registrations"
+    Association="oracle.adfmf.demo.push.model.model.TokensRegistrationsFk1Assoc"
+    AssociationEnd="oracle.adfmf.demo.push.model.model.TokensRegistrationsFk1Assoc.Registrations"
+    AssociationOtherEnd="oracle.adfmf.demo.push.model.model.TokensRegistrationsFk1Assoc.Tokens"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="SysC0014778604">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0014778604"/>
+      <Attr Name="_checkCondition" Value='"APPLICATION_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.adfmf.demo.push.model.model.Tokens.ApplicationId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0014778605">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0014778605"/>
+      <Attr Name="_checkCondition" Value='"FEATURE_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.adfmf.demo.push.model.model.Tokens.FeatureId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0014778606">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0014778606"/>
+      <Attr Name="_checkCondition" Value='"DEVICE_TOKEN" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.adfmf.demo.push.model.model.Tokens.DeviceToken"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="TokensPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="TOKENS_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.adfmf.demo.push.model.model.Tokens.DeviceToken"/>
+      <Item Value="oracle.adfmf.demo.push.model.model.Tokens.ApplicationId"/>
+      <Item Value="oracle.adfmf.demo.push.model.model.Tokens.FeatureId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="TokensRegistrationsFk1">
+    <DesignTime>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+      <Attr Name="_referencedKey" Value="REGISTRATIONS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="TOKENS_REGISTRATIONS_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.adfmf.demo.push.model.model.Tokens.DeviceToken"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Properties"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandButton id="back" action="__back" text="Done"/>
+    </amx:facet>
+    <amx:panelFormLayout id="propform" labelWidth="40%" fieldWidth="60%">
+      <amx:selectOneChoice label="Horizontal Alignment" value="#{pageFlowScope.halign}">
+        <amx:selectItem label="default"/>
+        <amx:selectItem label="start" value="start"/>
+        <amx:selectItem label="center" value="center"/>
+        <amx:selectItem label="end" value="end"/>
+      </amx:selectOneChoice>
+      <amx:inputText label="Inline Style" value="#{pageFlowScope.inlineStyle}"/>
+      <amx:selectOneChoice label="Orientation" value="#{pageFlowScope.orientation}">
+        <amx:selectItem label="default"/>
+        <amx:selectItem label="vertical" value="vertical"/>
+        <amx:selectItem label="horizontal" value="horizontal"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice label="Scrolling" value="#{pageFlowScope.scrolling}">
+        <amx:selectItem label="default"/>
+        <amx:selectItem label="on" value="on"/>
+        <amx:selectItem label="off" value="off"/>
+      </amx:selectOneChoice>
+      <amx:inputText label="Title" value="#{pageFlowScope.title}"/>
+      <amx:selectOneChoice label="Title Halign" value="#{pageFlowScope.titleHalign}">
+        <amx:selectItem label="default"/>
+        <amx:selectItem label="start" value="start"/>
+        <amx:selectItem label="center" value="center"/>
+        <amx:selectItem label="end" value="end"/>
+      </amx:selectOneChoice>
+      <amx:inputText label="Title Style" value="#{pageFlowScope.titleStyle}"/>
+      <amx:selectOneChoice label="Vertical Alignment" value="#{pageFlowScope.valign}">
+        <amx:selectItem label="default"/>
+        <amx:selectItem label="top" value="top"/>
+        <amx:selectItem label="middle" value="middle"/>
+        <amx:selectItem label="bottom" value="bottom"/>
+      </amx:selectOneChoice>
+    </amx:panelFormLayout>
+  </amx:panelPage>
+</amx:view>

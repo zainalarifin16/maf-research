@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:adfmf="http://xmlns.oracle.com/adf/mf" name="APIDemo"
+                   version="1.0" id="com.oraclecorp.internal.APIDemo"
+                   appControllerFolder="ApplicationController">
+  <adfmf:featureReference id="fr1" refId="About"/>
+  <adfmf:featureReference id="fr2" refId="Javascript" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:featureReference id="fr3" refId="Action"/>
+  <adfmf:featureReference id="fr4" refId="Value"/>
+  <adfmf:featureReference id="fr5" refId="Success" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:featureReference id="fr6" refId="Method"/>
+  <adfmf:featureReference id="fr7" refId="EL"/>
+  <adfmf:featureReference id="fr8" refId="Springboard" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:navigation>
+    <adfmf:springboard displayGotoSpringboardControl="false" showSpringboardAtStartup="false" enabled="true"
+                       width="250" animation="slideright">
+      <adfmf:springboardFeatureReference id="sfr1" refId="Springboard"/>
+    </adfmf:springboard>
+    <adfmf:navigationBar enabled="false"/>
+  </adfmf:navigation>
+</adfmf:application>

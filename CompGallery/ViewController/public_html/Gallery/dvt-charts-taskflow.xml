@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="dvt-charts-taskflow">
+    <default-activity>dvtCharts</default-activity>
+    <view id="ChartProperties">
+      <page>ChartProperties.amx</page>
+    </view>
+    <view id="dvtCharts">
+      <page>dvtCharts.amx</page>
+    </view>
+    <view id="areaChart">
+      <page>areaChart.amx</page>
+    </view>
+    <view id="barChart">
+      <page>barChart.amx</page>
+    </view>
+    <view id="bubbleChart">
+      <page>bubbleChart.amx</page>
+    </view>    
+    <view id="comboChart">
+      <page>comboChart.amx</page>
+    </view>
+    <view id="funnelChart">
+      <page>/funnelChart.amx</page>
+    </view>
+    <view id="lineChart">
+      <page>lineChart.amx</page>
+    </view>
+    <view id="pieChart">
+      <page>pieChart.amx</page>
+    </view>
+    <view id="polar">
+      <page>polar.amx</page>
+    </view>
+    <view id="scatterChart">
+      <page>scatterChart.amx</page>
+    </view>
+    <view id="sparkChart">
+      <page>sparkChart.amx</page>
+    </view>
+    <view id="stockChart">
+      <page>stockChart.amx</page>
+    </view>
+    <view id="timeAxisChart">
+      <page>timeAxisChart.amx</page>
+    </view>
+    <task-flow-return id="return">
+      <outcome>
+        <name>return</name>
+      </outcome>
+    </task-flow-return>
+    <view id="barChartRetirement">
+      <page>/barChartRetirement.amx</page>
+    </view>
+    <view id="pictoChart">
+      <page>/pictoChart.amx</page>
+    </view>
+    <view id="pictoChartProperties">
+      <page>/pictoChartProperties.amx</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>properties</from-outcome>
+        <to-activity-id>Properties</to-activity-id>
+        <transition>flipStart</transition>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>ratingGaugeProperties</from-outcome>
+        <to-activity-id>RatingGaugeProperties</to-activity-id>
+        <transition>flipStart</transition>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__29">
+      <from-activity-id>dvtCharts</from-activity-id>
+      <control-flow-case id="__30">
+        <from-outcome>areaChart</from-outcome>
+        <to-activity-id>areaChart</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__31">
+        <from-outcome>barChart</from-outcome>
+        <to-activity-id>barChart</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__32">
+        <from-outcome>bubbleChart</from-outcome>
+        <to-activity-id>bubbleChart</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__33">
+        <from-outcome>comboChart</from-outcome>
+        <to-activity-id>comboChart</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__15">
+        <from-outcome>funnelChart</from-outcome>
+        <to-activity-id>funnelChart</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__34">
+        <from-outcome>horizontalBarChart</from-outcome>
+        <to-activity-id>horizontalBarChart</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__35">
+        <from-outcome>lineChart</from-outcome>
+        <to-activity-id>lineChart</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__38">
+        <from-outcome>pieChart</from-outcome>
+        <to-activity-id>pieChart</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__54">
+        <from-outcome>polar</from-outcome>
+        <to-activity-id>polar</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__39">
+        <from-outcome>scatterChart</from-outcome>
+        <to-activity-id>scatterChart</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__40">
+        <from-outcome>sparkChart</from-outcome>
+        <to-activity-id>sparkChart</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__87">
+        <from-outcome>stockChart</from-outcome>
+        <to-activity-id>stockChart</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>return</from-outcome>
+        <to-activity-id>return</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__16">
+        <from-outcome>timeAxisChart</from-outcome>
+        <to-activity-id>timeAxisChart</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__25">
+        <from-outcome>barChartRetirement</from-outcome>
+        <to-activity-id>barChartRetirement</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>pictoChart</from-outcome>
+        <to-activity-id>pictoChart</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__43">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__44">
+        <from-outcome>chartProperties</from-outcome>
+        <to-activity-id>ChartProperties</to-activity-id>
+        <transition>flipStart</transition>
+      </control-flow-case>
+    </control-flow-rule>
+ </task-flow-definition>
+</adfc-mobile-config>

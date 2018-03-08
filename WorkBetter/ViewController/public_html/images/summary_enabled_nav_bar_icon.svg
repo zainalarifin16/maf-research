@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="summary_selected_nav_bar_icon"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="64px" height="64px"
+	 viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+<g>
+	<g>
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="#929292" d="M38.5,51.04c-1.02-0.03-1.68-1.64-1.68-1.64l0-24.4H20.12v3.01
+			c0,0,3.58-0.04,5.62-0.01c1.39,0.02,1.73,1.6,1.73,1.6s0.02,12.19,0,17.93c-0.01,3.02-3.41,3.48-3.41,3.48l-3.93,0.01v4.98h24
+			v-4.95C44.12,51.04,40.65,51.1,38.5,51.04z M31.6,18c2.87,0,5.2-2.24,5.2-5c0-2.76-2.33-5-5.2-5c-2.87,0-5.2,2.24-5.2,5
+			C26.39,15.76,28.72,18,31.6,18z"/>
+	</g>
+</g>
+</svg>

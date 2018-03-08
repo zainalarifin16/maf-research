@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.20.8" id="taskflow_taskflow_CreatePageDef"
+                Package="crud.CRUD.phone" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="root" RangeSize="25" DataControl="Service" id="ServiceIterator"/>
+    <accessorIterator MasterBinding="ServiceIterator" Binds="person" RangeSize="25" DataControl="Service"
+                      BeanClass="crudmodel.Person" id="personIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="personIterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
+  </bindings>
+</pageDefinition>

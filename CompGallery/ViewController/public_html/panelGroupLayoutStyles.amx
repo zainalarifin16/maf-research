@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Panel Styles" id="hdr"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"
+                         shortDesc="Go back to the previous page"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=layout/panelGroupLayout/styles"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:panelStretchLayout id="psl1" scrollPolicy="scroll">
+      <amx:facet name="top">
+        <amx:selectOneButton id="sob1" simple="true" value="#{pageFlowScope.panelGroupStyle}">
+          <amx:selectItem id="si1" label="Default" value="Default"/>
+          <amx:selectItem id="si2" label="Shadow" value="adfmf-panelGroupLayout-shadow"/>
+        </amx:selectOneButton>
+      </amx:facet>
+      <amx:facet name="center">
+        <amx:outputText id="ot1" value="#{pageFlowScope.panelGroupStyle}"
+          styleClass="adfmf-outputText-sectionTitle" inlineStyle="text-transform: none;"/>
+        <amx:panelGroupLayout id="pgl1" styleClass="#{pageFlowScope.panelGroupStyle}">
+          <amx:outputText value="Text" id="otp1"/>
+        </amx:panelGroupLayout>
+        <amx:outputText id="ot2"
+          value="adfmf-panelGroupLayout-groupBox #{pageFlowScope.panelGroupStyle == 'Default' ? '' : pageFlowScope.panelGroupStyle}"
+          styleClass="adfmf-outputText-sectionTitle" inlineStyle="text-transform: none;"/>
+        <amx:panelGroupLayout id="pgl2"
+          styleClass="adfmf-panelGroupLayout-groupBox #{pageFlowScope.panelGroupStyle}">
+          <amx:outputText value="Text" id="otp2"/>
+        </amx:panelGroupLayout>
+        <amx:outputText id="ot3"
+          value="adfmf-panelGroupLayout-selected #{pageFlowScope.panelGroupStyle == 'Default' ? '' : pageFlowScope.panelGroupStyle}"
+          styleClass="adfmf-outputText-sectionTitle" inlineStyle="text-transform: none;"/>
+        <amx:panelGroupLayout id="pgl3"
+          styleClass="adfmf-panelGroupLayout-groupBox-selected #{pageFlowScope.panelGroupStyle}">
+          <amx:outputText value="Text" id="otp3"/>
+        </amx:panelGroupLayout>
+        <amx:outputText id="ot4"
+          value="adfmf-panelGroupLayout-accent1 #{pageFlowScope.panelGroupStyle == 'Default' ? '' : pageFlowScope.panelGroupStyle}"
+          styleClass="adfmf-outputText-sectionTitle" inlineStyle="text-transform: none;"/>
+        <amx:panelGroupLayout id="pgl4"
+          styleClass="adfmf-panelGroupLayout-accent1 #{pageFlowScope.panelGroupStyle}">
+          <amx:outputText value="Text" id="otp4"/>
+        </amx:panelGroupLayout>
+        <amx:outputText id="ot5"
+          value="adfmf-panelGroupLayout-accent1-selected #{pageFlowScope.panelGroupStyle == 'Default' ? '' : pageFlowScope.panelGroupStyle}"
+          styleClass="adfmf-outputText-sectionTitle" inlineStyle="text-transform: none;"/>
+        <amx:panelGroupLayout id="pgl5"
+          styleClass="adfmf-panelGroupLayout-accent1-selected #{pageFlowScope.panelGroupStyle}">
+          <amx:outputText value="Text" id="otp5"/>
+        </amx:panelGroupLayout>
+        <amx:outputText id="ot6"
+          value="adfmf-panelGroupLayout-accent2 #{pageFlowScope.panelGroupStyle == 'Default' ? '' : pageFlowScope.panelGroupStyle}"
+          styleClass="adfmf-outputText-sectionTitle" inlineStyle="text-transform: none;"/>
+        <amx:panelGroupLayout id="pgl6"
+          styleClass="adfmf-panelGroupLayout-accent2 #{pageFlowScope.panelGroupStyle}">
+          <amx:outputText value="Text" id="otp6"/>
+        </amx:panelGroupLayout>
+        <amx:outputText id="ot7"
+          value="adfmf-panelGroupLayout-accent2-selected #{pageFlowScope.panelGroupStyle == 'Default' ? '' : pageFlowScope.panelGroupStyle}"
+          styleClass="adfmf-outputText-sectionTitle" inlineStyle="text-transform: none;"/>
+        <amx:panelGroupLayout id="pgl7"
+          styleClass="adfmf-panelGroupLayout-accent2-selected #{pageFlowScope.panelGroupStyle}">
+          <amx:outputText value="Text" id="otp7"/>
+        </amx:panelGroupLayout>
+        <amx:outputText id="ot8"
+          value="adfmf-panelGroupLayout-accent3 #{pageFlowScope.panelGroupStyle == 'Default' ? '' : pageFlowScope.panelGroupStyle}"
+          styleClass="adfmf-outputText-sectionTitle" inlineStyle="text-transform: none;"/>
+        <amx:panelGroupLayout id="pgl8"
+          styleClass="adfmf-panelGroupLayout-accent3 #{pageFlowScope.panelGroupStyle}">
+          <amx:outputText value="Text" id="otp8"/>
+        </amx:panelGroupLayout>
+        <amx:outputText id="ot9"
+          value="adfmf-panelGroupLayout-accent3-selected #{pageFlowScope.panelGroupStyle == 'Default' ? '' : pageFlowScope.panelGroupStyle}"
+          styleClass="adfmf-outputText-sectionTitle" inlineStyle="text-transform: none;"/>
+        <amx:panelGroupLayout id="pgl9"
+          styleClass="adfmf-panelGroupLayout-accent3-selected #{pageFlowScope.panelGroupStyle}">
+          <amx:outputText value="Text" id="otp9"/>
+        </amx:panelGroupLayout>
+         <amx:outputText id="ot10"
+          value="adfmf-panelGroupLayout-accent4 #{pageFlowScope.panelGroupStyle == 'Default' ? '' : pageFlowScope.panelGroupStyle}"
+          styleClass="adfmf-outputText-sectionTitle" inlineStyle="text-transform: none;"/>
+        <amx:panelGroupLayout id="pgl10"
+          styleClass="adfmf-panelGroupLayout-accent4 #{pageFlowScope.panelGroupStyle}">
+          <amx:outputText value="Text" id="otp10"/>
+        </amx:panelGroupLayout>
+        <amx:outputText id="ot11"
+          value="adfmf-panelGroupLayout-accent4-selected #{pageFlowScope.panelGroupStyle == 'Default' ? '' : pageFlowScope.panelGroupStyle}"
+          styleClass="adfmf-outputText-sectionTitle" inlineStyle="text-transform: none;"/>
+        <amx:panelGroupLayout id="pgl11"
+          styleClass="adfmf-panelGroupLayout-accent4-selected #{pageFlowScope.panelGroupStyle}">
+          <amx:outputText value="Text" id="otp11"/>
+        </amx:panelGroupLayout>
+      </amx:facet>
+    </amx:panelStretchLayout>
+  </amx:panelPage>
+</amx:view>

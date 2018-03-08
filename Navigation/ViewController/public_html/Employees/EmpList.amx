@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText id="header" value="Employees"/>
+        </amx:facet>
+        <amx:facet name="primary">
+          <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+              <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+          </amx:commandLink>
+        </amx:facet>
+        <amx:listView var="row" value="#{bindings.employees.collectionModel}"
+                      fetchSize="#{bindings.employees.rangeSize}"
+                      selectedRowKeys="#{bindings.employees.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.employees.collectionModel.makeCurrent}"
+                      showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1">
+            <amx:listItem action="toDetail" id="li1">
+                <amx:tableLayout id="tla1" width="100%">
+                    <amx:rowLayout id="rla1">
+                        <amx:cellFormat id="cf1s1" width="10px" rowSpan="2"/>
+                        <amx:cellFormat id="cfa1" width="100%" height="28px">
+                            <amx:outputText value="#{row.first} #{row.last}" id="outputText1"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout id="rla2">
+                        <amx:cellFormat id="cfa2" width="100%" height="12px">
+                            <amx:outputText value="#{row.address}" id="outputText2"
+                                            styleClass="adfmf-listItem-captionText"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+               <amx:setPropertyListener from="#{row.rowKey}" to="#{applicationScope.RouterBean.currEmp}" type="action"/>
+            </amx:listItem>
+        </amx:listView>
+
+    </amx:panelPage>
+</amx:view>

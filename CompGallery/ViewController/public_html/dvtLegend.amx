@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Common Legend" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton text="Back" id="back" action="return" styleClass="amx-commandButton-back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/dvtLegend"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:listView>
+      <amx:listItem id="commonLegend" action="commonLegend">
+        <amx:tableLayout id="commonLegendTL" width="100%">
+          <amx:rowLayout id="commonLegendRL1">
+            <amx:cellFormat id="commonLegendCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="commonLegendI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/commonLegend-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="commonLegendCF2" width="100%" height="28px">
+              <amx:outputText id="commonLegendOT1" value="Common Legend"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="commonLegendRL2">
+            <amx:cellFormat id="commonLegendCF3" width="100%" height="12px">
+              <amx:outputText id="commonLegendOT2" value="dvtm:legend" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="#{DvtProperties.commonLegendProperties.title}" to="#{pageFlowScope.title}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.commonLegendProperties.titleHalign}" to="#{pageFlowScope.titleHalign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.commonLegendProperties.titleStyle}" to="#{pageFlowScope.titleStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.commonLegendProperties.inlineStyle}" to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.commonLegendProperties.orientation}" to="#{pageFlowScope.orientation}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.commonLegendProperties.scrolling}" to="#{pageFlowScope.scrolling}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.commonLegendProperties.halign}" to="#{pageFlowScope.halign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.commonLegendProperties.valign}" to="#{pageFlowScope.valign}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="commonLegendSection" action="commonLegendSection">
+        <amx:tableLayout id="commonLegendSectionTL" width="100%">
+          <amx:rowLayout id="commonLegendSectionRL1">
+            <amx:cellFormat id="commonLegendSectionCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="commonLegendSectionI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/commonLegendSection-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="commonLegendSectionCF2" width="100%" height="28px">
+              <amx:outputText id="commonLegendSectionOT1" value="Common Legend Section"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="commonLegendSectionRL2">
+            <amx:cellFormat id="commonLegendSectionCF3" width="100%" height="12px">
+              <amx:outputText id="commonLegendSectionOT2" value="dvtm:legendSection"
+                              styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="#{DvtProperties.commonLegendSectionProperties.sectionTitle}" to="#{pageFlowScope.title}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.commonLegendSectionProperties.sectionTitleHalign}" to="#{pageFlowScope.halign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.commonLegendSectionProperties.sectionTitleStyle}" to="#{pageFlowScope.titleStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.commonLegendSectionProperties.sectionShowDisclosure}" to="#{pageFlowScope.showDisclosure}" type="action"/> 
+      </amx:listItem>
+      <amx:listItem id="commonLegendItem" action="commonLegendItem">
+        <amx:tableLayout id="commonLegendItemTL" width="100%">
+          <amx:rowLayout id="commonLegendItemRL1">
+            <amx:cellFormat id="commonLegendItemCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="commonLegendItemI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/commonLegendItem-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="commonLegendItemCF2" width="100%" height="28px">
+              <amx:outputText id="commonLegendItemOT1" value="Common Legend Item"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="commonLegendItemRL2">
+            <amx:cellFormat id="commonLegendItemCF3" width="100%" height="12px">
+              <amx:outputText id="commonLegendItemOT2" value="dvtm:legendItem" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="#{DvtProperties.commonLegendItemProperties.borderColor}" to="#{pageFlowScope.borderColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.commonLegendItemProperties.color}" to="#{pageFlowScope.color}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.commonLegendItemProperties.lineStyle}" to="#{pageFlowScope.lineStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.commonLegendItemProperties.lineWidth}" to="#{pageFlowScope.lineWidth}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.commonLegendItemProperties.markerColor}" to="#{pageFlowScope.markerColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.commonLegendItemProperties.markerShape}" to="#{pageFlowScope.markerShape}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.commonLegendItemProperties.pattern}" to="#{pageFlowScope.pattern}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.commonLegendItemProperties.symbolType}" to="#{pageFlowScope.symbolType}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.commonLegendItemProperties.text}" to="#{pageFlowScope.text}" type="action"/>
+      </amx:listItem>
+    </amx:listView>
+  </amx:panelPage>
+</amx:view>

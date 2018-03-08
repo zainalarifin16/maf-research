@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="About" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+        <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+      </amx:commandLink>
+    </amx:facet>
+    <amx:outputText value="This application demonstrates how to create a fake iBeacon on a device running iOS." id="ot2"/>
+    <amx:outputText value="Since this functionality is not supported by Android, please deploy it to an iOS device." 
+                    id="ot3" rendered='#{deviceScope.device.os == "Android"}'/>
+    <amx:outputText value="Since this functionality is not supported by Windows, please deploy it to an iOS device." 
+                    id="ot4" rendered='#{deviceScope.device.os == "UWP"}'/>
+    <amx:outputText value="Since this functionality is not supported by the iOS Simulator, please deploy it to an iOS device." 
+                    id="ot5" rendered='#{deviceScope.device.platform == "iPhone Simulator" || deviceScope.device.platform == "iPad Simulator"}'/>
+    <amx:outputText value="Please ensure that Bluetooth is enabled." 
+                    id="ot6" rendered='#{deviceScope.device.os == "iOS" &amp;&amp; deviceScope.device.platform != "iPhone Simulator" &amp;&amp; deviceScope.device.platform != "iPad Simulator"}'/>
+    <amx:outputText value="In the Beacon feature, you can set the uuid, major and minor values before turning on advertising." 
+                    id="ot7" rendered='#{deviceScope.device.os == "iOS" &amp;&amp; deviceScope.device.platform != "iPhone Simulator" &amp;&amp; deviceScope.device.platform != "iPad Simulator"}'/>
+    <amx:outputText value="The BeaconDemo sample app can be used to detect this fake iBeacon." 
+                    id="ot8" rendered='#{deviceScope.device.os == "iOS" &amp;&amp; deviceScope.device.platform != "iPhone Simulator" &amp;&amp; deviceScope.device.platform != "iPad Simulator"}'/>
+  </amx:panelPage>
+</amx:view>

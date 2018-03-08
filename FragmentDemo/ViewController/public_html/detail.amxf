@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1">
+        <description id="d1">Generic Detail fragment for a reusable form</description>
+        <facet id="f2">
+            <facet-name id="f3">detailtop</facet-name>
+        </facet>
+        <attribute-list id="a9">
+            <name id="n1">fields</name>
+            <attribute id="a1">
+                <attribute-name id="a1n">attr</attribute-name>
+                <attribute-type id="a1t">Attribute Binding</attribute-type>
+            </attribute>
+        </attribute-list>
+    </fragment>
+    <amx:panelStretchLayout id="psl2">
+        <amx:facet name="top">
+            <amx:facetRef facetName="detailtop" id="fr1"/>
+        </amx:facet>
+        <amx:facet name="center">
+            <amx:panelFormLayout id="pfl1">
+                <amx:attributeListIterator name="fields" id="ali1">
+                    <!-- Note that we use the #{empty(foo)} notation here in case they send in a blank entry on purpose as a spacer-->
+                    <amx:inputText id="it1" label="#{empty(attr) ? '' : attr.hints.label}"
+                                   value="#{empty(attr) ? '' : attr.inputValue}"
+                                   rendered="#{empty(attr) ? '' : (attr.hints.controlType ne 'date' ? 'true' : 'false')}"
+                                   readOnly="true"/>
+                    <amx:inputDate id="id1" label="#{empty(attr) ? '' : attr.hints.label}"
+                                   value="#{empty(attr) ? '' : attr.inputValue}"
+                                   rendered="#{empty(attr) ? '' : (attr.hints.controlType eq 'date' ? 'true' : 'false')}"
+                                   readOnly="true"/>
+                </amx:attributeListIterator>
+            </amx:panelFormLayout>
+        </amx:facet>
+        <amx:facet name="bottom"/>
+    </amx:panelStretchLayout>
+</amx:fragmentDef>

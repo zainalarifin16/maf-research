@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:navigationDragBehavior id="ndb2" direction="forward" action="thematicMapProperties">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="TMap: Basemap/Layer"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back">
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.animationOnDisplay}"
+                                 from="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.animationOnMapChange}"
+                                 from="#{pageFlowScope.animationOnMapChange}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.animationDuration}"
+                                 from="#{pageFlowScope.animationDuration}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.tooltipDisplay}"
+                                 from="#{pageFlowScope.tooltipDisplay}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.basemap}"
+                                 from="#{pageFlowScope.basemap}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.zooming}"
+                                 from="#{pageFlowScope.zooming}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.panning}"
+                                 from="#{pageFlowScope.panning}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.initialZooming}"
+                                 from="#{pageFlowScope.initialZooming}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.inlineStyle}"
+                                 from="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.layer}" from="#{pageFlowScope.layer}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.animationOnLayerChange}"
+                                 from="#{pageFlowScope.animationOnLayerChange}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.areaLabelDisplay}"
+                                 from="#{pageFlowScope.areaLabelDisplay}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.labelType}"
+                                 from="#{pageFlowScope.labelType}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.rendered}"
+                                 from="#{pageFlowScope.rendered}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.dataAnimationOnDataChange}"
+                                 from="#{pageFlowScope.dataAnimationOnDataChange}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.dataAnimationDuration}"
+                                 from="#{pageFlowScope.dataAnimationDuration}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.dataSelection}"
+                                 from="#{pageFlowScope.dataSelection}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.areaFillColor}"
+                                 from="#{pageFlowScope.areaFillColor}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.areaOpacity}"
+                                 from="#{pageFlowScope.areaOpacity}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.areaLabelStyle}"
+                                 from="#{pageFlowScope.areaLabelStyle}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.areaLabelDisplay2}"
+                                 from="#{pageFlowScope.areaLabelDisplay2}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.areaShortDesc}"
+                                 from="#{pageFlowScope.areaShortDesc}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.areaValue}"
+                                 from="#{pageFlowScope.areaValue}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.pointDataAnimationOnDataChange}"
+                                 from="#{pageFlowScope.pointDataAnimationOnDataChange}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.pointDataAnimationDuration}"
+                                 from="#{pageFlowScope.pointDataAnimationDuration}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.pointDataSelection}"
+                                 from="#{pageFlowScope.pointDataSelection}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.pointDataRendered}"
+                                 from="#{pageFlowScope.pointDataRendered}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.markerGradientEffect}"
+                                 from="#{pageFlowScope.markerGradientEffect}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.markerLabelPosition}"
+                                 from="#{pageFlowScope.markerLabelPosition}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.markerScaleX}"
+                                 from="#{pageFlowScope.markerScaleX}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.markerScaleY}"
+                                 from="#{pageFlowScope.markerScaleY}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.markerShape}"
+                                 from="#{pageFlowScope.markerShape}" type="action"/>
+        <!-- <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.markerFillColor}" from="#{pageFlowScope.markerFillColor}" type="action"/> -->
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.markerOpacity}"
+                                 from="#{pageFlowScope.markerOpacity}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.markerLabelStyle}"
+                                 from="#{pageFlowScope.markerLabelStyle}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.markerLabelDisplay}"
+                                 from="#{pageFlowScope.markerLabelDisplay}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.markerShortDesc}"
+                                 from="#{pageFlowScope.markerShortDesc}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapSwitcherProperties.markerValue}"
+                                 from="#{pageFlowScope.markerValue}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapShowPointDataProperties}" from="false" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapShowAreaProperties}" from="false" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapShowMarkerProperties}" from="false" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapShowMapsProperties}" from="false" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapShowAreaShortDesc}" from="false" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapShowMarkerValue}" from="false" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapShowMarkerShortDesc}" from="false" type="action"/>
+      </amx:commandButton>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#dvtm:thematicMap" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/dvtThematicmap/thematicMapBaseLayerSwitcher"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:flexLayout id="fl1">
+      <amx:panelStretchLayout id="psl1" styleClass="dvtm-gallery-component-panel">
+        <amx:facet name="center">
+          <dvtm:thematicMap id="maximizeDemo" animationOnDisplay="#{pageFlowScope.animationOnDisplay}"
+                            animationOnMapChange="#{pageFlowScope.animationOnMapChange}"
+                            animationDuration="#{pageFlowScope.animationDuration}" basemap="#{pageFlowScope.basemap}"
+                            tooltipDisplay="#{pageFlowScope.tooltipDisplay}" inlineStyle="#{pageFlowScope.inlineStyle}"
+                            zooming="#{pageFlowScope.zooming}" panning="#{pageFlowScope.panning}"
+                            initialZooming="#{pageFlowScope.initialZooming}" styleClass="dvtm-gallery-component">
+            <dvtm:areaLayer id="areaLayer1" layer="#{pageFlowScope.layer}"
+                            animationOnLayerChange="#{pageFlowScope.animationOnLayerChange}"
+                            areaLabelDisplay="#{pageFlowScope.areaLabelDisplay}" labelType="#{pageFlowScope.labelType}"
+                            rendered="#{pageFlowScope.rendered}">
+              <dvtm:areaDataLayer rendered="#{pageFlowScope.layer == 'states'}" var="row"
+                                  value="#{bindings.thematicMapUSAStatesData.collectionModel}" id="areaDataLayer1"
+                                  animationOnDataChange="#{pageFlowScope.dataAnimationOnDataChange}"
+                                  animationDuration="#{pageFlowScope.dataAnimationDuration}"
+                                  dataSelection="#{pageFlowScope.dataSelection}">
+                <dvtm:areaLocation id="areaLoc1" name="#{row.name}">
+                  <dvtm:area id="area1" shortDesc="#{row.name}">
+                    <dvtm:attributeGroups id="ag1" type="color" value="#{row.cat}"/>
+                  </dvtm:area>
+                </dvtm:areaLocation>
+              </dvtm:areaDataLayer>
+              <dvtm:areaDataLayer rendered="#{pageFlowScope.layer == 'countries' or pageFlowScope.layer == 'country'}"
+                                  var="row" value="#{bindings.thematicMapWorldCountriesData.collectionModel}"
+                                  id="areaDataLayer3" animationOnDataChange="#{pageFlowScope.dataAnimationOnDataChange}"
+                                  animationDuration="#{pageFlowScope.dataAnimationDuration}"
+                                  dataSelection="#{pageFlowScope.dataSelection}">
+                <dvtm:areaLocation id="areaLoc3" name="#{row.name}">
+                  <dvtm:area id="area3" shortDesc="#{row.name}">
+                    <dvtm:attributeGroups id="ag3" type="color" value="#{row.cat}"/>
+                  </dvtm:area>
+                </dvtm:areaLocation>
+              </dvtm:areaDataLayer>
+              <dvtm:areaDataLayer rendered="#{pageFlowScope.layer == 'continents' or pageFlowScope.layer == 'continent'}"
+                                  var="row" value="#{bindings.thematicMapWorldContinentsData.collectionModel}"
+                                  id="areaDataLayer4" animationOnDataChange="#{pageFlowScope.dataAnimationOnDataChange}"
+                                  animationDuration="#{pageFlowScope.dataAnimationDuration}"
+                                  dataSelection="#{pageFlowScope.dataSelection}">
+                <dvtm:areaLocation id="areaLoc4" name="#{row.name}">
+                  <dvtm:area id="area4" shortDesc="#{row.name}">
+                    <dvtm:attributeGroups id="ag4" type="color" value="#{row.cat}"/>
+                  </dvtm:area>
+                </dvtm:areaLocation>
+              </dvtm:areaDataLayer>
+              <dvtm:areaDataLayer rendered="#{pageFlowScope.layer == 'regions' or pageFlowScope.layer == 'region'}"
+                                  var="row" value="#{bindings.thematicMapWorldRegionsData.collectionModel}"
+                                  id="areaDataLayer5" animationOnDataChange="#{pageFlowScope.dataAnimationOnDataChange}"
+                                  animationDuration="#{pageFlowScope.dataAnimationDuration}"
+                                  dataSelection="#{pageFlowScope.dataSelection}">
+                <dvtm:areaLocation id="areaLoc5" name="#{row.name}">
+                  <dvtm:area id="area5" shortDesc="#{row.name}">
+                    <dvtm:attributeGroups id="ag5" type="color" value="#{row.cat}"/>
+                  </dvtm:area>
+                </dvtm:areaLocation>
+              </dvtm:areaDataLayer>
+              <dvtm:pointDataLayer id="dl1" value="#{bindings.thematicMapWorldCitiesData.collectionModel}" var="row"
+                                   animationOnDataChange="#{pageFlowScope.pointDataAnimationOnDataChange}"
+                                   animationDuration="#{pageFlowScope.pointDataAnimationDuration}"
+                                   dataSelection="#{pageFlowScope.pointDataSelection}"
+                                   rendered="#{pageFlowScope.markerShape != 'none' and pageFlowScope.basemap != 'usa'}">
+                <dvtm:pointLocation id="pl1" type="pointName" pointName="#{row.name}">
+                  <dvtm:marker id="marker1" value="Population: #{row.value}k" shortDesc="#{row.shortDesc}"
+                               gradientEffect="#{pageFlowScope.markerGradientEffect}"
+                               labelPosition="#{pageFlowScope.markerLabelPosition}" scaleX="#{row.value/70}"
+                               scaleY="#{row.value/70}" opacity="#{pageFlowScope.markerOpacity}"
+                               labelStyle="#{pageFlowScope.markerLabelStyle}"
+                               labelDisplay="#{pageFlowScope.markerLabelDisplay}" shape="#{pageFlowScope.markerShape}">
+                    <dvtm:attributeGroups id="agFilLColor1" type="color"
+                                          value="#{row.value le 33 ? 'low' : (row.value le 66 ? 'med' : 'high')}"
+                                          label="#{row.value le 33 ? 'Low' : (row.value le 66 ? 'Medium' : 'High')}">
+                      <dvtm:attributeMatchRule id="amr1" group="low">
+                        <amx:attribute name="color" value="red"/>
+                      </dvtm:attributeMatchRule>
+                      <dvtm:attributeMatchRule id="amr2" group="med">
+                        <amx:attribute name="color" value="yellow"/>
+                      </dvtm:attributeMatchRule>
+                      <dvtm:attributeMatchRule id="amr3" group="high">
+                        <amx:attribute name="color" value="green"/>
+                      </dvtm:attributeMatchRule>
+                    </dvtm:attributeGroups>
+                  </dvtm:marker>
+                </dvtm:pointLocation>
+              </dvtm:pointDataLayer>
+              <dvtm:pointDataLayer id="dl2" value="#{bindings.thematicMapUSACitiesData.collectionModel}" var="row"
+                                   animationOnDataChange="#{pageFlowScope.pointDataAnimationOnDataChange}"
+                                   animationDuration="#{pageFlowScope.pointDataAnimationDuration}"
+                                   dataSelection="#{pageFlowScope.pointDataSelection}"
+                                   rendered="#{pageFlowScope.markerShape != 'none' and pageFlowScope.basemap == 'usa'}">
+                <dvtm:pointLocation id="pl2" type="pointName" pointName="#{row.name}">
+                  <dvtm:marker id="marker2" value="Population: #{row.value}k" shortDesc="#{row.shortDesc}"
+                               gradientEffect="#{pageFlowScope.markerGradientEffect}"
+                               labelPosition="#{pageFlowScope.markerLabelPosition}" scaleX="#{row.value/70}"
+                               scaleY="#{row.value/70}" opacity="#{pageFlowScope.markerOpacity}"
+                               labelStyle="#{pageFlowScope.markerLabelStyle}"
+                               labelDisplay="#{pageFlowScope.markerLabelDisplay}" shape="#{pageFlowScope.markerShape}">
+                    <dvtm:attributeGroups id="agFilLColor2" type="color"
+                                          value="#{row.value le 33 ? 'low' : (row.value le 66 ? 'med' : 'high')}"
+                                          label="#{row.value le 33 ? 'Low' : (row.value le 66 ? 'Medium' : 'High')}">
+                      <dvtm:attributeMatchRule id="amr4" group="low">
+                        <amx:attribute name="color" value="red"/>
+                      </dvtm:attributeMatchRule>
+                      <dvtm:attributeMatchRule id="amr5" group="med">
+                        <amx:attribute name="color" value="yellow"/>
+                      </dvtm:attributeMatchRule>
+                      <dvtm:attributeMatchRule id="amr6" group="high">
+                        <amx:attribute name="color" value="green"/>
+                      </dvtm:attributeMatchRule>
+                    </dvtm:attributeGroups>
+                  </dvtm:marker>
+                </dvtm:pointLocation>
+              </dvtm:pointDataLayer>
+            </dvtm:areaLayer>
+            <dvtm:legend position="bottom" id="lStates" rendered="true">
+              <dvtm:legendSection source="ag1" id="lsStates" title="Areas"/>
+              <dvtm:legendSection source="ag3" id="lsCountries" title="Areas"/>
+              <dvtm:legendSection source="ag4" id="lsContinents" title="Areas"/>
+              <dvtm:legendSection source="ag5" id="lsRegions" title="Areas"/>
+              <dvtm:legendSection source="agFilLColor1" id="lsPopulationWorld" title="City Population"/>
+              <dvtm:legendSection source="agFilLColor2" id="lsPopulationUSA" title="City Population"/>
+            </dvtm:legend>
+          </dvtm:thematicMap>
+        </amx:facet>
+      </amx:panelStretchLayout>
+      <amx:panelGroupLayout id="pglOptionsPanel" scrollPolicy="scroll">
+        <amx:panelFormLayout id="pflOptionsForm" maxColumns="2" rows="3" styleClass="dvtm-gallery-options"
+                             fieldWidth="60%" labelWidth="40%">
+          <amx:selectOneChoice id="socBaseMap" label="Basemap" value="#{pageFlowScope.basemap}"
+                               valueChangeListener="#{PropertyBean.thematicMapBaseMapChanged}">
+            <amx:selectItem id="socBaseMapUSA" label="USA" value="usa"/>
+            <amx:selectItem id="socBaseMapWorld" label="World" value="world"/>
+            <amx:selectItem id="socBaseMapAfrica" label="Africa" value="africa"/>
+            <amx:selectItem id="socBaseMapAustralia" label="Australia" value="australia"/>
+            <amx:selectItem id="socBaseMapAsia" label="Asia" value="asia"/>
+            <amx:selectItem id="socBaseMapEurope" label="Europe" value="europe"/>
+            <amx:selectItem id="socBaseMapNorthAmerica" label="North America" value="northAmerica"/>
+            <amx:selectItem id="socBaseMapSouthAmerica" label="South America" value="southAmerica"/>
+            <amx:selectItem id="socBaseMapEMEA" label="EMEA" value="emea"/>
+            <amx:selectItem id="socBaseMapLatinAmerica" label="Latin america" value="latinAmerica"/>
+            <amx:selectItem id="socBaseMapUSAAndCanada" label="USA And Canada" value="usaAndCanada"/>
+          </amx:selectOneChoice>
+          <amx:selectOneChoice id="pLayer1" label="Layer" value="#{pageFlowScope.layer}"
+                               rendered="#{pageFlowScope.basemap == 'africa' or pageFlowScope.basemap == 'asia' or pageFlowScope.basemap == 'australia' or pageFlowScope.basemap == 'europe' or pageFlowScope.basemap == 'northAmerica' or pageFlowScope.basemap == 'southAmerica'}">
+            <amx:selectItem label="continent" value="continent"/>
+            <amx:selectItem label="countries" value="countries"/>
+          </amx:selectOneChoice>
+          <amx:selectOneChoice id="pLayer2" label="layer" value="#{pageFlowScope.layer}"
+                               rendered="#{pageFlowScope.basemap == 'apac' or pageFlowScope.basemap == 'emea' or pageFlowScope.basemap == 'latinAmerica' or pageFlowScope.basemap == 'usaAndCanada'}">
+            <amx:selectItem label="countries" value="countries"/>
+            <amx:selectItem label="region" value="region"/>
+          </amx:selectOneChoice>
+          <amx:selectOneChoice id="pLayer3" label="layer" value="#{pageFlowScope.layer}"
+                               rendered="#{pageFlowScope.basemap == 'usa'}">
+            <amx:selectItem label="country" value="country"/>
+            <amx:selectItem label="states" value="states"/>
+          </amx:selectOneChoice>
+          <amx:selectOneChoice id="pLayer4" label="layer" value="#{pageFlowScope.layer}"
+                               rendered="#{pageFlowScope.basemap == 'world'}">
+            <amx:selectItem label="continents" value="continents"/>
+            <amx:selectItem label="countries" value="countries"/>
+          </amx:selectOneChoice>
+          <amx:selectOneChoice id="pLayer5" label="layer" value="#{pageFlowScope.layer}"
+                               rendered="#{pageFlowScope.basemap == 'worldRegions'}">
+            <amx:selectItem label="countries" value="countries"/>
+            <amx:selectItem label="regions" value="regions"/>
+          </amx:selectOneChoice>
+        </amx:panelFormLayout>
+      </amx:panelGroupLayout>
+    </amx:flexLayout>
+  </amx:panelPage>
+</amx:view>

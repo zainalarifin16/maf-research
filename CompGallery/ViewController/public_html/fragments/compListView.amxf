@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1">
+    <attribute-list id="a1">
+      <name id="n1">components</name>
+      <attribute id="a2">
+        <attribute-name id="a4">name</attribute-name>
+        <attribute-type id="a3">String</attribute-type>
+        <required id="r1">true</required>
+      </attribute>
+      <attribute id="a1CustomName">
+        <attribute-name id="a2CustomName">customName</attribute-name>
+        <attribute-type id="a3CustomName">String</attribute-type>
+      </attribute>
+      <attribute id="a5">
+        <attribute-name id="a6">displayName</attribute-name>
+        <attribute-type id="a7">String</attribute-type>
+        <required id="r2">true</required>
+      </attribute>
+      <attribute id="a8">
+        <attribute-name id="a9">imagePrefix</attribute-name>
+        <attribute-type id="a10">String</attribute-type>
+      </attribute>
+      <attribute id="a11">
+        <attribute-name id="a12">hasDemoPage</attribute-name>
+        <attribute-type id="a13">Boolean</attribute-type>
+        <default-value id="d1">true</default-value>
+      </attribute>
+      <attribute id="a17">
+        <attribute-name id="a18">action</attribute-name>
+        <attribute-type id="a19">String</attribute-type>
+        <default-value id="d3">notSet</default-value>
+      </attribute>
+      <attribute id="a20">
+        <attribute-name id="a21">compPropKey</attribute-name>
+        <attribute-type id="a22">String</attribute-type>
+      </attribute>
+    </attribute-list>
+  </fragment>
+  <amx:listView id="listView1" inlineStyle="height: 100%;">
+    <amx:attributeListIterator name="components" id="ali1">
+      <amx:listItem id="listItem" data-component-name="#{name}" showLinkIcon="#{hasDemoPage}"
+                    styleClass="comp-action-#{empty(compPropKey) ? name : compPropKey}"
+                    data-component-properties-key="#{empty(compPropKey) ? name : compPropKey}">
+        <?audit suppress oracle.maf.warning-missing-shortDesc?>
+        <?audit suppress oracle.ide.xml.validation-error?>
+        <amx:clientListener id="cl1" method="propertiesApi.setupProperties" type="action" />
+        <amx:tableLayout id="tl" width="100%">
+          <amx:rowLayout id="rl1">
+            <amx:cellFormat id="cf1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="i" inlineStyle="width:32px;height:32px"
+                         shortDesc=""
+                         source="images/#{not (empty imagePrefix) ? imagePrefix : name}-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="cf2" width="100%" height="28px">
+              <amx:outputText id="ot1" value="#{displayName}"
+                              inlineStyle="#{hasDemoPage ? '' : 'opacity:0.5'}"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="rl2">
+            <amx:cellFormat id="cf3" width="100%" height="12px">
+              <amx:outputText id="attributeOT2" value="#{not (empty customName) ? customName : 'amx:' + name}"
+                              styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:actionListener binding="#{PropertyBean.ResetProperties}"
+                            type="#{GlobalProperties.hostedMode ? 'disabled' : 'action'}" id="al1"/>
+      </amx:listItem>
+    </amx:attributeListIterator>
+  </amx:listView>
+</amx:fragmentDef>

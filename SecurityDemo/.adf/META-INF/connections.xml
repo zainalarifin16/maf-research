@@ -1,0 +1,55 @@
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+  <Reference name="empService" className="oracle.adf.model.connection.url.HttpURLConnection"
+             adfCredentialStoreKey="login" xmlns="">
+    <Factory className="oracle.adf.model.connection.url.URLConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="empService">
+        <Contents>
+          <urlconnection name="empService" url="http://127.0.0.1:7101/empservice"/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+  <Reference name="acs" className="oracle.adf.model.connection.rest.RestConnection" adfCredentialStoreKey="login"
+             xmlns="">
+    <Factory className="oracle.adf.model.connection.rest.RestConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="acs">
+        <Contents>
+          <restconnection name="acs" url="http://127.0.0.1:7101/acs/resources/roles"/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+  <Reference name="login" className="oracle.adf.model.connection.adfmf.LoginConnection" adfCredentialStoreKey="login"
+             partial="false" manageInOracleEnterpriseManager="true" deployable="true" xmlns="">
+    <Factory className="oracle.adf.model.connection.adfmf.LoginConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="adfmfLogin">
+        <Contents>
+          <login url="http://127.0.0.1:7101/acs/login.jspx"/>
+          <logout url="http://127.0.0.1:7101/acs/login.jspx"/>
+          <stsModule/>
+          <stsEndpoint/>
+          <stsAppliesTo/>
+          <stsLifetime value="3600"/>
+          <authenticationMode value="local"/>
+          <idleTimeout value="300"/>
+          <sessionTimeout value="28800"/>
+          <maxFailuresBeforeCredentialCleared value="3"/>
+          <rememberCredentials>
+            <enableRememberUserName value="true"/>
+            <rememberUserNameDefault value="true"/>
+            <enableRememberPassword value="false"/>
+            <enableStayLoggedIn value="false"/>
+          </rememberCredentials>
+          <accessControl url="http://127.0.0.1:7101/acs/resources/roles"/>
+          <userObjectFilter>
+            <role name="IC_ROLE"/>
+            <role name="MGR_ROLE"/>
+          </userObjectFilter>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+</References>

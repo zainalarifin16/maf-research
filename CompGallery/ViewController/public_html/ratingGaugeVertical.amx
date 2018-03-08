@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:navigationDragBehavior id="ndb2" direction="forward" action="ratingGaugeProperties">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Rating Gauge: Vertical"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back">
+        <amx:setPropertyListener to="#{DvtProperties.ratingGaugeProperties.value}" from="#{pageFlowScope.value}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.ratingGaugeProperties.minValue}" from="#{pageFlowScope.minValue}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.ratingGaugeProperties.maxValue}" from="#{pageFlowScope.maxValue}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.ratingGaugeProperties.readOnly}" from="#{pageFlowScope.readOnly}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.ratingGaugeProperties.shortDesc}" from="#{pageFlowScope.shortDesc}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.ratingGaugeProperties.orientation}"
+                                 from="#{pageFlowScope.orientation}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.ratingGaugeProperties.shape}" from="#{pageFlowScope.shape}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.ratingGaugeProperties.unselectedShape}"
+                                 from="#{pageFlowScope.unselectedShape}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.ratingGaugeProperties.inputIncrement}"
+                                 from="#{pageFlowScope.inputIncrement}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.ratingGaugeProperties.inlineStyleVertical}"
+                                 from="#{pageFlowScope.inlineStyle}" type="action"/>
+      </amx:commandButton>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="ratingGaugeProperties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#dvtm:ratingGauge" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/dvtGauges/ratingGauge"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:flexLayout id="fl1">
+      <amx:flexLayout id="fl2" orientation="horizontal">
+        <dvtm:ratingGauge id="ratingGauge1" value="#{pageFlowScope.value}" minValue="#{pageFlowScope.minValue}"
+                          maxValue="#{pageFlowScope.maxValue}" inputIncrement="#{pageFlowScope.inputIncrement}"
+                          shortDesc="#{pageFlowScope.shortDesc}" inlineStyle="#{pageFlowScope.inlineStyle}"
+                          readOnly="#{pageFlowScope.readOnly}" shape="star" orientation="vertical"
+                          changedColor="#{pageFlowScope.changedColor}"
+                          changedShape="#{pageFlowScope.changedShape == 'auto' ? 'star' : pageFlowScope.changedShape}"
+                          hoverColor="#{pageFlowScope.hoverColor}" selectedColor="#{pageFlowScope.selectedColor}"
+                          unselectedColor="#{pageFlowScope.unselectedColor}"
+                          unselectedShape="#{pageFlowScope.unselectedShape}" changed="false">
+          <dvtm:threshold id="tr1" maxValue="2" shortDesc="Performance: Poor"/>
+          <dvtm:threshold id="tr2" maxValue="3" shortDesc="Performance: Average"/>
+          <dvtm:threshold id="tr3" maxValue="4" shortDesc="Performance: Good"/>
+          <dvtm:threshold id="tr4" maxValue="5" shortDesc="Performance: Excellent"/>
+        </dvtm:ratingGauge>
+        <dvtm:ratingGauge id="ratingGauge2" value="#{pageFlowScope.value}" minValue="#{pageFlowScope.minValue}"
+                          maxValue="#{pageFlowScope.maxValue}" inputIncrement="#{pageFlowScope.inputIncrement}"
+                          shortDesc="#{pageFlowScope.shortDesc}" inlineStyle="#{pageFlowScope.inlineStyle}"
+                          readOnly="#{pageFlowScope.readOnly}" shape="circle" orientation="vertical"
+                          changedColor="#{pageFlowScope.changedColor}"
+                          changedShape="#{pageFlowScope.changedShape == 'auto' ? 'circle' : pageFlowScope.changedShape}"
+                          hoverColor="#{pageFlowScope.hoverColor}" selectedColor="#{pageFlowScope.selectedColor}"
+                          unselectedColor="#{pageFlowScope.unselectedColor}"
+                          unselectedShape="#{pageFlowScope.unselectedShape}" changed="false"></dvtm:ratingGauge>
+        <dvtm:ratingGauge id="ratingGauge4" value="#{pageFlowScope.value}" minValue="#{pageFlowScope.minValue}"
+                          maxValue="#{pageFlowScope.maxValue}" inputIncrement="#{pageFlowScope.inputIncrement}"
+                          shortDesc="#{pageFlowScope.shortDesc}" inlineStyle="#{pageFlowScope.inlineStyle}"
+                          readOnly="#{pageFlowScope.readOnly}" shape="diamond" orientation="vertical"
+                          changedColor="#{pageFlowScope.changedColor}"
+                          changedShape="#{pageFlowScope.changedShape == 'auto' ? 'diamond' : pageFlowScope.changedShape}"
+                          hoverColor="#{pageFlowScope.hoverColor}" selectedColor="#{pageFlowScope.selectedColor}"
+                          unselectedColor="#{pageFlowScope.unselectedColor}"
+                          unselectedShape="#{pageFlowScope.unselectedShape}" changed="false"></dvtm:ratingGauge>
+        <dvtm:ratingGauge id="ratingGauge5" value="#{pageFlowScope.value}" minValue="#{pageFlowScope.minValue}"
+                          maxValue="#{pageFlowScope.maxValue}" inputIncrement="#{pageFlowScope.inputIncrement}"
+                          shortDesc="#{pageFlowScope.shortDesc}" inlineStyle="#{pageFlowScope.inlineStyle}"
+                          readOnly="#{pageFlowScope.readOnly}" shape="triangle" orientation="vertical"
+                          changedColor="#{pageFlowScope.changedColor}"
+                          changedShape="#{pageFlowScope.changedShape == 'auto' ? 'triangle' : pageFlowScope.changedShape}"
+                          hoverColor="#{pageFlowScope.hoverColor}" selectedColor="#{pageFlowScope.selectedColor}"
+                          unselectedColor="#{pageFlowScope.unselectedColor}"
+                          unselectedShape="#{pageFlowScope.unselectedShape}" changed="false"></dvtm:ratingGauge>
+        <dvtm:ratingGauge id="ratingGauge6" value="#{pageFlowScope.value}" minValue="#{pageFlowScope.minValue}"
+                          maxValue="#{pageFlowScope.maxValue}" inputIncrement="#{pageFlowScope.inputIncrement}"
+                          shortDesc="#{pageFlowScope.shortDesc}" inlineStyle="#{pageFlowScope.inlineStyle}"
+                          readOnly="#{pageFlowScope.readOnly}" shape="rectangle" orientation="vertical"
+                          changedColor="#{pageFlowScope.changedColor}"
+                          changedShape="#{pageFlowScope.changedShape == 'auto' ? 'rectangle' : pageFlowScope.changedShape}"
+                          hoverColor="#{pageFlowScope.hoverColor}" selectedColor="#{pageFlowScope.selectedColor}"
+                          unselectedColor="#{pageFlowScope.unselectedColor}"
+                          unselectedShape="#{pageFlowScope.unselectedShape}" changed="false"></dvtm:ratingGauge>
+        <dvtm:ratingGauge id="ratingGauge7" value="#{pageFlowScope.value}" minValue="#{pageFlowScope.minValue}"
+                          maxValue="#{pageFlowScope.maxValue}" inputIncrement="#{pageFlowScope.inputIncrement}"
+                          shortDesc="#{pageFlowScope.shortDesc}" inlineStyle="#{pageFlowScope.inlineStyle}"
+                          readOnly="#{pageFlowScope.readOnly}" shape="human" orientation="vertical"
+                          changedColor="#{pageFlowScope.changedColor}"
+                          changedShape="#{pageFlowScope.changedShape == 'auto' ? 'human' : pageFlowScope.changedShape}"
+                          hoverColor="#{pageFlowScope.hoverColor}" selectedColor="#{pageFlowScope.selectedColor}"
+                          unselectedColor="#{pageFlowScope.unselectedColor}"
+                          unselectedShape="#{pageFlowScope.unselectedShape}" changed="false"></dvtm:ratingGauge>
+      </amx:flexLayout>
+      <amx:panelGroupLayout id="pglOptionsPanel" scrollPolicy="scroll">
+        <amx:panelFormLayout id="valueProps" labelWidth="40%" fieldWidth="60%">
+          <amx:inputNumberSlider id="insValue" value="#{pageFlowScope.value}" minimum="#{pageFlowScope.minValue}"
+                                 maximum="#{pageFlowScope.maxValue}"
+                                 stepSize="#{pageFlowScope.inputIncrement == 'half' ? 0.5 : 1}" label="Value"/>
+          <amx:selectOneChoice id="pInputIncrement" label="inputIncrement" value="#{pageFlowScope.inputIncrement}">
+            <amx:selectItem label="half" value="half"/>
+            <amx:selectItem label="full" value="full"/>
+          </amx:selectOneChoice>
+          <amx:selectOneChoice id="pChangedShape" label="changedShape" value="#{pageFlowScope.changedShape}">
+            <amx:selectItem label="auto" value="auto"/>
+            <amx:selectItem label="circle" value="circle"/>
+            <amx:selectItem label="diamond" value="diamond"/>
+            <amx:selectItem label="human" value="human"/>
+            <amx:selectItem label="rectangle" value="rectangle"/>
+            <amx:selectItem label="star" value="star"/>
+            <amx:selectItem label="triangle" value="triangle"/>
+          </amx:selectOneChoice>
+          <amx:selectOneChoice id="pUnselectedShape" label="unselectedShape" value="#{pageFlowScope.unselectedShape}">
+            <amx:selectItem label="auto" value="auto"/>
+            <amx:selectItem label="circle" value="circle"/>
+            <amx:selectItem label="diamond" value="diamond"/>
+            <amx:selectItem label="dot" value="dot"/>
+            <amx:selectItem label="human" value="human"/>
+            <amx:selectItem label="rectangle" value="rectangle"/>
+            <amx:selectItem label="star" value="star"/>
+            <amx:selectItem label="triangle" value="triangle"/>
+            <amx:selectItem label="none" value="none"/>
+          </amx:selectOneChoice>
+        </amx:panelFormLayout>
+        <amx:panelGroupLayout id="pglCommandButtons" layout="horizontal">
+          <amx:commandButton text="Colors..." id="cbColors" disabled="false">
+            <amx:showPopupBehavior popupId="popupColors" type="action" align="topCenter" alignId="ratingGauge1"
+                                   decoration="anchor" id="spb1"/>
+          </amx:commandButton>
+          <amx:commandButton text="More Options..." id="cbMore" disabled="false" action="ratingGaugeProperties"/>
+        </amx:panelGroupLayout>
+      </amx:panelGroupLayout>
+    </amx:flexLayout>
+  </amx:panelPage>
+  <amx:popup id="popupColors" styleClass="dvtm-gallery-options-dialog">
+    <amx:panelFormLayout id="pflColors">
+      <amx:inputText id="itChangedColor" label="Changed Color" value="#{pageFlowScope.changedColor}"/>
+      <amx:inputText id="itHoverColor" label="Hover Color" value="#{pageFlowScope.hoverColor}"/>
+      <amx:inputText id="itSelectedColor" label="Selected Color" value="#{pageFlowScope.selectedColor}"/>
+      <amx:inputText id="itUnselectedColor" label="Unselected Color" value="#{pageFlowScope.unselectedColor}"/>
+    </amx:panelFormLayout>
+    <amx:commandButton id="cbClose" styleClass="adfmf-commandButton-actionSheet" text="Close">
+      <amx:closePopupBehavior popupId="popupColors" type="action"/>
+    </amx:commandButton>
+  </amx:popup>
+</amx:view>

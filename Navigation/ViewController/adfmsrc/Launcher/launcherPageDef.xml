@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.8.49" id="launcherPageDef"
+                Package="Launcher">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="EmployeeList" id="EmployeeListIterator"/>
+    <accessorIterator MasterBinding="EmployeeListIterator" Binds="employees" RangeSize="-1" DataControl="EmployeeList"
+                      BeanClass="HR.Employee" id="employeesIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="LauncherBean" id="LauncherBeanIterator"/>
+  </executables>
+  <bindings>
+    <list IterBinding="LauncherBeanIterator" id="selectedEmp" DTSupportsMRU="true" SelectItemValueMode="ListObject"
+          StaticList="false" ListIter="employeesIterator">
+      <AttrNames>
+        <Item Value="selectedEmp"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="key"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="first"/>
+      </ListDisplayAttrNames>
+    </list>
+    <methodAction id="toggleSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="toggleSpringboard"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider"/>
+  </bindings>
+</pageDefinition>

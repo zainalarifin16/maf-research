@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.0.0" id="filmStripPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="ContactList" id="ContactListIterator"/>
+    <accessorIterator MasterBinding="ContactListIterator" Binds="contacts" RangeSize="25" DataControl="ContactList"
+                      BeanClass="model.Contact" id="contactsIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="contactsIterator" id="contacts">
+      <nodeDefinition DefName="model.Contact" Name="contacts0">
+        <AttrNames>
+          <Item Value="key"/>
+          <Item Value="first"/>
+          <Item Value="id"/>
+          <Item Value="last"/>
+          <Item Value="phone"/>
+          <Item Value="address"/>
+          <Item Value="city"/>
+          <Item Value="mobile"/>
+          <Item Value="state"/>
+          <Item Value="zip"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

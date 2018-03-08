@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <managed-bean id="__commandButtonStylesDataList">
+    <managed-bean-name>CommandButtonStylesDataList</managed-bean-name>
+    <managed-bean-class>model.CommandButtonStylesDataList</managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__14">
+    <managed-bean-name>SunburstDataList</managed-bean-name>
+    <managed-bean-class>model.SunburstDataList</managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__36">
+    <managed-bean-name>DvtProperties</managed-bean-name>
+    <managed-bean-class>mobile.DvtProperties</managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__48">
+    <managed-bean-name>GlobalProperties</managed-bean-name>
+    <managed-bean-class>mobile.GlobalProperties</managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__49">
+    <managed-bean-name>PropertyBean</managed-bean-name>
+    <managed-bean-class>mobile.PropertyBean</managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__51">
+    <managed-bean-name>chartProperties</managed-bean-name>
+    <managed-bean-class>mobile.ChartProperties</managed-bean-class>
+    <managed-bean-scope>pageFlow</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__52">
+    <managed-bean-name>gaugeProperties</managed-bean-name>
+    <managed-bean-class>mobile.GaugeProperties</managed-bean-class>
+    <managed-bean-scope>pageFlow</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__54">
+    <managed-bean-name>dialGaugeProperties</managed-bean-name>
+    <managed-bean-class>mobile.DialGaugeProperties</managed-bean-class>
+    <managed-bean-scope>pageFlow</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__64">
+    <managed-bean-name>geographicMapProperties</managed-bean-name>
+    <managed-bean-class>mobile.GeographicMapProperties</managed-bean-class>
+    <managed-bean-scope>pageFlow</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__67">
+    <managed-bean-name>thematicMapProperties</managed-bean-name>
+    <managed-bean-class>mobile.ThematicMapProperties</managed-bean-class>
+    <managed-bean-scope>pageFlow</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__74">
+    <managed-bean-name>BarDataList</managed-bean-name>
+    <managed-bean-class>model.BarDataList</managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__75">
+    <managed-bean-name>PieDataList</managed-bean-name>
+    <managed-bean-class>model.PieDataList</managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__76">
+    <managed-bean-name>SparkDataList</managed-bean-name>
+    <managed-bean-class>model.SparkDataList</managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__1">
+    <managed-bean-name>ratingGaugeProperties</managed-bean-name>
+    <managed-bean-class>mobile.RatingGaugeProperties</managed-bean-class>
+    <managed-bean-scope>pageFlow</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__2">
+    <managed-bean-name>treeviewProperties</managed-bean-name>
+    <managed-bean-class>mobile.TreeviewProperties</managed-bean-class>
+    <managed-bean-scope>pageFlow</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__3">
+    <managed-bean-name>FunnelDataList</managed-bean-name>
+    <managed-bean-class>model.FunnelDataList</managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__12">
+    <managed-bean-name>TreemapDataList</managed-bean-name>
+    <managed-bean-class>model.TreemapDataList</managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
+  </managed-bean>
+   <managed-bean id="__20">
+    <managed-bean-name>NBoxProperties</managed-bean-name>
+    <managed-bean-class>mobile.NBoxProperties</managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__4">
+    <managed-bean-name>TimelineDataList</managed-bean-name>
+    <managed-bean-class>model.TimelineDataList</managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__5">
+    <managed-bean-name>retirementCalculator</managed-bean-name>
+    <managed-bean-class>model.BarChartRetirementDataList</managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__7">
+    <managed-bean-name>MasonryLayoutBean</managed-bean-name>
+    <managed-bean-class>model.MasonryLayoutDataList</managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__6">
+    <managed-bean-name>DrillingDataList</managed-bean-name>
+    <managed-bean-class>model.DrillingDataList</managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__77">
+    <managed-bean-name>StockChartDataList</managed-bean-name>
+    <managed-bean-class>model.StockChartDataList</managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__8">
+    <managed-bean-name>LegendProperties</managed-bean-name>
+    <managed-bean-class>mobile.LegendProperties</managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__9">
+    <managed-bean-name>PictoChartProperties</managed-bean-name>
+    <managed-bean-class>mobile.PictoChartProperties</managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__10">
+    <managed-bean-name>ElectionDataList</managed-bean-name>
+    <managed-bean-class>model.ElectionDataList</managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
+  </managed-bean>
+</adfc-mobile-config>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1">
+    <description id="d1">Generic  fragment for flex layout</description>
+        <attribute id="a1">
+            <attribute-name id="a3n">contentText1</attribute-name>
+            <attribute-type id="a3t">String</attribute-type>
+        </attribute>
+        <attribute id="a2">
+            <attribute-name id="ad">contentText2</attribute-name>
+            <attribute-type id="a3dt">String</attribute-type>
+        </attribute>
+        <attribute id="a3">
+            <attribute-name id="ad3n">contentText3</attribute-name>
+            <attribute-type id="ad3t">String</attribute-type>
+        </attribute>
+</fragment>
+    <amx:panelStretchLayout id="psl1">
+        <amx:facet name="center">
+            <amx:flexLayout id="Tab1" itemFlexibility="equal" itemAlignment="stretch" styleClass="amx-fitParent">
+                <amx:flexLayout id="flA1" orientation="horizontal" itemFlexibility="equal" itemAlignment="center"
+                                inlineStyle="background-color: #8AC3FF;">
+                    <amx:outputText id="otA1" value="#{contentText1}"
+                                    inlineStyle="width: 100%; text-align: center; color: white; font-size: 24px;"/>
+                </amx:flexLayout>
+                <amx:flexLayout id="flB1" orientation="horizontal" itemFlexibility="equal" itemAlignment="center"
+                                inlineStyle="background-color: white;">
+                    <amx:outputText id="otB1" value="#{contentText2}"
+                                    inlineStyle="width: 100%; text-align: center; color: black; font-size: 24px;"/>
+                </amx:flexLayout>
+                <amx:flexLayout id="fl1C" orientation="horizontal" itemFlexibility="equal" itemAlignment="center"
+                                inlineStyle="background-color: #8AC3FF;">
+                    <amx:outputText id="otC1" value="#{contentText3}"
+                                    inlineStyle="width: 100%; text-align: center; color: white; font-size: 24px;"/>
+                </amx:flexLayout>
+            </amx:flexLayout>
+        </amx:facet>
+    </amx:panelStretchLayout>
+</amx:fragmentDef>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.20.8" id="ListPageDef"
+                Package="crud.CRUD.phone">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="Service" id="ServiceIterator"/>
+    <accessorIterator MasterBinding="ServiceIterator" Binds="person" RangeSize="25" DataControl="Service"
+                      BeanClass="crudmodel.Person" id="personIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="personIterator" id="person">
+      <nodeDefinition DefName="crudmodel.Person" Name="person0">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="first"/>
+          <Item Value="last"/>
+          <Item Value="email"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="personIterator" id="RemoveRow" InstanceName="crudmodel.Service.person"
+            DataControl="Service" RequiresUpdateModel="false" Action="removeRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{viewScope.selectedId}" NDType="java.lang.String"/>
+    </action>
+    <methodAction id="toggleSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="toggleSpringboard"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider"/>
+  </bindings>
+</pageDefinition>

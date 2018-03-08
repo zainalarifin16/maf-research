@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TokensView"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  SelectList="Tokens.DEVICE_TOKEN, 
+       Tokens.APPLICATION_ID, 
+       Tokens.FEATURE_ID, 
+       Tokens.TOKEN_COUNT"
+  FromList="TOKENS Tokens"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="Tokens"
+    Entity="oracle.adfmf.demo.push.model.model.Tokens"/>
+  <ViewAttribute
+    Name="DeviceToken"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DeviceToken"
+    EntityUsage="Tokens"
+    AliasName="DEVICE_TOKEN"/>
+  <ViewAttribute
+    Name="ApplicationId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ApplicationId"
+    EntityUsage="Tokens"
+    AliasName="APPLICATION_ID"/>
+  <ViewAttribute
+    Name="FeatureId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="FeatureId"
+    EntityUsage="Tokens"
+    AliasName="FEATURE_ID"/>
+  <ViewAttribute
+    Name="TokenCount"
+    PrecisionRule="true"
+    EntityAttrName="TokenCount"
+    EntityUsage="Tokens"
+    AliasName="TOKEN_COUNT"/>
+</ViewObject>

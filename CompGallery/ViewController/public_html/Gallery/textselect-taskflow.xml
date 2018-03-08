@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="select-taskflow">
+    <default-activity>TextSelect-Home</default-activity>
+    <managed-bean id="__24">
+      <managed-bean-name>componentProperties</managed-bean-name>
+      <managed-bean-class>mobile.Properties</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="TextSelect-Home">
+      <page>/TextSelect-Home.amx</page>
+    </view>
+    <view id="inputDate">
+      <page>/inputDate.amx</page>
+    </view>
+    <view id="inputNumberSlider">
+      <page>/inputNumberSlider.amx</page>
+    </view>
+    <view id="inputText">
+      <page>/inputText.amx</page>
+    </view>
+    <view id="inputTextStyles">
+      <page>/inputTextStyles.amx</page>
+    </view>
+    <view id="outputText">
+      <page>/outputText.amx</page>
+    </view>
+    <view id="outputTextStyles">
+      <page>/outputTextStyles.amx</page>
+    </view>
+    <view id="selectBooleanCheckbox">
+      <page>/selectBooleanCheckbox.amx</page>
+    </view>
+    <view id="selectBooleanCheckboxStyles">
+      <page>/selectBooleanCheckboxStyles.amx</page>
+    </view>
+    <view id="selectBooleanSwitch">
+      <page>/selectBooleanSwitch.amx</page>
+    </view>
+    <view id="selectBooleanSwitchStyles">
+      <page>/selectBooleanSwitchStyles.amx</page>
+    </view>
+    <view id="selectManyCheckbox">
+      <page>/selectManyCheckbox.amx</page>
+    </view>
+    <view id="selectManyChoice">
+      <page>/selectManyChoice.amx</page>
+    </view>
+    <view id="selectOneButton">
+      <page>/selectOneButton.amx</page>
+    </view>
+    <view id="selectOneButtonStyles">
+      <page>/selectOneButtonStyles.amx</page>
+    </view>
+    <view id="selectOneChoice">
+      <page>/selectOneChoice.amx</page>
+    </view>
+    <view id="selectOneRadio">
+      <page>/selectOneRadio.amx</page>
+    </view>
+    <task-flow-return id="return">
+      <outcome>
+        <name>return</name>
+      </outcome>
+    </task-flow-return>
+    <view id="Properties">
+      <page>/Properties.amx</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>TextSelect-Home</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>inputDate</from-outcome>
+        <to-activity-id>inputDate</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>inputNumberSlider</from-outcome>
+        <to-activity-id>inputNumberSlider</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>inputText</from-outcome>
+        <to-activity-id>inputText</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>outputText</from-outcome>
+        <to-activity-id>outputText</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__6">
+        <from-outcome>selectOneButton</from-outcome>
+        <to-activity-id>selectOneButton</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>selectManyChoice</from-outcome>
+        <to-activity-id>selectManyChoice</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>selectBooleanCheckbox</from-outcome>
+        <to-activity-id>selectBooleanCheckbox</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>selectOneRadio</from-outcome>
+        <to-activity-id>selectOneRadio</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome>selectBooleanSwitch</from-outcome>
+        <to-activity-id>selectBooleanSwitch</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__11">
+        <from-outcome>selectManyCheckbox</from-outcome>
+        <to-activity-id>selectManyCheckbox</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome>selectOneChoice</from-outcome>
+        <to-activity-id>selectOneChoice</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__13">
+        <from-outcome>return</from-outcome>
+        <to-activity-id>return</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome>properties</from-outcome>
+        <to-activity-id>Properties</to-activity-id>
+        <transition>flipStart</transition>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__CFRinputText">
+      <from-activity-id>inputText</from-activity-id>
+      <control-flow-case id="__CFCinputText">
+        <from-outcome>styles</from-outcome>
+        <to-activity-id>inputTextStyles</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__CFRoutputText">
+      <from-activity-id>outputText</from-activity-id>
+      <control-flow-case id="__CFCoutputText">
+        <from-outcome>styles</from-outcome>
+        <to-activity-id>outputTextStyles</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__CFRselectBooleanCheckbox">
+      <from-activity-id>selectBooleanCheckbox</from-activity-id>
+      <control-flow-case id="__CFCselectBooleanCheckbox">
+        <from-outcome>styles</from-outcome>
+        <to-activity-id>selectBooleanCheckboxStyles</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__CFRselectBooleanSwitch">
+      <from-activity-id>selectBooleanSwitch</from-activity-id>
+      <control-flow-case id="__CFCselectBooleanSwitch">
+        <from-outcome>styles</from-outcome>
+        <to-activity-id>selectBooleanSwitchStyles</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__CFRselectOneButton">
+      <from-activity-id>selectOneButton</from-activity-id>
+      <control-flow-case id="__CFCselectOneButton">
+        <from-outcome>styles</from-outcome>
+        <to-activity-id>selectOneButtonStyles</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-mobile-config>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.11.12" id="timelineSingleSeriesPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="TimelineDataList" id="TimelineDataListIterator"/>
+    <accessorIterator MasterBinding="TimelineDataListIterator" Binds="series1Data" RangeSize="-1"
+                      DataControl="TimelineDataList" BeanClass="model.TimelineData" id="series1DataIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="series1DataIterator" id="series1Data" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="model.TimelineData" Name="series1Data">
+        <AttrNames>
+          <Item Value="description"/>
+          <Item Value="endDate"/>
+          <Item Value="startDate"/>
+          <Item Value="title"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

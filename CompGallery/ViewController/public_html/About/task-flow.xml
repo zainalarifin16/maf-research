@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="US-ASCII" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="task-flow">
+    <default-activity>About</default-activity>
+    <view id="About">
+      <page>/About/about.amx</page>
+    </view>
+  </task-flow-definition>
+</adfc-mobile-config>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.11.53" id="commandButtonStylesPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="CommandButtonStylesDataList" id="CommandButtonStylesDataListIterator"/>
+    <accessorIterator MasterBinding="CommandButtonStylesDataListIterator" Binds="commandButtonStylesData" RangeSize="25"
+                      DataControl="CommandButtonStylesDataList" BeanClass="model.CommandButtonStylesData"
+                      id="commandButtonStylesDataIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="commandButtonStylesDataIterator" id="commandButtonStylesData">
+      <nodeDefinition DefName="model.CommandButtonStylesData" Name="commandButtonStylesData0">
+        <AttrNames>
+          <Item Value="marker"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

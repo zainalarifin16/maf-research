@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.62.33" id="geographicMap2PageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="GeographicMapAddressDataList" id="GeographicMapAddressDataListIterator"/>
+    <accessorIterator MasterBinding="GeographicMapAddressDataListIterator" Binds="geographicMapAddressData"
+                      RangeSize="-1" DataControl="GeographicMapAddressDataList"
+                      BeanClass="model.GeographicMapAddressData" id="geographicMapAddressDataIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="geographicMapAddressDataIterator" id="geographicMapAddressData">
+      <nodeDefinition DefName="model.GeographicMapAddressData" Name="geographicMapAddressData0">
+        <AttrNames>
+          <Item Value="address"/>
+          <Item Value="shortDesc"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

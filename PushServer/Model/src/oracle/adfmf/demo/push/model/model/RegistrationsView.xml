@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RegistrationsView"
+  Version="12.1.3.2.36"
+  InheritPersonalization="true"
+  SelectList="Registrations.DEVICE_TOKEN, 
+       Registrations.DEVICE_MODEL, 
+       Registrations.USER_ID, 
+       Registrations.SENDER_ID, 
+       Registrations.APPLICATION_ID"
+  FromList="REGISTRATIONS Registrations"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  FetchMode="FETCH_AS_NEEDED">
+  <EntityUsage
+    Name="Registrations"
+    Entity="oracle.adfmf.demo.push.model.model.Registrations"/>
+  <ViewAttribute
+    Name="DeviceToken"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DeviceToken"
+    EntityUsage="Registrations"
+    AliasName="DEVICE_TOKEN"/>
+  <ViewAttribute
+    Name="DeviceModel"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DeviceModel"
+    EntityUsage="Registrations"
+    AliasName="DEVICE_MODEL"/>
+  <ViewAttribute
+    Name="UserId"
+    PrecisionRule="true"
+    EntityAttrName="UserId"
+    EntityUsage="Registrations"
+    AliasName="USER_ID"/>
+  <ViewAttribute
+    Name="SenderId"
+    PrecisionRule="true"
+    EntityAttrName="SenderId"
+    EntityUsage="Registrations"
+    AliasName="SENDER_ID"/>
+  <ViewAttribute
+    Name="ApplicationId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ApplicationId"
+    EntityUsage="Registrations"
+    AliasName="APPLICATION_ID"/>
+  <ViewLinkAccessor
+    Name="TokensView"
+    ViewLink="oracle.adfmf.demo.push.model.model.TokensRegistrationsFk1Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

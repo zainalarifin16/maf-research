@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText id="outputText1" value="Results"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton id="commandButton1" text="Back" action="__back"/>
+        </amx:facet>
+<!--
+        <amx:image id="file" source="#{bindings.GetSource.execute}"/>
+        <amx:outputText id="outputText2" value="#{bindings.GetSource.execute}"/>
+-->
+
+        
+    </amx:panelPage>
+</amx:view>

@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+.login-page .amx-panelPage-header {
+    background-color:transparent;
+    border-bottom:0;
+}
+
+.login-page .amx-panelPage-header .amx-outputText{
+    color:white;
+    font-weight:300;
+    font-size:24px;
+}
+
+
+.login-page-tall {
+    background-image: url("../images/background_768_blur.png"); 
+}
+
+.login-page-wide {
+    background-image: url("../images/background_1024_blur.png"); 
+}
+
+.green .amx-filmStrip-item-content {
+    background-color:rgba(132,184,110,.85);
+    margin-left:5px;
+    margin-right:5px;
+}
+
+.orange .amx-filmStrip-item-content {
+    background-color:rgba(219,98,28,.85);
+    margin-left:5px;
+    margin-right:5px;
+}
+
+.blue .amx-filmStrip-item-content {
+    background-color:rgba(33,165,205,.85);
+    margin-left:5px;
+    margin-right:5px;
+}
+
+.amx-commandLink.login-link {
+    width:100%;
+    height:100%;
+}
+
+.amx-loading.showing {
+  animation-name: fade-in;
+  -webkit-animation-name: fade-in;
+  animation-duration: 0ms;
+  -webkit-animation-duration: 0ms;
+}
+
+.login-page .amx-commandLink:active {
+    background-color:transparent;
+}
+

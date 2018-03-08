@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<tag-library xmlns="http://xmlns.oracle.com/adf/mf/amx/tag-library">
+  <library namespace="http://xmlns.example.com/custom">
+    <tag java-class="oracle.maf.amx.taghandler.ExampleListViewTagHandler" name="exampleList">
+      <!-- Attributes: -->
+      <attribute name="id" supports-el="false"/>
+      <attribute name="inlineStyle"/>
+      <attribute name="rendered"/>
+      <attribute name="styleClass"/>
+      <attribute name="var" supports-el="false"/>
+      <attribute name="fetchSize"/>
+      <collection children="true" el-attribute="var" initial-limit="fetchSize" limit="maxRows" name="value"/>
+
+      <!-- Events: -->
+      <event name="rangeChangeListener" type="rangeChange">
+        <parameter type="oracle.adfmf.amx.event.RangeChangeEvent"/>
+      </event>
+
+      <!-- Facets: -->
+      <facet name="header"/>
+      <facet name="footer"/>
+    </tag>
+
+    <tag name="exampleListItem" java-class="oracle.maf.api.amx.taghandler.UITagHandler">
+      <!-- Attributes: -->
+      <attribute name="id" supports-el="false"/>
+      <attribute name="rendered"/>
+
+      <!-- Methods: -->
+      <action name="action"/>
+
+      <!-- Events: -->
+      <event name="actionListener" type="action">
+        <parameter type="oracle.adfmf.amx.event.ActionEvent"/>
+      </event>
+    </tag>
+
+    <tag name="example" java-class="oracle.maf.api.amx.taghandler.UITagHandler">
+      <!-- Attributes: -->
+      <attribute name="id" supports-el="false"/>
+      <attribute name="inlineStyle"/>
+      <attribute name="rendered"/>
+      <attribute name="styleClass"/>
+      <attribute name="label"/>
+      <attribute name="source"/>
+    </tag>
+
+    <tag name="exampleEvents" java-class="oracle.maf.api.amx.taghandler.UITagHandler">
+      <!-- Attributes: -->
+      <attribute name="id" supports-el="false"/>
+      <attribute name="rendered"/>
+    </tag>
+
+    <tag name="overflow" java-class="oracle.maf.api.amx.taghandler.UITagHandler">
+      <!-- Attributes: -->
+      <attribute name="id" supports-el="false"/>
+      <attribute name="rendered"/>
+      <attribute name="start"/>
+      <attribute name="limit"/>
+    </tag>
+
+    <tag name="resizable" java-class="oracle.maf.api.amx.taghandler.UITagHandler">
+      <!-- Attributes: -->
+      <attribute name="id" supports-el="false"/>
+      <attribute name="rendered"/>
+      <attribute name="start"/>
+      <attribute name="top"/>
+      <attribute name="width"/>
+      <attribute name="height"/>
+    </tag>
+  </library>
+</tag-library>

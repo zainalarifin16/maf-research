@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef
+  xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+  xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment">
+    <facet>
+      <facet-name>facet</facet-name>
+    </facet>
+    <attribute>
+      <attribute-name>text</attribute-name>
+      <attribute-type id="at1">String</attribute-type>
+    </attribute>
+  </fragment>
+  <amx:outputText id="fragOt" rendered="#{not (empty text)}" value="#{text}" />
+  <amx:facetRef id="fragFr" facetName="facet" />
+</amx:fragmentDef>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="NoReturn">
+    <default-activity>ViewNR1</default-activity>
+    <view id="ViewNR1">
+      <page>/CallReturn/ViewNR1.amx</page>
+    </view>
+    <view id="ViewNR2">
+      <page>/CallReturn/ViewNR2.amx</page>
+    </view>
+    <view id="ViewNR3">
+      <page>/CallReturn/ViewNR3.amx</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>ViewNR1</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>nr2</from-outcome>
+        <to-activity-id>ViewNR2</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>ViewNR2</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>nr3</from-outcome>
+        <to-activity-id>ViewNR3</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-mobile-config>

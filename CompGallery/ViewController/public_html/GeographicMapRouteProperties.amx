@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Properties"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandButton id="back" action="__back" text="Done"/>
+    </amx:facet>
+    
+    <amx:panelFormLayout id="wayProps" labelWidth="40%" fieldWidth="60%" rendered="#{pageFlowScope.waypointsEditable}">
+      <amx:inputText id="pOrigin" label="origin" value="#{pageFlowScope.origin}"/>
+      <amx:inputText id="pOriginLabel" label="origin label" value="#{pageFlowScope.originLabel}"/>
+      <amx:inputText id="pDestination" label="destination" value="#{pageFlowScope.destination}"/>
+      <amx:inputText id="pDestinationLabel" label="destination label" value="#{pageFlowScope.destinationLabel}"/>
+    </amx:panelFormLayout>
+    
+    <amx:panelFormLayout id="routeProps" labelWidth="40%" fieldWidth="60%">
+      <amx:selectOneChoice id="pTravelMode" label="travelMode" 
+                           value="#{pageFlowScope.travelMode}">
+        <amx:selectItem label="default" value="#{null}"/>
+        <amx:selectItem label="driving" value="driving"/>
+        <amx:selectItem label="walking" value="walking"/>
+        <amx:selectItem label="bicycling" value="bicycling"/>
+      </amx:selectOneChoice>
+    </amx:panelFormLayout>
+      
+    <amx:panelFormLayout id="styleProps" labelWidth="40%" fieldWidth="60%">
+      <amx:inputText id="pLineColor" label="lineColor" value="#{pageFlowScope.lineColor}"/>
+      <amx:inputText id="pLineOpacity" label="lineOpacity" value="#{pageFlowScope.lineOpacity}"/>
+      <amx:inputText id="pLineWidth" label="lineWidth" value="#{pageFlowScope.lineWidth}"/>
+
+      <amx:selectOneChoice id="pMarkers" label="show markers" value="#{pageFlowScope.showMarkers}">
+        <amx:selectItem label="true" value="#{true}"/>
+        <amx:selectItem label="false" value="#{false}"/>
+      </amx:selectOneChoice>
+    </amx:panelFormLayout>
+
+  </amx:panelPage>
+</amx:view>

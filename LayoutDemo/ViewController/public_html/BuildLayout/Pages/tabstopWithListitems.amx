@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="TabsTop &amp; ListView" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton action="__back" id="cb1"/>
+        </amx:facet>
+        <amx:panelStretchLayout scrollPolicy="scroll" id="psl1">
+            <amx:facet name="top">
+                <amx:panelGroupLayout styleClass="summary-section-style"  
+                                      rendered="#{pageFlowScope.useFixedSummaryView=='true'}" layout="horizontal"
+                                      halign="center" id="pgl1">
+                    <amx:outputText value="Summary Section" id="ot2"/>
+                </amx:panelGroupLayout>
+                <amx:selectOneButton value="#{HandlerBean.selectedTabsTopContent}" simple="true" layout="horizontal"
+                                     valueChangeListener="#{HandlerBean.handleTabsTopContentSelection}" id="sob1">
+                    <amx:selectItem label="Tab1" value="Tab1" id="si1"/>
+                    <amx:selectItem label="Tab2" value="Tab2" id="si2"/>
+                    <amx:selectItem label="Tab3" value="Tab3" id="si3"/>
+                    <amx:selectItem label="Tab4" value="Tab4" id="si4"/>
+                </amx:selectOneButton>
+            </amx:facet>
+            <amx:facet name="center">
+                <amx:panelStretchLayout id="psld1"/>
+                <amx:deck displayedChild="#{HandlerBean.selectedTabsTopContent =='' ? 'Tab1' : HandlerBean.selectedTabsTopContent}"
+                          id="d1" styleClass="amx-fitParent">
+                    <amx:transition id="tBack" triggerType="backNavigate" transition="slideEnd"/>
+                    <amx:transition id="tFwd" triggerType="forwardNavigate" transition="slideStart"/>
+                    <amx:fragment src="/BuildLayout/Fragments/listItemContentLayout.amxf" id="Tab1">
+                        <amx:attribute name="contentText1" value="Item1" id="a1"/>
+                        <amx:attribute name="contentText2" value="Item2" id="a2"/>
+                        <amx:attribute name="contentText3" value="Item3" id="a3"/>
+                        <amx:attribute name="contentText4" value="Item4" id="a4"/>
+                        <amx:attribute name="contentText5" value="Item5" id="a5"/>
+                        <amx:attribute name="contentText6" value="Item6" id="a6"/>
+                        <amx:attribute name="contentText7" value="Item7" id="a7"/>
+                        <amx:attribute name="contentText8" value="Item8" id="a8"/>
+                        <amx:attribute name="contentText9" value="Item9" id="a9"/>
+                        <amx:attribute name="contentText10" value="Item10" id="a10"/>
+                        <amx:attribute name="contentText11" value="Item11" id="a11"/>
+                        <amx:attribute name="contentText12" value="Item12" id="a12"/>
+                        <amx:attribute name="contentText13" value="Item13" id="a13"/>
+                        <amx:attribute name="contentText14" value="Item14" id="a14"/>
+                        <amx:attribute name="contentText15" value="Item15" id="a15"/>
+                        <amx:attribute name="contentText16" value="Item16" id="a16"/>
+                        <amx:attribute name="contentText17" value="Item17" id="a17"/>
+                        <amx:attribute name="contentText18" value="Item18" id="a18"/>
+                        <amx:attribute name="contentText19" value="Item19" id="a19"/>
+                        <amx:attribute name="contentText20" value="Item20" id="a20"/>
+                        <amx:attribute name="contentText21" value="Item21" id="a21"/>
+                        <amx:attribute name="contentText22" value="Item22" id="a22"/>
+                        <amx:attribute name="contentText23" value="Item23" id="a23"/>
+                        <amx:attribute name="contentText24" value="Item24" id="a24"/>
+                        <amx:attribute name="contentText25" value="Item25" id="a25"/>
+                        <amx:attribute name="contentText26" value="Item26" id="a26"/>
+                        <amx:attribute name="contentText27" value="Item27" id="a27"/>
+                        <amx:attribute name="contentText28" value="Item28" id="a28"/>
+                        <amx:attribute name="contentText29" value="Item29" id="a29"/>
+                        <amx:attribute name="contentText30" value="Item30" id="a30"/>
+                    </amx:fragment>
+                    <amx:fragment src="/BuildLayout/Fragments/listItemContentLayout.amxf" id="Tab2">
+                        <amx:attribute name="contentText1" value="Item31" id="b1"/>
+                        <amx:attribute name="contentText2" value="Item32" id="b2"/>
+                        <amx:attribute name="contentText3" value="Item33" id="b3"/>
+                        <amx:attribute name="contentText4" value="Item34" id="b4"/>
+                        <amx:attribute name="contentText5" value="Item35" id="b5"/>
+                        <amx:attribute name="contentText6" value="Item36" id="b6"/>
+                        <amx:attribute name="contentText7" value="Item37" id="b7"/>
+                        <amx:attribute name="contentText8" value="Item38" id="b8"/>
+                        <amx:attribute name="contentText9" value="Item39" id="b9"/>
+                        <amx:attribute name="contentText10" value="Item40" id="b10"/>
+                        <amx:attribute name="contentText11" value="Item41" id="b11"/>
+                        <amx:attribute name="contentText12" value="Item42" id="b12"/>
+                        <amx:attribute name="contentText13" value="Item43" id="b13"/>
+                        <amx:attribute name="contentText14" value="Item44" id="b14"/>
+                        <amx:attribute name="contentText15" value="Item45" id="b15"/>
+                        <amx:attribute name="contentText16" value="Item46" id="b16"/>
+                        <amx:attribute name="contentText17" value="Item47" id="b17"/>
+                        <amx:attribute name="contentText18" value="Item48" id="b18"/>
+                        <amx:attribute name="contentText19" value="Item49" id="b19"/>
+                        <amx:attribute name="contentText20" value="Item50" id="b20"/>
+                        <amx:attribute name="contentText21" value="Item51" id="b21"/>
+                        <amx:attribute name="contentText22" value="Item52" id="b22"/>
+                        <amx:attribute name="contentText23" value="Item53" id="b23"/>
+                        <amx:attribute name="contentText24" value="Item54" id="b24"/>
+                        <amx:attribute name="contentText25" value="Item55" id="b25"/>
+                        <amx:attribute name="contentText26" value="Item56" id="b26"/>
+                        <amx:attribute name="contentText27" value="Item57" id="b27"/>
+                        <amx:attribute name="contentText28" value="Item58" id="b28"/>
+                        <amx:attribute name="contentText29" value="Item59" id="b29"/>
+                        <amx:attribute name="contentText30" value="Item60" id="b30"/>
+                    </amx:fragment>
+                    <amx:fragment src="/BuildLayout/Fragments/listItemContentLayout.amxf" id="Tab3">
+                        <amx:attribute name="contentText1" value="Item61" id="c1"/>
+                        <amx:attribute name="contentText2" value="Item62" id="c2"/>
+                        <amx:attribute name="contentText3" value="Item63" id="c3"/>
+                        <amx:attribute name="contentText4" value="Item64" id="c4"/>
+                        <amx:attribute name="contentText5" value="Item65" id="c5"/>
+                        <amx:attribute name="contentText6" value="Item66" id="c6"/>
+                        <amx:attribute name="contentText7" value="Item67" id="c7"/>
+                        <amx:attribute name="contentText8" value="Item68" id="c8"/>
+                        <amx:attribute name="contentText9" value="Item69" id="c9"/>
+                        <amx:attribute name="contentText10" value="Item70" id="c10"/>
+                        <amx:attribute name="contentText11" value="Item71" id="c11"/>
+                        <amx:attribute name="contentText12" value="Item72" id="c12"/>
+                        <amx:attribute name="contentText13" value="Item73" id="c13"/>
+                        <amx:attribute name="contentText14" value="Item74" id="c14"/>
+                        <amx:attribute name="contentText15" value="Item75" id="c15"/>
+                        <amx:attribute name="contentText16" value="Item76" id="c16"/>
+                        <amx:attribute name="contentText17" value="Item77" id="c17"/>
+                        <amx:attribute name="contentText18" value="Item78" id="c18"/>
+                        <amx:attribute name="contentText19" value="Item79" id="c19"/>
+                        <amx:attribute name="contentText20" value="Item80" id="c20"/>
+                        <amx:attribute name="contentText21" value="Item81" id="c21"/>
+                        <amx:attribute name="contentText22" value="Item82" id="c22"/>
+                        <amx:attribute name="contentText23" value="Item83" id="c23"/>
+                        <amx:attribute name="contentText24" value="Item84" id="c24"/>
+                        <amx:attribute name="contentText25" value="Item85" id="c25"/>
+                        <amx:attribute name="contentText26" value="Item86" id="c26"/>
+                        <amx:attribute name="contentText27" value="Item87" id="c27"/>
+                        <amx:attribute name="contentText28" value="Item88" id="c28"/>
+                        <amx:attribute name="contentText29" value="Item89" id="c29"/>
+                        <amx:attribute name="contentText30" value="Item90" id="c30"/>
+                    </amx:fragment>
+                    <amx:fragment src="/BuildLayout/Fragments/listItemContentLayout.amxf" id="Tab4">
+                        <amx:attribute name="contentText1" value="Item71" id="bc1"/>
+                        <amx:attribute name="contentText2" value="Item72" id="bc2"/>
+                        <amx:attribute name="contentText3" value="Item73" id="bc3"/>
+                        <amx:attribute name="contentText4" value="Item74" id="bc4"/>
+                        <amx:attribute name="contentText5" value="Item75" id="bc5"/>
+                        <amx:attribute name="contentText6" value="Item76" id="bc6"/>
+                        <amx:attribute name="contentText7" value="Item77" id="bc7"/>
+                        <amx:attribute name="contentText8" value="Item78" id="bc8"/>
+                        <amx:attribute name="contentText9" value="Item79" id="bc9"/>
+                        <amx:attribute name="contentText10" value="Item80" id="bc10"/>
+                        <amx:attribute name="contentText11" value="Item81" id="bc11"/>
+                        <amx:attribute name="contentText12" value="Item82" id="bc12"/>
+                        <amx:attribute name="contentText13" value="Item83" id="bc13"/>
+                        <amx:attribute name="contentText14" value="Item84" id="bc14"/>
+                        <amx:attribute name="contentText15" value="Item85" id="bc15"/>
+                        <amx:attribute name="contentText16" value="Item86" id="bc16"/>
+                        <amx:attribute name="contentText17" value="Item87" id="bc17"/>
+                        <amx:attribute name="contentText18" value="Item88" id="bc18"/>
+                        <amx:attribute name="contentText19" value="Item89" id="bc19"/>
+                        <amx:attribute name="contentText20" value="Item90" id="bc20"/>
+                        <amx:attribute name="contentText21" value="Item91" id="bc21"/>
+                        <amx:attribute name="contentText22" value="Item92" id="bc22"/>
+                        <amx:attribute name="contentText23" value="Item93" id="bc23"/>
+                        <amx:attribute name="contentText24" value="Item94" id="bc24"/>
+                        <amx:attribute name="contentText25" value="Item95" id="bc25"/>
+                        <amx:attribute name="contentText26" value="Item96" id="bc26"/>
+                        <amx:attribute name="contentText27" value="Item97" id="bc27"/>
+                        <amx:attribute name="contentText28" value="Item98" id="bc28"/>
+                        <amx:attribute name="contentText29" value="Item99" id="bc29"/>
+                        <amx:attribute name="contentText30" value="Item100" id="bc30"/>
+                    </amx:fragment>
+                </amx:deck>
+            </amx:facet>
+        </amx:panelStretchLayout>
+    </amx:panelPage>
+</amx:view>

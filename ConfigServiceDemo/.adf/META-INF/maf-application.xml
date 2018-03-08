@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
+                   version="1.0" name="ConfigServiceDemo" id="com.company.ConfigServiceDemo"
+                   appControllerFolder="ApplicationController" listener-class="application.LifeCycleListenerImpl">
+  <adfmf:featureReference id="fr1" refId="About"/>
+  <adfmf:featureReference id="fr2" refId="Configuration"/>
+  <adfmf:featureReference id="fr3" refId="DownloadConfig"/>
+  <adfmf:featureReference id="fr4" refId="RemoteURL"/>
+  <adfmf:featureReference refId="Springboard" id="fr5" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:navigation>
+    <adfmf:navigationBar enabled="true"/>
+    <adfmf:springboard enabled="true" showSpringboardAtStartup="false" width="250"
+                       displayGotoSpringboardControl="true">
+      <adfmf:springboardFeatureReference refId="Springboard" id="sfr1"/>
+    </adfmf:springboard>
+  </adfmf:navigation>
+  <adfmf:login defaultConnRefId="ConfigServerLogin"/>
+</adfmf:application>

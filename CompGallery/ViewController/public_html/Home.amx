@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:clientListener
+    method="function(event){window._customClientListenerShowPageComplete = event.toString();}"
+    type="showpagecomplete"/>
+  <amx:panelPage id="pp1" styleClass="custom-panelPage-with-springboard">
+    <amx:facet name="header">
+      <amx:outputText value="Components" id="hdr"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandLink
+        id="clAppSB" rendered="#{!GlobalProperties['hostedMode']}"
+        actionListener="#{bindings.toggleSpringboard.execute}"
+        disabled="#{!bindings.toggleSpringboard.enabled}"
+        shortDesc="Springboard" styleClass="custom-springboard-link">
+        <amx:image id="i1" source="/images/springboard.svg" shortDesc="">
+          <?audit suppress oracle.maf.warning-missing-shortDesc?>
+        </amx:image>
+      </amx:commandLink>
+      <amx:commandLink
+        id="clMockSB" rendered="#{GlobalProperties['hostedMode']}"
+        shortDesc="Springboard" styleClass="custom-springboard-link">
+        <amx:image id="i2" source="/images/springboard.svg" shortDesc="">
+          <?audit suppress oracle.maf.warning-missing-shortDesc?>
+        </amx:image>
+        <amx:showPopupBehavior align="overlapTopStart" alignId="pp1" popupId="mockSB" type="action" id="spb1"/>
+      </amx:commandLink>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="globalProperties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery" shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:listView id="listView1">
+      <amx:listItem id="general" action="general">
+        <amx:outputText value="General" id="generalo"/>
+      </amx:listItem>
+      <amx:listItem id="textselect" action="textselect">
+        <amx:outputText value="Text &amp; Select" id="textselecto"/>
+      </amx:listItem>
+      <amx:listItem id="dataviews" action="dataviews">
+        <amx:outputText value="Data Views" id="dataviewso"/>
+      </amx:listItem>
+      <amx:listItem id="layout" action="layout">
+        <amx:outputText value="Layout" id="layouto"/>
+      </amx:listItem>
+      <amx:listItem id="operations" action="operations">
+        <amx:outputText value="Operations" id="operationso"/>
+      </amx:listItem>
+      <amx:listItem id="dvtComponents" action="dvtComponents">
+        <amx:outputText value="Visualization" id="dvtComponentso"/>
+      </amx:listItem>
+    </amx:listView>
+  </amx:panelPage>
+  <amx:popup id="mockSB" shortDesc="Springboard"/>
+</amx:view>

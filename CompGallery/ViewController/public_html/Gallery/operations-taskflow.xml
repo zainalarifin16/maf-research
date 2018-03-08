@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="operations-taskflow">
+    <default-activity>Operations-Home</default-activity>
+    <managed-bean id="__24">
+      <managed-bean-name>componentProperties</managed-bean-name>
+      <managed-bean-class>mobile.Properties</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="Operations-Home">
+      <page>/Operations-Home.amx</page>
+    </view>
+    <!--<view id="actionListener">
+      <page>/actionListener.amx</page>
+    </view>-->
+    <view id="clientListener">
+      <page>/clientListener.amx</page>
+    </view>
+    <view id="closePopupBehavior">
+      <page>/closePopupBehavior.amx</page>
+    </view>
+    <view id="convertDateTime">
+      <page>/convertDateTime.amx</page>
+    </view>
+    <view id="convertNumber">
+      <page>/convertNumber.amx</page>
+    </view>
+    <view id="navigationDragBehavior">
+      <page>/navigationDragBehavior.amx</page>
+    </view>
+    <view id="showPopupBehavior">
+      <page>/showPopupBehavior.amx</page>
+    </view>
+    <view id="transition">
+      <page>/transition.amx</page>
+    </view>
+    <view id="Properties">
+      <page>/Properties.amx</page>
+    </view>
+    <task-flow-return id="return">
+      <outcome>
+        <name>return</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__3">
+      <from-activity-id>Operations-Home</from-activity-id>
+      <!--<control-flow-case id="__10">
+        <from-outcome>actionListener</from-outcome>
+        <to-activity-id>actionListener</to-activity-id>
+      </control-flow-case>-->
+      <control-flow-case id="__clientListener">
+        <from-outcome>clientListener</from-outcome>
+        <to-activity-id>clientListener</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__closePopupBehavior">
+        <from-outcome>closePopupBehavior</from-outcome>
+        <to-activity-id>closePopupBehavior</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__convertDateTime">
+        <from-outcome>convertDateTime</from-outcome>
+        <to-activity-id>convertDateTime</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__convertNumber">
+        <from-outcome>convertNumber</from-outcome>
+        <to-activity-id>convertNumber</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__2">
+        <from-outcome>navigationDragBehavior</from-outcome>
+        <to-activity-id>navigationDragBehavior</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__showPopupBehavior">
+        <from-outcome>showPopupBehavior</from-outcome>
+        <to-activity-id>showPopupBehavior</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__1">
+        <from-outcome>transition</from-outcome>
+        <to-activity-id>transition</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__16">
+        <from-outcome>return</from-outcome>
+        <to-activity-id>return</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome>properties</from-outcome>
+        <to-activity-id>Properties</to-activity-id>
+        <transition>flipStart</transition>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-mobile-config>

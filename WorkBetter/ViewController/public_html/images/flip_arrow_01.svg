@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+<g>
+	<g>
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="#8C9194" d="M9.32,0.11C9.18,0.04,8.55,0,8.45,0h-0.6
+			C7.29,0,6.84,0.45,6.84,1s0.46,1,1.02,1c3.37,0,6.11,2.01,6.11,4.5c0,2.48-2.73,4.5-6.11,4.5H4.81V7.55c0-0.3-0.17-0.39-0.38-0.19
+			c-0.99,0.93-3.61,3.42-4.34,4.08c-0.12,0.11-0.11,0.26,0.01,0.37c0.7,0.68,3.32,3.15,4.33,4.09c0.19,0.18,0.38,0.09,0.38-0.19V13
+			h3.05c4.5,0,8.15-2.91,8.15-6.5C16,3.31,13.12,0.66,9.32,0.11z"/>
+	</g>
+</g>
+</svg>

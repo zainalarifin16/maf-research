@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:navigationDragBehavior id="ndb2" direction="forward" action="thematicMapProperties">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="TMap: Zooming"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back">
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.animationOnDisplay}"
+                                 from="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.animationOnMapChange}"
+                                 from="#{pageFlowScope.animationOnMapChange}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.animationDuration}"
+                                 from="#{pageFlowScope.animationDuration}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.tooltipDisplay}"
+                                 from="#{pageFlowScope.tooltipDisplay}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.basemap}" from="#{pageFlowScope.basemap}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.zooming}" from="#{pageFlowScope.zooming}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.panning}" from="#{pageFlowScope.panning}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.initialZooming}"
+                                 from="#{pageFlowScope.initialZooming}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.inlineStyle}"
+                                 from="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.layer}" from="#{pageFlowScope.layer}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.animationOnLayerChange}"
+                                 from="#{pageFlowScope.animationOnLayerChange}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.areaLabelDisplay}"
+                                 from="#{pageFlowScope.areaLabelDisplay}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.labelType}"
+                                 from="#{pageFlowScope.labelType}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.rendered}"
+                                 from="#{pageFlowScope.rendered}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.dataAnimationOnDataChange}"
+                                 from="#{pageFlowScope.dataAnimationOnDataChange}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.dataAnimationDuration}"
+                                 from="#{pageFlowScope.dataAnimationDuration}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.dataSelection}"
+                                 from="#{pageFlowScope.dataSelection}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.pointDataAnimationOnDataChange}"
+                                 from="#{pageFlowScope.pointDataAnimationOnDataChange}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.pointDataAnimationDuration}"
+                                 from="#{pageFlowScope.pointDataAnimationDuration}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.pointDataSelection}"
+                                 from="#{pageFlowScope.pointDataSelection}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.pointDataRendered}"
+                                 from="#{pageFlowScope.pointDataRendered}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.areaFillColor}"
+                                 from="#{pageFlowScope.areaFillColor}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.areaOpacity}"
+                                 from="#{pageFlowScope.areaOpacity}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.areaLabelStyle}"
+                                 from="#{pageFlowScope.areaLabelStyle}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.areaLabelDisplay2}"
+                                 from="#{pageFlowScope.areaLabelDisplay2}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.areaShortDesc}"
+                                 from="#{pageFlowScope.areaShortDesc}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.areaValue}"
+                                 from="#{pageFlowScope.areaValue}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.markerGradientEffect}"
+                                 from="#{pageFlowScope.markerGradientEffect}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.markerLabelPosition}"
+                                 from="#{pageFlowScope.markerLabelPosition}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.markerScaleX}"
+                                 from="#{pageFlowScope.markerScaleX}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.markerScaleY}"
+                                 from="#{pageFlowScope.markerScaleY}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.markerShape}"
+                                 from="#{pageFlowScope.markerShape}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.markerFillColor}"
+                                 from="#{pageFlowScope.markerFillColor}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.markerOpacity}"
+                                 from="#{pageFlowScope.markerOpacity}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.markerLabelStyle}"
+                                 from="#{pageFlowScope.markerLabelStyle}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.markerLabelDisplay}"
+                                 from="#{pageFlowScope.markerLabelDisplay}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.markerShortDesc}"
+                                 from="#{pageFlowScope.markerShortDesc}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapZoomProperties.markerValue}"
+                                 from="#{pageFlowScope.markerValue}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapShowPointDataProperties}" from="false" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapShowAreaProperties}" from="false" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapShowMarkerProperties}" from="false" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapShowMapsProperties}" from="false" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapShowAreaShortDesc}" from="false" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapShowMarkerValue}" from="false" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.thematicMapShowMarkerShortDesc}" from="false" type="action"/>
+      </amx:commandButton>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#dvtm:thematicMap" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/dvtThematicmap/thematicMapZoom"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:flexLayout id="fl1">
+      <amx:panelStretchLayout id="psl1" styleClass="dvtm-gallery-component-panel">
+        <amx:facet name="center">
+          <dvtm:thematicMap id="thematicMap1" animationOnDisplay="#{pageFlowScope.animationOnDisplay}"
+                            animationOnMapChange="#{pageFlowScope.animationOnMapChange}"
+                            animationDuration="#{pageFlowScope.animationDuration}" basemap="#{pageFlowScope.basemap}"
+                            tooltipDisplay="#{pageFlowScope.tooltipDisplay}" zooming="#{pageFlowScope.zooming}"
+                            panning="#{pageFlowScope.panning}" initialZooming="#{pageFlowScope.initialZooming}">
+            <dvtm:areaLayer id="areaLayer1" layer="#{pageFlowScope.layer}"
+                            animationOnLayerChange="#{pageFlowScope.animationOnLayerChange}"
+                            areaLabelDisplay="#{pageFlowScope.areaLabelDisplay}" labelType="#{pageFlowScope.labelType}"
+                            rendered="#{pageFlowScope.rendered}">
+              <dvtm:areaDataLayer id="areaDataLayer1" animationOnDataChange="#{pageFlowScope.dataAnimationOnDataChange}"
+                                  animationDuration="#{pageFlowScope.dataAnimationDuration}"
+                                  dataSelection="#{pageFlowScope.dataSelection}" var="row"
+                                  value="#{bindings.thematicMapZoomData.collectionModel}">
+                <dvtm:areaLocation id="areaLoc1" name="#{row.name}">
+                  <dvtm:area id="area1" opacity="#{pageFlowScope.areaOpacity}"
+                             labelStyle="#{pageFlowScope.areaLabelStyle}"
+                             labelDisplay="#{pageFlowScope.areaLabelDisplay2}"
+                             shortDesc="#{pageFlowScope.areaShortDesc}" value="#{pageFlowScope.areaValue}">
+                    <dvtm:attributeGroups id="ag1" type="color" value="#{row.cat1}"/>
+                  </dvtm:area>
+                </dvtm:areaLocation>
+              </dvtm:areaDataLayer>
+            </dvtm:areaLayer>
+            <dvtm:pointDataLayer id="pdl1" animationOnDataChange="#{pageFlowScope.pointDataAnimationOnDataChange}"
+                                 animationDuration="#{pageFlowScope.pointDataAnimationDuration}"
+                                 dataSelection="#{pageFlowScope.pointDataSelection}" var="row"
+                                 value="#{bindings.thematicMapZoomCitiesData.collectionModel}"
+                                 rendered="#{pageFlowScope.pointDataRendered}">
+              <dvtm:pointLocation type="pointName" id="pl1" pointName="#{row.name}">
+                <dvtm:marker id="marker1" gradientEffect="#{pageFlowScope.markerGradientEffect}"
+                             labelPosition="#{pageFlowScope.markerLabelPosition}" scaleX="#{pageFlowScope.markerScaleX}"
+                             scaleY="#{pageFlowScope.markerScaleY}" opacity="#{pageFlowScope.markerOpacity}"
+                             labelStyle="#{pageFlowScope.markerLabelStyle}"
+                             labelDisplay="#{pageFlowScope.markerLabelDisplay}"
+                             shortDesc="#{pageFlowScope.markerShortDesc}" value="#{pageFlowScope.markerValue}">
+                  <dvtm:attributeGroups id="ag2" type="color" value="#{row.cat1}"/>
+                  <dvtm:attributeGroups id="ag3" type="shape" value="#{row.cat1}"/>
+                </dvtm:marker>
+              </dvtm:pointLocation>
+            </dvtm:pointDataLayer>
+          </dvtm:thematicMap>
+        </amx:facet>
+      </amx:panelStretchLayout>
+      <amx:panelGroupLayout id="pglOptionsPanel" scrollPolicy="scroll">
+        <amx:panelFormLayout id="areaDataProps" labelWidth="40%" fieldWidth="60%">
+          <amx:selectOneChoice id="pZooming" label="zooming" value="#{pageFlowScope.zooming}">
+            <amx:selectItem label="none" value="none"/>
+            <amx:selectItem label="auto" value="auto"/>
+          </amx:selectOneChoice>
+          <amx:selectOneChoice id="pPanning" label="panning" value="#{pageFlowScope.panning}">
+            <amx:selectItem label="none" value="none"/>
+            <amx:selectItem label="auto" value="auto"/>
+          </amx:selectOneChoice>
+          <amx:selectOneChoice id="pInitialZooming" label="initialZooming" value="#{pageFlowScope.initialZooming}">
+            <amx:selectItem label="none" value="none"/>
+            <amx:selectItem label="auto" value="auto"/>
+          </amx:selectOneChoice>
+        </amx:panelFormLayout>
+      </amx:panelGroupLayout>
+    </amx:flexLayout>
+  </amx:panelPage>
+</amx:view>

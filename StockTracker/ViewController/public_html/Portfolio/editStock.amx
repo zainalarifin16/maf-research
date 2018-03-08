@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="#{bindings.ticker.inputValue}" id="ot1"/>
+    </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton text="Cancel" action="__back" id="sb3"
+                               rendered="#{!(pageFlowScope.HandlerBean.readOnlyMode)}">
+                <amx:actionListener type="action" id="al1" binding="#{pageFlowScope.HandlerBean.invokeCancelAction}"/>
+            </amx:commandButton>
+        </amx:facet>
+    <amx:facet name="secondary">
+            <amx:commandButton action="__back" text="Save" id="sbvc3" rendered="#{!(pageFlowScope.HandlerBean.readOnlyMode)}">
+                <amx:actionListener binding="#{bindings.saveAllStocks.execute}" id="al3"/>
+                <amx:actionListener id="w2qa" binding="#{pageFlowScope.HandlerBean.disableEditMode}"/>
+                <amx:actionListener id="al2" binding="#{pageFlowScope.HandlerBean.disableNewStockFlag}"/>
+                <amx:validationBehavior group="vg1" id="vb1"/>                
+            </amx:commandButton>
+    </amx:facet>
+        <amx:validationGroup validateCondition="always" id="vg1">
+        <amx:panelFormLayout id="panelForm1">
+            <amx:inputText  showRequired="true" required="true" readOnly="#{pageFlowScope.HandlerBean.readOnlyMode}" value="#{bindings.ticker.inputValue}"
+                           label="Ticker" id="it51"/>
+                           
+            <amx:inputText required="true" showRequired="true" readOnly="#{pageFlowScope.HandlerBean.readOnlyMode}" value="#{bindings.company.inputValue}"
+                           label="Company" id="it61"/>
+            <amx:inputText  required="true" showRequired="true" readOnly="#{pageFlowScope.HandlerBean.readOnlyMode}" value="#{bindings.price.inputValue}"
+                           label="Price" id="it21">
+                    <amx:convertNumber type="currency" groupingUsed="true" currencySymbol="$" minFractionDigits="2"
+                                       maxFractionDigits="2"/>
+            </amx:inputText>
+            <amx:inputText required="true" showRequired="true" readOnly="#{pageFlowScope.HandlerBean.readOnlyMode}" value="#{bindings.previous.inputValue}"
+                           label="Previous" id="it31">
+                    <amx:convertNumber  type="currency"  groupingUsed="false" currencySymbol="$" minFractionDigits="2"
+                                       maxFractionDigits="2"/>
+            </amx:inputText>
+            <amx:inputText required="true" showRequired="true" readOnly="#{pageFlowScope.HandlerBean.readOnlyMode}" value="#{bindings.volume.inputValue}"
+                           label="Volume" id="it81">
+                    <amx:convertNumber groupingUsed="true" integerOnly="true"/>
+            </amx:inputText>
+        </amx:panelFormLayout>
+        </amx:validationGroup>
+  </amx:panelPage>
+</amx:view>

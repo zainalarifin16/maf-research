@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Properties"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandButton id="back" action="__back" text="Done"/>
+    </amx:facet>
+    <amx:panelFormLayout id="propform" labelWidth="40%" fieldWidth="60%">
+      <amx:inputText value="#{GlobalProperties['tagdocUrl']}" label="Tagdoc URL" id="pTagdocUrl"/>
+      <amx:selectOneChoice id="skin" rendered="#{!GlobalProperties['hostedMode']}"
+        label="Skin" value="#{applicationScope.PropertyBean.selectedSkinValue}"
+        valueChangeListener="#{applicationScope.PropertyBean.handleSkinChange}">
+        <amx:selectItem id="mobileAlta_v1_5" label="mobileAlta v1.5" value="mobileAlta_v1.5"/>
+        <amx:selectItem id="mobileAlta_v1_4" label="mobileAlta v1.4" value="mobileAlta_v1.4"/>
+        <amx:selectItem id="mobileAlta_v1_3" label="mobileAlta v1.3" value="mobileAlta_v1.3"/>
+        <amx:selectItem id="mobileAlta_v1_2" label="mobileAlta v1.2" value="mobileAlta_v1.2"/>
+        <amx:selectItem id="mobileAlta_v1_1" label="mobileAlta v1.1" value="mobileAlta_v1.1"/>
+        <amx:selectItem id="mobileAlta_v1_0" label="mobileAlta v1.0" value="mobileAlta_v1.0"/>
+        <amx:selectItem id="mobileFusionFx_v1_1" label="mobileFusionFx v1.1" value="mobileFusionFx_v1.1"/>
+        <amx:selectItem id="mobileFusionFx_v1_0" label="mobileFusionFx v1.0" value="mobileFusionFx_v1.0"/>
+      </amx:selectOneChoice>
+    </amx:panelFormLayout>
+  </amx:panelPage>
+</amx:view>

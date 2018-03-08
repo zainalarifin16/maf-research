@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Basic_Layout" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="150px" height="224px" viewBox="-7.5 8.5 150 224" enable-background="new -7.5 8.5 150 224" xml:space="preserve">
+<rect id="Background_Panel" x="-7.5" y="8.5" fill="#FFFFFF" width="150" height="224"/>
+<path id="Title" fill="#F6F6F7" d="M-7.5,8.5h150.05v30H-7.5V8.5z"/>
+<rect id="Divide" x="-7.5" y="38.38" fill="#D1D1D3" width="150" height="1"/>
+<text transform="matrix(1 0 0 1 53.084 28.5)" fill="#333333" font-family="'HelveticaNeue'" font-size="14">Title</text>
+</svg>

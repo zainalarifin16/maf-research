@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:adfmf="http://xmlns.oracle.com/adf/mf" name="Lifecycle"
+                   version="1.0" id="com.oraclecorp.internal.LifecycleEvents" appControllerFolder="ApplicationController"
+                   listener-class="application.LifeCycleListenerImpl">
+  <adfmf:featureReference id="fr1" refId="About"/>
+  <adfmf:featureReference id="fr2" refId="Feature1"/>
+  <adfmf:featureReference id="fr3" refId="Feature2"/>
+  <adfmf:featureReference id="fr4" refId="Springboard" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:navigation>
+    <adfmf:navigationBar displayHideShowNavigationBarControl="false" enabled="false"/>
+    <adfmf:springboard showSpringboardAtStartup="false" displayGotoSpringboardControl="false" enabled="true"
+                       width="250">
+      <adfmf:springboardFeatureReference id="sfr1" refId="Springboard"/>
+    </adfmf:springboard>
+  </adfmf:navigation>
+</adfmf:application>

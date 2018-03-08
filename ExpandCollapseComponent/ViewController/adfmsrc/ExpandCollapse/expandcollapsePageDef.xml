@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.8.49" id="expandcollapsePageDef"
+                Package="ExpandCollapse">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="ApplicationFeatures" id="ApplicationFeaturesIterator"/>
+    <accessorIterator MasterBinding="ApplicationFeaturesIterator" Binds="features" RangeSize="25"
+                      DataControl="ApplicationFeatures" BeanClass="oracle.adfmf.framework.FeatureInformation"
+                      id="featuresIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="featuresIterator" id="credentialType">
+      <AttrNames>
+        <Item Value="credentialType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="featuresIterator" id="farDirectory">
+      <AttrNames>
+        <Item Value="farDirectory"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="featuresIterator" id="farRootDirectory">
+      <AttrNames>
+        <Item Value="farRootDirectory"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="featuresIterator" id="icon">
+      <AttrNames>
+        <Item Value="icon"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="featuresIterator" id="id">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="featuresIterator" id="image">
+      <AttrNames>
+        <Item Value="image"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="toggleSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="toggleSpringboard"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider"/>
+  </bindings>
+</pageDefinition>

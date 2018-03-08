@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TokensRegistrationsFk1Link"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  EntityAssociation="oracle.adfmf.demo.push.model.model.TokensRegistrationsFk1Assoc">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewLinkDefEnd
+    Name="RegistrationsView"
+    Cardinality="1"
+    Owner="oracle.adfmf.demo.push.model.model.RegistrationsView"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="RegistrationsView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="oracle.adfmf.demo.push.model.model.RegistrationsView.DeviceToken"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="TokensView"
+    Cardinality="-1"
+    Owner="oracle.adfmf.demo.push.model.model.TokensView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="TokensView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.adfmf.demo.push.model.model.TokensView.DeviceToken"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

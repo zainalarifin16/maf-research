@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1"/>
+    <amx:outputText value="Attrition History" id="ot1" styleClass="tile-title"/>
+    <amx:tableLayout id="tl1" width="100%" inlineStyle="background-color:#dee2e6" shortDesc="table">
+        <amx:rowLayout id="rl2">
+            <amx:cellFormat id="cf2" height="35px" shortDesc="cell"/>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl1">
+            <amx:cellFormat id="cf1" height="207px" width="100%%" halign="center" shortDesc="cell">
+                <dvtm:pieChart var="row" value="#{bindings.attrition.collectionModel}" id="pc1" innerRadius="0.5"
+                               centerLabel="#{bindings.totalattrition.inputValue}" sliceLabelPosition="none"
+                               selectionEffect="explode" animationDuration="250" animationOnDataChange="auto"
+                               animationOnDisplay="auto" rolloverBehavior="dim" dataSelection="single" styleClass="fullSize"
+                               shortDesc="Attrition Pie Chart">
+                    <amx:facet name="dataStamp">
+                        <dvtm:pieDataItem sliceId="#{row.atype}" value="#{row.anum}" id="pdi1" label="#{row.atype}">
+                            <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                        </dvtm:pieDataItem>
+                    </amx:facet>
+                    <dvtm:legend position="end" id="l1" rendered="false"/>
+                    <dvtm:chartValueFormat type="series" id="cvf1" tooltipLabel="Reason"/>
+                    <dvtm:chartValueFormat type="value" id="cvf3" tooltipLabel="Count">
+                        <amx:convertNumber id="cn1" minFractionDigits="0" maxFractionDigits="0"/>
+                    </dvtm:chartValueFormat>
+                </dvtm:pieChart>
+            </amx:cellFormat>
+        </amx:rowLayout>
+    </amx:tableLayout>
+</amx:fragmentDef>

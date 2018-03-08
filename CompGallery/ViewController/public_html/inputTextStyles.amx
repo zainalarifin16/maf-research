@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Textbox Styles" id="hdr"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"
+                         shortDesc="Go back to the previous page"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=textselect/inputText/styles"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:outputText value="Default" id="ot1"
+      styleClass="adfmf-outputText-sectionTitle adfmf-outputText-padded"/>
+    <amx:inputText label="Label" id="it1" value="#{pageFlowScope.textvalue}" hintText="hint text"/>
+    <amx:outputText value="adfmf-inputText-bold" id="ot2" styleClass="adfmf-outputText-sectionTitle"
+      inlineStyle="text-transform: none;"/>
+    <amx:inputText label="Label" id="it2" value="#{pageFlowScope.textvalue}" hintText="hint text"
+      styleClass="adfmf-inputText-bold"/>
+    <amx:outputText value="adfmf-inputText-search and keyboardDismiss=&quot;search&quot;" id="ot3" 
+      styleClass="adfmf-outputText-sectionTitle" inlineStyle="text-transform: none;"/>
+    <amx:inputText label="Label" id="it3" value="#{pageFlowScope.textvalue}" hintText="hint text"
+      styleClass="adfmf-inputText-search" keyboardDismiss="search"/>
+  </amx:panelPage>
+</amx:view>

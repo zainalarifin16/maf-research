@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:navigationDragBehavior id="ndb2" direction="forward" action="chartProperties">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Stack Categories"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/dvtCharts/barStackCategories"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:flexLayout id="fl1">
+      <amx:panelStretchLayout id="psl1" styleClass="dvtm-gallery-component-panel">
+        <amx:facet name="center">
+          <dvtm:barChart var="row" value="#{bindings.barData.collectionModel}" id="bc1" stack="on"
+                         animationOnDisplay="auto" animationOnDataChange="auto">
+            <amx:facet name="dataStamp">
+              <dvtm:chartDataItem group="#{row.group}" value="#{row.value}" series="#{row.series}" id="cdi1"/>
+            </amx:facet>
+            <amx:facet name="seriesStamp">
+              <dvtm:seriesStyle id="ss1" series="#{row.series}" stackCategory="Category A"
+                                rendered="#{pageFlowScope.stackCategory and (row.series eq 'Series 1' or row.series eq 'Series 2')}"/>
+              <dvtm:seriesStyle id="ss2" series="#{row.series}" stackCategory="Category B"
+                                rendered="#{pageFlowScope.stackCategory and (row.series eq 'Series 3' or row.series eq 'Series 4')}"/>
+            </amx:facet>
+            <dvtm:legend position="end" id="l1"/>
+          </dvtm:barChart>
+        </amx:facet>
+        <amx:facet name="bottom"></amx:facet>
+      </amx:panelStretchLayout>
+      <amx:panelGroupLayout id="pglOptionsPanel" scrollPolicy="scroll">
+        <amx:panelFormLayout id="pflOptionsForm" maxColumns="1" rows="1" styleClass="dvtm-gallery-options"
+                             fieldWidth="60%" labelWidth="40%">
+          <amx:selectBooleanCheckbox id="sbcStackCategory" label="Stack Category"
+                                     value="#{pageFlowScope.stackCategory}"/>
+        </amx:panelFormLayout>
+        <amx:outputText id="otDesc" inlineStyle="font-size: 12px; padding: 16px; display: block;"
+                        value="Chart stack categories can be used in stacked charts                              to create separate stacks of series in the same group.                              Toggle the Stack Category option to apply and remove                              the stack category attributes and see the effects on the chart.                              Series without a defined stack category will be stacked together.                              The feature is useful when the cumulative values of certain                              series in relation to that of other series are important."/>
+      </amx:panelGroupLayout>
+    </amx:flexLayout>
+  </amx:panelPage>
+</amx:view>

@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Geographic Maps"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton text="Back" id="back" action="return" styleClass="amx-commandButton-back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/dvtGeo" shortDesc="Bookmarkable Link"
+                  styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg"
+                   shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:listView id="listView1">
+      <amx:listItem id="geographicMapAddress" action="goto-geographicMap2">
+        <amx:tableLayout id="geographicMapTL" width="100%">
+          <amx:rowLayout id="geographicMapRL1">
+            <amx:cellFormat id="geographicMapCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="geographicMapI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/geographic_map.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="geographicMapCF2" width="100%" height="28px">
+              <amx:outputText id="geographicMapOT1" value="Geographic Map (Address)"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="geographicMapRL2">
+            <amx:cellFormat id="geographicMapCF3" width="100%" height="12px">
+              <amx:outputText id="geographicMapOT2" value="dvtm:geographicMap"
+                              styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.mapType}" to="#{pageFlowScope.mapType}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.centerX}" to="#{pageFlowScope.centerX}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.centerY}" to="#{pageFlowScope.centerY}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.zoomLevel}"
+                                 to="#{pageFlowScope.zoomLevel}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.inlineStyle}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.shortDesc}"
+                                 to="#{pageFlowScope.shortDesc}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.selectedValuesInitialValue}"
+                                 to="#{viewScope.valuechangenew}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.animationOnDisplay}"
+                                 to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.initialZooming}"
+                                 to="#{pageFlowScope.initialZooming}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.markerLabelPosition}"
+                                 to="#{pageFlowScope.markerLabelPosition}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.markerWidth}"
+                                 to="#{pageFlowScope.markerWidth}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.markerHeight}"
+                                 to="#{pageFlowScope.markerHeight}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.markerScaleX}"
+                                 to="#{pageFlowScope.markerScaleX}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.markerScaleY}"
+                                 to="#{pageFlowScope.markerScaleY}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.markerLabelStyle}"
+                                 to="#{pageFlowScope.markerLabelStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.markerLabelDisplay}"
+                                 to="#{pageFlowScope.markerLabelDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.markerOpacity}"
+                                 to="#{pageFlowScope.markerOpacity}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.dataSelection}" 
+                                 to="#{pageFlowScope.dataSelection}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="geographicMapGeoCode" action="goto-geographicMap">
+        <amx:tableLayout id="geographicMap2TL" width="100%">
+          <amx:rowLayout id="geographicMap2RL1">
+            <amx:cellFormat id="geographicMap2CF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="geographicMap2I" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/geographic_map.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="geographicMap2CF2" width="100%" height="28px">
+              <amx:outputText id="geographicMap2OT1" value="Geographic Map (GeoCoder)"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="geographicMap2RL2">
+            <amx:cellFormat id="geographicMap2CF3" width="100%" height="12px">
+              <amx:outputText id="geographicMap2OT2" value="dvtm:geographicMap"
+                              styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties2.mapType}" to="#{pageFlowScope.mapType}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties2.centerX}" to="#{pageFlowScope.centerX}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties2.centerY}" to="#{pageFlowScope.centerY}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties2.zoomLevel}"
+                                 to="#{pageFlowScope.zoomLevel}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties2.inlineStyle}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties2.shortDesc}"
+                                 to="#{pageFlowScope.shortDesc}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.selectedValuesInitialValue}"
+                                 to="#{viewScope.valuechangenew}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties2.animationOnDisplay}"
+                                 to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties2.initialZooming}"
+                                 to="#{pageFlowScope.initialZooming}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.markerLabelPosition}"
+                                 to="#{pageFlowScope.markerLabelPosition}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.markerWidth}"
+                                 to="#{pageFlowScope.markerWidth}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.markerHeight}"
+                                 to="#{pageFlowScope.markerHeight}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.markerScaleX}"
+                                 to="#{pageFlowScope.markerScaleX}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.markerScaleY}"
+                                 to="#{pageFlowScope.markerScaleY}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.markerLabelStyle}"
+                                 to="#{pageFlowScope.markerLabelStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.markerLabelDisplay}"
+                                 to="#{pageFlowScope.markerLabelDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.markerOpacity}"
+                                 to="#{pageFlowScope.markerOpacity}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.dataSelection}" 
+                                 to="#{pageFlowScope.dataSelection}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="geographicMapWithPopup" action="goto-geographicMapWithPopup">
+        <amx:tableLayout id="geographicMap3TL" width="100%">
+          <amx:rowLayout id="geographicMap3RL1">
+            <amx:cellFormat id="geographicMap3CF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="geographicMap3I" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/geographic_map.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="geographicMap3CF2" width="100%" height="28px">
+              <amx:outputText id="geographicMap3OT1" value="Geographic Map with Popup"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="geographicMap3RL2">
+            <amx:cellFormat id="geographicMap3CF3" width="100%" height="12px">
+              <amx:outputText id="geographicMap3OT2" value="dvtm:geographicMap"
+                              styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties2.mapType}" to="#{pageFlowScope.mapType}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties2.centerX}" to="#{pageFlowScope.centerX}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties2.centerY}" to="#{pageFlowScope.centerY}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties2.zoomLevel}"
+                                 to="#{pageFlowScope.zoomLevel}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties2.inlineStyle}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties2.shortDesc}"
+                                 to="#{pageFlowScope.shortDesc}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.selectedValuesInitialValue}"
+                                 to="#{viewScope.valuechangenew}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties2.animationOnDisplay}"
+                                 to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties2.initialZooming}"
+                                 to="#{pageFlowScope.initialZooming}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties2.popupAlign}"
+                                 to="#{pageFlowScope.popupAlign}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="geographicMapRoutesCollection" action="goto-geographicMapRoutes">
+        <amx:tableLayout id="geographicMapRoutesCollectionTL" width="100%">
+          <amx:rowLayout id="geographicMapRoutesCollectionRL1">
+            <amx:cellFormat id="geographicMapRoutesCollectionCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="geographicMapRoutesCollectionI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/geographic_map.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="geographicMapRoutesCollectionCF2" width="100%" height="28px">
+              <amx:outputText id="geographicMapRoutesCollectionOT1" value="Geographic Map Routes (collection)"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="geographicMapRoutesCollectionRL2">
+            <amx:cellFormat id="geographicMapRoutesCollectionCF3" width="100%" height="12px">
+              <amx:outputText id="geographicMapRoutesCollectionOT2" value="dvtm:geographicMap"
+                              styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="#{true}" to="#{pageFlowScope.showMarkers}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{null}" to="#{pageFlowScope.travelMode}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#1fb5fb" to="#{pageFlowScope.lineColor}"
+                                 type="action"/>
+        <amx:setPropertyListener from="6" to="#{pageFlowScope.lineWidth}"
+                                 type="action"/>
+        <amx:setPropertyListener from="0.7" to="#{pageFlowScope.lineOpacity}"
+                                 type="action"/>
+      </amx:listItem>
+      <amx:listItem id="geographicMapRouteStatic" action="goto-geographicMapRouteStatic">
+        <amx:tableLayout id="geographicMapRouteStaticTL" width="100%">
+          <amx:rowLayout id="geographicMapRouteStaticRL1">
+            <amx:cellFormat id="geographicMapRouteStaticCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="geographicMapRouteStaticI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/geographic_map.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="geographicMapRouteStaticCF2" width="100%" height="28px">
+              <amx:outputText id="geographicMapRouteStaticOT1" value="Geographic Map Routes (simple)"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="geographicMapRouteStaticRL2">
+            <amx:cellFormat id="geographicMapRouteStaticCF3" width="100%" height="12px">
+              <amx:outputText id="geographicMapRouteStaticOT2" value="dvtm:geographicMap"
+                              styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="#{true}" to="#{pageFlowScope.showMarkers}"
+                                 type="action"/>
+        <amx:setPropertyListener from="1 Harborside Dr, Boston, MA 02128" to="#{pageFlowScope.origin}"
+                                 type="action"/>
+        <amx:setPropertyListener from="10 van de graaff drive, burlington, ma" to="#{pageFlowScope.destination}"
+                                 type="action"/>
+        <amx:setPropertyListener from="Boston Airport" to="#{pageFlowScope.originLabel}"
+                                 type="action"/>
+        <amx:setPropertyListener from="Burlington" to="#{pageFlowScope.destinationLabel}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{null}" to="#{pageFlowScope.travelMode}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#1fb5fb" to="#{pageFlowScope.lineColor}"
+                                 type="action"/>
+        <amx:setPropertyListener from="6" to="#{pageFlowScope.lineWidth}"
+                                 type="action"/>
+        <amx:setPropertyListener from="0.7" to="#{pageFlowScope.lineOpacity}"
+                                 type="action"/>
+      </amx:listItem>
+      <amx:listItem id="geographicMapInfoBubbles" action="geographicMapInfoBubbles">
+        <amx:tableLayout id="geographicMapInfoBubbles3TL" width="100%">
+          <amx:rowLayout id="geographicMapInfoBubbles3RL1">
+            <amx:cellFormat id="geographicMapInfoBubbles3CF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="geographicMapInfoBubbles3I" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/geographic_map.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="geographicMapInfoBubbles3CF2" width="100%" height="28px">
+              <amx:outputText id="geographicMapInfoBubbles3OT1" value="Geographic Map with Info Bubbles"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="geographicMapInfoBubbles3RL2">
+            <amx:cellFormat id="geographicMapInfoBubbles3CF3" width="100%" height="12px">
+              <amx:outputText id="geographicMapInfoBubbles3OT2" value="dvtm:geographicMap"
+                              styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapBubbleProperties.mapType}" to="#{pageFlowScope.mapType}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapBubbleProperties.centerX}" to="#{pageFlowScope.centerX}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapBubbleProperties.centerY}" to="#{pageFlowScope.centerY}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapBubbleProperties.zoomLevel}"
+                                 to="#{pageFlowScope.zoomLevel}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapBubbleProperties.inlineStyle}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapBubbleProperties.shortDesc}"
+                                 to="#{pageFlowScope.shortDesc}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.selectedValuesInitialValue}"
+                                 to="#{viewScope.valuechangenew}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapBubbleProperties.animationOnDisplay}"
+                                 to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapBubbleProperties.initialZooming}"
+                                 to="#{pageFlowScope.initialZooming}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapBubbleProperties.popupAlign}"
+                                 to="#{pageFlowScope.popupAlign}" type="action"/>
+                                 
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapBubbleProperties.markerRendered}"
+                                 to="#{pageFlowScope.markerRendered}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapBubbleProperties.markerLabelDisplay}"
+                                 to="#{pageFlowScope.markerLabelDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapBubbleProperties.markerLabelPosition}"
+                                 to="#{pageFlowScope.markerLabelPosition}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapBubbleProperties.markerLabelStyle}"
+                                 to="#{pageFlowScope.markerLabelStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapBubbleProperties.markerSelectedLabelStyle}"
+                                 to="#{pageFlowScope.markerSelectedLabelStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapBubbleProperties.markerIconDisplay}"
+                                 to="#{pageFlowScope.markerIconDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.markerWidth}"
+                                 to="#{pageFlowScope.markerWidth}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.markerHeight}"
+                                 to="#{pageFlowScope.markerHeight}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.markerScaleX}"
+                                 to="#{pageFlowScope.markerScaleX}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapProperties.markerScaleY}"
+                                 to="#{pageFlowScope.markerScaleY}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.geographicMapBubbleProperties.dataSelection}"
+                                 to="#{pageFlowScope.dataSelection}" type="action"/>
+                                 
+        <amx:setPropertyListener from="5"
+                                 to="#{pageFlowScope.infoBubbleThreshold}" type="action"/>
+      </amx:listItem>
+    </amx:listView>
+  </amx:panelPage>
+</amx:view>

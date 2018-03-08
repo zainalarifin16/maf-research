@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="TabsTop &amp; Flex" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton action="__back" id="cb1"/>
+        </amx:facet>
+        <amx:panelStretchLayout id="psl1">
+            <amx:facet name="top">
+                <amx:panelGroupLayout styleClass="summary-section-style"
+                                      rendered="#{pageFlowScope.useFixedSummaryView=='true'}" layout="horizontal"
+                                      halign="center" id="pgl1">
+                    <amx:outputText value="Summary Section" id="ot2"/>
+                </amx:panelGroupLayout>
+                <amx:selectOneButton value="#{HandlerBean.selectedTabsTopContent}" simple="true" layout="horizontal"
+                                     valueChangeListener="#{HandlerBean.handleTabsTopContentSelection}" id="sob1">
+                    <amx:selectItem label="Tab1" value="Tab1" id="si1"/>
+                    <amx:selectItem label="Tab2" value="Tab2" id="si2"/>
+                    <amx:selectItem label="Tab3" value="Tab3" id="si3"/>
+                    <amx:selectItem label="Tab4" value="Tab4" id="si4"/>
+                </amx:selectOneButton>
+            </amx:facet>
+            <amx:facet name="center">
+                <amx:deck displayedChild="#{HandlerBean.selectedTabsTopContent =='' ? 'Tab1' : HandlerBean.selectedTabsTopContent}"
+                          inlineStyle="text-align:center;" id="d1" styleClass="amx-fitParent">
+                    <amx:transition id="tBack" triggerType="backNavigate" transition="slideEnd"/>
+                    <amx:transition id="tFwd" triggerType="forwardNavigate" transition="slideStart"/>
+                    <amx:fragment src="/BuildLayout/Fragments/flexContentLayout.amxf" inlineStyle="height:100%;"
+                                  id="Tab1">
+                        <amx:attribute name="contentText1" value="Rotate device" id="a1"/>
+                        <amx:attribute name="contentText2" value="to change" id="a2"/>
+                        <amx:attribute name="contentText3" value="layout" id="a3"/>
+                    </amx:fragment>
+                    <amx:fragment src="/BuildLayout/Fragments/flexContentLayout.amxf" inlineStyle="height:100%;"
+                                  id="Tab2">
+                        <amx:attribute name="contentText1" value="ROTATE DEVICE" id="ad1"/>
+                        <amx:attribute name="contentText2" value="TO CHANGE" id="da2"/>
+                        <amx:attribute name="contentText3" value="LAYOUT" id="ad3"/>
+                    </amx:fragment>
+                    <amx:fragment src="/BuildLayout/Fragments/flexContentLayout.amxf" inlineStyle="height:100%;"
+                                  id="Tab3">
+                        <amx:attribute name="contentText1" value="rOtAte dEvIce" id="aw1"/>
+                        <amx:attribute name="contentText2" value="tO cHaNge" id="af2"/>
+                        <amx:attribute name="contentText3" value="LaYoUt" id="af3"/>
+                    </amx:fragment>
+                    <amx:fragment src="/BuildLayout/Fragments/flexContentLayout.amxf" inlineStyle="height:100%;"
+                                  id="Tab4">
+                        <amx:attribute name="contentText1" value="rotate device" id="ja1"/>
+                        <amx:attribute name="contentText2" value="to change" id="ca2"/>
+                        <amx:attribute name="contentText3" value="layout" id="av3"/>
+                    </amx:fragment>
+                </amx:deck>
+            </amx:facet>
+        </amx:panelStretchLayout>
+    </amx:panelPage>
+</amx:view>

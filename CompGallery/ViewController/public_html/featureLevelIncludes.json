@@ -1,0 +1,5 @@
+[
+  {"type" : "StyleSheet", "file" : "css/custom.css"},
+  {"type" : "JavaScript", "file" : "js/custom.js"},
+  {"type" : "JavaScript", "file" : "js/properties.js"}
+]

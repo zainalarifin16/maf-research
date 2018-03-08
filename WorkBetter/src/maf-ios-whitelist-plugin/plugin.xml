@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="maf-ios-whitelist-plugin" version="1.0.0">
+
+    <name>Whitelisting</name>
+    <description>Plugin to white list remote URLs in a MAF app on iOS.</description>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <allow-intent href="twitter://*" /> 
+            <allow-intent href="mailto://*" /> 
+            <allow-intent href="tel://*" /> 
+            <allow-intent href="fb://*" /> 
+            <allow-intent href="linkedin://*" /> 
+            <allow-navigation href="http://*.oracle.com/*"/>
+            <allow-navigation href="https://*.oracle.com/*"/>
+            <feature name="CDVIntentAndNavigationFilter">
+                <param name="ios-package" value="CDVIntentAndNavigationFilter"/>
+                <param name="onload" value="true"/>
+            </feature>
+        </config-file>
+    </platform>
+</plugin>

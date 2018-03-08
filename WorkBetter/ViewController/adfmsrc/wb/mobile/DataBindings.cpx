@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.8.30" id="DataBindings"
+             SeparateXMLFiles="false" Package="wb.mobile" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adfm/dvt"
+             className="oracle.adfinternal.view.faces.dvt.model.binding.FacesBindingFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/wb.Login/login.amx" usageId="wb_mobile_loginPageDef"/>
+    <page path="/wb.Springboard/springboard.amx" usageId="wb_mobile_springboardPageDef"/>
+    <page path="/wb.Dashboard/Dashboard.amx" usageId="wb_mobile_DashboardPageDef"/>
+    <page path="/wb.MyOrg/MyOrg.amx" usageId="wb_mobile_MyOrgPageDef1"/>
+    <page path="/EmpDetail.amx" usageId="wb_mobile_EmpDetailPageDef1"/>
+    <page path="/wb.Profile/EmpDetailTF.xml#EmpDetailTF@loadProfile"
+          usageId="wb_mobile_EmpDetailTF_EmpDetailTF_loadProfilePageDef1"/>
+    <page path="/wb.Directory/List.amx" usageId="wb_mobile_ListPageDef"/>
+    <page path="/wb.MyOrg/MyOrg_phone.amx" usageId="wb_mobile_MyOrg_phonePageDef"/>
+    <page path="/wb.Directory/List_phone.amx" usageId="wb_mobile_List_phonePageDef"/>
+    <page path="/wb.Profile/EmpDetail.amx" usageId="wb_mobile_EmpDetailPageDef"/>
+    <page path="/wb.Profile/EmpDetail_phone.amx" usageId="wb_mobile_EmpDetail_phonePageDef"/>
+    <page path="/wb.Profile/DeptDetailTF.xml#DeptDetailTF@loadDept"
+          usageId="wb_mobile_DeptDetailTF_DeptDetailTF_loadDeptPageDef"/>
+    <page path="/wb.Profile/DeptDetail.amx" usageId="wb_mobile_DeptDetailPageDef"/>
+    <page path="/wb.Profile/DeptDetail_phone.amx" usageId="wb_mobile_DeptDetail_phonePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="wb_mobile_loginPageDef" path="wb.Login.loginPageDef"/>
+    <page id="wb_mobile_springboardPageDef" path="wb.Springboard.springboardPageDef"/>
+    <page id="wb_mobile_DashboardPageDef" path="wb.Dashboard.DashboardPageDef"/>
+    <page id="wb_mobile_MyOrgPageDef1" path="wb.mobile.pageDefs.MyOrgPageDef"/>
+    <page id="wb_mobile_EmpDetailPageDef1" path="wb.mobile.pageDefs.EmpDetailPageDef"/>
+    <page id="wb_mobile_EmpDetailTF_EmpDetailTF_loadProfilePageDef1"
+          path="wb.mobile.pageDefs.EmpDetailTF_EmpDetailTF_loadProfilePageDef"/>
+    <page id="wb_mobile_ListPageDef" path="wb.Directory.ListPageDef"/>
+    <page id="wb_mobile_MyOrg_phonePageDef" path="wb.MyOrg.MyOrg_phonePageDef"/>
+    <page id="wb_mobile_List_phonePageDef" path="wb.Directory.List_phonePageDef"/>
+    <page id="wb_mobile_EmpDetailPageDef" path="wb.Profile.EmpDetailPageDef"/>
+    <page id="wb_mobile_EmpDetail_phonePageDef" path="wb.Profile.EmpDetail_phonePageDef"/>
+    <page id="wb_mobile_DeptDetailTF_DeptDetailTF_loadDeptPageDef"
+          path="wb.Profile.DeptDetailTF_DeptDetailTF_loadDeptPageDef"/>
+    <page id="wb_mobile_DeptDetailPageDef" path="wb.Profile.DeptDetailPageDef"/>
+    <page id="wb_mobile_DeptDetail_phonePageDef" path="wb.Profile.DeptDetail_phonePageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="ApplicationFeatures" path="wb.application.ApplicationFeatures"/>
+    <dc id="HRService" path="wb.application.HRService"/>
+  </dataControlUsages>
+</Application>

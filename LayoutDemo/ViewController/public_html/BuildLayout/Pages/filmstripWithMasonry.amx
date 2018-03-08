@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Filmstrip &amp; Masonry" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton action="__back" id="cb1"/>
+    </amx:facet>
+      <amx:panelStretchLayout scrollPolicy="scroll" id="psl1">
+      <amx:facet name="top">
+        <amx:panelGroupLayout styleClass="summary-section-style"  rendered="#{pageFlowScope.useFixedSummaryView=='true'}" layout="horizontal" halign="center" id="pgl1">
+        <amx:outputText value="Summary Section" id="ot2"/>
+        </amx:panelGroupLayout>
+      </amx:facet>
+      <amx:facet name="center">
+                <amx:filmStrip inlineStyle="width:94%;height:95%;margin-top:15px;" itemsPerPage="1" halign="center" id="fs1" styleClass="amx-fitParent amx-filmStrip-stretchItems">
+                <amx:filmStripItem  id="fsi1">
+                        <amx:fragment src="/BuildLayout/Fragments/masonryContentLayout.amxf" id="f1">
+                            <amx:attribute name="contentText1" value="Rotate" id="c1"/>
+                            <amx:attribute name="contentText2" value="device" id="c2"/>
+                            <amx:attribute name="contentText3" value="to" id="c3"/>
+                            <amx:attribute name="contentText4" value="rearrange" id="c4"/>
+                            <amx:attribute name="contentText5" value="the" id="c5"/>
+                            <amx:attribute name="contentText6" value="tiles" id="c6"/>
+                        </amx:fragment>
+                    </amx:filmStripItem>
+                    <amx:filmStripItem  id="fsi2">
+                        <amx:fragment src="/BuildLayout/Fragments/masonryContentLayout.amxf" id="f2">
+                            <amx:attribute name="contentText1" value="ROTATE" id="c21"/>
+                            <amx:attribute name="contentText2" value="DEVICE" id="c22"/>
+                            <amx:attribute name="contentText3" value="TO" id="c23"/>
+                            <amx:attribute name="contentText4" value="REARRANGE" id="c24"/>
+                            <amx:attribute name="contentText5" value="THE" id="c25"/>
+                            <amx:attribute name="contentText6" value="TILES" id="ce6"/>
+                        </amx:fragment>
+                    </amx:filmStripItem>
+                    <amx:filmStripItem  id="fsi3">
+                        <amx:fragment src="/BuildLayout/Fragments/masonryContentLayout.amxf" id="fb1">
+                            <amx:attribute name="contentText1" value="rOtAtE" id="cf1"/>
+                            <amx:attribute name="contentText2" value="dEvIcE" id="cv2"/>
+                            <amx:attribute name="contentText3" value="TO" id="cd3"/>
+                            <amx:attribute name="contentText4" value="rEARRAnge" id="ce4"/>
+                            <amx:attribute name="contentText5" value="the" id="ce5"/>
+                            <amx:attribute name="contentText6" value="tILEs" id="cf6"/>
+                        </amx:fragment>
+                    </amx:filmStripItem>
+                </amx:filmStrip>
+      </amx:facet>
+    </amx:panelStretchLayout>
+  </amx:panelPage>
+</amx:view>

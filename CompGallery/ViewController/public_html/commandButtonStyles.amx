@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Button Styles" id="hdr"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"
+                         shortDesc="Go back to the previous page"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=general/commandButton/styles"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc="">
+          <?audit suppress oracle.maf.warning-missing-shortDesc?>
+        </amx:image>
+      </amx:goLink>
+    </amx:facet>
+    <amx:panelFormLayout id="pflColors" labelPosition="topStart" showHorizontalDividers="false">
+      <amx:panelLabelAndMessage id="colorPLM"
+        label="Button Color #{pageFlowScope.buttonColorMarkerClass == '' ? '' : '= &quot;'+pageFlowScope.buttonColorMarkerClass+'&quot;'}">
+        <amx:selectOneChoice id="colorChooser" styleClass="my-color-chooser"
+          label="Button Color" simple="true" value="#{pageFlowScope.buttonColorMarkerClass}">
+          <?audit suppress oracle.ide.xml.validation-error?>
+          <amx:selectItem id="colorDefault" label="Default" value=""/>
+          <amx:selectItem id="colorAlert" label="Alert" value="adfmf-commandButton-alert"/>
+          <amx:selectItem id="colorConfirm" label="Confirm" value="adfmf-commandButton-confirm"/>
+          <amx:selectItem id="colorHighlight" label="Highlight" value="adfmf-commandButton-highlight"/>
+          <amx:selectItem id="colorBlack" label="Dark" value="adfmf-commandButton-dark"/>
+          <amx:selectItem id="colorBright" label="Bright" value="adfmf-commandButton-bright"/>
+          <amx:selectItem id="colorLightGray" label="Alternate 1" value="adfmf-commandButton-alternate1"/>
+          <amx:selectItem id="colorOutline" label="Alternate 2" value="adfmf-commandButton-alternate2"/>
+        </amx:selectOneChoice>
+        <amx:selectOneButton id="colorTabs" styleClass="my-color-tabs"
+          label="Button Color" simple="true" value="#{pageFlowScope.buttonColorMarkerClass}"
+          shortDesc="Button color options">
+          <?audit suppress oracle.ide.xml.validation-error?>
+          <amx:selectItem id="colorDefault2" label="Default" value=""/>
+          <amx:selectItem id="colorAlert2" label="Alert" value="adfmf-commandButton-alert"/>
+          <amx:selectItem id="colorConfirm2" label="Confirm" value="adfmf-commandButton-confirm"/>
+          <amx:selectItem id="colorHighlight2" label="Highlight" value="adfmf-commandButton-highlight"/>
+          <amx:selectItem id="colorBlack2" label="Dark" value="adfmf-commandButton-dark"/>
+          <amx:selectItem id="colorBright2" label="Bright" value="adfmf-commandButton-bright"/>
+          <amx:selectItem id="colorLightGray2" label="Alternate 1" value="adfmf-commandButton-alternate1"/>
+          <amx:selectItem id="colorOutline2" label="Alternate 2" value="adfmf-commandButton-alternate2"/>
+        </amx:selectOneButton>
+      </amx:panelLabelAndMessage>
+      <amx:selectOneButton id="sobIcon" label="Icon" value="#{pageFlowScope.buttonIconChoice}"
+        shortDesc="Button icon settings">
+        <amx:selectItem id="iconText" label="Text-Only" value="none"/>
+        <amx:selectItem id="iconIcon" label="Icon-Only" value="only"/>
+        <amx:selectItem id="iconLeading" label="Leading" value="leading"/>
+        <amx:selectItem id="iconTrailing" label="Trailing" value="trailing"/>
+      </amx:selectOneButton>
+      <amx:selectOneButton id="sobBackground" label="Panel Style"
+        value="#{pageFlowScope.buttonPanelClass}" shortDesc="Page background coloring">
+        <amx:selectItem id="bgGroupBox" label="Group Box" value="adfmf-panelGroupLayout-groupBox"/>
+        <amx:selectItem id="bgAccent1" label="Accent 1" value="adfmf-panelGroupLayout-accent1"/>
+        <amx:selectItem id="bgAccent2" label="Accent 2" value="adfmf-panelGroupLayout-accent2"/>
+      </amx:selectOneButton>
+    </amx:panelFormLayout>
+    <amx:verbatim id="v1"><![CDATA[
+      <style type="text/css">
+        .amx-selectOneChoice.my-color-chooser {
+          display: none;
+        }
+        @media only screen and (max-width: 600px) {
+          .amx-selectOneChoice.my-color-chooser {
+            display: table;
+          }
+          .amx-selectOneButton.my-color-tabs {
+            display: none;
+          }
+        }
+      </style>
+      <script type="text/javascript">
+        window.keepButtonPressed = function(clientEvent)
+        {
+          // After a delay, restore the pressed state:
+          window.setTimeout(
+            function()
+            {
+              var elementId = clientEvent.amxNodeId;
+              var buttonRoot = document.getElementById(elementId);
+              if (buttonRoot == null)
+                adf.mf.api.amx.addMessage("error", "Verbatim function keepButtonPressed couldn't find the button with id: " + elementId, null, null);
+              else
+                buttonRoot.classList.add('amx-selected'); // keep it selected
+            },
+            100);
+        };
+      </script>
+    ]]></amx:verbatim>
+    <amx:panelGroupLayout id="pglBox"
+      styleClass="#{pageFlowScope.buttonPanelClass}">
+      <amx:tableLayout id="tl1" width="100%" layout="weighted" shortDesc="Button visual representation use cases">
+        <amx:rowLayout id="rColHeads">
+          <amx:cellFormat id="colHeadU" width="50%" halign="center" shortDesc="Unselected styles column header">
+            <amx:outputText value="Unselected" id="otHeadUnselected" styleClass="adfmf-outputText-bold"/>
+          </amx:cellFormat>
+          <amx:cellFormat id="colGap" width="10" rowSpan="37" shortDesc="Spacer column">
+            <amx:spacer id="sGap" width="10" height="1"/>
+          </amx:cellFormat>
+          <amx:cellFormat id="colHeadS" width="50%" halign="center" shortDesc="Selected styles column header">
+            <amx:outputText value="Selected" id="otHeadSelected" styleClass="adfmf-outputText-bold"/>
+          </amx:cellFormat>
+        </amx:rowLayout>
+        <amx:iterator id="colorStamps" var="stamp" value="#{bindings.commandButtonStylesData.collectionModel}">
+          <amx:rowLayout id="rMarker">
+            <amx:cellFormat id="cMarker" columnSpan="3" shortDesc="Use case title"
+              inlineStyle="#{stamp.marker == 'Default' ? '' : 'padding-top: 10px;'}">
+              <amx:outputText id="otMarker" value="#{stamp.marker == '' ? 'Default' : stamp.marker}"
+                styleClass="adfmf-outputText-sectionTitle" inlineStyle="text-transform: none;"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="rEnabled">
+            <amx:cellFormat id="cEnabledUnselected" halign="center" shortDesc="Enabled unselected">
+              <amx:fragment id="cbEnabledUnselected" src="commandButtonStylesFragment.amxf">
+                <amx:attribute id="a1" name="text" value="Enabled"/>
+                <amx:attribute id="a2" name="shortDesc" value="Enabled unselected button"/>
+                <amx:attribute id="a3" name="markerClass" value=""/>
+              </amx:fragment>
+            </amx:cellFormat>
+            <amx:cellFormat id="cEnabledSelected" halign="center" shortDesc="Enabled selected">
+              <amx:fragment id="cbEnabledSelected" src="commandButtonStylesFragment.amxf">
+                <amx:attribute id="a4" name="text" value="Enabled"/>
+                <amx:attribute id="a5" name="shortDesc" value="Enabled selected button"/>
+                <amx:attribute id="a6" name="markerClass" value="adfmf-commandButton-activated"/>
+              </amx:fragment>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="rPressed">
+            <amx:cellFormat id="cPressedUnselected" halign="center" shortDesc="Pressed unselected">
+              <amx:fragment id="cbPressedUnselected" src="commandButtonStylesFragment.amxf">
+                <amx:attribute id="a7" name="text" value="Pressed"/>
+                <amx:attribute id="a8" name="shortDesc" value="Pressed unselected button"/>
+                <amx:attribute id="a9" name="markerClass" value="amx-selected"/><!-- production apps should not use "amx-" class names -->
+              </amx:fragment>
+            </amx:cellFormat>
+            <amx:cellFormat id="cPressedSelected" halign="center" shortDesc="Pressed selected">
+              <amx:fragment id="cbPressedSelected" src="commandButtonStylesFragment.amxf">
+                <amx:attribute id="a10" name="text" value="Pressed"/>
+                <amx:attribute id="a11" name="shortDesc" value="Pressed selected button"/>
+                <amx:attribute id="a12" name="markerClass" value="adfmf-commandButton-activated amx-selected"/><!-- production apps should not use "amx-" class names -->
+              </amx:fragment>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="rDisabled">
+            <amx:cellFormat id="cDisabledUnselected" halign="center" shortDesc="Disabled unselected">
+              <amx:fragment id="cbDisabledUnselected" src="commandButtonStylesFragment.amxf">
+                <amx:attribute id="a13" name="text" value="Disabled"/>
+                <amx:attribute id="a14" name="shortDesc" value="Disabled unselected button"/>
+                <amx:attribute id="a15" name="markerClass" value=""/>
+              </amx:fragment>
+            </amx:cellFormat>
+            <amx:cellFormat id="cDisabledSelected" halign="center" shortDesc="Disabled selected">
+              <amx:fragment id="cbDisabledSelected" src="commandButtonStylesFragment.amxf">
+                <amx:attribute id="a16" name="text" value="Disabled"/>
+                <amx:attribute id="a17" name="shortDesc" value="Disabled selected button"/>
+                <amx:attribute id="a18" name="markerClass" value="adfmf-commandButton-activated"/>
+              </amx:fragment>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:iterator>
+      </amx:tableLayout>
+    </amx:panelGroupLayout>
+  </amx:panelPage>
+</amx:view>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.8.30" id="EmpDetailPageDef"
+                Package="wb.mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="HRService" id="HRServiceIterator"/>
+    <accessorIterator MasterBinding="HRServiceIterator" Binds="profile" RangeSize="25" DataControl="HRService"
+                      BeanClass="wb.model.Employee" id="profileIterator"/>
+    <accessorIterator MasterBinding="profileIterator" Binds="colleagues" RangeSize="-1" DataControl="HRService"
+                      BeanClass="wb.model.Employee" id="colleaguesIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="profileIterator" id="empid">
+      <AttrNames>
+        <Item Value="empid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="firstname">
+      <AttrNames>
+        <Item Value="firstname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="lastname">
+      <AttrNames>
+        <Item Value="lastname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="title">
+      <AttrNames>
+        <Item Value="title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="email">
+      <AttrNames>
+        <Item Value="email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="phone">
+      <AttrNames>
+        <Item Value="phone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="mobile">
+      <AttrNames>
+        <Item Value="mobile"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="address">
+      <AttrNames>
+        <Item Value="address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="city">
+      <AttrNames>
+        <Item Value="city"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="state">
+      <AttrNames>
+        <Item Value="state"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="country">
+      <AttrNames>
+        <Item Value="country"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="postal">
+      <AttrNames>
+        <Item Value="postal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="twitter">
+      <AttrNames>
+        <Item Value="twitter"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="facebook">
+      <AttrNames>
+        <Item Value="facebook"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="linkedin">
+      <AttrNames>
+        <Item Value="linkedin"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="hiredate">
+      <AttrNames>
+        <Item Value="hiredate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="deptid">
+      <AttrNames>
+        <Item Value="deptid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="mgrid">
+      <AttrNames>
+        <Item Value="mgrid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="rating">
+      <AttrNames>
+        <Item Value="rating"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="potential">
+      <AttrNames>
+        <Item Value="potential"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="lossrisk">
+      <AttrNames>
+        <Item Value="lossrisk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="lossimpact">
+      <AttrNames>
+        <Item Value="lossimpact"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="jobcode">
+      <AttrNames>
+        <Item Value="jobcode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="office">
+      <AttrNames>
+        <Item Value="office"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="salary">
+      <AttrNames>
+        <Item Value="salary"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="bonus">
+      <AttrNames>
+        <Item Value="bonus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="commission">
+      <AttrNames>
+        <Item Value="commission"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="compratio">
+      <AttrNames>
+        <Item Value="compratio"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="deptname">
+      <AttrNames>
+        <Item Value="deptname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="mgrFirstname">
+      <AttrNames>
+        <Item Value="mgrFirstname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="mgrLastname">
+      <AttrNames>
+        <Item Value="mgrLastname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="directs">
+      <AttrNames>
+        <Item Value="directs"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="profileIterator" id="tenure">
+      <AttrNames>
+        <Item Value="tenure"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="toggleSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="toggleSpringboard"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider"/>
+    <tree IterBinding="colleaguesIterator" id="colleagues">
+      <nodeDefinition DefName="wb.model.Employee" Name="colleagues0">
+        <AttrNames>
+          <Item Value="empid"/>
+          <Item Value="firstname"/>
+          <Item Value="lastname"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="profileIterator" id="pic">
+      <AttrNames>
+        <Item Value="pic"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

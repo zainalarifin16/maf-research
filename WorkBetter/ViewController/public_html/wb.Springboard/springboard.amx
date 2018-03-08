@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:loadingIndicatorBehavior id="lib1" failSafeDuration="30000"/>
+    <amx:panelPage id="pp1" styleClass="adfmf-panelPage-springboard">
+        <amx:panelStretchLayout id="psl1" scrollPolicy="scroll">
+            <amx:facet name="top">
+                <amx:tableLayout id="tl1" width="100%" shortDesc="table">
+                    <amx:rowLayout id="rl4">
+                        <amx:cellFormat id="cf4" height="50" width="33%" halign="end" shortDesc="cell">
+                            <amx:image id="i2" source="/images/workbetter.png" styleClass="springlistimage"
+                                       shortDesc="WorkBetter Image"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf1" shortDesc="cell" width="67%">
+                            <amx:outputText value="WorkBetter" id="ot1" styleClass="springboard-header"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout id="rl1">
+                        <amx:cellFormat id="cf8" width="100%" halign="center" height="100" shortDesc="cell"
+                                        columnSpan="2">
+                            <amx:image id="i1" source="/images/avatar_#{UserBean.firstname}_144@2x.png"
+                                       styleClass="#{deviceScope.hardware.screen.diagonalSize ge 6 ? 'springboard-avatar' : 'springboard-avatar-phone'}" shortDesc="Avatar Image"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout id="rl2">
+                        <amx:cellFormat id="cf2" width="100%" halign="center" shortDesc="cell" columnSpan="2">
+                            <amx:outputText value="#{UserBean.firstname} #{UserBean.lastname}" id="ot2"
+                                            styleClass="springboard-user"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout id="rl3">
+                        <amx:cellFormat id="cf3" width="100%" halign="center" height="50" valign="top" shortDesc="cell"
+                                        columnSpan="2">
+                            <amx:outputText value="#{UserBean.title}" id="ot3" styleClass="springboard-title"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:facet>
+            <amx:facet name="center">
+                <amx:listView id="lv1">
+                    <amx:listItem id="li1" showLinkIcon="false" actionListener="#{bindings.gotoFeature.execute}"
+                                  shortDesc="Springboard Dashboard ListItem">
+                        <amx:tableLayout width="100%" id="tl11" shortDesc="table">
+                            <amx:rowLayout id="rl11">
+                                <amx:cellFormat width="40px" halign="center" id="cf11" shortDesc="cell">
+                                    <amx:image source="/images/dashboard.png" id="i11" styleClass="springlistimage"
+                                               shortDesc="Dashboard Image"/>
+                                </amx:cellFormat>
+                                <amx:cellFormat width="100%" height="43px" id="cf12" shortDesc="cell">
+                                    <amx:outputText value="Dashboard" id="ot11"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                        </amx:tableLayout>
+                        <amx:setPropertyListener id="sp1" from="wb.Dashboard" to="#{viewScope.featureid}"/>
+                    </amx:listItem>
+                    <amx:listItem id="li2" showLinkIcon="false" actionListener="#{bindings.gotoFeature.execute}"
+                                  shortDesc="Springboard My Organization ListItem">
+                        <amx:tableLayout width="100%" id="tl21" shortDesc="table">
+                            <amx:rowLayout id="rl21">
+                                <amx:cellFormat width="40px" halign="center" id="cf21" shortDesc="cell">
+                                    <amx:image source="/images/myorg.png" id="i21" styleClass="springlistimage"
+                                               shortDesc="My Organization Image"/>
+                                </amx:cellFormat>
+                                <amx:cellFormat width="100%" height="43px" id="cf22" shortDesc="cell">
+                                    <amx:outputText value="My Organization" id="ot21"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                        </amx:tableLayout>
+                        <amx:setPropertyListener id="spl2" from="wb.MyOrg" to="#{viewScope.featureid}"/>
+                    </amx:listItem>
+                    <amx:listItem id="li3" showLinkIcon="false" actionListener="#{bindings.gotoFeature.execute}"
+                                  shortDesc="Springboard Profile ListItem">
+                        <amx:tableLayout width="100%" id="tl31" shortDesc="table">
+                            <amx:rowLayout id="rl31">
+                                <amx:cellFormat width="40px" halign="center" id="cf31" shortDesc="cell">
+                                    <amx:image source="/images/profile.png" id="i31" styleClass="springlistimage"
+                                               shortDesc="Profile Image"/>
+                                </amx:cellFormat>
+                                <amx:cellFormat width="100%" height="43px" id="cf32" shortDesc="cell">
+                                    <amx:outputText value="Profile" id="ot31"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                        </amx:tableLayout>
+                        <amx:setPropertyListener id="spl3" from="wb.MyProfile" to="#{viewScope.featureid}"/>
+                    </amx:listItem>
+                    <amx:listItem id="li4" showLinkIcon="false" actionListener="#{bindings.gotoFeature.execute}"
+                                  shortDesc="Springboard Directory ListItem">
+                        <amx:tableLayout width="100%" id="tl41" shortDesc="table">
+                            <amx:rowLayout id="rl41">
+                                <amx:cellFormat width="40px" halign="center" id="cf41" shortDesc="cell">
+                                    <amx:image source="/images/people.png" id="i41" styleClass="springlistimage"
+                                               shortDesc="Directory Image"/>
+                                </amx:cellFormat>
+                                <amx:cellFormat width="100%" height="43px" id="cf42" shortDesc="cell">
+                                    <amx:outputText value="Directory" id="ot41"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                        </amx:tableLayout>
+                        <amx:setPropertyListener id="spl1" from="wb.Directory" to="#{viewScope.featureid"/>
+                    </amx:listItem>
+                </amx:listView>
+                <amx:spacer id="s1" height="40"/>
+                <amx:listView id="lv2">
+                    <amx:listItem id="li5" showLinkIcon="false" actionListener="#{bindings.gotoFeature.execute}"
+                                  shortDesc="Springboard Dashboard ListItem">
+                        <amx:tableLayout width="100%" id="tl2" shortDesc="table">
+                            <amx:rowLayout id="rl5">
+                                <amx:cellFormat width="40px" halign="center" id="cf5" shortDesc="cell">
+                                    <amx:image source="/images/signout.svg" id="i3" styleClass="springlistimage"
+                                               shortDesc="Signout Image"/>
+                                </amx:cellFormat>
+                                <amx:cellFormat width="100%" height="43px" id="cf6" shortDesc="cell">
+                                    <amx:outputText value="Sign Out" id="ot4"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                        </amx:tableLayout>
+                        <amx:actionListener id="al1" binding="#{UserBean.Logout}"/>
+                        <amx:setPropertyListener id="spl4" to="#{viewScope.featureid}" from="wb.Login"/>
+                    </amx:listItem>
+                </amx:listView>
+            </amx:facet>
+            <amx:facet name="bottom">
+                <amx:tableLayout id="tl3" shortDesc="table" width="100%">
+                    <amx:rowLayout id="rl6">
+                        <amx:cellFormat id="cf7" shortDesc="cell" halign="center" width="100%" height="32">
+                            <amx:image id="i4" source="/images/oracleLogo.png" inlineStyle="width:176px;height:23px;"
+                                       shortDesc="Oracle Logo "/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:facet>
+        </amx:panelStretchLayout>
+    </amx:panelPage>
+</amx:view>

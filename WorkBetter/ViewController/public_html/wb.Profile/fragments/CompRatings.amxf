@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1"/>
+    <amx:flexLayout id="fl1" itemFlexibility="inflexible"
+                    orientation="#{(deviceScope.hardware.screen.diagonalSize lt 6) and (deviceScope.hardware.screen.width gt deviceScope.hardware.screen.height) ? 'horizontal' : 'vertical'}"
+                    styleClass="fullSize">
+        <amx:tableLayout id="tl2"
+                         width="#{(deviceScope.hardware.screen.diagonalSize lt 6) and (deviceScope.hardware.screen.width gt deviceScope.hardware.screen.height) ? deviceScope.hardware.screen.availableWidth/2 : '100%'}"
+                         shortDesc="table">
+            <amx:rowLayout id="rl15">
+                <amx:cellFormat id="cf33" halign="center" height="40" shortDesc="cell">
+                    <amx:outputText value="Compensation Ratio" id="ot10" styleClass="profileHeaderText"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl14">
+                <amx:cellFormat id="cf32" width="100%" halign="center" height="#{(deviceScope.hardware.screen.diagonalSize lt 6) and (deviceScope.hardware.screen.width gt deviceScope.hardware.screen.height) ? deviceScope.hardware.screen.availableHeight-180 : ''}"
+                                shortDesc="cell">
+                    <dvtm:statusMeterGauge id="compratiogauge" value="#{bindings.compratio.inputValue}" minValue="80"
+                                           maxValue="120" color="transparent" indicatorSize="1"
+                                           animationOnDisplay="auto" animationDuration="300" thresholdDisplay="all"
+                                           animationOnDataChange="auto" inlineStyle="width:80%;height:30px"
+                                           visualEffects="none">
+                        <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                        <dvtm:threshold id="t8" maxValue="85" color="#ED6647"/>
+                        <dvtm:threshold id="t9" maxValue="93" color="#FAD55C"/>
+                        <dvtm:threshold id="t10" maxValue="107" color="#68C182"/>
+                        <dvtm:threshold id="t11" maxValue="115" color="#FAD55C"/>
+                        <dvtm:threshold id="t12" maxValue="120" color="#ED6647"/>
+                        <dvtm:referenceLine id="rl22" lineStyle="solid" value="#{bindings.compratio.inputValue}"
+                                            color="black" shortDesc="CompRatio Reference Line"/>
+                        <dvtm:metricLabel id="ml1" rendered="false"/>
+                    </dvtm:statusMeterGauge>
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:tableLayout id="tl1"
+                         width="#{(deviceScope.hardware.screen.diagonalSize lt 6) and (deviceScope.hardware.screen.width gt deviceScope.hardware.screen.height) ? deviceScope.hardware.screen.availableWidth/2 : '100%'}"
+                         shortDesc="table">
+            <amx:rowLayout id="rl19">
+                <amx:cellFormat id="cf38" height="#{(deviceScope.hardware.screen.diagonalSize lt 6) and (deviceScope.hardware.screen.width gt deviceScope.hardware.screen.height) ? '40' : '60'}" valign="#{(deviceScope.hardware.screen.diagonalSize lt 6) and (deviceScope.hardware.screen.width gt deviceScope.hardware.screen.height) ? 'middle' : 'bottom'}" halign="center"
+                                shortDesc="cell">
+                    <amx:outputText value="Total Compensation" id="ot20" styleClass="profileHeaderText"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl20">
+                <amx:cellFormat id="cf34" width="100%"
+                                height="#{(deviceScope.hardware.screen.diagonalSize lt 6) and (deviceScope.hardware.screen.width gt deviceScope.hardware.screen.height) ? deviceScope.hardware.screen.availableHeight-180 : '350'}"
+                                shortDesc="cell">
+                    <dvtm:pieChart id="pc1" animationDuration="300" animationOnDisplay="auto" rolloverBehavior="dim"
+                                   sliceLabelPosition="none" animationOnDataChange="auto"
+                                   centerLabel="#{(bindings.salary.inputValue + bindings.bonus.inputValue + bindings.commission.inputValue)/1000}k"
+                                   innerRadius=".8" styleClass="fullSize" shortDesc="Compensation Pie Chart">
+                        <amx:facet name="dataStamp">
+                            <dvtm:pieDataItem value="#{bindings.salary.inputValue}" id="cdi3" color="#68c182"
+                                              label="Salary">
+                                <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                            </dvtm:pieDataItem>
+                            <dvtm:pieDataItem value="#{bindings.bonus.inputValue}" id="pdi1" color="#267db3"
+                                              label="Bonus">
+                                <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                            </dvtm:pieDataItem>
+                            <dvtm:pieDataItem value="#{bindings.commission.inputValue}" id="pdi2" color="#fad55c"
+                                              label="Commission">
+                                <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                            </dvtm:pieDataItem>
+                        </amx:facet>
+                        <dvtm:legend position="bottom" id="lp1"/>
+                        <dvtm:chartValueFormat type="label" id="cvf1">
+                            <amx:convertNumber id="cn1" integerOnly="true"/>
+                        </dvtm:chartValueFormat>
+                    </dvtm:pieChart>
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
+    </amx:flexLayout>
+</amx:fragmentDef>

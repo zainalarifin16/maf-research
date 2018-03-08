@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1"/>
+    <amx:panelGroupLayout id="pgl1" inlineStyle="width:100%" halign="center">
+        <amx:image id="i11" rendered="#{bindings.loading.inputValue eq 'true'}" source="/images/busy.gif"
+                   inlineStyle="height:40px;width:40px" shortDesc="Loading Image"/>
+    </amx:panelGroupLayout>
+</amx:fragmentDef>

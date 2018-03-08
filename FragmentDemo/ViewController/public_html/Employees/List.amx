@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:loadBundle basename="mobile.ViewControllerBundle" var="viewcontrollerBundle" id="lb1"/>
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="#{viewcontrollerBundle.Employees}" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandButton text="Popup" id="cb2" shortDesc="Popup button">
+                <amx:showPopupBehavior id="spb1" popupId="f1:popup1" align="cornerBottomStart" alignId="cb2"
+                                       decoration="anchor"/>
+            </amx:commandButton>
+        </amx:facet>
+        <amx:fragment src="/list.amxf" id="f1">
+            <amx:attribute name="col" value="#{bindings.employees}" id="a1"/>
+            <amx:attribute name="maintextA" value="first" id="a4"/>
+            <amx:attribute name="maintextB" value="last" id="a3"/>
+            <amx:attribute name="subtext" value="email" id="a5"/>
+            <amx:attribute name="action" value="detail" id="a2"/>
+        </amx:fragment>
+    </amx:panelPage>
+</amx:view>

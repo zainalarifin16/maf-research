@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1" styleClass="custom-panelPage-with-springboard">
+        <amx:facet name="header">
+            <amx:outputText value="Contacts" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandButton actionListener="#{bindings.findContacts.execute}" text="Search"
+                               disabled="#{!bindings.findContacts.enabled}" id="cb2" action="results"/>
+        </amx:facet>
+        <amx:panelFormLayout id="pfl1" fieldHalign="start" labelPosition="start" labelWidth="43%">
+            <amx:inputText label="Contact Fields" id="confields" value="#{pageFlowScope.ContactBean.contactFields}"
+                           hintText="List the contact fields returned"/>
+            <amx:inputText label="Filter" id="filter" value="#{pageFlowScope.ContactBean.filter}"
+                           hintText="String to search for"/>
+            <amx:selectBooleanSwitch label="Multiple" id="multiple" value="#{pageFlowScope.ContactBean.multiple}"
+                                     offLabel="No" onLabel="Yes"/>
+        </amx:panelFormLayout>
+        
+        
+    </amx:panelPage>
+</amx:view>

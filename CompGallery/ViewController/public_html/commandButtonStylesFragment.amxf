@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+  xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <fragment id="f1" xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment">
+    <attribute id="a1">
+      <attribute-name id="an1">text</attribute-name>
+      <attribute-type id="at1">String</attribute-type>
+    </attribute>
+    <attribute id="a2">
+      <attribute-name id="an2">shortDesc</attribute-name>
+      <attribute-type id="at2">String</attribute-type>
+    </attribute>
+    <attribute id="a3">
+      <attribute-name id="an3">markerClass</attribute-name>
+      <attribute-type id="at3">String</attribute-type>
+    </attribute>
+  </fragment>
+  <amx:panelGroupLayout id="actionSheetGroup" layout="wrap"
+    rendered="#{stamp.marker == 'adfmf-commandButton-actionSheet'}">
+    <amx:commandButton id="cb1"
+      text="#{pageFlowScope.buttonIconChoice == 'only' ? '' : text}#{pageFlowScope.buttonIconChoice == 'only' ? '' : ' 1a'}"
+      shortDesc="#{shortDesc}" disabled="#{text == 'Disabled'}"
+      icon="#{pageFlowScope.buttonIconChoice == 'none' ? '' : 'images/align.svg'}"
+      iconPosition="#{pageFlowScope.buttonIconChoice == 'none' ? '' : pageFlowScope.buttonIconChoice}"
+      styleClass="#{markerClass} #{stamp.marker} #{pageFlowScope.buttonColorMarkerClass}">
+      <amx:clientListener id="clMO1" method="window.keepButtonPressed"
+        type="#{text == 'Pressed' ? 'mouseout' : 'void1'}"/>
+      <amx:clientListener id="clT1" method="window.keepButtonPressed"
+        type="#{text == 'Pressed' ? 'tap' : 'void2'}"/>
+    </amx:commandButton>
+    <amx:commandButton id="cb2"
+      text="#{pageFlowScope.buttonIconChoice == 'only' ? '' : text}#{pageFlowScope.buttonIconChoice == 'only' ? '' : ' 1b'}"
+      shortDesc="#{shortDesc}" disabled="#{text == 'Disabled'}"
+      icon="#{pageFlowScope.buttonIconChoice == 'none' ? '' : 'images/align.svg'}"
+      iconPosition="#{pageFlowScope.buttonIconChoice == 'none' ? '' : pageFlowScope.buttonIconChoice}"
+      styleClass="#{markerClass} #{stamp.marker} #{pageFlowScope.buttonColorMarkerClass}">
+      <amx:clientListener id="clMO2" method="window.keepButtonPressed"
+        type="#{text == 'Pressed' ? 'mouseout' : 'void1'}"/>
+      <amx:clientListener id="clT2" method="window.keepButtonPressed"
+        type="#{text == 'Pressed' ? 'tap' : 'void2'}"/>
+    </amx:commandButton>
+    <amx:commandButton id="cb3"
+      text="#{pageFlowScope.buttonIconChoice == 'only' ? '' : text}#{pageFlowScope.buttonIconChoice == 'only' ? '' : ' 1c'}"
+      shortDesc="#{shortDesc}" disabled="#{text == 'Disabled'}"
+      icon="#{pageFlowScope.buttonIconChoice == 'none' ? '' : 'images/align.svg'}"
+      iconPosition="#{pageFlowScope.buttonIconChoice == 'none' ? '' : pageFlowScope.buttonIconChoice}"
+      styleClass="#{markerClass} #{stamp.marker} #{pageFlowScope.buttonColorMarkerClass}">
+      <amx:clientListener id="clMO3" method="window.keepButtonPressed"
+        type="#{text == 'Pressed' ? 'mouseout' : 'void1'}"/>
+      <amx:clientListener id="clT3" method="window.keepButtonPressed"
+        type="#{text == 'Pressed' ? 'tap' : 'void2'}"/>
+    </amx:commandButton>
+  </amx:panelGroupLayout>
+  <amx:commandButton id="cb"
+    text="#{pageFlowScope.buttonIconChoice == 'only' ? '' : text}#{stamp.marker == 'adfmf-commandButton-actionSheet' and pageFlowScope.buttonIconChoice != 'only' ? ' 2' : ''}"
+    shortDesc="#{shortDesc}" disabled="#{text == 'Disabled'}"
+    icon="#{pageFlowScope.buttonIconChoice == 'none' ? '' : 'images/align.svg'}"
+    iconPosition="#{pageFlowScope.buttonIconChoice == 'none' ? '' : pageFlowScope.buttonIconChoice}"
+    styleClass="#{markerClass} #{stamp.marker} #{pageFlowScope.buttonColorMarkerClass}">
+    <amx:clientListener id="clMO4" method="window.keepButtonPressed"
+      type="#{text == 'Pressed' ? 'mouseout' : 'void1'}"/>
+    <amx:clientListener id="clT4" method="window.keepButtonPressed"
+      type="#{text == 'Pressed' ? 'tap' : 'void2'}"/>
+  </amx:commandButton>
+</amx:fragmentDef>

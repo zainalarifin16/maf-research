@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Masonry" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:masonryLayout" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=layout/masonryLayout"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:commandButton text="Default" id="cb10" shortDesc="Default">
+      <amx:setPropertyListener id="spl56" from="" to="#{pageFlowScope.componentProperties.order}"/>
+      <amx:setPropertyListener id="spl40" from="#{true}" to="#{pageFlowScope.componentProperties.myTeam}"/>
+      <amx:setPropertyListener id="spl41" from="#{true}" to="#{pageFlowScope.componentProperties.myTeamExpanded}"/>
+      <amx:setPropertyListener id="spl42" from="#{true}" to="#{pageFlowScope.componentProperties.social}"/>
+      <amx:setPropertyListener id="spl43" from="#{false}" to="#{pageFlowScope.componentProperties.socialExpanded}"/>
+      <amx:setPropertyListener id="spl44" from="#{true}" to="#{pageFlowScope.componentProperties.aboutMe}"/>
+      <amx:setPropertyListener id="spl45" from="#{false}" to="#{pageFlowScope.componentProperties.aboutMeExpanded}"/>
+      <amx:setPropertyListener id="spl46" from="#{true}" to="#{pageFlowScope.componentProperties.time}"/>
+      <amx:setPropertyListener id="spl47" from="#{true}" to="#{pageFlowScope.componentProperties.timeExpanded}"/>
+      <amx:setPropertyListener id="spl48" from="#{true}" to="#{pageFlowScope.componentProperties.turnover}"/>
+      <amx:setPropertyListener id="spl49" from="#{true}" to="#{pageFlowScope.componentProperties.turnoverExpanded}"/>
+      <amx:setPropertyListener id="spl50" from="#{true}" to="#{pageFlowScope.componentProperties.ptoLiability}"/>
+      <amx:setPropertyListener id="spl51" from="#{true}" to="#{pageFlowScope.componentProperties.ptoLiabilityExpanded}"/>
+      <amx:setPropertyListener id="spl52" from="#{true}" to="#{pageFlowScope.componentProperties.directory}"/>
+      <amx:setPropertyListener id="spl53" from="#{false}" to="#{pageFlowScope.componentProperties.directoryExpanded}"/>
+      <amx:setPropertyListener id="spl54" from="#{true}" to="#{pageFlowScope.componentProperties.notifications}"/>
+      <amx:setPropertyListener id="spl55" from="#{false}" to="#{pageFlowScope.componentProperties.notificationsExpanded}"/>
+    </amx:commandButton>
+    <amx:commandButton text="Ascending" id="cb11" shortDesc="Ascending">
+      <amx:setPropertyListener id="spl156" from="2,6,0,7,5,1,3,4" to="#{pageFlowScope.componentProperties.order}"/>
+      <amx:setPropertyListener id="spl140" from="#{true}" to="#{pageFlowScope.componentProperties.myTeam}"/>
+      <amx:setPropertyListener id="spl141" from="#{false}" to="#{pageFlowScope.componentProperties.myTeamExpanded}"/>
+      <amx:setPropertyListener id="spl142" from="#{true}" to="#{pageFlowScope.componentProperties.social}"/>
+      <amx:setPropertyListener id="spl143" from="#{false}" to="#{pageFlowScope.componentProperties.socialExpanded}"/>
+      <amx:setPropertyListener id="spl144" from="#{true}" to="#{pageFlowScope.componentProperties.aboutMe}"/>
+      <amx:setPropertyListener id="spl145" from="#{false}" to="#{pageFlowScope.componentProperties.aboutMeExpanded}"/>
+      <amx:setPropertyListener id="spl146" from="#{true}" to="#{pageFlowScope.componentProperties.time}"/>
+      <amx:setPropertyListener id="spl147" from="#{false}" to="#{pageFlowScope.componentProperties.timeExpanded}"/>
+      <amx:setPropertyListener id="spl148" from="#{true}" to="#{pageFlowScope.componentProperties.turnover}"/>
+      <amx:setPropertyListener id="spl419" from="#{false}" to="#{pageFlowScope.componentProperties.turnoverExpanded}"/>
+      <amx:setPropertyListener id="spl150" from="#{true}" to="#{pageFlowScope.componentProperties.ptoLiability}"/>
+      <amx:setPropertyListener id="spl151" from="#{false}" to="#{pageFlowScope.componentProperties.ptoLiabilityExpanded}"/>
+      <amx:setPropertyListener id="spl152" from="#{true}" to="#{pageFlowScope.componentProperties.directory}"/>
+      <amx:setPropertyListener id="spl153" from="#{false}" to="#{pageFlowScope.componentProperties.directoryExpanded}"/>
+      <amx:setPropertyListener id="spl154" from="#{true}" to="#{pageFlowScope.componentProperties.notifications}"/>
+      <amx:setPropertyListener id="spl155" from="#{false}" to="#{pageFlowScope.componentProperties.notificationsExpanded}"/>
+    </amx:commandButton>
+    <amx:commandButton text="Descending" id="cb1" shortDesc="Descending">
+      <amx:setPropertyListener id="spl256" from="4,3,1,5,7,0,6,2" to="#{pageFlowScope.componentProperties.order}"/>
+      <amx:setPropertyListener id="spl240" from="#{true}" to="#{pageFlowScope.componentProperties.myTeam}"/>
+      <amx:setPropertyListener id="spl241" from="#{false}" to="#{pageFlowScope.componentProperties.myTeamExpanded}"/>
+      <amx:setPropertyListener id="spl242" from="#{true}" to="#{pageFlowScope.componentProperties.social}"/>
+      <amx:setPropertyListener id="spl243" from="#{false}" to="#{pageFlowScope.componentProperties.socialExpanded}"/>
+      <amx:setPropertyListener id="spl244" from="#{true}" to="#{pageFlowScope.componentProperties.aboutMe}"/>
+      <amx:setPropertyListener id="spl245" from="#{false}" to="#{pageFlowScope.componentProperties.aboutMeExpanded}"/>
+      <amx:setPropertyListener id="spl246" from="#{true}" to="#{pageFlowScope.componentProperties.time}"/>
+      <amx:setPropertyListener id="spl247" from="#{false}" to="#{pageFlowScope.componentProperties.timeExpanded}"/>
+      <amx:setPropertyListener id="spl248" from="#{true}" to="#{pageFlowScope.componentProperties.turnover}"/>
+      <amx:setPropertyListener id="spl249" from="#{false}" to="#{pageFlowScope.componentProperties.turnoverExpanded}"/>
+      <amx:setPropertyListener id="spl250" from="#{true}" to="#{pageFlowScope.componentProperties.ptoLiability}"/>
+      <amx:setPropertyListener id="spl251" from="#{false}" to="#{pageFlowScope.componentProperties.ptoLiabilityExpanded}"/>
+      <amx:setPropertyListener id="spl252" from="#{true}" to="#{pageFlowScope.componentProperties.directory}"/>
+      <amx:setPropertyListener id="spl253" from="#{false}" to="#{pageFlowScope.componentProperties.directoryExpanded}"/>
+      <amx:setPropertyListener id="spl254" from="#{true}" to="#{pageFlowScope.componentProperties.notifications}"/>
+      <amx:setPropertyListener id="spl255" from="#{false}" to="#{pageFlowScope.componentProperties.notificationsExpanded}"/>
+    </amx:commandButton>
+    <amx:commandButton text="Expand" id="cb12" shortDesc="Expand">
+      <amx:setPropertyListener id="spl2141" from="#{true}" to="#{pageFlowScope.componentProperties.myTeamExpanded}"/>
+      <amx:setPropertyListener id="spl2143" from="#{true}" to="#{pageFlowScope.componentProperties.socialExpanded}"/>
+      <amx:setPropertyListener id="spl2145" from="#{true}" to="#{pageFlowScope.componentProperties.aboutMeExpanded}"/>
+      <amx:setPropertyListener id="spl2147" from="#{true}" to="#{pageFlowScope.componentProperties.timeExpanded}"/>
+      <amx:setPropertyListener id="spl2149" from="#{true}" to="#{pageFlowScope.componentProperties.turnoverExpanded}"/>
+      <amx:setPropertyListener id="spl2151" from="#{true}" to="#{pageFlowScope.componentProperties.ptoLiabilityExpanded}"/>
+      <amx:setPropertyListener id="spl2153" from="#{true}" to="#{pageFlowScope.componentProperties.directoryExpanded}"/>
+      <amx:setPropertyListener id="spl2155" from="#{true}" to="#{pageFlowScope.componentProperties.notificationsExpanded}"/>
+    </amx:commandButton>
+    <amx:commandButton text="Collapse" id="cb122" shortDesc="Expand">
+      <amx:setPropertyListener id="spl21341" from="#{false}" to="#{pageFlowScope.componentProperties.myTeamExpanded}"/>
+      <amx:setPropertyListener id="spl21343" from="#{false}" to="#{pageFlowScope.componentProperties.socialExpanded}"/>
+      <amx:setPropertyListener id="spl21345" from="#{false}" to="#{pageFlowScope.componentProperties.aboutMeExpanded}"/>
+      <amx:setPropertyListener id="spl21347" from="#{false}" to="#{pageFlowScope.componentProperties.timeExpanded}"/>
+      <amx:setPropertyListener id="spl21349" from="#{false}" to="#{pageFlowScope.componentProperties.turnoverExpanded}"/>
+      <amx:setPropertyListener id="spl21351" from="#{false}" to="#{pageFlowScope.componentProperties.ptoLiabilityExpanded}"/>
+      <amx:setPropertyListener id="spl21353" from="#{false}" to="#{pageFlowScope.componentProperties.directoryExpanded}"/>
+      <amx:setPropertyListener id="spl21355" from="#{false}" to="#{pageFlowScope.componentProperties.notificationsExpanded}"/>
+    </amx:commandButton>
+    <amx:masonryLayout id="ml1" initialOrder="#{pageFlowScope.componentProperties.order}"
+                                inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+                                rendered="#{pageFlowScope.componentProperties.rendered}"
+                                styleClass="#{pageFlowScope.componentProperties.styleClass}">
+      <amx:masonryLayoutItem id="mt1" dimension="#{pageFlowScope.componentProperties.myTeamExpanded ? '3x1' : '1x1'}"
+                       rendered="#{pageFlowScope.componentProperties.myTeam}">
+        <amx:panelGroupLayout id="pgl9" layout="vertical" inlineStyle="margin: 6px; padding: 0px; border: none">
+          <amx:outputText value="My Team" id="ot4" inlineStyle="color: gray"/>
+          <amx:panelGroupLayout id="pgl1" layout="horizontal" scrollPolicy="scroll" inlineStyle="margin: 0px; padding: 2px; border: none">
+            <amx:panelGroupLayout id="pgl10" inlineStyle="margin: 0px; padding: 2px; border: none">
+              <amx:image id="i8" source="/images/people/TerryLuca.png" shortDesc="Terry Luca"/>
+              <amx:outputText value="Terry Luca" id="ot9" inlineStyle="font-size: 12px; color: gray"/>
+            </amx:panelGroupLayout>
+            <amx:panelGroupLayout id="pgl11" inlineStyle="margin: 0px; padding: 2px; border: none">
+              <amx:image id="i9" source="/images/people/SusanWong.png" shortDesc="Susan Wong"/>
+              <amx:outputText value="Susan Wong" id="ot12" inlineStyle="font-size: 12px; color: gray"/>
+            </amx:panelGroupLayout>
+            <amx:panelGroupLayout id="pgl12" inlineStyle="margin: 0px; padding: 2px; border: none">
+              <amx:image id="i10" source="/images/people/RaviChouhan.png" shortDesc="Ravi Chouhan"/>
+              <amx:outputText value="Ravi Chouhan" id="ot11" inlineStyle="font-size: 12px; color: gray"/>
+            </amx:panelGroupLayout>
+            <amx:panelGroupLayout id="pgl13" inlineStyle="margin: 0px; padding: 2px; border: none">
+              <amx:image id="i11" source="/images/people/KathyGreen.png" shortDesc="Kathy Green"/>
+              <amx:outputText value="Kathy Green" id="ot10" inlineStyle="font-size: 12px; color: gray"/>
+            </amx:panelGroupLayout>
+            <amx:panelGroupLayout id="pgl16" inlineStyle="margin: 0px; padding: 2px; border: none">
+              <amx:image id="i5" source="/images/people/StellaBaumgardner.png" shortDesc="Stella Baum"/>
+              <amx:outputText value="Stella Baum" id="ot3" inlineStyle="font-size: 12px; color: gray"/>
+            </amx:panelGroupLayout>
+          </amx:panelGroupLayout>
+        </amx:panelGroupLayout>
+        <amx:commandLink id="cl1" styleClass="amx-masonryLayoutItem-resizeButton" shortDesc="Resize">
+          <amx:setPropertyListener id="spl9" from="#{!pageFlowScope.componentProperties.myTeamExpanded}" to="#{pageFlowScope.componentProperties.myTeamExpanded}"/>
+        </amx:commandLink>
+        <amx:commandLink id="cl2" styleClass="amx-masonryLayoutItem-closeButton" shortDesc="Close">
+          <amx:setPropertyListener id="spl10" from="#{!pageFlowScope.componentProperties.myTeam}" to="#{pageFlowScope.componentProperties.myTeam}"/>
+        </amx:commandLink>
+      </amx:masonryLayoutItem>
+      <amx:masonryLayoutItem id="mt2" dimension="#{pageFlowScope.componentProperties.socialExpanded ? '3x1' : '1x1'}"
+                       rendered="#{pageFlowScope.componentProperties.social}">
+        <amx:panelGroupLayout id="pgl2" inlineStyle="margin: 6px; padding: 0px; border: none">
+          <amx:panelGroupLayout id="pgl22" layout="vertical" inlineStyle="margin: 0px; padding: 0px; border: none">
+            <amx:outputText value="Social" id="ot2" inlineStyle="color: gray"/>
+            <amx:spacer id="s5" height="6"/>
+            <amx:outputText value="New Conversations" id="ot14" inlineStyle="color: gray; font-size: 15px"/>
+            <amx:outputText value="6" id="ot15" inlineStyle="font-size:34px; color: #EE8A11"/>
+            <amx:outputText value="New Followers" id="ot17" inlineStyle="color: gray; font-size: 15px"/>
+            <amx:outputText value="5" id="ot16" inlineStyle="font-size:34px; color: #EE8A11"/>
+          </amx:panelGroupLayout>
+        </amx:panelGroupLayout>
+        <amx:commandLink id="cl3" styleClass="amx-masonryLayoutItem-resizeButton" shortDesc="Resize">
+          <amx:setPropertyListener id="spl11" from="#{!pageFlowScope.componentProperties.socialExpanded}" to="#{pageFlowScope.componentProperties.socialExpanded}"/>
+        </amx:commandLink>
+        <amx:commandLink id="cl4" styleClass="amx-masonryLayoutItem-closeButton" shortDesc="Close">
+          <amx:setPropertyListener id="spl12" from="#{!pageFlowScope.componentProperties.social}" to="#{pageFlowScope.componentProperties.social}"/>
+        </amx:commandLink>
+      </amx:masonryLayoutItem>
+      <amx:masonryLayoutItem id="mt3" dimension="#{pageFlowScope.componentProperties.aboutMeExpanded ? '3x1' : '1x1'}"
+                       rendered="#{pageFlowScope.componentProperties.aboutMe}">
+        <amx:panelGroupLayout id="pgl3" layout="vertical" inlineStyle="margin: 6px; padding: 0px; border: none">
+          <amx:outputText value="About Me" id="ot13" inlineStyle="color: gray"/>
+          <amx:spacer id="s4" height="5"/>
+          <amx:image id="i1" source="images/people/Me.png" inlineStyle="left: 5px; position: relative;" shortDesc="Me"/>
+        </amx:panelGroupLayout>
+        <amx:commandLink id="cl5" styleClass="amx-masonryLayoutItem-resizeButton" shortDesc="Resize">
+          <amx:setPropertyListener id="spl13" from="#{!pageFlowScope.componentProperties.aboutMeExpanded}" to="#{pageFlowScope.componentProperties.aboutMeExpanded}"/>
+        </amx:commandLink>
+        <amx:commandLink id="cl6" styleClass="amx-masonryLayoutItem-closeButton" shortDesc="Close">
+          <amx:setPropertyListener id="spl14" from="#{!pageFlowScope.componentProperties.aboutMe}" to="#{pageFlowScope.componentProperties.aboutMe}"/>
+        </amx:commandLink>
+      </amx:masonryLayoutItem>
+      <amx:masonryLayoutItem id="mt4" dimension="1x1"
+                       rendered="#{pageFlowScope.componentProperties.time}">
+        <amx:panelGroupLayout id="pgl4" layout="vertical" inlineStyle="margin: 6px; padding: 0px; border: none">
+          <amx:outputText value="Time" id="ot6" inlineStyle="color: gray"/>
+          <amx:spacer id="s2" height="10"/>
+          <amx:outputText value="Dec 22 THU" id="ot5" inlineStyle="font-size:23px; color: gray"/>
+          <amx:panelGroupLayout id="pgl5" layout="horizontal" inlineStyle="margin: 0px; padding: 0px; border: none">
+            <amx:outputText value="2" id="ot18" inlineStyle="font-size:40px; color: #EE8A11"/>
+            <amx:spacer id="s1" width="20"/>
+            <amx:outputText value="Events" id="ot19" inlineStyle="font-size:23px; color: #EE8A11"/>
+          </amx:panelGroupLayout>
+        </amx:panelGroupLayout>
+        <amx:commandLink id="cl8" styleClass="amx-masonryLayoutItem-closeButton" shortDesc="Close">
+          <amx:setPropertyListener id="spl16" from="#{!pageFlowScope.componentProperties.time}" to="#{pageFlowScope.componentProperties.time}"/>
+        </amx:commandLink>
+      </amx:masonryLayoutItem>
+      <amx:masonryLayoutItem id="mt5" dimension="#{pageFlowScope.componentProperties.turnoverExpanded ? '3x2' : '1x1'}"
+                       rendered="#{pageFlowScope.componentProperties.turnover}">
+        <amx:panelGroupLayout id="pgl6" layout="vertical" inlineStyle="margin: 6px; padding: 0px; border: none"
+                              rendered="#{!pageFlowScope.componentProperties.turnoverExpanded}">
+          <amx:outputText value="Turnover" id="ot20" inlineStyle="color: gray"/>
+          <dvtm:barChart var="row" value="#{bindings.turnoverBasicDataList.collectionModel}" inlineStyle="width: 140px; height: 120px" id="bc1">
+            <amx:facet name="dataStamp">
+              <dvtm:chartDataItem group="#{row.group}" value="#{row.value}"
+                                  series="#{row.series}" id="cdi1"/>
+            </amx:facet>
+            <dvtm:legend position="end" id="l1" rendered="false"/>
+          </dvtm:barChart>
+        </amx:panelGroupLayout>
+        <amx:panelGroupLayout id="pgl21" layout="vertical" inlineStyle="margin: 6px; padding: 0px; border: none"
+                              rendered="#{pageFlowScope.componentProperties.turnoverExpanded}">
+          <amx:outputText value="Turnover" id="ot32" inlineStyle="color: gray"/>
+          <amx:spacer id="s15" height="10"/>
+          <dvtm:barChart var="row" value="#{bindings.turnoverExpandedDataList.collectionModel}"
+                         id="bc2">
+            <amx:facet name="dataStamp">
+              <dvtm:chartDataItem group="#{row.group}" value="#{row.value}"
+                                  series="#{row.series}" id="cdi2"/>
+            </amx:facet>
+            <dvtm:legend position="end" id="l2"/>
+          </dvtm:barChart>
+        </amx:panelGroupLayout>
+        <amx:commandLink id="cl9" styleClass="amx-masonryLayoutItem-resizeButton" shortDesc="Resize">
+          <amx:setPropertyListener id="spl17" from="#{!pageFlowScope.componentProperties.turnoverExpanded}" to="#{pageFlowScope.componentProperties.turnoverExpanded}"/>
+        </amx:commandLink>
+        <amx:commandLink id="cl10" styleClass="amx-masonryLayoutItem-closeButton" shortDesc="Close">
+          <amx:setPropertyListener id="spl18" from="#{!pageFlowScope.componentProperties.turnover}" to="#{pageFlowScope.componentProperties.turnover}"/>
+        </amx:commandLink>
+      </amx:masonryLayoutItem>
+      <amx:masonryLayoutItem id="mt6" dimension="#{pageFlowScope.componentProperties.ptoLiabilityExpanded ? '2x2' : '1x1'}"
+                       rendered="#{pageFlowScope.componentProperties.ptoLiability}">
+        <amx:panelGroupLayout id="pgl7" layout="vertical" inlineStyle="margin: 6px; padding: 0px; border: none">
+          <amx:outputText value="PTO Liability" id="ot7" inlineStyle="color: gray"/>
+          <amx:image id="i13" source="images/PTO.png" shortDesc="PTO"/>
+        </amx:panelGroupLayout>
+        <amx:commandLink id="cl11" styleClass="amx-masonryLayoutItem-resizeButton" shortDesc="Resize">
+          <amx:setPropertyListener id="spl19" from="#{!pageFlowScope.componentProperties.ptoLiabilityExpanded}" to="#{pageFlowScope.componentProperties.ptoLiabilityExpanded}"/>
+        </amx:commandLink>
+        <amx:commandLink id="cl12" styleClass="amx-masonryLayoutItem-closeButton" shortDesc="Close">
+          <amx:setPropertyListener id="spl20" from="#{!pageFlowScope.componentProperties.ptoLiability}" to="#{pageFlowScope.componentProperties.ptoLiability}"/>
+        </amx:commandLink>
+      </amx:masonryLayoutItem>
+      <amx:masonryLayoutItem id="mt7" dimension="#{pageFlowScope.componentProperties.directoryExpanded ? '1x2' : '1x1'}"
+                       rendered="#{pageFlowScope.componentProperties.directory}">
+        <amx:panelGroupLayout id="pgl8" layout="vertical" inlineStyle="margin: 6px; padding: 0px; border: none">
+          <amx:outputText value="Directory" id="ot8" inlineStyle="color: gray"/>
+          <amx:spacer id="s8" height="10"/>
+          <amx:panelGroupLayout id="pgl15" layout="horizontal" inlineStyle="margin: 0px; padding: 0px; border: none">
+            <amx:outputText value="Directs" id="ot23" inlineStyle="font-size:15px; color: gray"/>
+            <amx:spacer id="s10" width="20"/>
+            <amx:outputText value="5" id="ot24" inlineStyle="font-size:20px; color: #EE8A11"/>
+          </amx:panelGroupLayout>
+          <amx:panelGroupLayout id="pgl20" layout="horizontal" inlineStyle="margin: 0px; padding: 0px; border: none">
+            <amx:outputText value="Total" id="ot30" inlineStyle="font-size:15px; color: gray"/>
+            <amx:spacer id="s14" width="20"/>
+            <amx:outputText value="20" id="ot31" inlineStyle="font-size:20px; color: #EE8A11"/>
+          </amx:panelGroupLayout>
+        </amx:panelGroupLayout>
+        <amx:commandLink id="cl13" styleClass="amx-masonryLayoutItem-resizeButton" shortDesc="Resize">
+          <amx:setPropertyListener id="spl21" from="#{!pageFlowScope.componentProperties.directoryExpanded}" to="#{pageFlowScope.componentProperties.directoryExpanded}"/>
+        </amx:commandLink>
+        <amx:commandLink id="cl14" styleClass="amx-masonryLayoutItem-closeButton" shortDesc="Close">
+          <amx:setPropertyListener id="spl22" from="#{!pageFlowScope.componentProperties.directory}" to="#{pageFlowScope.componentProperties.directory}"/>
+        </amx:commandLink>
+     </amx:masonryLayoutItem>
+      <amx:masonryLayoutItem id="mt8" dimension="#{pageFlowScope.componentProperties.notificationsExpanded ? '2x1' : '1x1'}"
+                       rendered="#{pageFlowScope.componentProperties.notifications}">
+        <amx:panelGroupLayout id="pgl14" layout="vertical" inlineStyle="margin: 6px; padding: 0px; border: none">
+          <amx:outputText value="Notifications" id="ot21" inlineStyle="color: gray"/>
+          <amx:spacer id="s9" height="5"/>
+          <amx:panelGroupLayout id="pgl19" layout="horizontal" inlineStyle="margin: 0px; padding: 0px; border: none">
+            <amx:outputText value="4" id="ot22" inlineStyle="font-size:35px; color: #EE8A11"/>
+            <amx:spacer id="s13" width="20"/>
+            <amx:outputText value="Waiting Approval" id="ot29" inlineStyle="font-size:15px; color: gray"/>
+          </amx:panelGroupLayout>
+          <amx:panelGroupLayout id="pgl17" layout="horizontal" inlineStyle="margin: 0px; padding: 0px; border: none">
+            <amx:outputText value="2" id="ot25" inlineStyle="font-size:35px; color: #EE8A11"/>
+            <amx:spacer id="s11" width="20"/>
+            <amx:outputText value="Rejected" id="ot26" inlineStyle="font-size:15px; color: gray"/>
+          </amx:panelGroupLayout>
+          <amx:panelGroupLayout id="pgl18" layout="horizontal" inlineStyle="margin: 0px; padding: 0px; border: none">
+            <amx:outputText value="2" id="ot27" inlineStyle="font-size:35px; color: #EE8A11"/>
+            <amx:spacer id="s12" width="20"/>
+            <amx:outputText value="Approved" id="ot28" inlineStyle="font-size:15px; color: gray"/>
+          </amx:panelGroupLayout>
+        </amx:panelGroupLayout>
+        <amx:commandLink id="cl15" styleClass="amx-masonryLayoutItem-resizeButton" shortDesc="Resize">
+          <amx:setPropertyListener id="spl23" from="#{!pageFlowScope.componentProperties.notificationsExpanded}" to="#{pageFlowScope.componentProperties.notificationsExpanded}"/>
+        </amx:commandLink>
+        <amx:commandLink id="cl16" styleClass="amx-masonryLayoutItem-closeButton" shortDesc="Close">
+          <amx:setPropertyListener id="spl24" from="#{!pageFlowScope.componentProperties.notifications}" to="#{pageFlowScope.componentProperties.notifications}"/>
+        </amx:commandLink>
+     </amx:masonryLayoutItem>
+    </amx:masonryLayout>
+  </amx:panelPage>
+</amx:view>

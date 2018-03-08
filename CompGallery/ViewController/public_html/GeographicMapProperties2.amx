@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+        <?audit suppress oracle.ide.xml.validation-error?>
+    </amx:navigationDragBehavior>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+        <amx:outputText id="header" value="Properties"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+        <amx:commandButton id="back" action="__back" text="Done"/>
+    </amx:facet>
+        <amx:panelFormLayout id="mapProps" labelWidth="40%" fieldWidth="60%">
+            <amx:inputText id="pMapType" label="mapType" value="#{pageFlowScope.mapType}" hintText="Map provider specific. Google Maps API offers HYBRID, ROADMAP, SATELLITE, and TERRAIN." />
+            <amx:inputText id="pCenterX" label="centerX" value="#{pageFlowScope.centerX}"/>
+            <amx:inputText id="pCenterY" label="centerY" value="#{pageFlowScope.centerY}"/>
+            <amx:inputText id="pZoomLevel" label="zoomLevel" value="#{pageFlowScope.zoomLevel}"/>
+      <amx:selectOneChoice label="dataSelection" id="soc1" value="#{pageFlowScope.dataSelection}">
+        <amx:selectItem id="si5" label="none" value="none"/>
+        <amx:selectItem id="si6" label="single" value="single"/>
+        <amx:selectItem id="si7" label="multiple" value="multiple"/>
+      </amx:selectOneChoice>
+    </amx:panelFormLayout>
+        <amx:panelFormLayout id="styleProps" labelWidth="40%" fieldWidth="60%">
+            <amx:inputText id="pInlineStyle" label="inlineStyle" value="#{pageFlowScope.inlineStyle}"/>
+        </amx:panelFormLayout>
+        <amx:panelFormLayout id="otherProps" labelWidth="40%" fieldWidth="60%">
+            <amx:inputText id="pShortDesc" label="shortDesc" value="#{pageFlowScope.shortDesc}"/>
+        </amx:panelFormLayout>
+        <amx:panelFormLayout id="animationProps" labelWidth="40%" fieldWidth="60%">
+            <amx:selectOneChoice id="pAnimationOnDisplay" label="animationOnDisplay" value="#{pageFlowScope.animationOnDisplay}">
+              <amx:selectItem label="auto" value="auto"/>
+              <amx:selectItem label="none" value="none"/>
+            </amx:selectOneChoice>
+            <amx:selectOneChoice id="pInitialZooming" label="initialZooming" value="#{pageFlowScope.initialZooming}">
+              <amx:selectItem label="auto" value="auto"/>
+              <amx:selectItem label="none" value="none"/>
+            </amx:selectOneChoice>
+        </amx:panelFormLayout>
+        <amx:outputText id="ott1" value="marker" inlineStyle="padding-top: 10px;font-weight:bold;"/>
+        <amx:selectBooleanCheckbox label="markerRendered" id="sbc1" value="#{pageFlowScope.markerRendered}"/>
+        <amx:selectOneChoice id="pMarkerLabelPosition" label="labelPosition" value="#{pageFlowScope.markerLabelPosition}">
+          <amx:selectItem label="center" value="center" id="si1"/>
+          <amx:selectItem label="top" value="top" id="si2"/>
+          <amx:selectItem label="bottom" value="bottom" id="si3"/>
+          <amx:selectItem label="bubble" value="bubble" id="si4"/>
+        </amx:selectOneChoice>
+        <amx:inputText id="pMarkerWidth" label="width" value="#{pageFlowScope.markerWidth}"/>
+        <amx:inputText id="pMarkerHeight" label="height" value="#{pageFlowScope.markerHeight}"/>
+        <amx:inputText id="pMarkerScaleX" label="scaleX" value="#{pageFlowScope.markerScaleX}"/>
+        <amx:inputText id="pMarkerScaleY" label="scaleY" value="#{pageFlowScope.markerScaleY}"/>
+        <amx:inputText id="pMarkerLabelStyle" label="labelStyle" value="#{pageFlowScope.markerLabelStyle}"/>
+        <amx:inputText id="pMarkerSelectedLabelStyle" label="selectedLabelStyle" value="#{pageFlowScope.markerSelectedLabelStyle}"/>
+        <amx:selectBooleanCheckbox id="pMarkerLabelDisplay" label="labelDisplay" value="#{pageFlowScope.markerLabelDisplay}"/>
+        <amx:inputText id="pMarkerOpacity" label="opacity" value="#{pageFlowScope.markerOpacity}"/>
+        <amx:selectOneChoice id="pMarkerIconDisplay" label="markerIconDisplay" value="#{pageFlowScope.markerIconDisplay}">
+          <amx:selectItem label="auto" value="auto"/>
+          <amx:selectItem label="on" value="on"/>
+          <amx:selectItem label="off" value="off"/>
+        </amx:selectOneChoice>
+  </amx:panelPage>
+</amx:view>

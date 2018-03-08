@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="basic">
+    <default-activity>router</default-activity>
+    <input-parameter-definition id="__8">
+      <name>contentLayout</name>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__12">
+      <name>useFixedSummaryView</name>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <view id="nocontent">
+      <page>/BuildLayout/Pages/basicWithNone.amx</page>
+    </view>
+    <view id="cards">
+      <page>/BuildLayout/Pages/basicWithCards.amx</page>
+    </view>
+    <view id="flex">
+      <page>/BuildLayout/Pages/basicWithFlex.amx</page>
+    </view>
+    <router id="router">
+      <case id="__5">
+        <expression>#{pageFlowScope.contentLayout=='none'}</expression>
+        <outcome>none</outcome>
+      </case>
+      <case id="__6">
+        <expression>#{pageFlowScope.contentLayout=='cards'}</expression>
+        <outcome>cards</outcome>
+      </case>
+      <case id="__7">
+        <expression>#{pageFlowScope.contentLayout=='flex'}</expression>
+        <outcome>flex</outcome>
+      </case>
+      <case id="__10">
+        <expression>#{pageFlowScope.contentLayout=='filmstrip'}</expression>
+        <outcome>filmstrip</outcome>
+      </case>
+      <case id="__19">
+        <expression>#{pageFlowScope.contentLayout=='listview'}</expression>
+        <outcome>listitems</outcome>
+      </case>
+      <case id="__20">
+        <expression>#{pageFlowScope.contentLayout=='masonry'}</expression>
+        <outcome>masonry</outcome>
+      </case>
+      <case id="__21">
+        <expression>#{pageFlowScope.contentLayout=='swimlane'}</expression>
+        <outcome>swimlane</outcome>
+      </case>
+      <case id="__22">
+        <expression>#{pageFlowScope.contentLayout=='thumbnail'}</expression>
+        <outcome>thumbnail</outcome>
+      </case>
+      <case id="__23">
+        <expression>#{pageFlowScope.contentLayout=='tabsbottom'}</expression>
+        <outcome>tabsbottom</outcome>
+      </case>
+      <case id="__24">
+        <expression>#{pageFlowScope.contentLayout=='tabstop'}</expression>
+        <outcome>tabstop</outcome>
+      </case>
+      <default-outcome>none</default-outcome>
+    </router>
+    <view id="filmstrip">
+      <page>/BuildLayout/Pages/basicWithFilmStrip.amx</page>
+    </view>
+    <view id="listItems">
+      <page>/BuildLayout/Pages/basicWithListItems.amx</page>
+    </view>
+    <view id="masonry">
+      <page>/BuildLayout/Pages/basicWithMasonry.amx</page>
+    </view>
+    <view id="swimlane">
+      <page>/BuildLayout/Pages/basicWithSwimlane.amx</page>
+    </view>
+    <view id="tabsbottom">
+      <page>/BuildLayout/Pages/basicWithTabsBottom.amx</page>
+    </view>
+    <view id="tabstop">
+      <page>/BuildLayout/Pages/basicWithTabsTop.amx</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>router</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>none</from-outcome>
+        <to-activity-id>nocontent</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>cards</from-outcome>
+        <to-activity-id>cards</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>flex</from-outcome>
+        <to-activity-id>flex</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>filmstrip</from-outcome>
+        <to-activity-id>filmstrip</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__13">
+        <from-outcome>listitems</from-outcome>
+        <to-activity-id>listItems</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__14">
+        <from-outcome>masonry</from-outcome>
+        <to-activity-id>masonry</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__15">
+        <from-outcome>swimlane</from-outcome>
+        <to-activity-id>swimlane</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__17">
+        <from-outcome>tabsbottom</from-outcome>
+        <to-activity-id>tabsbottom</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__18">
+        <from-outcome>tabstop</from-outcome>
+        <to-activity-id>tabstop</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <page-flow-scope-behavior>
+      <push-new/>
+    </page-flow-scope-behavior>
+  </task-flow-definition>
+</adfc-mobile-config>

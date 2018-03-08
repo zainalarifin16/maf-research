@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="#{bindings.ticker.inputValue}" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton text="Back" action="__back" id="cb3"
+                               rendered="#{pageFlowScope.HandlerBean.readOnlyMode}">
+                <amx:actionListener id="w2" binding="#{pageFlowScope.HandlerBean.disableEditMode}"/>
+            </amx:commandButton>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandButton action="toEditStock" text="Edit" id="cb3s" rendered="#{pageFlowScope.HandlerBean.readOnlyMode}">
+                <amx:actionListener id="w2q" binding="#{pageFlowScope.HandlerBean.enableEditMode}"/>
+                <amx:actionListener id="wAq" binding="#{bindings.copyStock.execute}"/>
+            </amx:commandButton>
+        </amx:facet>
+        <amx:panelFormLayout id="panelForm1">
+            <amx:inputText  readOnly="#{pageFlowScope.HandlerBean.readOnlyMode}" value="#{bindings.ticker.inputValue}"
+                           label="Ticker" id="it51"/>
+            <amx:inputText  readOnly="#{pageFlowScope.HandlerBean.readOnlyMode}" value="#{bindings.company.inputValue}"
+                           label="Company" id="it61"/>
+            <amx:inputText  readOnly="#{pageFlowScope.HandlerBean.readOnlyMode}" value="#{bindings.price.inputValue}"
+                           label="Price" id="it21">
+                    <amx:convertNumber type="currency" groupingUsed="true" currencySymbol="$" minFractionDigits="2"
+                                       maxFractionDigits="2"/>
+            </amx:inputText>
+            <amx:inputText  readOnly="#{pageFlowScope.HandlerBean.readOnlyMode}" value="#{bindings.previous.inputValue}"
+                           label="Previous" id="it31">
+                    <amx:convertNumber type="currency" groupingUsed="true" currencySymbol="$" minFractionDigits="2"
+                                       maxFractionDigits="2"/>
+            </amx:inputText>
+            <amx:inputText  readOnly="#{pageFlowScope.HandlerBean.readOnlyMode}" value="#{bindings.volume.inputValue}"
+                           label="Volume" id="it81">
+                    <amx:convertNumber groupingUsed="true" integerOnly="true"/>
+            </amx:inputText>
+        </amx:panelFormLayout>
+    </amx:panelPage>
+</amx:view>

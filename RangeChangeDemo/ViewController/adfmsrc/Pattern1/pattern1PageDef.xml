@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.21" id="pattern1PageDef"
+                Package="Pattern1">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="10" DataControl="Departments" id="DepartmentsIterator"/>
+    <accessorIterator MasterBinding="DepartmentsIterator" Binds="departments" RangeSize="10"
+                      DataControl="Departments" BeanClass="mobile.Department" id="departmentsIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="departmentsIterator" id="departments">
+      <nodeDefinition DefName="mobile.Department" Name="departments0">
+        <AttrNames>
+          <Item Value="deptName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="resetFeature" RequiresUpdateModel="true" Action="invokeMethod" MethodName="resetFeature"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider">
+      <NamedData NDName="fid" NDValue="Pattern1" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="toggleSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="toggleSpringboard"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider"/>
+  </bindings>
+</pageDefinition>

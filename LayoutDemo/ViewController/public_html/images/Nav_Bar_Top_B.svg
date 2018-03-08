@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Nav_Bar_Top_Layout" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="150px" height="224px" viewBox="0 0 150 224" enable-background="new 0 0 150 224" xml:space="preserve">
+<rect id="Background_Panel" fill="#FFFFFF" width="150" height="224"/>
+<g id="Nav_Bar_2_">
+	<rect id="Nav_Bar_3_" fill="#F6F6F7" width="150" height="39.08"/>
+	<rect id="Divide_2_" y="39.438" fill="#D1D1D3" width="150" height="1"/>
+</g>
+<g id="Icons">
+	<rect id="Thumbnail" x="117" y="5.1" fill="#FFFFFF" width="24" height="24"/>
+	<path fill="#E2E2E5" d="M141,29.1h-24v-24h24V29.1z M140.221,5.88h-22.4v22.4h22.4V5.88z"/>
+	<rect id="Thumbnail_14_" x="81.02" y="5.1" fill="#FFFFFF" width="24" height="24"/>
+	<path fill="#E2E2E5" d="M105.02,29.1h-24v-24h24V29.1z M104.24,5.88h-22.4v22.4h22.4V5.88z"/>
+	<rect id="Thumbnail_11_" x="45.02" y="5.1" fill="#FFFFFF" width="24" height="24"/>
+	<path fill="#E2E2E5" d="M69.02,29.1h-24v-24h24V29.1z M68.24,5.88h-22.4v22.4h22.4V5.88z"/>
+	<rect id="Thumbnail_8_" x="9.02" y="5.1" fill="#FFFFFF" width="24" height="24"/>
+	<path fill="#E2E2E5" d="M33.02,29.1h-24v-24h24V29.1z M32.24,5.88H9.84v22.4h22.4V5.88z"/>
+</g>
+<g id="Icon_Labels">
+	<text transform="matrix(1 0 0 1 120.584 36.0801)" fill="#333333" font-family="'HelveticaNeue'" font-size="6">Icon 4</text>
+	<text transform="matrix(1 0 0 1 84.584 36.0801)" fill="#333333" font-family="'HelveticaNeue'" font-size="6">Icon 3</text>
+	<text transform="matrix(1 0 0 1 48.584 36.0801)" fill="#333333" font-family="'HelveticaNeue'" font-size="6">Icon 2</text>
+	<text transform="matrix(1 0 0 1 12.584 36.0801)" fill="#333333" font-family="'HelveticaNeue'" font-size="6">Icon 1</text>
+</g>
+</svg>

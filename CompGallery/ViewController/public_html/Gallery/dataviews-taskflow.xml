@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="dataviews-taskflow">
+    <default-activity>DataViews-Home</default-activity>
+    <managed-bean id="__24">
+      <managed-bean-name>componentProperties</managed-bean-name>
+      <managed-bean-class>mobile.Properties</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="DataViews-Home">
+      <page>/DataViews-Home.amx</page>
+    </view>
+    <view id="carousel">
+      <page>/carousel.amx</page>
+    </view>
+    <view id="carouselItem">
+      <page>/carouselItem.amx</page>
+    </view>
+    <view id="listItem">
+      <page>/listItem.amx</page>
+    </view>
+    <view id="listItemStyles">
+      <page>/listItemStyles.amx</page>
+    </view>
+    <view id="listView">
+      <page>/listView.amx</page>
+    </view>
+    <view id="listViewStyles">
+      <page>/listViewStyles.amx</page>
+    </view>
+    <view id="details">
+      <page>/details.amx</page>
+    </view>
+    <view id="Properties">
+      <page>/Properties.amx</page>
+    </view>
+    <task-flow-return id="return">
+      <outcome>
+        <name>return</name>
+      </outcome>
+    </task-flow-return>
+    <view id="listView-indexer">
+      <page>/listView-indexer.amx</page>
+    </view>
+    <view id="listView-indexerHosted">
+      <page>/listView-indexerHosted.amx</page>
+    </view>
+    <view id="filmStrip">
+      <page>/filmStrip.amx</page>
+    </view>
+    <view id="filmStripItem">
+      <page>/filmStripItem.amx</page>
+    </view>
+    <view id="refreshContainer">
+      <page>/refreshContainer.amx</page>
+    </view>
+    <view id="dottedPageControl">
+      <page>/filmStripPageControl.amx</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>listView</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>details</from-outcome>
+        <to-activity-id>details</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id>carousel</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome>details</from-outcome>
+        <to-activity-id>details</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__refreshContainerCFR">
+      <from-activity-id>refreshContainer</from-activity-id>
+      <control-flow-case id="__refreshContainerDetails">
+        <from-outcome>details</from-outcome>
+        <to-activity-id>details</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>DataViews-Home</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>carousel</from-outcome>
+        <to-activity-id>carousel</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__19">
+        <from-outcome>carouselItem</from-outcome>
+        <to-activity-id>carouselItem</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__CFClistItem">
+        <from-outcome>listItem</from-outcome>
+        <to-activity-id>listItem</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__6">
+        <from-outcome>listView</from-outcome>
+        <to-activity-id>listView</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__16">
+        <from-outcome>return</from-outcome>
+        <to-activity-id>return</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>listViewIndexer</from-outcome>
+        <to-activity-id>listView-indexer</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4b">
+        <from-outcome>listViewIndexerHosted</from-outcome>
+        <to-activity-id>listView-indexerHosted</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>filmStrip</from-outcome>
+        <to-activity-id>filmStrip</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>filmStripItem</from-outcome>
+        <to-activity-id>filmStripItem</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__refreshContainer">
+        <from-outcome>refreshContainer</from-outcome>
+        <to-activity-id>refreshContainer</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__11">
+        <from-outcome>dottedPageControl</from-outcome>
+        <to-activity-id>dottedPageControl</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome>properties</from-outcome>
+        <to-activity-id>Properties</to-activity-id>
+        <transition>flipStart</transition>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__CFRlistItem">
+      <from-activity-id>listItem</from-activity-id>
+      <control-flow-case id="__CFClistItemStyles">
+        <from-outcome>styles</from-outcome>
+        <to-activity-id>listItemStyles</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__CFRlistView">
+      <from-activity-id>listView</from-activity-id>
+      <control-flow-case id="__CFClistViewStyles">
+        <from-outcome>styles</from-outcome>
+        <to-activity-id>listViewStyles</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>filmStrip</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>details</from-outcome>
+        <to-activity-id>details</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-mobile-config>

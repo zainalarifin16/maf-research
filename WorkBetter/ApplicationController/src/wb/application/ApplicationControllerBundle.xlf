@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="wb.application.ApplicationControllerBundle" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="wb.model.Employee.empid_LABEL">
+        <source>ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.firstname_LABEL">
+        <source>First Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.lastname_LABEL">
+        <source>Last Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.title_LABEL">
+        <source>Title</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.email_LABEL">
+        <source>Email</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.phone_LABEL">
+        <source>Phone</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.mobile_LABEL">
+        <source>Mobile</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.address_LABEL">
+        <source>Address</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.city_LABEL">
+        <source>City</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.state_LABEL">
+        <source>State</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.country_LABEL">
+        <source>Country</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.postal_LABEL">
+        <source>Postal</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.twitter_LABEL">
+        <source>Twitter</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.facebook_LABEL">
+        <source>Facebook</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.linkedin_LABEL">
+        <source>LinkedIn</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.hiredate_LABEL">
+        <source>Hire Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.deptid_LABEL">
+        <source>Department ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.mgrid_LABEL">
+        <source>Manager ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.rating_LABEL">
+        <source>Rating</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.potential_LABEL">
+        <source>Potential</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.lossrisk_LABEL">
+        <source>Retention Risk</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.lossriskstr_LABEL">
+        <source>Retention Risk</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.lossimpact_LABEL">
+        <source>Retension Impact</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.lossimpactstr_LABEL">
+        <source>Retention Impact</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.jobcode_LABEL">
+        <source>Job Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.office_LABEL">
+        <source>Office</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.salary_LABEL">
+        <source>Salary</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.bonus_LABEL">
+        <source>Bonus</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.commission_LABEL">
+        <source>Commission</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.compratio_LABEL">
+        <source>Compa Ratio</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.deptname_LABEL">
+        <source>Department</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.mgrFirstname_LABEL">
+        <source>Manager First Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.mgrLastname_LABEL">
+        <source>Manager Last Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.directs_LABEL">
+        <source>Directs</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.tenure_LABEL">
+        <source>Tenure</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.teamAvgRating_LABEL">
+        <source>Team Avg Rating</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.teamAvgPotential_LABEL">
+        <source>Team Avg Potential</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.pic_LABEL">
+        <source>Picture</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.hiredate_FMT_FORMAT">
+        <source>MMM d, yyyy</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Employee.hiredate_FMT_FORMATTER">
+        <source>oracle.jbo.format.DefaultDateFormatter</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Performance.rating_LABEL">
+        <source>Rating</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Performance.potential_LABEL">
+        <source>Potential</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Compensation.salary_LABEL">
+        <source>Salary</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Compensation.bonus_LABEL">
+        <source>Bonus</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Compensation.commission_LABEL">
+        <source>Commission</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Event.eventId_LABEL">
+        <source>ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Event.eventType_LABEL">
+        <source>Type</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Event.eventName_LABEL">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Event.description_LABEL">
+        <source>Description</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Event.eventStart_LABEL">
+        <source>Start</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Event.eventEnd_LABEL">
+        <source>End</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Skill.skillid_LABEL">
+        <source>ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Skill.rating_LABEL">
+        <source>Rating</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Skill.skillname_LABEL">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="wb.model.Skill.skill_LABEL">
+        <source>Skill</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

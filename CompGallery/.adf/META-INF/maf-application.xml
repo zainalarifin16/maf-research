@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
+                   version="1.0" name="CompGallery" id="com.company.CompGallery" appControllerFolder="ApplicationController">
+  <adfmf:featureReference id="frG" refId="Gallery"/>
+  <adfmf:featureReference id="frA" refId="About"/>
+  <adfmf:featureReference id="frSB" refId="Springboard" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:navigation>
+    <adfmf:navigationBar enabled="false"/>
+    <adfmf:springboard enabled="true" showSpringboardAtStartup="false" displayGotoSpringboardControl="false"
+                       width="250">
+      <adfmf:springboardFeatureReference id="sfr1" refId="Springboard"/>
+    </adfmf:springboard>
+  </adfmf:navigation>
+  <adfmf:configuration>
+    <adfmf:allowedSchemeList>
+      <adfmf:allowedScheme value="sms" id="as1"/>
+    </adfmf:allowedSchemeList>
+  </adfmf:configuration>
+</adfmf:application>

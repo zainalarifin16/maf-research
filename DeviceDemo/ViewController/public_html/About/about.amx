@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="About" id="ot1"/>
+    </amx:facet>
+        <amx:facet name="primary">
+      <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                    <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+    <amx:tableLayout inlineStyle="background-color:rgb(255,240,187);" cellPadding="5" cellSpacing="5" id="tl1"  >
+      <amx:rowLayout id="rl1">
+        <amx:cellFormat id="cf1">
+          <amx:image source="/images/Warning_Icon_C-iOS8.svg" id="i2"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf2">
+          <amx:outputText value="Run this application on a device. Properties and SMS do not function properly on simulators." id="ot6"/>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
+    <amx:outputText value="This application shows you how to use the DeviceFeatures Data Control to expose device features such as geolocation, e-mail, SMS, and contacts, as well as how to query the device for its properties."
+                    id="ot3"/>
+
+    <amx:outputText value="Attachments" id="cot7" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:outputText value="This feature demonstrates how to view files like .doc,.ppt,.xls etc."
+                    id="ot2i"/>         
+                    
+    <amx:outputText value="Contacts" id="cot6" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:outputText value="This feature demonstrates how to search contacts on the device and view the contact details."
+                    id="ot2l"/>
+
+    <amx:outputText value="Email" id="cot2" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:outputText value="This feature demonstrates how to launch an email application to compose a new email."
+                    id="ot31"/>
+
+    <amx:outputText value="GPS" id="cot5" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:outputText value="This feature demonstates how to use GPS."
+                    id="ot2q"/>
+
+    <amx:outputText value="Photo" id="cot3" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:outputText value="This feature demonstrates how to get access to a photo from the photo library or from the camera roll."
+                    id="ot4"/>
+                    
+    <amx:outputText value="Properties" id="cot1" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:outputText value="This features demonstrates how to access device properties like OS, Version, Platform, Model etc."
+                    id="ot2"/>
+
+    <amx:outputText value="SMS (Not supported on Windows platform)" id="cot4" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:outputText value="This feature demonstrates how to launch the SMS app to compose a new SMS message. The SMS functionality is not supported on Windows platform."
+    
+                    id="ot5"/>
+    <amx:spacer height="5" id="s1"/>
+  </amx:panelPage>
+</amx:view>

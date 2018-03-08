@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Tabs_Bottom" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="150px" height="194px" viewBox="-14.5 15.5 150 194" enable-background="new -14.5 15.5 150 194"
+	 xml:space="preserve">
+<rect id="Background_Panel" x="-14.5" y="15.5" fill="#FFFFFF" width="150" height="194"/>
+<path id="Footer" fill="#F6F6F7" d="M-14.5,179.5h150.05v30H-14.5V179.5z"/>
+<rect id="Divide_2_" x="-14.5" y="178.38" fill="#D1D1D3" width="150" height="1"/>
+<g id="Segmented_Control_1_">
+	<path fill="none" stroke="#0572CE" stroke-width="1.0028" stroke-miterlimit="10" d="M-6.381,183.5h133.852
+		c1.148,0,2.074,0.92,2.074,2.06v17.931c0,1.141-0.926,2.061-2.074,2.061H-6.381c-1.147,0-2.074-0.92-2.074-2.061V185.56
+		C-8.455,184.42-7.529,183.5-6.381,183.5z"/>
+	<path fill="#0572CE" d="M-6.989,183.5h43.481v22.055H-6.989c-0.838,0-1.519-0.92-1.519-2.059v-17.927
+		C-8.508,184.42-7.827,183.5-6.989,183.5z"/>
+	
+		<rect x="35.375" y="183.5" fill="#F6F6F7" stroke="#0572CE" stroke-width="1.0957" stroke-miterlimit="10" width="48" height="22.072"/>
+	
+		<text id="C_Enabled_1_" transform="matrix(1.0066 0 0 1 100.666 200.0938)" fill="#0572CE" font-family="'HelveticaNeue'" font-size="16">C</text>
+	
+		<text id="B_Enabled_1_" transform="matrix(1.0066 0 0 1 54.666 200.0938)" fill="#0572CE" font-family="'HelveticaNeue'" font-size="16">B</text>
+	
+		<text id="A_Selected_1_" transform="matrix(1.0066 0 0 1 9.207 200.0938)" fill="#FFFFFF" font-family="'HelveticaNeue'" font-size="16">A</text>
+</g>
+</svg>

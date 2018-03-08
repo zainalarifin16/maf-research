@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Switch"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Text &amp; Select"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="styles" action="styles" shortDesc="Styles">
+        <amx:image id="stylesIcon" source="images/styles.svg" shortDesc=""/>
+        <amx:setPropertyListener from="" to="#{pageFlowScope.boolvalue}" type="action"/>
+      </amx:commandLink>
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:selectBooleanSwitch"
+                  shortDesc="Tag documentation" disabled="#{GlobalProperties['tagdocUrl'] == ''}"
+                  id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=textselect/selectBooleanSwitch"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:outputText id="otnf" value="Outside a form" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:selectBooleanSwitch id="selectBooleanSwitch1"
+                             value="#{pageFlowScope.componentProperties.valueBool}"
+                             label="#{pageFlowScope.componentProperties.label}"
+                             showRequired="#{pageFlowScope.componentProperties.showRequired}"
+                             rendered="#{pageFlowScope.componentProperties.rendered}"
+                             required="#{pageFlowScope.componentProperties.required}"
+                             simple="#{pageFlowScope.componentProperties.simple}"
+                             offLabel="#{pageFlowScope.componentProperties.offLabel}"
+                             onLabel="#{pageFlowScope.componentProperties.onLabel}"
+                             styleClass="#{pageFlowScope.componentProperties.styleClass}"
+                             inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+                             readOnly="#{pageFlowScope.componentProperties.readOnly}"
+                             disabled="#{pageFlowScope.componentProperties.disabled}"
+                             valueChangeListener="#{PropertyBean.ValueChangeHandler}"/>
+    <amx:outputText id="otf" value="Inside a form" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:panelFormLayout id="form">
+      <amx:selectBooleanSwitch id="selectBooleanSwitch2"
+                               value="#{pageFlowScope.componentProperties.valueBool}"
+                               label="#{pageFlowScope.componentProperties.label}"
+                               showRequired="#{pageFlowScope.componentProperties.showRequired}"
+                               rendered="#{pageFlowScope.componentProperties.rendered}"
+                               required="#{pageFlowScope.componentProperties.required}"
+                               simple="#{pageFlowScope.componentProperties.simple}"
+                               offLabel="#{pageFlowScope.componentProperties.offLabel}"
+                               onLabel="#{pageFlowScope.componentProperties.onLabel}"
+                               styleClass="#{pageFlowScope.componentProperties.styleClass}"
+                               inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+                               readOnly="#{pageFlowScope.componentProperties.readOnly}"
+                               disabled="#{pageFlowScope.componentProperties.disabled}"
+                               valueChangeListener="#{PropertyBean.ValueChangeHandler}"/>
+    </amx:panelFormLayout>
+    <amx:outputText id="outputText7" value="#{viewScope.valuechanged}"/>
+    <amx:outputText id="outputText5" value="#{viewScope.valuechangeold}"/>
+    <amx:outputText id="outputText6" value="#{viewScope.valuechangenew}"/>
+  </amx:panelPage>
+</amx:view>

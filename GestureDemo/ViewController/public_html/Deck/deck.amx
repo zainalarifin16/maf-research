@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText id="outputText1" value="Deck"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:panelGroupLayout halign="center" id="pgl2">
+        <amx:deck displayedChild="#{GestureBean.currentlySelectedPanel}"  id="d1">
+            <amx:commandLink  id="panel1">
+                <amx:panelGroupLayout halign="center" inlineStyle="width:#{deviceScope.hardware.screen.availableWidth}px;height:200px;background-color:yellow"
+                                      id="pgl1">
+                    <amx:outputText value="Panel1:  Swipe Left for Panel2" id="ot1"/>
+                </amx:panelGroupLayout>
+                <amx:setPropertyListener from="panel2" to="#{GestureBean.currentlySelectedPanel}" type="swipeStart"/>
+            </amx:commandLink>
+            <amx:commandLink id="panel2">
+                <amx:panelGroupLayout halign="center" inlineStyle="width:#{deviceScope.hardware.screen.availableWidth}px;height:200px;background-color:red"
+                                      id="pgl13">
+                    <amx:outputText value="Panel2:  Swipe Left for Panel3, Swipe Right for Panel1" id="ot13"/>
+                </amx:panelGroupLayout>
+                <amx:setPropertyListener from="panel1" to="#{GestureBean.currentlySelectedPanel}" type="swipeEnd"/>
+                <amx:setPropertyListener from="panel3" to="#{GestureBean.currentlySelectedPanel}" type="swipeStart"/>
+            </amx:commandLink>
+            <amx:commandLink id="panel3">
+                <amx:panelGroupLayout halign="center" inlineStyle="width:#{deviceScope.hardware.screen.availableWidth}px;height:200px;background-color:cyan"
+                                      id="pgel13">
+                    <amx:outputText value="Panel3:  Swipe Right for Panel2" id="ot1d3"/>
+                </amx:panelGroupLayout>
+                <amx:setPropertyListener from="panel2" to="#{GestureBean.currentlySelectedPanel}" type="swipeEnd"/>
+            </amx:commandLink>
+            <amx:transition transition="flipRight" triggerType="backNavigate" id="t1"/>
+            <amx:transition transition="flipStart" triggerType="forwardNavigate" id="t2"/>
+        </amx:deck>
+        </amx:panelGroupLayout>
+    </amx:panelPage>
+</amx:view>

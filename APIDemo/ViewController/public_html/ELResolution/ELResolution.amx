@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText id="outputText1" value="EL Resolution"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:outputText id="outputText2"
+                        value="This example shows you how to use getValueExpression and getMethodExpression calls."/>
+        <amx:spacer id="spacer1" inlineStyle="height:20px;"/>
+        <amx:outputText id="outputText3"
+                        value="Value Button: Invokes a method that will use getValueExpression to get the value of an EL expression and append '+' to it."/>
+        <amx:commandButton text="Value #{pageFlowScope.button1}"
+                           id="commandButton1" actionListener="#{ManagedBean.ValueExprHandler}"/>
+        <amx:spacer id="spacer2" inlineStyle="height:20px;"/>
+        <amx:outputText id="outputText4"
+                        value="Method Button: Invokes a method that will use getMethodExpression to call a binding on the page.  In this case it binds the DoMyMethod methodAction."/>
+       <amx:panelGroupLayout layout="horizontal" halign="center" id="pgl1">
+        <amx:commandButton styleClass="adfmf-commandButton-small" actionListener="#{ManagedBean.MethodExprHandler}" text="Method"
+                           id="commandButton2"/>
+       </amx:panelGroupLayout>
+    </amx:panelPage>
+</amx:view>

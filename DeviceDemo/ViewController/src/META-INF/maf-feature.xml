@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
+  <adfmf:feature id="Properties" name="Properties">
+    <adfmf:constraints/>
+    <adfmf:content id="Properties.1">
+      <adfmf:amx file="Properties/Properties.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p9">
+      <adfmf:property name="iOSWebView" value="default" id="p10"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="Email" name="Email">
+    <adfmf:content id="Email.1">
+      <adfmf:amx file="Email/Email.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p7">
+      <adfmf:property name="iOSWebView" value="default" id="p8"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="Picture" name="Photo">
+    <adfmf:content id="Picture.1">
+      <adfmf:amx file="Picture/taskflow.xml#taskflow"/>
+    </adfmf:content>
+    <adfmf:properties id="p3">
+      <adfmf:property name="iOSWebView" value="default" id="p4"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="SMS" name="SMS">
+    <adfmf:constraints>
+      <adfmf:constraint property="device.os" operator="not" value="Windows" id="c3"/>
+    </adfmf:constraints>
+    <adfmf:content id="SMS.1">
+      <adfmf:constraints/>
+      <adfmf:amx file="SMS/SMS.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p13">
+      <adfmf:property name="iOSWebView" value="default" id="p14"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="GPS" name="GPS">
+    <adfmf:content id="GPS.1">
+      <adfmf:amx file="GPS/taskflow.xml#taskflow"/>
+    </adfmf:content>
+    <adfmf:properties id="p1">
+      <adfmf:property name="iOSWebView" value="default" id="p2"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="Contacts" name="Contacts">
+    <adfmf:content id="Contacts.1">
+      <adfmf:amx file="Contacts/taskflow.xml#taskflow"/>
+    </adfmf:content>
+    <adfmf:properties id="p5">
+      <adfmf:property name="iOSWebView" value="default" id="p6"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="Attachments" name="Attachments">
+    <adfmf:content id="Viewer.1">
+      <adfmf:amx file="Attachments/attachments-task-flow.xml#attachments-task-flow"/>
+    </adfmf:content>
+    <adfmf:properties id="p11">
+      <adfmf:property name="iOSWebView" value="default" id="p12"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="About" name="About">
+    <adfmf:content id="About.1">
+      <adfmf:amx file="About/about.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p17">
+      <adfmf:property name="iOSWebView" value="default" id="p18"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="Springboard" name="Springboard">
+    <adfmf:content id="Springboard.1">
+      <adfmf:amx file="Springboard/springboard.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p15">
+      <adfmf:property name="iOSWebView" value="default" id="p16"/>
+    </adfmf:properties>
+  </adfmf:feature>
+</adfmf:features>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1" inlineStyle="background-color: #F6F6F7;">
+        <amx:facet name="header">
+            <amx:outputText value="Create Layout" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton text="#{pageFlowScope.pageLayout}" action="__back" id="cb1"/>
+        </amx:facet>
+        <amx:outputText value="2. Select Content Layout" id="ot2"/>
+        <amx:listView halign="center" layout="cards" var="row" showMoreStrategy="autoScroll" bufferStrategy="viewport"
+                      id="lv1">
+            <amx:listItem rendered="#{bindings.renderCardsContentLayout.inputValue}"
+                          inlineStyle="width:180px;border:none" action="layoutOptions" showLinkIcon="false" id="li1">
+                <amx:commandLink action="layoutOptions" id="cl2">
+                    <amx:image inlineStyle="border: 1px solid #C8C8C8;" id="i2" source="/images/Cards_B.svg"/>
+                    <amx:setPropertyListener from="cards" to="#{pageFlowScope.contentLayout}" id="spl1"/>
+                </amx:commandLink>
+                <amx:outputText value="Cards" id="ot4"/>
+                <amx:setPropertyListener from="cards" to="#{pageFlowScope.contentLayout}" id="splf1"/>
+            </amx:listItem>
+            <amx:listItem rendered="#{bindings.renderFilmstripContentLayout.inputValue}"
+                          inlineStyle="width:180px;border:none" action="layoutOptions" showLinkIcon="false" id="ldi1">
+                <amx:commandLink action="layoutOptions" id="cl3">
+                    <amx:image inlineStyle="border: 1px solid #C8C8C8;" id="i3" source="/images/Film_Strip_B.svg"/>
+                    <amx:setPropertyListener from="filmstrip" to="#{pageFlowScope.contentLayout}" id="spl2"/>
+                </amx:commandLink>
+                <amx:outputText value="Filmstrip" id="odt4"/>
+                <amx:setPropertyListener from="filmstrip" to="#{pageFlowScope.contentLayout}" id="spjl2"/>
+                <amx:setPropertyListener from="filmstrip" to="#{pageFlowScope.renderContentLayout}" id="spjsl2"/>
+            </amx:listItem>
+            <amx:listItem rendered="#{bindings.renderFlexContentLayout.inputValue}"
+                          inlineStyle="width:180px;border:none" action="layoutOptions" showLinkIcon="false" id="lffi1">
+                <amx:commandLink action="layoutOptions" id="cl4">
+                    <amx:image inlineStyle="border: 1px solid #C8C8C8;" id="i4" source="/images/Flex_B.svg"/>
+                    <amx:setPropertyListener from="flex" to="#{pageFlowScope.contentLayout}" id="smn2"/>
+                </amx:commandLink>
+                <amx:outputText value="Flex" id="otqa4"/>
+                <amx:setPropertyListener from="flex" to="#{pageFlowScope.contentLayout}" id="st2"/>
+            </amx:listItem>
+            <amx:listItem rendered="#{bindings.renderListviewContentLayout.inputValue}"
+                          inlineStyle="width:180px;border:none" action="layoutOptions" showLinkIcon="false" id="liln1">
+                <amx:commandLink action="layoutOptions" id="cl5">
+                    <amx:image inlineStyle="border: 1px solid #C8C8C8;" id="i5" source="/images/List_Items_B.svg"/>
+                    <amx:setPropertyListener from="listview" to="#{pageFlowScope.contentLayout}" id="spql2"/>
+                </amx:commandLink>
+                <amx:outputText value="List View" id="otm4"/>
+                <amx:setPropertyListener from="listview" to="#{pageFlowScope.contentLayout}" id="sp22"/>
+            </amx:listItem>
+            <amx:listItem rendered="#{bindings.renderMasonryContentLayout.inputValue}"
+                          inlineStyle="width:180px;border:none" action="layoutOptions" showLinkIcon="false" id="lipre1">
+                <amx:commandLink action="layoutOptions" id="cl6">
+                    <amx:image inlineStyle="border: 1px solid #C8C8C8;" id="i6" source="/images/Masonry_B.svg"/>
+                    <amx:setPropertyListener from="masonry" to="#{pageFlowScope.contentLayout}" id="slml2"/>
+                </amx:commandLink>
+                <amx:outputText value="Masonry" id="otlp4"/>
+                <amx:setPropertyListener from="masonry" to="#{pageFlowScope.contentLayout}" id="sl2ml2"/>
+            </amx:listItem>
+            <amx:listItem rendered="#{bindings.renderSwimlaneContentLayout.inputValue}"
+                          inlineStyle="width:180px;border:none" action="layoutOptions" showLinkIcon="false" id="liled1">
+                <amx:commandLink action="layoutOptions" id="cl7">
+                    <amx:image inlineStyle="border: 1px solid #C8C8C8;" id="i7" source="/images/Swim_Lane_B.svg"/>
+                    <amx:setPropertyListener from="swimlane" to="#{pageFlowScope.contentLayout}" id="spl2a"/>
+                </amx:commandLink>
+                <amx:outputText value="Swim Lane" id="otnqa4"/>
+                <amx:setPropertyListener from="swimlane" to="#{pageFlowScope.contentLayout}" id="sia"/>
+            </amx:listItem>
+            <amx:listItem rendered="#{bindings.renderTabsbottomContentLayout.inputValue}"
+                          inlineStyle="width:180px;border:none" action="layoutOptions" showLinkIcon="false" id="lned1">
+                <amx:commandLink action="layoutOptions" id="cdlp7">
+                    <amx:image inlineStyle="border: 1px solid #C8C8C8;" id="i71qw" source="/images/Tabs_Bottom_B.svg"/>
+                    <amx:setPropertyListener from="tabsbottom" to="#{pageFlowScope.contentLayout}" id="sjha"/>
+                </amx:commandLink>
+                <amx:outputText value="Tabs Bottom" id="owas4"/>
+                <amx:setPropertyListener from="tabsbottom" to="#{pageFlowScope.contentLayout}" id="sesa"/>
+            </amx:listItem>
+            <amx:listItem rendered="#{bindings.renderTabstopContentLayout.inputValue}"
+                          inlineStyle="width:180px;border:none" action="layoutOptions" showLinkIcon="false" id="ld1">
+                <amx:commandLink action="layoutOptions" id="gl7">
+                    <amx:image inlineStyle="border: 1px solid #C8C8C8;" id="lk7w" source="/images/Tabs_Top_B.svg"/>
+                    <amx:setPropertyListener from="tabstop" to="#{pageFlowScope.contentLayout}" id="sok2a"/>
+                </amx:commandLink>
+                <amx:outputText value="Tabs Top" id="fa4"/>
+                <amx:setPropertyListener from="tabstop" to="#{pageFlowScope.contentLayout}" id="skjua"/>
+            </amx:listItem>
+            <amx:listItem rendered="#{bindings.renderNoneContentLayout.inputValue}"
+                          inlineStyle="width:180px;border:none" action="layoutOptions" showLinkIcon="false" id="lws1">
+                <amx:commandLink action="layoutOptions" id="cddl7">
+                    <amx:image inlineStyle="border: 1px solid #C8C8C8;" id="i7wik" source="/images/None.svg"/>
+                    <amx:setPropertyListener from="none" to="#{pageFlowScope.contentLayout}" id="vfa"/>
+                </amx:commandLink>
+                <amx:outputText value="No Content" id="oda4"/>
+                <amx:setPropertyListener from="none" to="#{pageFlowScope.contentLayout}" id="v1qa"/>
+            </amx:listItem>
+        </amx:listView>
+    </amx:panelPage>
+</amx:view>

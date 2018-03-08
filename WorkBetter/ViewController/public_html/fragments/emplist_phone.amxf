@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1">
+        <description id="d1">Master fragment to show list/cards/map with search</description>
+        <attribute id="a1">
+            <description id="a1de">The collection to use in this list fragment specified by a Tree Binding</description>
+            <attribute-name id="a1n">Collection</attribute-name>
+            <attribute-type id="a1t">Tree Binding</attribute-type>
+            <required id="a1r">true</required>
+        </attribute>
+        <attribute id="a2">
+            <description id="a2de">Whether this is being used to show a Directory list of employees or not as a Boolean</description>
+            <attribute-name id="a2n">DirectoryMode</attribute-name>
+            <attribute-type id="a2t">Boolean</attribute-type>
+            <required id="a2r">true</required>
+        </attribute>
+    </fragment>
+    <amx:panelStretchLayout id="psl1">
+        <amx:facet name="top">
+            <amx:tableLayout id="tl6" width="100%" rendered="#{DirectoryMode eq 'true'}" shortDesc="table">
+                <amx:rowLayout id="rl8">
+                    <amx:cellFormat id="cf16" width="100%" shortDesc="cell">
+                        <amx:inputText id="it1" simple="true" hintText="Enter Name" keyboardDismiss="search"
+                                       autoCapitalize="none" autoCorrect="off" value="#{bindings.filter.inputValue}"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf17" rendered="#{UserBean.directoryListMode eq 'rows'}" width="31"
+                                    shortDesc="cell">
+                        <amx:commandLink id="cl9" styleClass="toggleButton" shortDesc="List Mode Link">
+                            <amx:image id="i19" source="/images/list_view_selected.svg" shortDesc="List Mode Image"/>
+                        </amx:commandLink>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf15" rendered="#{UserBean.directoryListMode eq 'cards'}" width="31"
+                                    shortDesc="cell">
+                        <amx:commandLink id="cl10" styleClass="toggleButton" shortDesc="List Mode Link">
+                            <amx:image id="i20" source="/images/list_view_enabled.svg" shortDesc="Card Mode Image"/>
+                            <amx:setPropertyListener id="spl5" from="rows" to="#{UserBean.directoryListMode}"/>
+                        </amx:commandLink>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf18" rendered="#{UserBean.directoryListMode eq 'rows'}" width="31"
+                                    shortDesc="cell">
+                        <amx:commandLink id="cl11" styleClass="toggleButton" shortDesc="Card Mode Link">
+                            <amx:image id="i21" source="/images/grid_view_enabled.svg" shortDesc="Card Mode Image"/>
+                            <amx:setPropertyListener id="spl6" from="cards" to="#{UserBean.directoryListMode}"/>
+                        </amx:commandLink>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf19" rendered="#{UserBean.directoryListMode eq 'cards'}" width="31"
+                                    shortDesc="cell">
+                        <amx:commandLink id="cl12" styleClass="toggleButton" shortDesc="Card Mode Link">
+                            <amx:image id="i22" source="/images/grid_view_selected.svg" shortDesc="Card Mode Image"/>
+                        </amx:commandLink>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf20" width="10" shortDesc="cell"/>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:facet>
+        <amx:facet name="center">
+            <amx:listView var="row" value="#{Collection.collectionModel}" fetchSize="#{Collection.rangeSize}"
+                          selectedRowKeys="#{Collection.collectionModel.selectedRow}"
+                          initialScrollRowKeys="#{Collection.collectionModel.selectedRow}"
+                          selectionListener="#{Collection.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
+                          bufferStrategy="additive" id="lv1"
+                          rendered="#{DirectoryMode eq 'false' or UserBean.directoryListMode eq 'rows'}">
+                <amx:listItem id="li1" showLinkIcon="false" action="profile" shortDesc="Directory List Item">
+                    <amx:accessoryLayout id="al1" startDesc="Show starting tools" startStyle="revealWhite"
+                                         endDesc="Show ending tools" endStyle="revealBlue">
+                        <amx:facet name="start">
+                            <amx:goLink id="cl1" styleClass="revealLink" shortDesc="Twitter Link"
+                                        url="twitter:#{row.empid}">
+                                <amx:image id="i6" styleClass="contactListIcon revealIcon"
+                                           source="/images/twitter_icon.svg" shortDesc="Twitter Image"/>
+                            </amx:goLink>
+                            <amx:goLink id="cl2" styleClass="revealLink" shortDesc="Facebook Link"
+                                        url="fb:#{row.empid}">
+                                <amx:image id="i7" styleClass="contactListIcon revealIcon"
+                                           source="/images/facebook_icon.svg" shortDesc="Facebook Image"/>
+                            </amx:goLink>
+                            <amx:goLink id="xl3" styleClass="revealLink" shortDesc="LinkedIn Link"
+                                        url="linkedin:#{row.empid}">
+                                <amx:image id="i8" styleClass="contactListIcon revealIcon"
+                                           source="/images/linked_in_icon.svg" shortDesc="LinkedIn Image"/>
+                            </amx:goLink>
+                        </amx:facet>
+                        <amx:facet name="end">
+                            <amx:goLink id="cl3" styleClass="revealLink" shortDesc="Work Phone Link"
+                                        url="tel:#{row.phone}">
+                                <amx:image id="i2" source="/images/work_phone_02b.svg" styleClass="contactListIcon"
+                                           shortDesc="Work Phone Image"/>
+                            </amx:goLink>
+                            <amx:goLink id="cl4" styleClass="revealLink" shortDesc="Mobile Phone Link"
+                                        url="tel:#{row.mobile}">
+                                <amx:image id="i3" source="/images/mobile_phone_02b.svg" styleClass="contactListIcon"
+                                           shortDesc="Mobile Phone Image"/>
+                            </amx:goLink>
+                            <amx:goLink id="cl5" styleClass="revealLink" shortDesc="SMS Link" url="sms:#{row.mobile}">
+                                <amx:image id="i4" styleClass="contactListIcon" source="/images/text_icon_02b.svg"
+                                           shortDesc="SMS Image"/>
+                            </amx:goLink>
+                            <amx:goLink id="cl6" styleClass="revealLink" shortDesc="Email Link"
+                                        url="mailto:#{row.email}">
+                                <amx:image id="i5" styleClass="contactListIcon" source="/images/email_icon_02b.svg"
+                                           shortDesc="Email Image"/>
+                            </amx:goLink>
+                        </amx:facet>
+                        <amx:tableLayout width="100%" id="tl1" inlineStyle="margin-right:0;" shortDesc="table">
+                            <amx:rowLayout id="rl2">
+                                <amx:cellFormat width="78" halign="center" rowSpan="3" id="cf3" height="74"
+                                                rendered="#{deviceScope.hardware.screen.availableWidth gt 320 or UserBean.orgListTab eq 'summary' ? 'true' : 'false'}"
+                                                shortDesc="cell">
+                                    <amx:image source="#{row.pic}" id="i1" styleClass="tabletListImage"
+                                               shortDesc="Person Avatar Image"/>
+                                </amx:cellFormat>
+                                <amx:cellFormat width="10" halign="center" rowSpan="3" id="cf14" height="74"
+                                                rendered="#{deviceScope.hardware.screen.availableWidth gt 320 or UserBean.orgListTab eq 'summary' ? 'false' : 'true'}"
+                                                shortDesc="cell"></amx:cellFormat>
+                                <amx:cellFormat width="100%" height="27" id="cf6" shortDesc="Cell" valign="bottom">
+                                    <amx:outputText value="#{row.firstname} #{row.lastname}" id="ot2"/>
+                                </amx:cellFormat>
+                                <amx:cellFormat id="cf4" width="120" halign="center"
+                                                rendered="#{UserBean.orgListTab eq 'perf'}" rowSpan="3"
+                                                shortDesc="cell">
+                                    <amx:tableLayout id="tl4" width="100%" shortDesc="table">
+                                        <amx:rowLayout id="rl6">
+                                            <amx:cellFormat id="cf12" width="55" halign="center" shortDesc="cell">
+                                                <dvtm:statusMeterGauge id="statusMeterGauge1" orientation="circular"
+                                                                       minValue="1" maxValue="5" value="#{row.rating}"
+                                                                       thresholdDisplay="onIndicator" plotArea="on"
+                                                                       inlineStyle="height:44px;width:44px;"
+                                                                       indicatorSize="1">
+                                                    <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                                                    <dvtm:threshold id="t1" maxValue="2" color="#ED6647"
+                                                                    text="Needs Improvement"/>
+                                                    <dvtm:threshold id="t2" maxValue="5" color="#47BDEF"
+                                                                    text="Meets or Exceeds"/>
+                                                    <dvtm:metricLabel id="ml2">
+                                                        <amx:convertNumber id="cn2" integerOnly="true"/>
+                                                    </dvtm:metricLabel>
+                                                </dvtm:statusMeterGauge>
+                                            </amx:cellFormat>
+                                            <amx:cellFormat id="cf2" width="65" halign="center" shortDesc="cell">
+                                                <dvtm:nBox id="nb1" groupBehavior="withinCell"
+                                                           inlineStyle="height:54px;width:54px"
+                                                           shortDesc="Retention NBox">
+                                                    <amx:facet name="rows">
+                                                        <dvtm:nBoxRow id="nbr3" value="2"/>
+                                                        <dvtm:nBoxRow id="nbr2" value="1"/>
+                                                        <dvtm:nBoxRow id="nbr1" value="0"/>
+                                                    </amx:facet>
+                                                    <amx:facet name="columns">
+                                                        <dvtm:nBoxColumn id="nbc3" value="2"/>
+                                                        <dvtm:nBoxColumn id="nbc2" value="1"/>
+                                                        <dvtm:nBoxColumn id="nbc1" value="0"/>
+                                                    </amx:facet>
+                                                    <amx:facet name="cells">
+                                                        <dvtm:nBoxCell id="nbce9" row="2" column="1"
+                                                                       background="#{row.lossriskstr eq '2' and row.lossimpactstr eq '1' ? '#ea9999' : '#bbb'}"/>
+                                                        <dvtm:nBoxCell id="nbce1" row="1" column="2"
+                                                                       background="#{row.lossriskstr eq '1' and row.lossimpactstr eq '2' ? '#ea9999' : '#bbb'}"/>
+                                                        <dvtm:nBoxCell id="nbce2" row="2" column="2"
+                                                                       background="#{row.lossriskstr eq '2' and row.lossimpactstr eq '2' ? '#ea9999' : '#bbb'}"/>
+                                                        <dvtm:nBoxCell id="nbc4" row="0" column="2"
+                                                                       background="#{row.lossriskstr eq '0' and row.lossimpactstr eq '2' ? '#ffe599' : '#bbb'}"/>
+                                                        <dvtm:nBoxCell id="nbc6" row="2" column="0"
+                                                                       background="#{row.lossriskstr eq '2' and row.lossimpactstr eq '0' ? '#ffe599' : '#bbb'}"/>
+                                                        <dvtm:nBoxCell id="nbc5" row="1" column="1"
+                                                                       background="#{row.lossriskstr eq '1' and row.lossimpactstr eq '1' ? '#ffe599' : '#bbb'}"/>
+                                                        <dvtm:nBoxCell id="nbce6" row="0" column="1"
+                                                                       background="#{row.lossriskstr eq '0' and row.lossimpactstr eq '1' ? '#93c47d' : '#bbb'}"/>
+                                                        <dvtm:nBoxCell id="nbce8" row="1" column="0"
+                                                                       background="#{row.lossriskstr eq '1' and row.lossimpactstr eq '0' ? '#93c47d' : '#bbb'}"/>
+                                                        <dvtm:nBoxCell id="nbc7" row="0" column="0"
+                                                                       background="#{row.lossriskstr eq '0' and row.lossimpactstr eq '0' ? '#93c47d' : '#bbb'}"/>
+                                                    </amx:facet>
+                                                </dvtm:nBox>
+                                            </amx:cellFormat>
+                                        </amx:rowLayout>
+                                        <amx:rowLayout id="rl4">
+                                            <amx:cellFormat id="cf22" halign="center" shortDesc="cell">
+                                                <amx:outputText value="Rating" id="ot8" styleClass="orgMetricLabel"/>
+                                            </amx:cellFormat>
+                                            <amx:cellFormat id="cf21" halign="center" shortDesc="cell">
+                                                <amx:outputText value="Retention" id="ot9" styleClass="orgMetricLabel"/>
+                                            </amx:cellFormat>
+                                        </amx:rowLayout>
+                                    </amx:tableLayout>
+                                </amx:cellFormat>
+                                <amx:cellFormat id="cf5" width="200" halign="center"
+                                                rendered="#{UserBean.orgListTab eq 'comp'}" rowSpan="3"
+                                                shortDesc="cell">
+                                    <amx:tableLayout id="tl2" width="100%" shortDesc="table">
+                                        <amx:rowLayout id="rl5">
+                                            <amx:cellFormat id="cf7" width="120" halign="end" shortDesc="cell">
+                                                <amx:panelGroupLayout id="pgl1" layout="horizontal">
+                                                    <amx:outputText value="#{(row.salary + row.bonus + row.commission)/1000}"
+                                                                    id="ot16" styleClass="orgMetricText"
+                                                                    inlineStyle="color:#339966">
+                                                        <amx:convertNumber id="cn3" type="currency"
+                                                                           minFractionDigits="0" maxFractionDigits="0"
+                                                                           maxIntegerDigits="3" minIntegerDigits="2"/>
+                                                    </amx:outputText>
+                                                    <amx:outputText value="k" id="ot7" styleClass="orgMetricText"
+                                                                    inlineStyle="color:#339966"/>
+                                                </amx:panelGroupLayout>
+                                            </amx:cellFormat>
+                                            <amx:cellFormat id="cf9" width="75" halign="end" shortDesc="cell">
+                                                <amx:outputText value="#{row.compratio}" id="ot15"
+                                                                inlineStyle="color:#{row.compratio le 85 ? '#ED6647' : '#47BDEF'}"
+                                                                styleClass="orgMetricText"/>
+                                            </amx:cellFormat>
+                                            <amx:cellFormat id="cf13" width="5" rowSpan="2" shortDesc="cell"/>
+                                        </amx:rowLayout>
+                                        <amx:rowLayout id="rl7">
+                                            <amx:cellFormat id="cf10" halign="end" shortDesc="cell">
+                                                <amx:outputText value="Total Comp" id="ot3"
+                                                                styleClass="orgMetricLabel"/>
+                                            </amx:cellFormat>
+                                            <amx:cellFormat id="cf11" halign="end" shortDesc="cell">
+                                                <amx:outputText value="Compa" id="ot4" styleClass="orgMetricLabel"/>
+                                            </amx:cellFormat>
+                                        </amx:rowLayout>
+                                    </amx:tableLayout>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                            <amx:rowLayout id="rl1">
+                                <amx:cellFormat height="31" id="cf1" shortDesc="Cell">
+                                    <amx:outputText value="#{row.title}" id="ot5"
+                                                    styleClass="adfmf-listItem-captionText"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                            <amx:rowLayout id="rl3">
+                                <amx:cellFormat height="16" id="cf8" shortDesc="Cell" valign="top">
+                                    <amx:outputText value="#{row.deptname}" id="ot6"
+                                                    styleClass="adfmf-listItem-captionText"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                        </amx:tableLayout>
+                    </amx:accessoryLayout>
+                    <amx:setPropertyListener id="spl1" from="#{row.empid}" to="#{pageFlowScope.drillEmpid}"/>
+                </amx:listItem>
+            </amx:listView>
+            <amx:listView var="row" value="#{Collection.collectionModel}" fetchSize="#{Collection.rangeSize}"
+                          selectedRowKeys="#{Collection.collectionModel.selectedRow}"
+                          initialScrollRowKeys="#{Collection.collectionModel.selectedRow}"
+                          selectionListener="#{Collection.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
+                          bufferStrategy="additive" id="lv2"
+                          rendered="#{DirectoryMode eq 'true' and UserBean.directoryListMode eq 'cards'}" layout="cards"
+                          styleClass="cardList">
+                <!-- inlineStyle="#{deviceScope.hardware.screen.availableHeight gt deviceScope.hardware.screen.availableWidth ? 'width:' + (deviceScope.hardware.screen.availableWidth - 40) + 'px' : 'width:' + (deviceScope.hardware.screen.availableWidth / 2 - 30) + 'px'}"
+                          displayedChild="#{pageFlowScope['img'+row.rowKey] == '' ? 'front' : pageFlowScope['img'+row.rowKey]}"-->
+                <amx:listItem id="li2" showLinkIcon="false" styleClass="cardItemPhone" shortDesc="Directory List Item"
+                              action="profile">
+                    <amx:deck id="d2" displayedChild="#{row.active ? 'back' : 'front'}" shortDesc="Directory Deck">
+                        <amx:tableLayout id="front" width="100%" styleClass="cardfront" shortDesc="table">
+                            <amx:rowLayout id="rl11">
+                                <amx:cellFormat id="cf33" rowSpan="5" valign="top" width="80" shortDesc="cell">
+                                    <amx:image source="#{row.pic}" id="i9" shortDesc="List Image"
+                                               styleClass="tabletListImage"/>
+                                </amx:cellFormat>
+                                <amx:cellFormat id="cf35" height="27" valign="bottom" shortDesc="cell">
+                                    <amx:outputText value="#{row.firstname} #{row.lastname}" id="ot17"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                            <amx:rowLayout id="rl13">
+                                <amx:cellFormat id="cf36" height="31" shortDesc="cell">
+                                    <amx:outputText value="#{row.title}" id="ot18"
+                                                    styleClass="adfmf-listItem-captionText"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                            <amx:rowLayout id="rl14">
+                                <amx:cellFormat id="cf37" height="16" valign="top" shortDesc="cell">
+                                    <amx:outputText value="#{row.deptname}" id="ot19"
+                                                    styleClass="adfmf-listItem-captionText"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                            <amx:rowLayout id="rl15">
+                                <amx:cellFormat id="cf38" valign="top" shortDesc="cell">
+                                    <amx:panelGroupLayout id="pgl4" layout="horizontal">
+                                        <amx:goLink id="gl4" styleClass="revealLink" shortDesc="Work Phone Link"
+                                                    url="tel:#{row.phone}">
+                                            <amx:image id="i11" source="/images/work_phone_icon.svg"
+                                                       styleClass="contactCardIcon" shortDesc="Work Image"/>
+                                        </amx:goLink>
+                                        <amx:spacer id="s1" width="10"/>
+                                        <amx:goLink id="gl5" styleClass="revealLink" shortDesc="Mobile Phone Link"
+                                                    url="tel:#{row.mobile}">
+                                            <amx:image id="i12" source="/images/mobile_phone_icon.svg"
+                                                       styleClass="contactCardIcon" shortDesc="Mobile Phone Image"/>
+                                        </amx:goLink>
+                                        <amx:spacer id="s2" width="10"/>
+                                        <amx:goLink id="gl6" styleClass="revealLink" shortDesc="SMS Link"
+                                                    url="sms:#{row.mobile}">
+                                            <amx:image id="i13" styleClass="contactCardIcon"
+                                                       source="/images/text_icon.svg" shortDesc="Text Image"/>
+                                        </amx:goLink>
+                                        <amx:spacer id="s3" width="10"/>
+                                        <amx:goLink id="gl7" styleClass="revealLink" shortDesc="Email Link"
+                                                    url="mailto:#{row.email}">
+                                            <amx:image id="i14" styleClass="contactCardIcon"
+                                                       source="/images/email_icon.svg" shortDesc="Email Image"/>
+                                        </amx:goLink>
+                                    </amx:panelGroupLayout>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                            <amx:rowLayout id="rl12">
+                                <amx:cellFormat id="cf34" width="100%" halign="end" shortDesc="cell">
+                                    <amx:commandLink id="cl7" styleClass="toggleButton" shortDesc="Flip Link">
+                                        <amx:image id="i10" source="/images/flip_arrow_01.svg" shortDesc="Flip Image"/>
+                                        <amx:setPropertyListener id="spl3" from="true" to="#{row.active}"/>
+                                        <!--amx:setPropertyListener id="spl7" from="back" to="#{pageFlowScope['img'+row.rowKey]}"/-->
+                                    </amx:commandLink>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                        </amx:tableLayout>
+                        <amx:tableLayout id="back" width="100%" styleClass="cardback" shortDesc="table">
+                            <amx:rowLayout id="rl16">
+                                <amx:cellFormat id="cf44" rowSpan="5" width="10" shortDesc="cell"/>
+                                <amx:cellFormat id="cf39" height="27" valign="bottom" shortDesc="cell">
+                                    <amx:outputText value="Office: #{row.office}" id="ot20" inlineStyle="color:white"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                            <amx:rowLayout id="rl17">
+                                <amx:cellFormat id="cf40" height="31" shortDesc="cell">
+                                    <amx:outputText value="#{row.city}, #{row.state}" id="ot21"
+                                                    styleClass="adfmf-listItem-captionText" inlineStyle="color:white"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                            <amx:rowLayout id="rl18">
+                                <amx:cellFormat id="cf41" height="16" valign="top" shortDesc="cell">
+                                    <amx:outputText value="Job Code: #{row.jobcode}" id="ot22"
+                                                    styleClass="adfmf-listItem-captionText" inlineStyle="color:white"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                            <amx:rowLayout id="rl19">
+                                <amx:cellFormat id="cf42" valign="top" shortDesc="cell">
+                                    <amx:panelGroupLayout id="pgl2" layout="horizontal">
+                                        <amx:goLink id="gl1" styleClass="revealLink" shortDesc="Twitter Link"
+                                                    url="twitter:#{row.empid}">
+                                            <amx:image id="i15" source="/images/twitter_icon_grid_view.svg"
+                                                       styleClass="contactCardIcon" shortDesc="Twitter Image"/>
+                                        </amx:goLink>
+                                        <amx:spacer id="s4" width="10"/>
+                                        <amx:goLink id="gl2" styleClass="revealLink" shortDesc="Facebook Link"
+                                                    url="fb:#{row.empid}">
+                                            <amx:image id="i16" source="/images/facebook_icon_grid_view.svg"
+                                                       styleClass="contactCardIcon" shortDesc="Facebook Image"/>
+                                        </amx:goLink>
+                                        <amx:spacer id="s5" width="10"/>
+                                        <amx:goLink id="gl3" styleClass="revealLink" shortDesc="LinkedIn Link"
+                                                    url="linkedin:#{row.empid}">
+                                            <amx:image id="i17" styleClass="contactCardIcon"
+                                                       source="/images/linkedIn_icon_grid_view.svg"
+                                                       shortDesc="LinkedIn Image"/>
+                                        </amx:goLink>
+                                    </amx:panelGroupLayout>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                            <amx:rowLayout id="rl20">
+                                <amx:cellFormat id="cf43" width="100%" halign="end" shortDesc="cell">
+                                    <amx:commandLink id="cl8" styleClass="toggleButton" shortDesc="Flip Link">
+                                        <amx:image id="i18" source="/images/flip_arrow_02.svg" shortDesc="Flip Image"/>
+                                        <amx:setPropertyListener id="spl4" from="false" to="#{row.active}"/>
+                                        <!--amx:setPropertyListener id="spl8" from="front"
+                                                                 to="#{pageFlowScope['img'+row.rowKey]}"/-->
+                                    </amx:commandLink>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                        </amx:tableLayout>
+                        <amx:transition triggerType="forwardNavigate" id="t4" transition="flipRight"/>
+                        <amx:transition triggerType="backNavigate" id="t3" transition="flipRight"/>
+                    </amx:deck>
+                    <amx:setPropertyListener id="spl2" from="#{row.empid}" to="#{pageFlowScope.drillEmpid}"/>
+                </amx:listItem>
+            </amx:listView>
+        </amx:facet>
+    </amx:panelStretchLayout>
+</amx:fragmentDef>

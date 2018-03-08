@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.16.14" id="drillingPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="DrillingDataList" id="DrillingDataListIterator"/>
+    <accessorIterator MasterBinding="DrillingDataListIterator" Binds="drillingData" RangeSize="-1"
+                      DataControl="DrillingDataList" BeanClass="model.DrillingData" id="drillingDataIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="drillingDataIterator" id="drillingData">
+      <nodeDefinition DefName="model.DrillingData" Name="drillingData0">
+        <AttrNames>
+          <Item Value="series"/>
+          <Item Value="value"/>
+          <Item Value="group"/>
+          <Item Value="subGroup"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Radio Set"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Text &amp; Select"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:selectOneRadio"
+                  shortDesc="Tag documentation" disabled="#{GlobalProperties['tagdocUrl'] == ''}"
+                  id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=textselect/selectOneRadio"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:outputText id="otnf" value="Outside a form" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:selectOneRadio id="selectOneRadio1" value="#{pageFlowScope.componentProperties.value}"
+                        label="#{pageFlowScope.componentProperties.label}"
+                        showRequired="#{pageFlowScope.componentProperties.showRequired}"
+                        rendered="#{pageFlowScope.componentProperties.rendered}"
+                        required="#{pageFlowScope.componentProperties.required}"
+                        simple="#{pageFlowScope.componentProperties.simple}"
+                        styleClass="#{pageFlowScope.componentProperties.styleClass}"
+                        inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+                        readOnly="#{pageFlowScope.componentProperties.readOnly}"
+                        disabled="#{pageFlowScope.componentProperties.disabled}"
+                        valueChangeListener="#{PropertyBean.ValueChangeHandler}">
+      <amx:selectItem label="Item 1" value="item1"/>
+      <amx:selectItem label="Item 2" value="item2"/>
+      <amx:selectItem label="Item 3" value="item3"/>
+    </amx:selectOneRadio>
+    <amx:outputText id="otf" value="Inside a form" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:panelFormLayout id="form">
+      <amx:selectOneRadio id="selectOneRadio2" value="#{pageFlowScope.componentProperties.value}"
+                          label="#{pageFlowScope.componentProperties.label}"
+                          showRequired="#{pageFlowScope.componentProperties.showRequired}"
+                          rendered="#{pageFlowScope.componentProperties.rendered}"
+                          required="#{pageFlowScope.componentProperties.required}"
+                          simple="#{pageFlowScope.componentProperties.simple}"
+                          styleClass="#{pageFlowScope.componentProperties.styleClass}"
+                          inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+                          readOnly="#{pageFlowScope.componentProperties.readOnly}"
+                          disabled="#{pageFlowScope.componentProperties.disabled}"
+                          valueChangeListener="#{PropertyBean.ValueChangeHandler}">
+        <amx:selectItem label="Item 1" value="item1"/>
+        <amx:selectItem label="Item 2" value="item2"/>
+        <amx:selectItem label="Item 3" value="item3"/>
+      </amx:selectOneRadio>
+    </amx:panelFormLayout>
+    <amx:outputText id="outputText7" value="#{viewScope.valuechanged}"/>
+    <amx:outputText id="outputText5" value="#{viewScope.valuechangeold}"/>
+    <amx:outputText id="outputText6" value="#{viewScope.valuechangenew}"/>
+  </amx:panelPage>
+</amx:view>

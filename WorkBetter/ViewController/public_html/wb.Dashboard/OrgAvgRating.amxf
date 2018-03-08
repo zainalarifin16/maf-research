@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1"/>
+    <amx:outputText value="Average Org Performance" id="ot1" styleClass="tile-title"/>
+    <amx:commandLink id="cl1" action="myOrg" styleClass="fullSize" shortDesc="Organization Link">
+        <amx:tableLayout id="tl1" width="100%" styleClass="orgavgrating" shortDesc="table">
+            <amx:rowLayout id="rl1">
+                <amx:cellFormat id="cf4" columnSpan="2" height="25" shortDesc="Cell"/>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl3">
+                <amx:cellFormat id="cf1" rowSpan="2" height="217" width="60%" shortDesc="cell"></amx:cellFormat>
+                <amx:cellFormat id="cf2" width="40%" halign="center" shortDesc="cell">
+                    <amx:panelGroupLayout id="pgl2" halign="center" styleClass="circle-container transcolor">
+                        <amx:outputText value="#{bindings.orgavgrating.inputValue}" id="ot2"
+                                        styleClass="circle-metrictext2 metrictext-blue">
+                            <amx:convertNumber id="cn1" minFractionDigits="1" maxFractionDigits="1" type="number"/>
+                        </amx:outputText>
+                        <amx:outputText value="Rating" id="ot3" styleClass="metriclabelblack"/>
+                    </amx:panelGroupLayout>
+                </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl2">
+                <amx:cellFormat id="cf3" halign="center" shortDesc="cell">
+                    <amx:panelGroupLayout id="pgl1" halign="center" styleClass="circle-container transcolor">
+                        <amx:outputText value="#{bindings.orgavgpotential.inputValue}" id="ot4"
+                                        styleClass="circle-metrictext2 metrictext-blue">
+                            <amx:convertNumber id="cn2" minFractionDigits="1" maxFractionDigits="1" type="number"/>
+                        </amx:outputText>
+                        <amx:outputText value="Potential" id="ot5" styleClass="metriclabelblack"/>
+                    </amx:panelGroupLayout>
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener id="spl1" from="perf" to="#{UserBean.orgListTab}"/>
+        <amx:setPropertyListener id="spl2" from="true" to="#{pageFlowScope.showBackButton}"/>
+    </amx:commandLink>
+</amx:fragmentDef>

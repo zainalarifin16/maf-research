@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Panel"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Layout"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="styles" action="styles" shortDesc="Styles">
+        <amx:image id="stylesIcon" source="images/styles.svg" shortDesc=""/>
+        <amx:setPropertyListener from="Default" to="#{pageFlowScope.panelGroupStyle}" type="action"/>
+      </amx:commandLink>
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:panelGroupLayout"
+                  shortDesc="Tag documentation" disabled="#{GlobalProperties['tagdocUrl'] == ''}"
+                  id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=layout/panelGroupLayout"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:outputText id="section1" value="Property Editor Example"
+                    styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:panelGroupLayout id="panelGroupLayout1"
+                          halign="#{pageFlowScope.componentProperties.halign}"
+                          inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+                          layout="#{pageFlowScope.componentProperties.layoutPGL}"
+                          landmark="#{pageFlowScope.componentProperties.landmark}"
+                          rendered="#{pageFlowScope.componentProperties.rendered}"
+                          scrollPolicy="#{pageFlowScope.componentProperties.scrollPolicy}"
+                          styleClass="#{pageFlowScope.componentProperties.styleClass}"
+                          valign="#{pageFlowScope.componentProperties.valign}">
+      <amx:outputText id="ot1"
+                      inlineStyle="display:inline-block;width:200px;text-align:center;background:#ffdddd;color:black"
+                      value="First Element"/>
+      <amx:outputText id="ot2"
+                      inlineStyle="display:inline-block;width:200px;text-align:center;background:#ddddff;color:black"
+                      value="Second Element"/>
+      <amx:commandButton id="cb1" text="Button 1"/>
+      <amx:commandButton id="cb2" text="Button 2"/>
+      <amx:panelGroupLayout layout="vertical">
+        <amx:commandButton id="cbY" text="Button Y"/>
+        <amx:commandButton id="cbZ" text="Button Z"/>
+      </amx:panelGroupLayout>
+      <amx:tableLayout id="tl1" borderWidth="1">
+        <amx:rowLayout id="rl1">
+          <amx:cellFormat id="cfA">
+            <amx:commandButton id="cbA" text="A"/>
+          </amx:cellFormat>
+          <amx:cellFormat id="cfB">
+            <amx:commandButton id="cbB" text="B"/>
+          </amx:cellFormat>
+          <amx:cellFormat id="cfC">
+            <amx:commandButton id="cbC" text="C"/>
+          </amx:cellFormat>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl2">
+          <amx:cellFormat id="cfD">
+            <amx:commandButton id="cbD" text="D"/>
+          </amx:cellFormat>
+          <amx:cellFormat id="cfE">
+            <amx:commandButton id="cbE" text="E"/>
+          </amx:cellFormat>
+          <amx:cellFormat id="cfF">
+            <amx:commandButton id="cbF" text="F"/>
+          </amx:cellFormat>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl3">
+          <amx:cellFormat id="cfG">
+            <amx:commandButton id="cbG" text="G"/>
+          </amx:cellFormat>
+          <amx:cellFormat id="cfH">
+            <amx:commandButton id="cbH" text="H"/>
+          </amx:cellFormat>
+          <amx:cellFormat id="cfI">
+            <amx:commandButton id="cbI" text="I"/>
+          </amx:cellFormat>
+        </amx:rowLayout>
+      </amx:tableLayout>
+      <amx:outputText id="ot3"
+                      inlineStyle="display:inline-block;width:25%;text-align: center;background:#ddddff;color:black;font-size:11px"
+                      value="25%"/>
+      <amx:outputText id="ot4"
+                      inlineStyle="display:inline-block;width:25%;text-align: center;background:#ffddff;color:black;font-size:11px"
+                      value="25%"/>
+      <amx:outputText id="ot5"
+                      inlineStyle="display:inline-block;width:25%;text-align: center;background:#dddddd;color:black;font-size:11px"
+                      value="25%"/>
+    </amx:panelGroupLayout>
+    <amx:outputText id="section2" value="Special amx-style-groupbox Example"
+                    styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:panelGroupLayout id="panelGroupLayout2" styleClass="amx-style-groupbox">
+      <amx:outputText id="otSection2"
+                      value='This panelGroupLayout uses the "amx-style-groupbox" styleClass.'/>
+    </amx:panelGroupLayout>
+  </amx:panelPage>
+</amx:view>

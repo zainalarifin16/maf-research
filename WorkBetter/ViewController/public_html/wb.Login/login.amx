@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:loadingIndicatorBehavior id="lib1" failSafeDuration="60000"/>
+    <amx:panelPage id="pp1"
+                   styleClass="login-page #{deviceScope.hardware.screen.height > deviceScope.hardware.screen.width ? 'login-page-tall' : 'login-page-wide'}">
+        <amx:facet name="header">
+            <amx:outputText value="WorkBetter" id="ot1"/>
+        </amx:facet>
+        <amx:panelStretchLayout id="psl1">
+            <amx:facet name="center">
+                <amx:filmStrip id="fs1" itemSizing="stretched"
+                               itemsPerPage="#{deviceScope.hardware.screen.diagonalSize lt 6 ? 1 : 3}"
+                               styleClass="login-filmstrip"
+                               pageControlPosition="#{deviceScope.hardware.screen.diagonalSize ge 6 ? 'none' : 'insideBottom'}"
+                               inlineStyle="height:100%"
+                               shortDesc="Login Filmstrip">
+                    <amx:filmStripItem id="fsi3" styleClass="blue login-filmstripitem"
+                                       shortDesc="Login Filmstrip Karen">
+                        <amx:commandLink id="cl3" styleClass="login-link adfmf-commandLink-noUnderline amx-fitParent"
+                                         shortDesc="Login Karen Link">
+                            <amx:flexLayout id="fl3"
+                                            orientation="#{deviceScope.hardware.screen.diagonalSize ge 6 ? 'vertical' : (deviceScope.hardware.screen.availableWidth lt deviceScope.hardware.screen.availableHeight ? 'vertical' : 'horizontal') }">
+                                <amx:panelGroupLayout id="pgl3" halign="center" valign="middle"
+                                                      styleClass="login-avatar-container">
+                                    <amx:image id="i3" source="/images/avatar_Karen_144@2x.png"
+                                               styleClass="login-avatar" shortDesc="Login Karen Image"/>
+                                </amx:panelGroupLayout>
+                                <amx:panelGroupLayout id="pgl6" halign="center" styleClass="login-nameblock">
+                                    <amx:outputText value="Karen" id="ot9" styleClass="login-name"/>
+                                    <amx:outputText value="Sales Manager" id="ot10" styleClass="login-title"/>
+                                    <amx:tableLayout id="tl4" width="100%" styleClass="login-desc-container"
+                                                     shortDesc="table">
+                                        <amx:rowLayout id="rl3">
+                                            <amx:cellFormat id="cf3" width="100%" shortDesc="cell">
+                                                <amx:outputText value="Hi, my name is Karen and I am a sales manager reporting to Gerald.  I have six direct reports."
+                                                                id="ot11" styleClass="login-desc"/>
+                                            </amx:cellFormat>
+                                        </amx:rowLayout>
+                                    </amx:tableLayout>
+                                </amx:panelGroupLayout>
+                            </amx:flexLayout>
+                            <amx:setPropertyListener id="spl3" from="146" to="#{viewScope.empid}"/>
+                            <amx:actionListener id="al2" binding="#{UserBean.Login}"/>
+                        </amx:commandLink>
+                    </amx:filmStripItem>
+                    <amx:filmStripItem id="fsi2" styleClass="orange login-filmstripitem"
+                                       shortDesc="Login Gerald Filmstrip ">
+                        <amx:commandLink id="cl2" styleClass="login-link adfmf-commandLink-noUnderline  amx-fitParent"
+                                         shortDesc="Login Gerald Link">
+                            <amx:flexLayout id="fl2"
+                                            orientation="#{deviceScope.hardware.screen.diagonalSize ge 6 ? 'vertical' : (deviceScope.hardware.screen.availableWidth lt deviceScope.hardware.screen.availableHeight ? 'vertical' : 'horizontal') }">
+                                <amx:panelGroupLayout id="pgl2" halign="center" valign="middle"
+                                                      styleClass="login-avatar-container">
+                                    <amx:image id="i2" source="/images/avatar_Gerald_144@2x.png"
+                                               styleClass="login-avatar" shortDesc="Login Gerald Image"/>
+                                </amx:panelGroupLayout>
+                                <amx:panelGroupLayout id="pgl5" halign="center" styleClass="login-nameblock">
+                                    <amx:outputText value="Gerald" id="ot6" styleClass="login-name"/>
+                                    <amx:outputText value="Sales Director" id="ot7" styleClass="login-title"/>
+                                    <amx:tableLayout id="tl2" width="100%" styleClass="login-desc-container"
+                                                     shortDesc="table">
+                                        <amx:rowLayout id="rl2">
+                                            <amx:cellFormat id="cf2" width="100%" shortDesc="cell">
+                                                <amx:outputText value="Hi, my name is Gerald and I am a sales director reporting to Neena.  I have six direct reports and two managers."
+                                                                id="ot8" styleClass="login-desc"/>
+                                            </amx:cellFormat>
+                                        </amx:rowLayout>
+                                    </amx:tableLayout>
+                                </amx:panelGroupLayout>
+                            </amx:flexLayout>
+                            <amx:setPropertyListener id="spl2" from="148" to="#{viewScope.empid}"/>
+                            <amx:actionListener id="al1" binding="#{UserBean.Login}"/>
+                        </amx:commandLink>
+                    </amx:filmStripItem>
+                    <amx:filmStripItem id="fsi1" styleClass="green login-filmstripitem"
+                                       shortDesc="Login Filmstrip Steven">
+                        <amx:commandLink id="cl1" styleClass="login-link adfmf-commandLink-noUnderline amx-fitParent"
+                                         shortDesc="Login Stevel Link">
+                            <amx:flexLayout id="fl1"
+                                            orientation="#{deviceScope.hardware.screen.diagonalSize ge 6 ? 'vertical' : (deviceScope.hardware.screen.availableWidth lt deviceScope.hardware.screen.availableHeight ? 'vertical' : 'horizontal') }"
+                                            inlineStyle="height:100%;">
+                                <amx:panelGroupLayout id="pgl1" halign="center" valign="middle"
+                                                      styleClass="login-avatar-container">
+                                    <amx:image id="i1" source="/images/avatar_Steven_144@2x.png"
+                                               styleClass="login-avatar" shortDesc="Login Steven Image"/>
+                                </amx:panelGroupLayout>
+                                <amx:panelGroupLayout id="pgl4" halign="center" styleClass="login-nameblock">
+                                    <amx:outputText value="Steven" id="ot3" styleClass="login-name"/>
+                                    <amx:outputText value="President" id="ot4" styleClass="login-title"/>
+                                    <amx:tableLayout id="tl3" width="100%" styleClass="login-desc-container"
+                                                     shortDesc="table">
+                                        <amx:rowLayout id="rl5">
+                                            <amx:cellFormat id="cf5" width="100%" shortDesc="cell">
+                                                <amx:outputText value="Hi, my name is Steven and I am president of the company.  I am responsible for all departments and have four direct reports."
+                                                                id="ot5" styleClass="login-desc"/>
+                                            </amx:cellFormat>
+                                        </amx:rowLayout>
+                                    </amx:tableLayout>
+                                </amx:panelGroupLayout>
+                            </amx:flexLayout>
+                            <amx:setPropertyListener id="spl1" from="100" to="#{viewScope.empid}"/>
+                            <amx:actionListener id="al4" binding="#{UserBean.Login}"/>
+                        </amx:commandLink>
+                    </amx:filmStripItem>
+                </amx:filmStrip>
+            </amx:facet>
+            <amx:facet name="bottom">
+                <amx:tableLayout id="tl1" width="100%" shortDesc="table">
+                    <amx:rowLayout id="rl1">
+                        <amx:cellFormat id="cf1" width="100%"
+                                        height="#{deviceScope.hardware.screen.diagonalSize lt 6 ? '60px' : '145px'}"
+                                        halign="center" shortDesc="cell">
+                            <amx:outputText value="Select a person to sign in." id="ot2" styleClass="login-help"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:facet>
+        </amx:panelStretchLayout>
+    </amx:panelPage>
+</amx:view>

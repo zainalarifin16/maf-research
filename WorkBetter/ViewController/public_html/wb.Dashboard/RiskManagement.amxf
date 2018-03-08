@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1"/>
+    <amx:outputText value="Retention" id="ot1" styleClass="tile-title"/>
+    <amx:commandLink id="cl1"
+                     rendered="#{UserBean.riskSize eq 'small' and deviceScope.hardware.screen.diagonalSize ge 6 }" styleClass="expandcollapsearrow"
+                     shortDesc="Expand Link">
+        <amx:image id="i1" source="/images/expand_icon_32.svg" shortDesc="Expand Image"/>
+        <amx:setPropertyListener id="spl1" from="large" to="#{UserBean.riskSize}"/>
+    </amx:commandLink>
+    <amx:commandLink id="cl2" rendered="#{UserBean.riskSize eq 'large'}" styleClass="expandcollapsearrow"
+                     shortDesc="Collapse Link">
+        <amx:image id="i2" source="/images/collapse_icon_32.svg" shortDesc="Collapse Image"/>
+        <amx:setPropertyListener id="spl2" from="small" to="#{UserBean.riskSize}"/>
+    </amx:commandLink>
+    <amx:tableLayout id="tl1" width="100%" inlineStyle="background-color:#dee2e6" shortDesc="table">
+        <amx:rowLayout id="rl2">
+            <amx:cellFormat id="cf2" height="25" shortDesc="cell"/>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl1">
+            <amx:cellFormat id="cf1" height="#{UserBean.riskSize eq 'small' ? '217' : '469'}" width="100%"
+                            halign="center" shortDesc="cell">
+                <dvtm:nBox id="nb1" var="ent" rowsTitle="Risk"
+                           value="#{bindings.orgEmployees.collectionModel}" columnsTitle="Impact"
+                           groupBehavior="withinCell" selectionListener="#{UserBean.nBoxSelectionHandler}"
+                           inlineStyle="margin-right:10px;#{UserBean.riskSize eq 'small' ? 'height:217px;width:242px' : 'height:469px;width:494px'}"
+                           shortDesc="Retention NBox">
+                    <amx:facet name="rows">
+                        <dvtm:nBoxRow id="nbr3" value="2"/>
+                        <dvtm:nBoxRow id="nbr2" value="1"/>
+                        <dvtm:nBoxRow id="nbr1" value="0"/>
+                    </amx:facet>
+                    <amx:facet name="columns">
+                        <dvtm:nBoxColumn id="nbc3" value="2"/>
+                        <dvtm:nBoxColumn id="nbc2" value="1"/>
+                        <dvtm:nBoxColumn id="nbc1" value="0"/>
+                    </amx:facet>
+                    <amx:facet name="cells">
+                        <dvtm:nBoxCell id="nbce9" row="2" column="1" background="#ed6647"/>
+                        <dvtm:nBoxCell id="nbce1" row="1" column="2" background="#ed6647"/>
+                        <dvtm:nBoxCell id="nbce2" row="2" column="2" background="#ed6647"/>
+                        <dvtm:nBoxCell id="nbce4" row="0" column="2" background="#fad55c"/>
+                        <dvtm:nBoxCell id="nbce6" row="2" column="0" background="#fad55c"/>
+                        <dvtm:nBoxCell id="nbce5" row="1" column="1" background="#fad55c"/>
+                        <dvtm:nBoxCell id="nbce3" row="0" column="1" background="#68c182"/>
+                        <dvtm:nBoxCell id="nbce8" row="1" column="0" background="#68c182"/>
+                        <dvtm:nBoxCell id="nbce7" row="0" column="0" background="#68c182"/>
+                    </amx:facet>
+                    <dvtm:nBoxNode id="nbn1" column="#{ent.lossimpactstr}" row="#{ent.lossriskstr}">
+                        <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                        <amx:facet name="icon">
+                            <dvtm:marker id="mrk1" source="#{ent.pic}" width="50" height="50"/>
+                        </amx:facet>
+                    </dvtm:nBoxNode>
+                </dvtm:nBox>
+            </amx:cellFormat>
+        </amx:rowLayout>
+    </amx:tableLayout>
+</amx:fragmentDef>

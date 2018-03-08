@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Spacer"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Layout"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:spacer" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=layout/spacer" shortDesc="Bookmarkable Link"
+                  styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:tableLayout id="tl1" borderWidth="1" layout="weighted">
+      <amx:rowLayout id="rl1">
+        <amx:cellFormat id="cf1" inlineStyle="background-color:orange" width="10px" height="10px"/>
+        <amx:cellFormat id="cf2" inlineStyle="background-color:red"/>
+        <amx:cellFormat id="cf3" inlineStyle="background-color:purple" width="10px"/>
+      </amx:rowLayout>
+      <amx:rowLayout id="rl2">
+        <!-- these font-size and line-height styles are to allow spacer heights smaller than text -->
+        <amx:cellFormat id="cf4"
+                        inlineStyle="font-size:1px;line-height:1px;background-color:yellow"/>
+        <!--
+          Use #{pageFlowScope.componentProperties.attr} instead of
+          #{pageFlowScope.componentProperties.attr} because the DataChangeEvents won't find the
+          latter syntax. See bug:
+          Bug 19951138 - dce do not work with indexed valueexpressions in javascript
+        -->
+        <amx:cellFormat id="cf5" inlineStyle="font-size:1px;line-height:1px">
+          <amx:spacer id="editorSpacer" rendered="#{pageFlowScope.componentProperties.rendered}"
+                      styleClass="#{pageFlowScope.componentProperties.styleClass}"
+                      inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+                      width="#{pageFlowScope.componentProperties.width}"
+                      height="#{pageFlowScope.componentProperties.height}"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf6" inlineStyle="font-size:1px;line-height:1px;background-color:blue"/>
+      </amx:rowLayout>
+      <amx:rowLayout id="rl3">
+        <amx:cellFormat id="cf7" inlineStyle="background-color:gray" height="10px"/>
+        <amx:cellFormat id="cf8" inlineStyle="background-color:green"/>
+        <amx:cellFormat id="cf9" inlineStyle="background-color:black"/>
+      </amx:rowLayout>
+    </amx:tableLayout>
+    <amx:outputText id="info1" value="This is a 3 by 3 tableLayout."/>
+    <amx:outputText id="info2" value="The cell in the middle of the table contains the spacer."/>
+    <amx:outputText id="info3" value="Column 1 has width of 10px."/>
+    <amx:outputText id="info4" value="Column 3 has width of 10px."/>
+    <amx:outputText id="info5" value="Row 1 has height of 10px."/>
+    <amx:outputText id="info6" value="Row 3 has height of 10px."/>
+  </amx:panelPage>
+</amx:view>

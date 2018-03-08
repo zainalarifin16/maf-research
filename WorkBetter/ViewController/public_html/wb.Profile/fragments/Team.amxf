@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1">
+        <description id="d1">Vragment to show cards of team members</description>
+        <attribute id="a1">
+            <description id="a1de">A collection specified by a Tree Binding</description>
+            <attribute-name id="a1n">Collection</attribute-name>
+            <attribute-type id="a1t">Tree Binding</attribute-type>
+            <required id="a1r">true</required>
+        </attribute>
+    </fragment>
+    <amx:fragment src="/fragments/Loading.amxf" id="f12"/>
+    <amx:listView var="row" value="#{Collection.collectionModel}" fetchSize="#{Collection.rangeSize}"
+                  selectedRowKeys="#{Collection.collectionModel.selectedRow}"
+                  initialScrollRowKeys="#{Collection.collectionModel.selectedRow}"
+                  selectionListener="#{Collection.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
+                  bufferStrategy="viewport" id="lv1" layout="cards" styleClass="teamCardList cardList"
+                  rendered="#{bindings.loading.inputValue ne 'true'}">
+        <amx:listItem id="li1" showLinkIcon="false" action="empDrill" shortDesc="Team List Item">
+            <amx:tableLayout id="tl2" width="100%"
+                             inlineStyle="background-color:#{row.directs gt 0 ? '#afbac5' : '#cfdce9'};margin:0"
+                             shortDesc="table">
+                <amx:rowLayout id="rl14">
+                    <amx:cellFormat id="cf32" width="100%" height="100" halign="center" inlineStyle="padding-top:10px"
+                                    shortDesc="cell">
+                        <amx:image source="#{row.pic}" id="i8" shortDesc="Person Image"
+                                   styleClass="tabletProfileImage"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl15">
+                    <amx:cellFormat id="cf33" halign="center" height="24" shortDesc="cell">
+                        <amx:outputText value="#{row.firstname} #{row.lastname}" id="ot11" styleClass="teamCardText"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl19">
+                    <amx:cellFormat id="cf34" halign="center" height="40" valign="top" shortDesc="cell">
+                        <amx:outputText value="#{row.title}" id="ot12" styleClass="teamCardText teamCardTitle"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl20">
+                    <amx:cellFormat id="cf38"
+                                    inlineStyle="background-color:#{row.directs gt 0 ? '#bcc8d4' : 'transparent'};"
+                                    height="40" shortDesc="cell">
+                        <amx:tableLayout id="tl3" rendered="#{row.directs gt 0}" width="100%" shortDesc="table">
+                            <amx:rowLayout id="rl21">
+                                <amx:cellFormat id="cf39" width="25%" height="35" halign="center" shortDesc="cell">
+                                    <amx:image id="i9" source="/images/workbetter.png"
+                                               inlineStyle="width:28px;height:28px" shortDesc="WorkBetter Image"/>
+                                </amx:cellFormat>
+                                <amx:cellFormat id="cf40" width="50%" shortDesc="cell">
+                                    <amx:outputText value="#{row.directs} Directs" id="ot10" styleClass="teamCardText"/>
+                                </amx:cellFormat>
+                                <amx:cellFormat id="cf41" width="25%" shortDesc="cell"/>
+                            </amx:rowLayout>
+                        </amx:tableLayout>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+            <amx:setPropertyListener id="spl5" from="#{row.empid}" to="#{pageFlowScope.drillEmpid}"/>
+        </amx:listItem>
+    </amx:listView>
+</amx:fragmentDef>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Carousel Item"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:carouselItem" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg"
+                   shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dataviews/carouselItem" shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:panelGroupLayout id="pgl" layout="vertical" styleClass="adfmf-panelGroupLayout-groupBox">
+      <amx:carousel id="carousel" var="item" value="#{bindings.contacts.collectionModel}">
+        <amx:facet name="nodeStamp">
+          <amx:carouselItem
+            id="carouselItem"
+            text="#{pageFlowScope.componentProperties.text}"
+            inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+            rendered="#{pageFlowScope.componentProperties.rendered}"
+            shortDesc="#{pageFlowScope.componentProperties.shortDesc}"
+            styleClass="#{pageFlowScope.componentProperties.styleClass}">
+            <amx:panelGroupLayout id="scroll" layout="vertical" scrollPolicy="scroll">
+              <amx:panelFormLayout id="panelFormLayout1" labelPosition="topStart" fieldHalign="start">
+                <amx:panelLabelAndMessage id="panelLabelAndMessage3" label="ID">
+                  <amx:outputText value="#{item.id}" id="outputText3"/>
+                </amx:panelLabelAndMessage>
+                <amx:panelLabelAndMessage id="panelLabelAndMessage1" label="First">
+                  <amx:outputText value="#{item.first}" id="outputText2"/>
+                </amx:panelLabelAndMessage>
+                <amx:panelLabelAndMessage id="panelLabelAndMessage2" label="Last">
+                  <amx:outputText value="#{item.last}" id="outputText4"/>
+                </amx:panelLabelAndMessage>
+                <amx:panelLabelAndMessage id="panelLabelAndMessage4" label="Phone">
+                  <amx:outputText value="#{item.phone}" id="outputText1"/>
+                </amx:panelLabelAndMessage>
+              </amx:panelFormLayout>
+            </amx:panelGroupLayout>
+          </amx:carouselItem>
+        </amx:facet>
+      </amx:carousel>
+    </amx:panelGroupLayout>
+  </amx:panelPage>
+</amx:view>

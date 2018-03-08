@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="About" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+        <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+      </amx:commandLink>
+    </amx:facet>
+    <amx:outputText value="This application demonstrates how to use a 3rd party plugin to detect iBeacons." 
+                    id="ot2"/>
+    <amx:outputText value="Please ensure that your Android device supports BLE." 
+                    id="ot3" rendered='#{deviceScope.device.os == "Android"}'/>
+    <amx:outputText value="This functionality is not supported on Windows." 
+                    id="ot4" rendered='#{deviceScope.device.os == "UWP"}'/>
+    <amx:outputText value="Since this functionality is not supported by the iOS Simulator, please deploy it to an iOS device." 
+                    id="ot5" rendered='#{deviceScope.device.platform == "iPhone Simulator" || deviceScope.device.platform == "iPad Simulator"}'/>
+    <amx:outputText value="Please ensure that both Bluetooth and Location Services are enabled." 
+                    id="ot6" rendered='#{deviceScope.device.platform != "iPhone Simulator" &amp;&amp; deviceScope.device.platform != "iPad Simulator" &amp;&amp; deviceScope.device.platform != "UWP"}'/>
+    <amx:outputText value="You must allow this app to send you notifications and to access your location in all circumstances." 
+                    id="ot7" rendered='#{deviceScope.device.platform != "iPhone Simulator" &amp;&amp; deviceScope.device.platform != "iPad Simulator" &amp;&amp; deviceScope.device.platform != "UWP"}'/>
+    <amx:outputText value="You can set the UUID of the beacon region to be monitored in the beacon.js file." 
+                    id="ot8" rendered='#{deviceScope.device.platform != "iPhone Simulator" &amp;&amp; deviceScope.device.platform != "iPad Simulator" &amp;&amp; deviceScope.device.platform != "UWP"}'/>
+    <amx:outputText value="If you enter or exit a beacon region defined by this UUID, a local notification will be triggered." 
+                    id="ot9" rendered='#{deviceScope.device.platform != "iPhone Simulator" &amp;&amp; deviceScope.device.platform != "iPad Simulator" &amp;&amp; deviceScope.device.platform != "UWP"}'/>
+    <amx:outputText value="If this app is active when that occurs, or if you tap on the notification, this app will become active and will automatically navigate to the Welcome feature." 
+                    id="ot10" rendered='#{deviceScope.device.platform != "iPhone Simulator" &amp;&amp; deviceScope.device.platform != "iPad Simulator" &amp;&amp; deviceScope.device.platform != "UWP"}'/>
+    <amx:outputText value="If you move the device into the immediate vicinity of a beacon within the region, the Welcome page will display information relevant to that beacon." 
+                    id="ot11" rendered='#{deviceScope.device.platform != "iPhone Simulator" &amp;&amp; deviceScope.device.platform != "iPad Simulator" &amp;&amp; deviceScope.device.platform != "UWP"}'/>
+    <amx:outputText value="If you do not have any actual iBeacons, you can deploy the FakeBeacon sample app to one or more iOS devices to emulate one or more iBeacons." 
+                    id="ot12" rendered='#{deviceScope.device.platform != "iPhone Simulator" &amp;&amp; deviceScope.device.platform != "iPad Simulator" &amp;&amp; deviceScope.device.platform != "UWP"}'/>
+  </amx:panelPage>
+</amx:view>

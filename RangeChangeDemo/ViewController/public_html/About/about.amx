@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="About" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+        <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+            <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+        </amx:commandLink>
+    </amx:facet>
+    <amx:outputText value="This application demonstrates how to use a RangeChangeEvent to incrementally load data into the model from an external source and display the data in a ListView.  It also demonstrates ListView attributes related to scrolling and buffering, which you can manage within the Settings feature." id="ot2"/>
+    <amx:outputText value="Two approaches are demonstrated within this app as separate features." id="ot3"/>
+    <amx:outputText value="Features" styleClass="adfmf-outputText-sectionTitle" id="ot16"/>
+    <amx:outputText value="Data Control" styleClass="adfmf-outputText-bold" id="ot4"/>
+    <amx:outputText value="This feature demonstrates the ListView bound to a CollectionModel within a Data Control.  The Data Control's provider class implements RangeChangeListener and no RangeChangeListener attribute is specified for the ListView.  This is the preferred approach." id="ot5"/>
+    <amx:outputText value="In this example, the RangeSize on the binding iterator is set to 10.  The ListView's FetchSize attribute is set to the iterator's RangeSize." id="ot6"/>
+    <amx:outputText value="Managed Bean" styleClass="adfmf-outputText-bold" id="ot7"/>
+    <amx:outputText value="This feature demonstrates the ListView backed by a managed bean containing a List.  The managed bean provides a method for handling RangeChangeEvents and this is specified as the ListView's RangeChangeListener attribute." id="ot8"/>
+    <amx:outputText value="In this example, the ListView's FetchSize attribute is set to 10." id="ot9"/>    
+    <amx:outputText value="Settings" styleClass="adfmf-outputText-sectionTitle" id="ot10"/>
+    <amx:outputText value="Show More Strategy" styleClass="adfmf-outputText-bold" id="ot11"/>
+    <amx:outputText value="Specifies the strategy used by the ListView for fetching more rows to display." id="ot12"/>
+    <amx:outputText value="Buffer Strategy" styleClass="adfmf-outputText-bold" id="ot13"/>
+    <amx:outputText value="Specifies the strategy used by the ListView for retaining the retrieved rows." id="ot14"/>
+    <amx:outputText value="Buffer Size" styleClass="adfmf-outputText-bold" id="ot15"/>
+    <amx:outputText value="Specifies the number of pixels beyond the viewport edges where a row will be preserved when using the 'viewport' buffer strategy." id="ot20"/>
+    <amx:outputText value="Note" styleClass="adfmf-outputText-sectionTitle" id="ot17"/>
+    <amx:outputText value="Changes to the Settings will be reapplied to a feature if you reset the feature by tapping the Reset link." id="ot18"/>
+  </amx:panelPage>
+</amx:view>

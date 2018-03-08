@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.61.83" id="ResultsPageDef"
+                Package="Contacts">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="findContacts.result" DataControl="DeviceFeatures" RangeSize="25"
+                    BeanClass="oracle.adf.model.datacontrols.device.Contact" id="findContactsIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="ContactBean" id="ContactBeanIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="findContacts" RequiresUpdateModel="true" Action="invokeMethod" MethodName="findContacts"
+                  IsViewObjectMethod="false" DataControl="DeviceFeatures"
+                  InstanceName="data.DeviceFeatures.dataProvider"
+                  ReturnName="data.DeviceFeatures.methodResults.findContacts_DeviceFeatures_dataProvider_findContacts_result">
+      <NamedData NDName="contactFields" NDValue="#{pageFlowScope.ContactBean.contactFields}" NDType="java.lang.String"/>
+      <NamedData NDName="filter" NDValue="#{pageFlowScope.ContactBean.filter}" NDType="java.lang.String"/>
+      <NamedData NDName="multiple" NDValue="#{pageFlowScope.ContactBean.multiple}" NDType="boolean"/>
+    </methodAction>
+    <tree IterBinding="findContactsIterator" id="Contact">
+      <nodeDefinition DefName="oracle.adf.model.datacontrols.device.Contact" Name="Contact0">
+        <AttrNames>
+          <Item Value="displayName"/>
+          <Item Value="nickname"/>
+          <Item Value="id"/>
+          <Item Value="birthday"/>
+          <Item Value="note"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="name"/>
+          <Item Value="phoneNumbers"/>
+          <Item Value="emails"/>
+          <Item Value="addresses"/>
+          <Item Value="ims"/>
+          <Item Value="organizations"/>
+          <Item Value="photos"/>
+          <Item Value="categories"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="oracle.adf.model.datacontrols.device.ContactName" Name="Contact1">
+        <AttrNames>
+          <Item Value="formatted"/>
+          <Item Value="givenName"/>
+          <Item Value="familyName"/>
+          <Item Value="honorificPrefix"/>
+          <Item Value="honorificSuffix"/>
+          <Item Value="middleName"/>
+        </AttrNames>
+      </nodeDefinition>
+      <nodeDefinition DefName="oracle.adf.model.datacontrols.device.ContactAddresses" Name="Contact1">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="country"/>
+          <Item Value="formatted"/>
+          <Item Value="locality"/>
+          <Item Value="postalCode"/>
+          <Item Value="region"/>
+          <Item Value="streetAddress"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+      <nodeDefinition DefName="oracle.adf.model.datacontrols.device.ContactOrganization" Name="Contact1">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="department"/>
+          <Item Value="name"/>
+          <Item Value="title"/>
+        </AttrNames>
+      </nodeDefinition>
+      <nodeDefinition DefName="oracle.adf.model.datacontrols.device.ContactField" Name="Contact1">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="pref"/>
+          <Item Value="type"/>
+          <Item Value="value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="ContactBeanIterator" id="contactFields">
+      <AttrNames>
+        <Item Value="contactFields"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1"/>
+    <amx:flexLayout id="fl1" itemFlexibility="inflexible"
+                    orientation="#{(deviceScope.hardware.screen.diagonalSize lt 6) and (deviceScope.hardware.screen.width gt deviceScope.hardware.screen.height) ? 'horizontal' : 'vertical'}"
+                    styleClass="fullSize">
+        <amx:tableLayout id="tl5"
+                         width="#{(deviceScope.hardware.screen.diagonalSize lt 6) and (deviceScope.hardware.screen.width gt deviceScope.hardware.screen.height) ? deviceScope.hardware.screen.availableWidth/2 : '100%'}"
+                         shortDesc="table">
+            <amx:rowLayout id="rl22">
+                <amx:cellFormat id="cf40" width="100%" halign="center" columnSpan="2" height="40" shortDesc="cell">
+                    <amx:outputText value="Team Performance" id="ot21" styleClass="profileHeaderText"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl29">
+                <amx:cellFormat id="cf46" width="100%" columnSpan="2" shortDesc="cell">
+                    <amx:fragment src="/fragments/Loading.amxf" id="f2"/>
+                    <dvtm:nBox id="nb1" var="ent" rowsTitle="Potential" value="#{bindings.colleagues.collectionModel}"
+                               columnsTitle="Performance" nodeSelection="single" shortDesc="NBox"
+                               selectionListener="#{UserBean.nBoxSelectionHandler}"
+                               inlineStyle="height:#{(deviceScope.hardware.screen.diagonalSize lt 6) and (deviceScope.hardware.screen.width gt deviceScope.hardware.screen.height) ? deviceScope.hardware.screen.availableHeight-180 : '250'}px;margin-left:25px;margin-right:25px"
+                               rendered="#{bindings.loading.inputValue ne 'true'}">
+                        <amx:facet name="rows">
+                            <dvtm:nBoxRow id="nbr1" value="low"/>
+                            <dvtm:nBoxRow id="nbr2" value="med"/>
+                            <dvtm:nBoxRow id="nbr3" value="high"/>
+                        </amx:facet>
+                        <amx:facet name="columns">
+                            <dvtm:nBoxColumn id="nbc1" value="low"/>
+                            <dvtm:nBoxColumn id="nbc2" value="med"/>
+                            <dvtm:nBoxColumn id="nbc3" value="high"/>
+                        </amx:facet>
+                        <amx:facet name="cells">
+                            <dvtm:nBoxCell id="nbce1" row="low" column="low" background="#ed6647"/>
+                            <dvtm:nBoxCell id="nbce2" row="med" column="low" background="#ed6647"/>
+                            <dvtm:nBoxCell id="nbce3" row="high" column="low" background="#fad55c"/>
+                            <dvtm:nBoxCell id="nbce4" row="low" column="med" background="#ed6647"/>
+                            <dvtm:nBoxCell id="nbce5" row="med" column="med" background="#fad55c"/>
+                            <dvtm:nBoxCell id="nbce6" row="high" column="med" background="#68c182"/>
+                            <dvtm:nBoxCell id="nbce7" row="low" column="high" background="#fad55c"/>
+                            <dvtm:nBoxCell id="nbce8" row="med" column="high" background="#68c182"/>
+                            <dvtm:nBoxCell id="nbce9" row="high" column="high" background="#68c182"/>
+                        </amx:facet>
+                        <dvtm:nBoxNode id="nbn1" column="#{ent.nboxRating}" row="#{ent.nboxPotential}"
+                                       shortDesc="NBox Node">
+                            <amx:facet name="icon">
+                                <dvtm:marker id="mrk1" source="#{ent.pic}" width="50" height="50"
+                                             shortDesc="NBox Node Marker"/>
+                            </amx:facet>
+                        </dvtm:nBoxNode>
+                    </dvtm:nBox>
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:tableLayout id="tl1"
+                         width="#{(deviceScope.hardware.screen.diagonalSize lt 6) and (deviceScope.hardware.screen.width gt deviceScope.hardware.screen.height) ? '330' : '100%'}"
+                         shortDesc="table">
+            <amx:rowLayout id="rl31">
+                <amx:cellFormat id="cf49" columnSpan="2" width="100%" halign="center"
+                                height="#{(deviceScope.hardware.screen.diagonalSize lt 6) and (deviceScope.hardware.screen.width gt deviceScope.hardware.screen.height) ? '40' : '60'}"
+                                valign="bottom" shortDesc="cell">
+                    <amx:outputText value="Retention" id="ot22" styleClass="profileHeaderText"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl30">
+                <amx:cellFormat id="cf47" width="50%" halign="center" shortDesc="cell">
+                    <amx:panelGroupLayout id="pgl9" styleClass="profileRetentionCircleGreen" halign="center"
+                                          rendered="#{bindings.lossrisk.inputValue eq 0}">
+                        <amx:outputText value="Low" id="ot28" styleClass="profileRetentionText"/>
+                    </amx:panelGroupLayout>
+                    <amx:panelGroupLayout id="pgl10" styleClass="profileRetentionCircleYellow" halign="center"
+                                          rendered="#{bindings.lossrisk.inputValue eq 1}">
+                        <amx:outputText value="Med" id="ot29" styleClass="profileRetentionText"/>
+                    </amx:panelGroupLayout>
+                    <amx:panelGroupLayout id="pgl11" styleClass="profileRetentionCircleRed" halign="center"
+                                          rendered="#{bindings.lossrisk.inputValue eq 2}">
+                        <amx:outputText value="High" id="ot30" styleClass="profileRetentionText"/>
+                    </amx:panelGroupLayout>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf48" width="50%" halign="center" shortDesc="cell">
+                    <amx:panelGroupLayout id="pgl5" styleClass="profileRetentionCircleGreen" halign="center"
+                                          rendered="#{bindings.lossimpact.inputValue eq 0}">
+                        <amx:outputText value="Low" id="ot25" styleClass="profileRetentionText"/>
+                    </amx:panelGroupLayout>
+                    <amx:panelGroupLayout id="pgl7" styleClass="profileRetentionCircleYellow" halign="center"
+                                          rendered="#{bindings.lossimpact.inputValue eq 1}">
+                        <amx:outputText value="Med" id="ot26" styleClass="profileRetentionText"/>
+                    </amx:panelGroupLayout>
+                    <amx:panelGroupLayout id="pgl8" styleClass="profileRetentionCircleRed" halign="center"
+                                          rendered="#{bindings.lossimpact.inputValue eq 2}">
+                        <amx:outputText value="High" id="ot27" styleClass="profileRetentionText"/>
+                    </amx:panelGroupLayout>
+                </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl32">
+                <amx:cellFormat id="cf51" width="50%" halign="center" shortDesc="cell">
+                    <amx:outputText value="Risk" id="ot24" styleClass="profileText"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf50" width="50%" halign="center" shortDesc="cell">
+                    <amx:outputText value="Impact" id="ot23" styleClass="profileText"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
+    </amx:flexLayout>
+</amx:fragmentDef>

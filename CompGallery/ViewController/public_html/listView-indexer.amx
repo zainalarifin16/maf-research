@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:popup id="p1" backgroundDimming="on" autoDismiss="true">
+    <amx:panelFormLayout id="pfl1" labelPosition="topStart" inlineStyle="width:200px">
+      <amx:selectOneChoice label="Section Index" id="soc1"
+                           value="#{pageFlowScope.componentProperties.sectionIndex}">
+        <amx:selectItem id="si1" label="&lt;default>"/>
+        <amx:selectItem id="si2" value="auto" label="auto"/>
+        <amx:selectItem id="si3" value="off" label="off"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice label="Divider Mode" id="soc2"
+                           value="#{pageFlowScope.componentProperties.dividerMode}">
+        <amx:selectItem id="si4" label="&lt;default>"/>
+        <amx:selectItem id="si5" value="all" label="all"/>
+        <amx:selectItem id="si6" value="firstLetter" label="first letter"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice label="Divider Attribute" id="soc3"
+                           value="#{pageFlowScope.componentProperties.dividerAttribute}">
+        <amx:selectItem id="si7" label="&lt;default>"/>
+        <amx:selectItem id="si8" value="last" label="last"/>
+      </amx:selectOneChoice>
+    </amx:panelFormLayout>
+  </amx:popup>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="List View + Indexer"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+        <amx:showPopupBehavior popupId="p1" id="spb1" alignId="props" decoration="anchor"
+                               align="bottomCenter"/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:listView" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dataviews/listViewIndexer" shortDesc="Bookmarkable Link"
+                  styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:panelSplitter id="ps1" position="40%">
+      <amx:facet name="navigator">
+        <amx:listView id="lv1" var="row" showDividerCount="true"
+                      value="#{bindings.contacts.collectionModel}"
+                      fetchSize="#{bindings.contacts.rangeSize}"
+                      dividerAttribute="#{pageFlowScope.componentProperties.dividerAttribute}"
+                      dividerMode="#{pageFlowScope.componentProperties.dividerMode}"
+                      inlineStyle="height:100%"
+                      sectionIndex="#{pageFlowScope.componentProperties.sectionIndex}"
+                      bufferSize="0" bufferStrategy="viewport" showMoreStrategy="autoScroll">
+          <amx:listItem showLinkIcon="false" id="li1"
+                        actionListener="#{bindings.setCurrentRowWithKey.execute}">
+            <amx:setPropertyListener to="#{viewScope.selecterRowId}" from="#{row.id}"/>
+            <amx:outputText value="#{row.first} #{row.last}" id="ot1"/>
+          </amx:listItem>
+        </amx:listView>
+      </amx:facet>
+      <amx:panelItem id="pi1">
+        <amx:panelStretchLayout id="psl1">
+          <amx:facet name="top">
+            <amx:outputText value="(#{bindings.id.inputValue}) #{bindings.first.inputValue} #{bindings.last.inputValue}"
+                            id="ot10"
+                            inlineStyle="padding-left:20px;line-height:36px; font-weight:bold; text-decoration:underline solid currentColor; font-size:14px;"/>
+          </amx:facet>
+          <amx:facet name="center">
+            <amx:panelFormLayout id="pfl2">
+              <amx:panelLabelAndMessage label="#{bindings.address.hints.label}" id="plam6">
+                <amx:outputText value="#{bindings.address.inputValue}" id="ot7"/>
+              </amx:panelLabelAndMessage>
+              <amx:panelLabelAndMessage label="#{bindings.city.hints.label}" id="plam1">
+                <amx:outputText value="#{bindings.city.inputValue}" id="ot2"/>
+              </amx:panelLabelAndMessage>
+              <amx:panelLabelAndMessage label="#{bindings.state.hints.label}" id="plam3">
+                <amx:outputText value="#{bindings.state.inputValue}" id="ot4"/>
+              </amx:panelLabelAndMessage>
+              <amx:panelLabelAndMessage label="#{bindings.zip.hints.label}" id="plam7">
+                <amx:outputText value="#{bindings.zip.inputValue}" id="ot8"/>
+              </amx:panelLabelAndMessage>
+              <amx:panelLabelAndMessage label="#{bindings.phone.hints.label}" id="plam2">
+                <amx:outputText value="#{bindings.phone.inputValue}" id="ot3"/>
+              </amx:panelLabelAndMessage>
+              <amx:panelLabelAndMessage label="#{bindings.mobile.hints.label}" id="plam4">
+                <amx:outputText value="#{bindings.mobile.inputValue}" id="ot5"/>
+              </amx:panelLabelAndMessage>
+            </amx:panelFormLayout>
+          </amx:facet>
+        </amx:panelStretchLayout>
+      </amx:panelItem>
+    </amx:panelSplitter>
+  </amx:panelPage>
+</amx:view>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Taskflow Return" id="ot1"/>
+    </amx:facet>
+        <amx:facet name="primary">
+          <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+              <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+          </amx:commandLink>
+        </amx:facet>
+    <amx:panelGroupLayout id="pgl1" halign="center">
+      <amx:commandButton id="cb1" text="Taskflow With No Return" action="v1a" inlineStyle="width:80%"/>
+      <amx:commandButton id="cb2" text="Taskflow With Return" action="v2a" inlineStyle="width:80%"/>
+    </amx:panelGroupLayout>
+        <amx:panelGroupLayout layout="horizontal" halign="center" id="pgdl1">
+    <amx:image source="/images/callreturn1.png" id="i2"/>
+    </amx:panelGroupLayout>
+
+  </amx:panelPage>
+</amx:view>

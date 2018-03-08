@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1">
+          <description id="d1">Generic  fragment for swimlane layout</description>
+        <attribute id="a1">
+            <attribute-name id="a3n">contentText1</attribute-name>
+            <attribute-type id="a3t">String</attribute-type>
+        </attribute>
+        <attribute id="a2">
+            <attribute-name id="ad">contentText2</attribute-name>
+            <attribute-type id="a3dt">String</attribute-type>
+        </attribute>
+        <attribute id="a3">
+            <attribute-name id="ad3n">contentText3</attribute-name>
+            <attribute-type id="ad3t">String</attribute-type>
+        </attribute>
+        <attribute id="a4">
+            <attribute-name id="a3dn">contentText4</attribute-name>
+            <attribute-type id="a3cdt">String</attribute-type>
+        </attribute>
+        <attribute id="a5">
+            <attribute-name id="add">contentText5</attribute-name>
+            <attribute-type id="a3ddt">String</attribute-type>
+        </attribute>
+</fragment>
+    <amx:panelGroupLayout id="pglsl1" inlineStyle="width:100%" layout="wrap" scrollPolicy="scroll">
+      <amx:outputText styleClass="adfmf-outputText-padded" value="#{contentText1}" id="ot2"/>
+    <amx:panelGroupLayout id="pglssl1" inlineStyle="width:100%" layout="horizontal" scrollPolicy="scroll">
+      <amx:panelGroupLayout id="pgl11" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5;" />
+      <amx:panelGroupLayout id="pgl12" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl13" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl14" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl15" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl16" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl18" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl19" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl10" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+    </amx:panelGroupLayout>
+    <amx:outputText styleClass="adfmf-outputText-padded" value="#{contentText2}" id="ot3"/>
+    <amx:panelGroupLayout id="pglsl2" inlineStyle="width:100%" layout="horizontal" scrollPolicy="scroll">
+      <amx:panelGroupLayout id="pgl21" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl22" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl23" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl24" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl25" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl26" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl27" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl28" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl29" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl20" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+    </amx:panelGroupLayout>
+    <amx:outputText styleClass="adfmf-outputText-padded" value="#{contentText3}" id="ot4"/>
+    <amx:panelGroupLayout id="pglsl3" inlineStyle="width:100%" layout="horizontal" scrollPolicy="scroll">
+      <amx:panelGroupLayout id="pgl31" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl32" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl33" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl34" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl35" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl36" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl37" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl38" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl39" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl30" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+    </amx:panelGroupLayout>
+    <amx:outputText styleClass="adfmf-outputText-padded" value="#{contentText4}" id="ot5"/>
+    <amx:panelGroupLayout id="pglsl4" inlineStyle="width:100%" layout="horizontal" scrollPolicy="scroll">
+      <amx:panelGroupLayout id="pgl41" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl42" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl43" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl44" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl45" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl46" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl47" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl48" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl49" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl40" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+    </amx:panelGroupLayout>
+    <amx:outputText styleClass="adfmf-outputText-padded" value="#{contentText5}" id="ot6"/>
+    <amx:panelGroupLayout id="pglsl5" inlineStyle="width:100%" layout="horizontal" scrollPolicy="scroll">
+      <amx:panelGroupLayout id="pgl51" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl52" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl53" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl54" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl55" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl56" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl57" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl58" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl59" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+      <amx:panelGroupLayout id="pgl50" inlineStyle="margin: 10px;width: 100px;height: 100px;background-color: #DAE9F5"/>
+    </amx:panelGroupLayout>
+    </amx:panelGroupLayout>
+</amx:fragmentDef>

@@ -1,0 +1,32 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View5">
+      <property
+         name="activityId">People</property>
+      <property
+         name="page">/crud.CRUD/People.amx</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>People&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">169.80078</property>
+      <property
+         name="x">165.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase3"
+      from="View5"
+      to="View5">
+      <property
+         name="fromOutcome">refresh</property>
+      <property
+         name="sdm:polyPoints">T44,161.5,115.734375,168.5,115.734375,T56</property>
+   </ControlFlowCase>
+</SDM>

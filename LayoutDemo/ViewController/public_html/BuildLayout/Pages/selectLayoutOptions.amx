@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="Create Layout" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton text="#{pageFlowScope.contentLayout}" action="__back" id="cb1"/>
+        </amx:facet>
+        <amx:outputText value="3. Select Layout Options" id="ot2"/>
+        <amx:panelFormLayout id="pfl1">
+            <amx:panelLabelAndMessage label="Page Layout" id="plam2">
+                <amx:outputText value="#{pageFlowScope.pageLayout}" id="ot4"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="Content Layout" id="plam1">
+                <amx:outputText value="#{pageFlowScope.contentLayout}" id="ot3"/>
+            </amx:panelLabelAndMessage>
+            <amx:selectBooleanCheckbox id="selectBooleacnCheckbox1" value="#{pageFlowScope.useFixedSummaryView}"
+                                       label="Use Fixed Summary View"/>
+        </amx:panelFormLayout>
+        <amx:panelGroupLayout layout="horizontal" halign="center" id="pgl1">
+            <amx:commandButton styleClass="adfmf-commandButton-large" text="Create It" action="showLayout" id="cbd1"/>
+        </amx:panelGroupLayout>
+    </amx:panelPage>
+</amx:view>

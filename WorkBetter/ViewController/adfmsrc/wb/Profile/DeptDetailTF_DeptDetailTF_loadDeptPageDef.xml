@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.21.11"
+                id="DeptDetailTF_DeptDetailTF_loadDeptPageDef" Package="wb.Profile" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="loadDept" RequiresUpdateModel="true" Action="invokeMethod" MethodName="loadDept"
+                  IsViewObjectMethod="false" DataControl="HRService" InstanceName="data.HRService.dataProvider">
+      <NamedData NDName="deptid" NDValue="#{pageFlowScope.deptid}" NDType="int"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

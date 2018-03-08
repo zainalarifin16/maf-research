@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="taskflow">
+    <default-activity>Home</default-activity>
+    <view id="Home">
+      <page>/CallReturn/Home.amx</page>
+    </view>
+    <view id="View1a">
+      <page>/CallReturn/View1a.amx</page>
+    </view>
+    <view id="View1b">
+      <page>/CallReturn/View1b.amx</page>
+    </view>
+    <view id="View2a">
+      <page>/CallReturn/View2a.amx</page>
+    </view>
+    <view id="View2b">
+      <page>/CallReturn/View2b.amx</page>
+    </view>
+    <task-flow-call id="TF_With_NoReturn">
+      <task-flow-reference>
+        <document>/CallReturn/NoReturn.xml</document>
+        <id>NoReturn</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="TF_With_Return">
+      <task-flow-reference>
+        <document>/CallReturn/Return.xml</document>
+        <id>Return</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>Home</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>v1a</from-outcome>
+        <to-activity-id>View1a</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>v2a</from-outcome>
+        <to-activity-id>View2a</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>View1a</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>v1b</from-outcome>
+        <to-activity-id>View1b</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>View2a</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>v2b</from-outcome>
+        <to-activity-id>View2b</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>View1b</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>NR</from-outcome>
+        <to-activity-id>TF_With_NoReturn</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>View2b</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>R</from-outcome>
+        <to-activity-id>TF_With_Return</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-mobile-config>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.12.18" id="DataBindings"
+             SeparateXMLFiles="false" Package="mobile" ClientType="Generic">
+  <pageMap>
+    <page path="/Springboard/springboard.amx" usageId="mobile_springboardPageDef"/>
+    <page path="/About/about.amx" usageId="mobile_aboutPageDef"/>
+    <page path="/feature1.amx" usageId="mobile_feature1PageDef"/>
+    <page path="/feature2.amx" usageId="mobile_feature2PageDef"/>
+    <page path="/Feature2/feature2.amx" usageId="mobile_feature2PageDef1"/>
+    <page path="/Feature1/feature1.amx" usageId="mobile_feature1PageDef1"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="mobile_springboardPageDef" path="Springboard.springboardPageDef"/>
+    <page id="mobile_aboutPageDef" path="About.aboutPageDef"/>
+    <page id="mobile_feature1PageDef" path="mobile.pageDefs.feature1PageDef"/>
+    <page id="mobile_feature2PageDef" path="mobile.pageDefs.feature2PageDef"/>
+    <page id="mobile_feature2PageDef1" path="Feature2.feature2PageDef"/>
+    <page id="mobile_feature1PageDef1" path="Feature1.feature1PageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="ApplicationFeatures" path="application.ApplicationFeatures"/>
+  </dataControlUsages>
+</Application>

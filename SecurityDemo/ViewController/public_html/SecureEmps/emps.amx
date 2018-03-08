@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Employees" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+        <amx:image id="i1" inlineStyle="width:32px;height:32px" source="/images/springboard.png"/>
+      </amx:commandLink>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandButton id="cb2" text="Logout" actionListener="#{EventHandler.doLogout}"/>
+    </amx:facet>
+    <amx:listView var="row" value="#{bindings.emps.collectionModel}" fetchSize="#{bindings.emps.rangeSize}"
+                  selectedRowKeys="#{bindings.emps.collectionModel.selectedRow}"
+                  initialScrollRowKeys="#{bindings.emps.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.emps.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
+                  bufferStrategy="viewport" id="lv1">
+      <amx:listItem id="li1" action="detail">
+        <amx:tableLayout width="100%" id="tl1">
+            <amx:rowLayout id="rl2">
+                <amx:cellFormat width="10px" rowSpan="2" id="cf6"/>
+                <amx:cellFormat width="60%" height="28px" id="cf5">
+                    <amx:outputText value="#{row.first} #{row.last}" id="ot5"/>
+                </amx:cellFormat>
+                <amx:cellFormat width="10px" rowSpan="2" id="cf4"/>
+                <amx:cellFormat width="40%" halign="end" id="cf3"/>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl1">
+                <amx:cellFormat width="60%" height="12px" id="cf1">
+                    <amx:outputText value="#{row.phone}" styleClass="adfmf-listItem-captionText" id="ot2"/>
+                </amx:cellFormat>
+                <amx:cellFormat width="40%" halign="end" id="cf2">
+                    <amx:outputText value="#{row.deptId}" styleClass="adfmf-listItem-captionText" id="ot3"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
+      </amx:listItem>
+    </amx:listView>
+  </amx:panelPage>
+</amx:view>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1"/>
+    <amx:outputText value="Org Compa Ratios" id="ot1" styleClass="tile-title title-white"/>
+    <amx:commandLink id="cl1" action="myOrg" styleClass="fullSize" shortDesc="Organization Link">
+        <amx:tableLayout id="tlNotify" width="100%" styleClass="custom-table-with-lines compratiosummary"
+                         shortDesc="Table">
+            <amx:rowLayout id="rl1">
+                <amx:cellFormat id="cf4" columnSpan="2" height="25" shortDesc="Cell"/>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl1Appr">
+                <amx:cellFormat id="cf1Appr" width="50%" shortDesc="Cell" height="72">
+                    <amx:outputText value="Above Range" id="ot5" styleClass="metriclabel"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf5Appr" width="50%" shortDesc="Cell" halign="end">
+                    <amx:outputText value="#{bindings.orgcompratioabove.inputValue}" id="ot2"
+                                    styleClass="metrictext metrictext-yellow"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="div1">
+                <amx:cellFormat id="cfNotifyDiv2" columnSpan="2" styleClass="custom-divider" shortDesc="Cell"/>
+            </amx:rowLayout>
+            <amx:rowLayout id="r21Appr">
+                <amx:cellFormat id="cf2Appr" width="50%" shortDesc="Cell" height="72">
+                    <amx:outputText value="In Range" id="ot3" styleClass="metriclabel"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf1" width="50%" shortDesc="Cell" halign="end">
+                    <amx:outputText value="#{bindings.orgcompratioin.inputValue}" id="ot6"
+                                    styleClass="metrictext metrictext-yellow"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="div2">
+                <amx:cellFormat id="cf3" columnSpan="2" styleClass="custom-divider" shortDesc="Cell"/>
+            </amx:rowLayout>
+            <amx:rowLayout id="r31Appr">
+                <amx:cellFormat id="cf3Appr" width="50%" shortDesc="Cell" height="73">
+                    <amx:outputText value="Below Range" id="ot7" styleClass="metriclabel"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf2" width="50%" shortDesc="Cell" halign="end">
+                    <amx:outputText value="#{bindings.orgcompratiobelow.inputValue}" id="ot8"
+                                    styleClass="metrictext metrictext-yellow"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener id="spl1" from="comp" to="#{UserBean.orgListTab}"/>
+        <amx:setPropertyListener id="spl2" from="true" to="#{pageFlowScope.showBackButton}"/>
+    </amx:commandLink>
+</amx:fragmentDef>

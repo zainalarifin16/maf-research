@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.61.85" id="areaChartPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="LineDataList" id="LineDataListIterator"/>
+    <accessorIterator MasterBinding="LineDataListIterator" Binds="lineData" RangeSize="-1" DataControl="LineDataList"
+                      BeanClass="model.LineData" id="lineDataIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="ChartProperties" id="ChartPropertiesIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="DvtProperties" id="DvtPropertiesIterator"/>
+    <accessorIterator MasterBinding="DvtPropertiesIterator" Binds="areaChartProperties" RangeSize="25"
+                      DataControl="DvtProperties" BeanClass="mobile.ChartProperties" id="areaChartPropertiesIterator"/>
+    <accessorIterator MasterBinding="DvtPropertiesIterator" Binds="barChartProperties" RangeSize="25"
+                      DataControl="DvtProperties" BeanClass="mobile.ChartProperties" id="barChartPropertiesIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="lineDataIterator" id="lineData">
+      <nodeDefinition DefName="model.LineData" Name="lineData0">
+        <AttrNames>
+          <Item Value="value"/>
+          <Item Value="group"/>
+          <Item Value="series"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

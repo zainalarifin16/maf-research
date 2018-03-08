@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt"
+          xmlns:custom="http://xmlns.example.com/custom">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Custom"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="General"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <!-- TODO link this page to documentation on custom components -->
+      <amx:goLink shortDesc="Tag documentation" disabled="true" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=general/custom" shortDesc="Bookmarkable Link"
+                  styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:panelStretchLayout id="psl1">
+      <amx:facet name="top">
+        <custom:example id="custom1" rendered="#{pageFlowScope.componentProperties.rendered}"
+                        inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+                        styleClass="#{pageFlowScope.componentProperties.styleClass}"
+                        label="#{pageFlowScope.componentProperties.label}"
+                        source="#{pageFlowScope.componentProperties.source}">
+          <amx:outputText id="ot1" value="Hello World!"/>
+          <amx:outputText id="ot2" value="Another child."/>
+        </custom:example>
+        <amx:spacer id="sp1" height="8"/>
+        <amx:outputText id="otOther" value="Other Examples"
+          styleClass="adfmf-outputText-sectionTitle adfmf-outputText-padded"/>
+      </amx:facet>
+      <amx:facet name="center">
+        <amx:listView id="listView1">
+          <amx:listItem id="exampleEvents" action="exampleEvents">
+            <amx:tableLayout id="exampleEventsTL" width="100%">
+              <amx:rowLayout id="exampleEventsRL1">
+                <amx:cellFormat id="exampleEventsCF1" width="10px" rowSpan="2"/>
+                <amx:cellFormat id="exampleEventsCF2" width="100%" height="28px">
+                  <amx:outputText id="exampleEventsOT1" value="Events"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+              <amx:rowLayout id="exampleEventsRL2">
+                <amx:cellFormat id="exampleEventsCF3" width="100%" height="12px">
+                  <amx:outputText id="exampleEventsOT2" value="custom:exampleEvents"
+                                  styleClass="adfmf-listItem-captionText"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+            </amx:tableLayout>
+            <amx:setPropertyListener from="None Yet" to="#{pageFlowScope.popupMessage}"
+                                     type="action"/>
+          </amx:listItem>
+          <amx:listItem id="exampleList" action="exampleList">
+            <amx:tableLayout id="exampleListTL" width="100%">
+              <amx:rowLayout id="exampleListRL1">
+                <amx:cellFormat id="exampleListCF1" width="10px" rowSpan="2"/>
+                <amx:cellFormat id="exampleListCF2" width="100%" height="28px">
+                  <amx:outputText id="exampleListOT1" value="List"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+              <amx:rowLayout id="exampleListRL2">
+                <amx:cellFormat id="exampleListCF3" width="100%" height="12px">
+                  <amx:outputText id="exampleListOT2" value="custom:exampleList"
+                                  styleClass="adfmf-listItem-captionText"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+            </amx:tableLayout>
+            <amx:setPropertyListener id="exampleListSpl1" from="" to="#{pageFlowScope.pValue}" type="action"/>
+          </amx:listItem>
+          <amx:listItem id="exampleOverflow" action="exampleOverflow">
+            <amx:tableLayout id="exampleOverflowTL" width="100%">
+              <amx:rowLayout id="exampleOverflowRL1">
+                <amx:cellFormat id="exampleOverflowCF1" width="10px" rowSpan="2"/>
+                <amx:cellFormat id="exampleOverflowCF2" width="100%" height="28px">
+                  <amx:outputText id="exampleOverflowOT1" value="Overflow"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+              <amx:rowLayout id="exampleOverflowRL2">
+                <amx:cellFormat id="exampleOverflowCF3" width="100%" height="12px">
+                  <amx:outputText id="exampleOverflowOT2" value="custom:overflow"
+                                  styleClass="adfmf-listItem-captionText"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+            </amx:tableLayout>
+            <amx:setPropertyListener from="3" to="#{pageFlowScope.overflowLimit}" type="action"/>
+            <amx:setPropertyListener from="" to="#{pageFlowScope.message}" type="action"/>
+          </amx:listItem>
+          <amx:listItem id="exampleResizable" action="exampleResizable">
+            <amx:tableLayout id="exampleResizableTL" width="100%">
+              <amx:rowLayout id="exampleResizableRL1">
+                <amx:cellFormat id="exampleResizableCF1" width="10px" rowSpan="2"/>
+                <amx:cellFormat id="exampleResizableCF2" width="100%" height="28px">
+                  <amx:outputText id="exampleResizableOT1" value="Resizable"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+              <amx:rowLayout id="exampleResizableRL2">
+                <amx:cellFormat id="exampleResizableCF3" width="100%" height="12px">
+                  <amx:outputText id="exampleResizableOT2" value="custom:resizable"
+                                  styleClass="adfmf-listItem-captionText"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+            </amx:tableLayout>
+          </amx:listItem>
+        </amx:listView>
+      </amx:facet>
+    </amx:panelStretchLayout>
+  </amx:panelPage>
+</amx:view>

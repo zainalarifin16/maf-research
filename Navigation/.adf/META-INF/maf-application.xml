@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
+                   version="1.0" name="Navigation" id="com.oraclecorp.internal.Navigation"
+                   appControllerFolder="ApplicationController" listener-class="application.LifeCycleListenerImpl">
+  <adfmf:featureReference id="fr1" refId="About"/>
+  <adfmf:featureReference id="fr2" refId="Springboard" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:featureReference id="fr3" refId="Transitions"/>
+  <adfmf:featureReference id="fr4" refId="Router"/>
+  <adfmf:featureReference id="fr5" refId="Programmatic"/>
+  <adfmf:featureReference id="fr6" refId="CallReturn"/>
+  <adfmf:featureReference id="fr7" refId="Launcher"/>
+  <adfmf:featureReference id="fr8" refId="Employees" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:navigation>
+    <adfmf:navigationBar enabled="false"/>
+    <adfmf:springboard enabled="true" showSpringboardAtStartup="false" displayGotoSpringboardControl="false"
+                       width="250">
+      <adfmf:springboardFeatureReference id="sfr1" refId="Springboard"/>
+    </adfmf:springboard>
+  </adfmf:navigation>
+</adfmf:application>

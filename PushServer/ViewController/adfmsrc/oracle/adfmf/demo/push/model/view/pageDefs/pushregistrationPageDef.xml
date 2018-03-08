@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="pushregistrationPageDef"
+                Package="oracle.adfmf.demo.push.model.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="RegistrationsView1" RangeSize="25"
+              DataControl="RegistrationModuleDataControl"
+              id="RegistrationsView1Iterator" Refresh="deferred"
+              CacheResults="true"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="RegistrationsView1Iterator" id="RegistrationsView1">
+      <nodeDefinition DefName="oracle.adfmf.demo.push.model.model.RegistrationsView"
+                      Name="RegistrationsView10">
+        <AttrNames>
+          <Item Value="DeviceToken"/>
+          <Item Value="DeviceModel"/>
+          <Item Value="ApplicationId"/>
+          <Item Value="UserId"/>
+          <Item Value="SenderId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="RegistrationsView1Iterator" id="DeviceToken">
+      <AttrNames>
+        <Item Value="DeviceToken"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RegistrationsView1Iterator" id="DeviceModel">
+      <AttrNames>
+        <Item Value="DeviceModel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RegistrationsView1Iterator" id="UserId">
+      <AttrNames>
+        <Item Value="UserId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RegistrationsView1Iterator"
+                     id="ApplicationId">
+      <AttrNames>
+        <Item Value="ApplicationId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="RegistrationsView1Iterator" id="Execute"
+            RequiresUpdateModel="false" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

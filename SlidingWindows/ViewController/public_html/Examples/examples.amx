@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="Examples" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                <amx:image inlineStyle="width:32px;height:32px;" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:outputText value="OVERLAY" id="ot2"/>
+        <amx:panelGroupLayout halign="center" layout="wrap" id="pgl1">
+           <amx:commandButton inlineStyle="width: #{deviceScope.hardware.screen.availableWidth > deviceScope.hardware.screen.availableHeight ?deviceScope.hardware.screen.availableWidth / 2 - 10 : deviceScope.hardware.screen.availableWidth - 10 }px;margin-right:5px;margin-left:5px;"
+                               styleClass="adfmf-commandButton-large" text="Left Overlay" id="cb1"
+                               actionListener="#{SlidingDrawerBean.leftOverlay}"/>
+            <amx:commandButton inlineStyle="width: #{deviceScope.hardware.screen.availableWidth > deviceScope.hardware.screen.availableHeight ?deviceScope.hardware.screen.availableWidth / 2 - 10 : deviceScope.hardware.screen.availableWidth - 10 }px;margin-right:5px;margin-left:5px;"
+                               styleClass="adfmf-commandButton-large" text="Right Overlay" id="cb2"
+                               actionListener="#{SlidingDrawerBean.rightOverlay}"/>
+            <amx:commandButton inlineStyle="width: #{deviceScope.hardware.screen.availableWidth > deviceScope.hardware.screen.availableHeight ?deviceScope.hardware.screen.availableWidth / 2 - 10 : deviceScope.hardware.screen.availableWidth - 10 }px;margin-right:5px;margin-left:5px;"
+                               styleClass="adfmf-commandButton-large" text="Top Overlay" id="cb3"
+                               actionListener="#{SlidingDrawerBean.topOverlay}"/>
+            <amx:commandButton inlineStyle="width: #{deviceScope.hardware.screen.availableWidth > deviceScope.hardware.screen.availableHeight ?deviceScope.hardware.screen.availableWidth / 2 - 10 : deviceScope.hardware.screen.availableWidth - 10 }px;margin-right:5px;margin-left:5px;"
+                               styleClass="adfmf-commandButton-large" text="Bottom Overlay" id="cb4"
+                               actionListener="#{SlidingDrawerBean.bottomOverlay}"/>
+        </amx:panelGroupLayout>
+        <amx:outputText value="PIN" id="ot3"/>
+        <amx:panelGroupLayout halign="center" layout="wrap" id="mpgl1">
+            <amx:commandButton inlineStyle="width: #{deviceScope.hardware.screen.availableWidth > deviceScope.hardware.screen.availableHeight ?deviceScope.hardware.screen.availableWidth / 2 - 10 : deviceScope.hardware.screen.availableWidth - 10 }px;margin-right:5px;margin-left:5px;"
+                               styleClass="adfmf-commandButton-large" text="Left Pin" id="cb5"
+                               actionListener="#{SlidingDrawerBean.leftPin}"/>
+            <amx:commandButton inlineStyle="width: #{deviceScope.hardware.screen.availableWidth > deviceScope.hardware.screen.availableHeight ?deviceScope.hardware.screen.availableWidth / 2 - 10 : deviceScope.hardware.screen.availableWidth - 10 }px;margin-right:5px;margin-left:5px;"
+                               styleClass="adfmf-commandButton-large" text="Right Pin" id="cb6"
+                               actionListener="#{SlidingDrawerBean.rightPin}"/>
+            <amx:commandButton inlineStyle="width: #{deviceScope.hardware.screen.availableWidth > deviceScope.hardware.screen.availableHeight ?deviceScope.hardware.screen.availableWidth / 2 - 10 : deviceScope.hardware.screen.availableWidth - 10 }px;margin-right:5px;margin-left:5px;"
+                               styleClass="adfmf-commandButton-large" text="Top Pin" id="cb7"
+                               actionListener="#{SlidingDrawerBean.topPin}"/>
+            <amx:commandButton inlineStyle="width: #{deviceScope.hardware.screen.availableWidth > deviceScope.hardware.screen.availableHeight ?deviceScope.hardware.screen.availableWidth / 2 - 10 : deviceScope.hardware.screen.availableWidth - 10 }px;margin-right:5px;margin-left:5px;"
+                               styleClass="adfmf-commandButton-large" text="Bottom Pin" id="cb8"
+                               actionListener="#{SlidingDrawerBean.bottomPin}"/>
+        </amx:panelGroupLayout>
+        <amx:outputText value="DISPLAY REMOTE CONTENT" id="ot3s"/>
+        <amx:panelGroupLayout halign="center" layout="wrap" id="mSpgl1">
+            <amx:commandButton inlineStyle="margin-right:5px;margin-left:5px;" styleClass="adfmf-commandButton-large" text="Launch" actionListener="#{SlidingDrawerBean.launchRemoteURL}" id="cSb2"/>
+        </amx:panelGroupLayout>
+        
+    </amx:panelPage>
+</amx:view>

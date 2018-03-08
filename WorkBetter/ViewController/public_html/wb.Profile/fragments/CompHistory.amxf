@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1"/>
+    <amx:tableLayout id="tl2" width="100%" shortDesc="table">
+        <amx:rowLayout id="rl15">
+            <amx:cellFormat id="cf33" halign="center" height="40" shortDesc="cell">
+                <amx:outputText value="History" id="ot10" styleClass="profileHeaderText"/>
+            </amx:cellFormat>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl14">
+            <amx:cellFormat id="cf32" width="100%" halign="center" shortDesc="cell">
+                <amx:fragment src="/fragments/Loading.amxf" id="f2"/>
+                <dvtm:barChart var="row" value="#{bindings.compHistory.collectionModel}" id="bc2" stack="on"
+                               timeAxisType="enabled" rolloverBehavior="dim" animationOnDataChange="auto"
+                               animationDuration="300" animationOnDisplay="auto"
+                               rendered="#{bindings.loading.inputValue ne 'true'}"
+                               inlineStyle="height:#{deviceScope.hardware.screen.diagonalSize ge 6 ? (deviceScope.hardware.screen.height gt deviceScope.hardware.screen.width ? deviceScope.hardware.screen.availableHeight-770 : deviceScope.hardware.screen.availableHeight-300) : (deviceScope.hardware.screen.availableHeight-210)}px;width:100%"
+                               shortDesc="Compensation Chart">
+                                 <!--  TODO Fix the inline sizing when 21817692 is fixed -->
+                    <amx:facet name="dataStamp">
+                        <dvtm:chartDataItem group="#{row.effective}" value="#{row.salary}"
+                                            series="#{bindings.compHistory.hints.salary.label}" id="cdi6"
+                                            color="#68c182">
+                            <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                        </dvtm:chartDataItem>
+                        <dvtm:chartDataItem group="#{row.effective}" value="#{row.bonus}"
+                                            series="#{bindings.compHistory.hints.bonus.label}" id="cdi4"
+                                            color="#267db3">
+                            <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                        </dvtm:chartDataItem>
+                        <dvtm:chartDataItem group="#{row.effective}" value="#{row.commission}"
+                                            series="#{bindings.compHistory.hints.commission.label}" id="cdi5"
+                                            color="#F4AA46">
+                            <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                        </dvtm:chartDataItem>
+                    </amx:facet>
+                    <dvtm:legend rendered="false" id="l2"/>
+                    <dvtm:chartValueFormat type="value" id="cvf1">
+                        <amx:convertNumber id="cn3" integerOnly="true"/>
+                    </dvtm:chartValueFormat>
+                    <dvtm:chartValueFormat type="series" id="cvf2" tooltipLabel="Attribute"/>
+                    <dvtm:chartValueFormat type="group" id="cvf3" tooltipLabel="Year"/>
+                </dvtm:barChart>
+            </amx:cellFormat>
+        </amx:rowLayout>
+    </amx:tableLayout>
+</amx:fragmentDef>
+<!--
+                               inlineStyle="height:#{deviceScope.hardware.screen.diagonalSize ge 6 ? (deviceScope.hardware.screen.height gt deviceScope.hardware.screen.width ? deviceScope.hardware.screen.availableHeight-770 : deviceScope.hardware.screen.availableHeight-300) : (deviceScope.hardware.screen.availableHeight-160)}px;width:100%">
+-->

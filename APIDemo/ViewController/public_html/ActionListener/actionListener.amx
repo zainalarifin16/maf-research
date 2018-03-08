@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1" >
+    <amx:facet name="header">
+      <amx:outputText id="outputText1" value="ActionListener"/>
+    </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+    <amx:outputText id="outputText2"
+                    value="This example shows you how to call an actionListener handler in a Java bean.  The button below will invoke Java code that will navigate you to a hidden feature."/>
+    <amx:panelGroupLayout layout="horizontal" halign="center" id="pgl1">
+    <amx:commandButton styleClass="adfmf-commandButton-small" id="commandLink1" text="Invoke Handler"
+                       actionListener="#{ManagedBean.ActionHandler}"/>
+   </amx:panelGroupLayout>
+  
+  </amx:panelPage>
+</amx:view>

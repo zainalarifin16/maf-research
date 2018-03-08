@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText id="header" value="Skinning" inlineStyle="font-size:large;"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                <amx:image inlineStyle="width:32px;height:32px;" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:selectOneChoice label="Skin" value="#{applicationScope.SkinBean.selectedSkinValue}"
+                             valueChangeListener="#{applicationScope.SkinBean.handleSkinChange}" id="soc1">
+            <amx:selectItem label="Mobile Alta v1.6" value="mobileAlta" id="si1"/>
+            <amx:selectItem label="Custom Family v1" value="customFamily1-v1" id="si12"/>
+            <amx:selectItem label="Custom Family v2" value="customFamily1-v2" id="si22"/>
+        </amx:selectOneChoice>        
+        <amx:panelFormLayout  id="pfl1" fieldHalign="start" labelPosition="topStart">
+            <amx:panelLabelAndMessage label="Skin Family" id="plam1">
+                <amx:outputText value="#{applicationScope.SkinBean.skinFamily}" id="ot2"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="Skin Version" id="plam2">
+                <amx:outputText value="#{applicationScope.SkinBean.skinVersion}" id="ot4"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="Device Model" id="plam4">
+                <amx:outputText value="#{applicationScope.SkinBean.deviceModel}" id="ot41"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage id="plam3">
+                <amx:outputText  value="#{applicationScope.SkinBean.message}" id="otf"/>
+            </amx:panelLabelAndMessage>
+        </amx:panelFormLayout>
+    </amx:panelPage>
+</amx:view>

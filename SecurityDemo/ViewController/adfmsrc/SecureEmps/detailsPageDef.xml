@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.9.35" id="detailsPageDef"
+                Package="SecureEmps">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="EmployeeService" id="EmployeeServiceIterator"/>
+    <accessorIterator MasterBinding="EmployeeServiceIterator" Binds="emps" RangeSize="25" DataControl="EmployeeService"
+                      BeanClass="mobile.Employee" id="empsIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="empsIterator" id="id">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="empsIterator" id="first">
+      <AttrNames>
+        <Item Value="first"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="empsIterator" id="last">
+      <AttrNames>
+        <Item Value="last"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="empsIterator" id="phone">
+      <AttrNames>
+        <Item Value="phone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="empsIterator" id="salary">
+      <AttrNames>
+        <Item Value="salary"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="empsIterator" id="email">
+      <AttrNames>
+        <Item Value="email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="empsIterator" id="hireDate">
+      <AttrNames>
+        <Item Value="hireDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="empsIterator" id="deptId">
+      <AttrNames>
+        <Item Value="deptId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="empsIterator" id="commPct">
+      <AttrNames>
+        <Item Value="commPct"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

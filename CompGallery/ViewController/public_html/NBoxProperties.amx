@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+        <amx:outputText id="header" value="Properties"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+        <amx:commandButton id="back" action="__back" text="Done"/>
+    </amx:facet>
+        <amx:panelFormLayout id="propform" labelWidth="40%" fieldWidth="60%">
+        
+           <amx:selectOneChoice id="cellTitle" label="cellTitle" value="#{pageFlowScope.cellTitle}">
+             <amx:selectItem id="siNone3" label="none" value=""/>
+             <amx:selectItem id="siStart" label="start" value="start"/>
+             <amx:selectItem id="siCenter" label="center" value="center"/>
+             <amx:selectItem id="siEnd" label="end" value="end"/>
+           </amx:selectOneChoice>
+           <amx:inputText id="columnsTitle" label="columnsTitle" value="#{pageFlowScope.columnsTitle}"/>            
+           <amx:inputText id="emptyText" label="emptyText" value="#{pageFlowScope.emptyText}"/>            
+           <amx:selectOneChoice id="groupBy" label="groupBy" value="#{pageFlowScope.groupBy}">
+             <amx:selectItem id="siNone" label="none" value=""/>
+             <amx:selectItem id="siIndicatorShape" label="indicator shape" value="ag1"/>
+             <amx:selectItem id="siIndicatorColor" label="indicator color" value="ag2"/>
+             <amx:selectItem id="siColor" label="color" value="ag3"/>
+           </amx:selectOneChoice>
+           <amx:selectOneChoice id="groupBehavior" label="groupBehavior" value="#{pageFlowScope.groupBehavior}">
+             <amx:selectItem label="acrossCells" value="acrossCells"/>
+             <amx:selectItem label="withinCell" value="withinCell"/>
+           </amx:selectOneChoice>
+           <amx:inputText id="highlightedRowKeys" label="highlightedRowKeys" value="#{pageFlowScope.highlightedRowKeys}"/>            
+           <amx:inputText id="inlineStyle" label="inlineStyle" value="#{pageFlowScope.inlineStyle}"/>            
+           <amx:selectOneChoice id="legendDisplay" label="legendDisplay" value="#{pageFlowScope.legendDisplay}">
+             <amx:selectItem label="auto" value="auto"/>
+             <amx:selectItem label="off" value="off"/>
+           </amx:selectOneChoice>
+           <amx:selectOneChoice id="maximizedColumn" label="maximizedColumn" value="#{pageFlowScope.maximizedColumn}">
+             <amx:selectItem id="siNone1" label="none" value=""/>
+             <amx:selectItem id="si0" label="Low" value="low"/>
+             <amx:selectItem id="si1" label="Medium" value="medium"/>
+             <amx:selectItem id="si2" label="High" value="high"/>
+           </amx:selectOneChoice>
+           <amx:selectOneChoice id="maximizedRow" label="maximizedRow" value="#{pageFlowScope.maximizedRow}">
+             <amx:selectItem id="siNone2" label="none" value=""/>
+             <amx:selectItem id="si10" label="Low" value="low"/>
+             <amx:selectItem id="si11" label="Medium" value="medium"/>
+             <amx:selectItem id="si12" label="High" value="high"/>
+           </amx:selectOneChoice>
+           <amx:selectOneChoice id="nodeSelection" label="nodeSelection" value="#{pageFlowScope.nodeSelection}">
+             <amx:selectItem label="multiple" value="multiple"/>
+             <amx:selectItem label="none" value="none"/>
+             <amx:selectItem label="single" value="single"/>
+           </amx:selectOneChoice>
+           <amx:inputText id="rowsTitle" label="rowsTitle" value="#{pageFlowScope.rowsTitle}"/>            
+           <amx:inputText id="selectedRowKeys" label="selectedRowKeys" value="#{pageFlowScope.selectedRowKeys}"/>            
+           <amx:inputText id="shortDesc" label="shortDesc" value="#{pageFlowScope.shortDesc}"/>            
+           <amx:selectBooleanCheckbox id="cbShowCount" label="cell / showCount"
+                                      value="#{pageFlowScope.showCount}"/>
+        </amx:panelFormLayout>
+  </amx:panelPage>
+</amx:view>

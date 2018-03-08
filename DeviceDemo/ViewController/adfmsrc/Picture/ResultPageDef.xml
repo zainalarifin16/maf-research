@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.61.69" id="ResultPageDef"
+                Package="Picture">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.String" Name="getPicture_Return" IsQueriable="false" IsUpdateable="0"
+                DefaultValue="${bindings.getPicture.result}"/>
+    </variableIterator>
+    <iterator Binds="root" RangeSize="25" DataControl="PictureBean" id="PictureBeanIterator"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

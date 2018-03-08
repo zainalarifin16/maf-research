@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.11.12" id="PeoplePageDef"
+                Package="crud.CRUD">
+    <parameters/>
+    <executables>
+        <variableIterator id="variables"/>
+        <iterator Binds="root" RangeSize="25" DataControl="Service" id="ServiceIterator"/>
+        <iterator Binds="root" RangeSize="25" DataControl="Service" id="editServiceIterator" RSIName="edit"/>
+        <accessorIterator id="personIterator" MasterBinding="ServiceIterator" Binds="person" RangeSize="25"
+                          DataControl="Service" BeanClass="crudmodel.Person"/>
+        <accessorIterator id="editpersonIterator" MasterBinding="editServiceIterator" Binds="person" RangeSize="25"
+                          DataControl="Service" BeanClass="crudmodel.Person" RSIName="edit"/>
+    </executables>
+    <bindings>
+        <action IterBinding="editpersonIterator" id="Create_edit" RequiresUpdateModel="true" Action="createRow"/>
+        <action IterBinding="editpersonIterator" id="SetCurrentRow_edit" InstanceName="crudmodel.Service.person"
+                DataControl="Service" RequiresUpdateModel="false" Action="setCurrentRowWithKeyValue">
+            <NamedData NDName="rowKey" NDValue="#{bindings.id.inputValue}" NDType="java.lang.String"/>
+        </action>
+        <action IterBinding="editpersonIterator" id="RemoveRow_edit" RequiresUpdateModel="false"
+                Action="removeRowWithKey">
+            <NamedData NDName="rowKey" NDValue="#{bindings.editid.inputValue}" NDType="java.lang.String"/>
+        </action>
+        <action IterBinding="personIterator" id="SetCurrentRow" InstanceName="crudmodel.Service.person"
+                DataControl="Service" RequiresUpdateModel="false" Action="setCurrentRowWithKeyValue">
+            <NamedData NDName="rowKey" NDValue="#{bindings.editid.inputValue}" NDType="java.lang.String"/>
+        </action>
+        <action IterBinding="personIterator" id="RemoveRow" InstanceName="crudmodel.Service.person"
+                DataControl="Service" RequiresUpdateModel="false" Action="removeRowWithKey">
+            <NamedData NDName="rowKey" NDValue="#{viewScope.selectedId}" NDType="java.lang.String"/>
+        </action>
+        <methodAction IterBinding="editpersonIterator" id="saveToStore_edit" RequiresUpdateModel="true" Action="invokeMethod"
+                      MethodName="saveToStore" IsViewObjectMethod="false" DataControl="Service"
+                      InstanceName="bindings.personIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+        <methodAction IterBinding="editpersonIterator" id="reloadFromStore_edit" RequiresUpdateModel="true" Action="invokeMethod"
+                      MethodName="reloadFromStore" IsViewObjectMethod="false" DataControl="Service"
+                      InstanceName="bindings.personIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+        <methodAction IterBinding="personIterator" id="reloadFromStore" RequiresUpdateModel="true" Action="invokeMethod"
+                      MethodName="reloadFromStore" IsViewObjectMethod="false" DataControl="Service"
+                      InstanceName="bindings.personIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+        <methodAction id="executeQuery" RequiresUpdateModel="true" Action="invokeMethod" MethodName="executeQuery"
+                      IsViewObjectMethod="false" DataControl="Service" InstanceName="data.Service.dataProvider"/>
+        <tree IterBinding="personIterator" id="person">
+            <nodeDefinition DefName="crudmodel.Person" Name="person0">
+                <AttrNames>
+                    <Item Value="first"/>
+                    <Item Value="email"/>
+                    <Item Value="last"/>
+                    <Item Value="id"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <attributeValues IterBinding="personIterator" id="id">
+            <AttrNames>
+                <Item Value="id"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="personIterator" id="first">
+            <AttrNames>
+                <Item Value="first"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="personIterator" id="last">
+            <AttrNames>
+                <Item Value="last"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="personIterator" id="phone">
+            <AttrNames>
+                <Item Value="phone"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="personIterator" id="email">
+            <AttrNames>
+                <Item Value="email"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="personIterator" id="birthDate">
+            <AttrNames>
+                <Item Value="birthDate"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="personIterator" id="address">
+            <AttrNames>
+                <Item Value="address"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="personIterator" id="city">
+            <AttrNames>
+                <Item Value="city"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="personIterator" id="state">
+            <AttrNames>
+                <Item Value="state"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="editpersonIterator" id="editid">
+            <AttrNames>
+                <Item Value="id"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="editpersonIterator" id="editfirst">
+            <AttrNames>
+                <Item Value="first"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="editpersonIterator" id="editlast">
+            <AttrNames>
+                <Item Value="last"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="editpersonIterator" id="editphone">
+            <AttrNames>
+                <Item Value="phone"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="editpersonIterator" id="editemail">
+            <AttrNames>
+                <Item Value="email"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="editpersonIterator" id="editbirthDate">
+            <AttrNames>
+                <Item Value="birthDate"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="editpersonIterator" id="editaddress">
+            <AttrNames>
+                <Item Value="address"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="editpersonIterator" id="editcity">
+            <AttrNames>
+                <Item Value="city"/>
+            </AttrNames>
+        </attributeValues>
+        <attributeValues IterBinding="editpersonIterator" id="editstate">
+            <AttrNames>
+                <Item Value="state"/>
+            </AttrNames>
+        </attributeValues>
+        <methodAction id="toggleSpringboard" RequiresUpdateModel="true" Action="invokeMethod"
+                      MethodName="toggleSpringboard" IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                      InstanceName="data.ApplicationFeatures.dataProvider"/>
+    </bindings>
+</pageDefinition>

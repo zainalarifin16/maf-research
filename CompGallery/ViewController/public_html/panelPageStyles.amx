@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1" styleClass="#{pageFlowScope.panelPageStyle}">
+    <amx:facet name="header">
+      <amx:outputText value="Page Styles" id="hdr"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"
+                         shortDesc="Go back to the previous page"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=layout/panelPage/styles"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:facet name="footer">
+      <amx:outputText value="Footer" id="ftr"/>
+    </amx:facet>
+    <amx:panelStretchLayout id="psl1" scrollPolicy="scroll">
+      <amx:facet name="top">
+        <amx:outputText value="#{pageFlowScope.panelPageStyle}" id="ot1"
+                styleClass="adfmf-outputText-sectionTitle" inlineStyle="text-transform: none;"/>
+        <amx:selectOneButton id="sob1" simple="true" value="#{pageFlowScope.panelPageStyle}">
+          <amx:selectItem id="si1" label="Default" value="Default"/>
+          <amx:selectItem id="si2" label="Spring" value="adfmf-panelPage-springboard"/>
+          <amx:selectItem id="si3" label="Spring2" value="adfmf-panelPage-springboard-alternateBackground"/>
+          <amx:selectItem id="si4" label="Alt" value="adfmf-panelPage-alternateColor"/>
+          <amx:selectItem id="si5" label="Alt2" value="adfmf-panelPage-alternateColor2"/>
+          <amx:selectItem id="si6" label="Alt3" value="adfmf-panelPage-alternateColor3"/>
+          <amx:selectItem id="si7" label="Generic" value="adfmf-panelPage-genericAppearance"/>
+        </amx:selectOneButton>
+      </amx:facet>
+      <amx:facet name="center">
+        <amx:listView id="lv1">
+          <amx:listItem id="li1">
+            <amx:outputText value="Row 1" id="liot1"/>
+          </amx:listItem>
+          <amx:listItem id="li2">
+            <amx:outputText value="Row 2" id="liot2"/>
+          </amx:listItem>
+          <amx:listItem id="li3">
+            <amx:outputText value="Row 3" id="liot3"/>
+          </amx:listItem>
+        </amx:listView>
+      </amx:facet>
+    </amx:panelStretchLayout>
+  </amx:panelPage>
+</amx:view>

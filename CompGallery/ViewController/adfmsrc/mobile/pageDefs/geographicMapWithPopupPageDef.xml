@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.21.20" id="geographicMapWithPopupPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="GeographicMapPointDataList"
+              id="GeographicMapPointDataListIterator"/>
+    <accessorIterator MasterBinding="GeographicMapPointDataListIterator" Binds="geographicMapPointData" RangeSize="-1"
+                      DataControl="GeographicMapPointDataList" BeanClass="model.GeographicMapPointData"
+                      id="geographicMapPointDataIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="BarDataList" id="BarDataListIterator"/>
+    <accessorIterator MasterBinding="BarDataListIterator" Binds="barData" RangeSize="-1" DataControl="BarDataList"
+                      BeanClass="model.BarData" id="barDataIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="geographicMapPointDataIterator" id="geographicMapPointData">
+      <nodeDefinition DefName="model.GeographicMapPointData" Name="geographicMapPointData0">
+        <AttrNames>
+          <Item Value="pointY"/>
+          <Item Value="pointX"/>
+          <Item Value="shortDesc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="barDataIterator" id="barData">
+      <nodeDefinition DefName="model.BarData" Name="barData0">
+        <AttrNames>
+          <Item Value="value"/>
+          <Item Value="group"/>
+          <Item Value="series"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

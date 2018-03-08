@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="location_enabled_icon_nav_bar_iPhone"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="64px" height="64px"
+	 viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#0572CE" d="M21.94,23.53c0-5.29,4.58-9.7,9.92-9.7
+	c5.34,0,10.17,4.41,10.17,9.7c0,5.29-4.83,9.45-10.17,9.45C26.52,32.98,21.94,28.82,21.94,23.53z M15,24.28
+	c0,4,4.86,9.61,7.28,12.45C25.29,40.25,31.86,56,31.86,56s6.53-15.67,9.55-19.27c2.36-2.82,7.59-8.5,7.59-12.45
+	C49,15.29,40.94,8,31.86,8C22.78,8,15,15.29,15,24.28z"/>
+</svg>

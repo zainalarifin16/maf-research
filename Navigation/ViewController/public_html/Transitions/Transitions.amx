@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Transitions"/>
+    </amx:facet>
+        <amx:facet name="primary">
+          <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+              <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+          </amx:commandLink>
+        </amx:facet>
+    <amx:listView id="listView1">
+      <amx:listItem id="none" action="none">
+        <amx:outputText id="ot0" value="none"/>
+      </amx:listItem>
+      <amx:listItem id="fade" action="fade">
+        <amx:outputText id="ot2" value="fade"/>
+      </amx:listItem>
+      <amx:listItem id="slideRight" action="slideRight">
+        <amx:outputText id="ot3" value="slideRight"/>
+      </amx:listItem>
+      <amx:listItem id="slideLeft" action="slideLeft">
+        <amx:outputText id="ot4" value="slideLeft"/>
+      </amx:listItem>
+      <amx:listItem id="slideUp" action="slideUp">
+        <amx:outputText id="ot5" value="slideUp"/>
+      </amx:listItem>
+      <amx:listItem id="slideDown" action="slideDown">
+        <amx:outputText id="ot6" value="slideDown"/>
+      </amx:listItem>
+      <amx:listItem id="flipRight" action="flipRight">
+        <amx:outputText id="ot7" value="flipRight"/>
+      </amx:listItem>
+      <amx:listItem id="flipLeft" action="flipLeft">
+        <amx:outputText id="ot8" value="flipLeft"/>
+      </amx:listItem>
+      <amx:listItem id="flipUp" action="flipUp">
+        <amx:outputText id="ot9" value="flipUp"/>
+      </amx:listItem>
+      <amx:listItem id="flipDown" action="flipDown">
+        <amx:outputText id="ot10" value="flipDown"/>
+      </amx:listItem>
+    </amx:listView>
+   
+  </amx:panelPage>
+</amx:view>

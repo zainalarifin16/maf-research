@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="portfolio-task-flow">
+    <default-activity>stockList</default-activity>
+    <managed-bean id="__4">
+      <managed-bean-name>HandlerBean</managed-bean-name>
+      <managed-bean-class>Portfolio.HandlerBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="stockList">
+      <page>/Portfolio/stockList.amx</page>
+    </view>
+    <view id="manageStocks">
+      <page>/Portfolio/manageStocks.amx</page>
+    </view>
+    <view id="stockDetail">
+      <page>/Portfolio/stockDetail.amx</page>
+    </view>
+    <view id="editStock">
+      <page>/Portfolio/editStock.amx</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>stockList</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>toManageStocks</from-outcome>
+        <to-activity-id>manageStocks</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>toStockDetail</from-outcome>
+        <to-activity-id>stockDetail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>stockDetail</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>toEditStock</from-outcome>
+        <to-activity-id>editStock</to-activity-id>
+        <transition>flipLeft</transition>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>editStock</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>toStockDetail</from-outcome>
+        <to-activity-id>stockDetail</to-activity-id>
+        <transition>flipRight</transition>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__2">
+      <from-activity-id>manageStocks</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>toEditView</from-outcome>
+        <to-activity-id>editStock</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-mobile-config>

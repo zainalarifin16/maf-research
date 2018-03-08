@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.61.75" id="GPSPageDef" Package="GPS">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="GPSBean" id="GPSBeanIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="GPSBeanIterator" id="timestamp">
+      <AttrNames>
+        <Item Value="timestamp"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GPSBeanIterator" id="watchId">
+      <AttrNames>
+        <Item Value="watchId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GPSBeanIterator" id="longitude">
+      <AttrNames>
+        <Item Value="longitude"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GPSBeanIterator" id="latitude">
+      <AttrNames>
+        <Item Value="latitude"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GPSBeanIterator" id="altitude">
+      <AttrNames>
+        <Item Value="altitude"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GPSBeanIterator" id="heading">
+      <AttrNames>
+        <Item Value="heading"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GPSBeanIterator" id="speed">
+      <AttrNames>
+        <Item Value="speed"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GPSBeanIterator" id="accuracy">
+      <AttrNames>
+        <Item Value="accuracy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GPSBeanIterator" id="altitudeAccuracy">
+      <AttrNames>
+        <Item Value="altitudeAccuracy"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="startLocationMonitor" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="startLocationMonitor" IsViewObjectMethod="false" DataControl="DeviceFeatures"
+                  InstanceName="data.DeviceFeatures.dataProvider">
+      <NamedData NDName="enableHighAccuracy" NDValue="#{pageFlowScope.GPSBean.highAccuracy}" NDType="boolean"/>
+      <NamedData NDName="updateInterval" NDValue="#{pageFlowScope.GPSBean.updateInterval}" NDType="int"/>
+      <NamedData NDName="locationListener" NDValue="pageFlowScope.GPSBean.LocationHandler" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="stopLocationMonitor" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="stopLocationMonitor" IsViewObjectMethod="false" DataControl="GPSBean"
+                  InstanceName="data.GPSBean.dataProvider"/>
+    <methodAction id="toggleSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="toggleSpringboard"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider"/>
+  </bindings>
+</pageDefinition>

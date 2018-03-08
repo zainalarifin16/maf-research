@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText id="header" value="Details"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton id="back" action="__back" text="Back"/>
+        </amx:facet>
+        <amx:panelFormLayout id="panelFormLayout1" labelPosition="topStart" fieldHalign="start">
+            <amx:panelLabelAndMessage label="First" id="panelLabelAndMessage8">
+                <amx:outputText value="#{pageFlowScope.currentContactFirst}" id="outputText8"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="Last" id="panelLabelAndMessage7">
+                <amx:outputText value="#{pageFlowScope.currentContactLast}" id="outputText7"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="Address" id="panelLabelAndMessage6">
+                <amx:outputText value="#{pageFlowScope.currentContactAddress}" id="outputText6"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="City" id="panelLabelAndMessage2">
+                <amx:outputText value="#{pageFlowScope.currentContactCity}" id="outputText2"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="State" id="panelLabelAndMessage1">
+                <amx:outputText value="#{pageFlowScope.currentContactState}" id="outputText1"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="Zip" id="panelLabelAndMessage3">
+                <amx:outputText value="#{pageFlowScope.currentContactZip}" id="outputText3"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="Phone" id="panelLabelAndMessage4">
+                <amx:outputText value="#{pageFlowScope.currentContactPhone}" id="outputText4"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="Mobile" id="panelLabelAndMessage5">
+                <amx:outputText value="#{pageFlowScope.currentContactMobile}" id="outputText5"/>
+            </amx:panelLabelAndMessage>
+        </amx:panelFormLayout>
+  </amx:panelPage>
+</amx:view>

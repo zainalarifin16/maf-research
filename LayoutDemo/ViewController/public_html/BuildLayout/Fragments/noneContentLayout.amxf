@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1">
+          <description id="d1">Generic  fragment for masonry layout</description>
+        <attribute id="a1">
+            <attribute-name id="a3n">contentText1</attribute-name>
+            <attribute-type id="a3t">String</attribute-type>
+        </attribute>
+ </fragment>
+    <amx:panelStretchLayout id="psl1">
+        <amx:facet name="center">
+            <amx:flexLayout id="fl1" itemFlexibility="inflexible" itemAlignment="center" itemJustification="center" inlineStyle="background-color:#DAE9F5">
+                <amx:panelGroupLayout id="psgl1" layout="vertical" halign="center" inlineStyle="width: 100%">
+                    <amx:outputText id="osst1" value="#{contentText1}"
+                                    inlineStyle="color:#999; white-space:normal; font-weight:bold; font-size:20px"/>
+                </amx:panelGroupLayout>
+            </amx:flexLayout>
+        </amx:facet>
+    </amx:panelStretchLayout>
+</amx:fragmentDef>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="Portfolio" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="footer">
+            <amx:panelGroupLayout id="panelGroupLayout1" inlineStyle="100%" halign="center" layout="horizontal">
+                <amx:commandButton actionListener="#{bindings.doChange.execute}" text="Change"
+                                   disabled="#{!bindings.doChange.enabled}" id="cb1"/>
+                <amx:commandButton actionListener="#{bindings.startRefresher.execute}" text="Start"
+                                   disabled="#{!bindings.startRefresher.enabled}" rendered="#{!bindings.threadStarted.inputValue}" id="cb4"/>
+                <amx:commandButton actionListener="#{bindings.stopRefresher.execute}" text="Stop"
+                                   disabled="#{!bindings.stopRefresher.enabled}" rendered="#{bindings.threadStarted.inputValue}" id="cb5"/>
+                <amx:commandButton actionListener="#{bindings.resetStocks.execute}" text="Reset"
+                                   disabled="#{bindings.threadStarted.inputValue}" inlineStyle="width:80px;" id="cb6"/>
+            </amx:panelGroupLayout>
+        </amx:facet>        
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                    <amx:image inlineStyle="width:32px;height:32px;" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandButton action="toManageStocks" text="Manage" id="cb2"/>
+        </amx:facet>
+        <amx:listView showMoreStrategy="autoScroll" bufferStrategy="viewport"
+                      selectedRowKeys="#{bindings.stocks.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.stocks.collectionModel.makeCurrent}" var="row"
+                      value="#{bindings.stocks.collectionModel}" id="listView1">
+            <amx:listItem id="listItem1" action="toStockDetail">
+                <amx:tableLayout id="tl1" width="100%">
+                    <amx:rowLayout id="rl1">
+                        <amx:cellFormat id="cf1" width="10px" rowSpan="2"/>
+                        <amx:cellFormat id="cf2" width="60%" height="28px">
+                            <amx:outputText value="#{row.ticker}" id="outputText2"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf3" width="10px" rowSpan="2"/>
+                        <amx:cellFormat id="cf4" width="40%" halign="end">
+                            <amx:outputText value="#{row.price}" id="outputText4"
+                                            styleClass="adfmf-listItem-highlightText" inlineStyle="#{row.change}">
+                                <amx:convertNumber groupingUsed="true" currencySymbol="$" minFractionDigits="2"
+                                                   maxFractionDigits="2"/>
+                            </amx:outputText>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout id="rla2">
+                        <amx:cellFormat id="cf5" width="60%" height="12px">
+                            <amx:outputText value="#{row.company}" id="outputText3"
+                                            styleClass="adfmf-listItem-captionText"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf6" width="40%" halign="end">
+                            <amx:outputText value="#{row.volume}" id="outputText5"
+                                            styleClass="adfmf-listItem-captionText">
+                                <amx:convertNumber groupingUsed="true" integerOnly="true"/>
+                            </amx:outputText>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+                <amx:actionListener id="w2" binding="#{pageFlowScope.HandlerBean.disableEditMode}"/>
+            </amx:listItem>
+        </amx:listView>
+    </amx:panelPage>
+</amx:view>

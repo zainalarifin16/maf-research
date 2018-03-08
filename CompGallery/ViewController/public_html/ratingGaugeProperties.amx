@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+        <amx:outputText id="header" value="Properties"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+        <amx:commandButton id="back" action="__back" text="Done"/>
+    </amx:facet>
+        <amx:inputNumberSlider id="insValue" value="#{pageFlowScope.value}" minimum="#{pageFlowScope.minValue}"
+                           maximum="#{pageFlowScope.maxValue}" stepSize="1" label="Value"/>
+        <amx:outputText id="otValue" value="Current value: #{pageFlowScope.value}" inlineStyle="margin-left: 10px; font-size: 0.8em; " />    
+        <amx:inputNumberSlider id="pMinValue" value="#{pageFlowScope.minValue}" minimum="0"
+                           maximum="#{pageFlowScope.maxValue}" stepSize="1" label="Min Value"/>
+        <amx:outputText id="otMinValue" value="Current value: #{pageFlowScope.minValue}" inlineStyle="margin-left: 10px; font-size: 0.8em; "/>
+        <amx:inputNumberSlider id="pMaxValue" value="#{pageFlowScope.maxValue}" minimum="#{pageFlowScope.minValue}"
+                           maximum="50" stepSize="1" label="Max Value"/>
+        <amx:outputText id="otMaxValue" value="Current value: #{pageFlowScope.maxValue}" inlineStyle="margin-left: 10px; font-size: 0.8em; "/>
+        <amx:panelFormLayout id="shapeProps" labelWidth="40%" fieldWidth="60%">
+            <amx:selectOneChoice id="pChangedShape" label="changedShape" value="#{pageFlowScope.changedShape}">
+              <amx:selectItem label="auto" value="auto"/>
+              <amx:selectItem label="circle" value="circle"/>
+              <amx:selectItem label="diamond" value="diamond"/>
+              <amx:selectItem label="human" value="human"/>
+              <amx:selectItem label="rectangle" value="rectangle"/>
+              <amx:selectItem label="star" value="star"/>
+              <amx:selectItem label="triangle" value="triangle"/>
+            </amx:selectOneChoice>      
+            <amx:selectOneChoice id="pUnselectedShape" label="unselectedShape" value="#{pageFlowScope.unselectedShape}">
+              <amx:selectItem label="auto" value="auto"/>
+              <amx:selectItem label="circle" value="circle"/>
+              <amx:selectItem label="diamond" value="diamond"/>
+              <amx:selectItem label="dot" value="dot"/>
+              <amx:selectItem label="human" value="human"/>
+              <amx:selectItem label="rectangle" value="rectangle"/>
+              <amx:selectItem label="star" value="star"/>
+              <amx:selectItem label="triangle" value="triangle"/>
+              <amx:selectItem label="none" value="none"/>
+            </amx:selectOneChoice>      
+        </amx:panelFormLayout>
+        <amx:panelFormLayout id="otherProps" labelWidth="40%" fieldWidth="60%">
+            <amx:selectBooleanCheckbox id="sbcReadOnly" label="readOnly" value="#{pageFlowScope.readOnly}"/>
+            <amx:inputText id="pShortDesc" label="shortDesc" value="#{pageFlowScope.shortDesc}"/>
+            <amx:inputText id="pInlineStyle" label="inlineStyle" value="#{pageFlowScope.inlineStyle}"/>
+        </amx:panelFormLayout>
+  </amx:panelPage>
+</amx:view>

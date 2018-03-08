@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="TMap: Invisible Area" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#dvtm:thematicMap" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/dvtThematicmap/thematicMapInvisibleArea"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <dvtm:thematicMap id="thematicMap1" basemap="world" animationOnDisplay="alphaFade" initialZooming="auto"
+                      markerZoomBehavior="zoom" zooming="auto" panning="auto">
+      <dvtm:areaLayer id="al1" layer="countries" labelType="long"
+                      areaStyle="background-color:transparent;border-color:transparent;" areaLabelDisplay="off">
+        <dvtm:areaDataLayer id="adl1" value="#{bindings.globalGDP.collectionModel}" var="row" dataSelection="single">
+          <dvtm:areaLocation id="loc1" name="#{row.id}">
+            <dvtm:marker id="m1" scaleX="#{(5 + row.sqrtGDP/25)}" value="#{row.countryName}"
+                         labelStyle="font-size:#{row.sqrtGDP/25 + 30}px;" opacity="0.75"
+                         labelDisplay="#{row.sqrtGDP/25 le 20 ? 'off' : 'on'}" gradientEffect="none"
+                         scaleY="#{(5 + row.sqrtGDP/25)}" shortDesc="$#{row.formattedGDP} Million">
+              <dvtm:attributeGroups id="ag1" type="color" value="#{row.id}"/>
+            </dvtm:marker>
+          </dvtm:areaLocation>
+        </dvtm:areaDataLayer>
+      </dvtm:areaLayer>
+    </dvtm:thematicMap>
+    <amx:commandButton text="About this demo" id="cb1">
+      <amx:showPopupBehavior popupId="p1" type="action" align="after" alignId="cb1"/>
+    </amx:commandButton>
+  </amx:panelPage>
+  <amx:popup id="p1">
+    <amx:outputHtml id="oh1"
+                    value="&lt;span>&lt;b>This demo shows the 2012 global GDP by country in millions of US Dollars.  Here's how we made it:&lt;/b>&lt;ul>&lt;li>To focus on the data, we set the area layer invisible by setting areaStyle=&quot;background-color:transparent;border-color:transparent;&quot; on the dvt:areaLayer tag.&lt;/li>&lt;li>With no country borders, we decided to scale markers on zoom by setting markerZoomBehavior=&quot;zoom&quot; on the dvt:thematicMap tag.&lt;/li>&lt;li>We scaled marker size and font size by the country's GDP and set a minimum GDP value to not show labels on smaller markers.&lt;/li>&lt;/ul>&lt;/span>"
+                    inlineStyle="margin: 10px;"/>
+    <amx:commandButton text="Close" id="cb2">
+      <amx:closePopupBehavior type="action" popupId="p1"/>
+    </amx:commandButton>
+  </amx:popup>
+</amx:view>

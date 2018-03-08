@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.1" id="ListPageDef"
+                Package="Departments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="DepartmentList" id="DepartmentListIterator"/>
+    <accessorIterator MasterBinding="DepartmentListIterator" Binds="departments" RangeSize="25"
+                      DataControl="DepartmentList" BeanClass="HR.Department" id="departmentsIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="departmentsIterator" id="departments">
+      <nodeDefinition DefName="HR.Department" Name="departments0">
+        <AttrNames>
+          <Item Value="deptId"/>
+          <Item Value="deptName"/>
+          <Item Value="address"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="toggleSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="toggleSpringboard"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider"/>
+  </bindings>
+</pageDefinition>

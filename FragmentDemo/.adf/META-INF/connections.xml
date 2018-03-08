@@ -1,0 +1,55 @@
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+  <Reference name="ADFMFConfigServerLogin" className="oracle.adf.model.connection.adfmf.LoginConnection"
+             adfCredentialStoreKey="ADFMFConfigServerLogin" partial="false" manageInOracleEnterpriseManager="true"
+             deployable="true" xmlns="">
+    <Factory className="oracle.adf.model.connection.adfmf.LoginConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="adfmfLogin">
+        <Contents>
+          <login url="http://127.0.0.1"/>
+          <logout url="http://127.0.0.1"/>
+          <accessControl/>
+          <idleTimeout value="300"/>
+          <sessionTimeout value="28800"/>
+          <authenticationMode value="hybrid"/>
+          <rememberCredentials>
+            <enableRememberUserName value="true"/>
+            <rememberUserNameDefault value="true"/>
+            <enableRememberPassword value="false"/>
+            <enableStayLoggedIn value="true"/>
+            <stayLoggedInDefault value="true"/>
+          </rememberCredentials>
+          <userObjectFilter/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+  <Reference name="ADFMFUnsecuredConfigServer" className="oracle.adf.model.connection.url.HttpURLConnection" xmlns="">
+    <Factory className="oracle.adf.model.connection.url.URLConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="ADFMFUnsecuredConfigServer">
+        <Contents>
+          <urlconnection name="ADFMFUnsecuredConfigServer" url="http://127.0.0.1"/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+  <Reference name="ADFMFSecuredConfigServer" className="oracle.adf.model.connection.url.HttpURLConnection"
+             credentialStoreKey="ADFMFSecuredConfigServer" xmlns="" adfCredentialStoreKey="ADFMFConfigServerLogin">
+    <Factory className="oracle.adf.model.connection.url.URLConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="ADFMFSecuredConfigServer">
+        <Contents>
+          <urlconnection name="ADFMFSecuredConfigServer" url="http://127.0.0.1">
+            <authentication style="challange">
+              <type>basic</type>
+              <realm>myrealm</realm>
+            </authentication>
+          </urlconnection>
+        </Contents>
+      </XmlRefAddr>
+      <SecureRefAddr addrType="username"/>
+      <SecureRefAddr addrType="password"/>
+    </RefAddresses>
+  </Reference>
+</References>

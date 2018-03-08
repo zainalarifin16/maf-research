@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" styleClass="amx-header-title" value="GeoMap with Info Bubbles"/>
+    </amx:facet>
+    <amx:facet name="primary">
+        <amx:commandButton id="back" text="Back" action="__back">
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapBubbleProperties.mapType}" from="#{pageFlowScope.mapType}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapBubbleProperties.centerX}" from="#{pageFlowScope.centerX}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapBubbleProperties.centerY}" from="#{pageFlowScope.centerY}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapBubbleProperties.zoomLevel}" from="#{pageFlowScope.zoomLevel}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapBubbleProperties.inlineStyle}" from="#{pageFlowScope.inlineStyle}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapBubbleProperties.shortDesc}" from="#{pageFlowScope.shortDesc}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapBubbleProperties.animationOnDisplay}" from="#{pageFlowScope.animationOnDisplay}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapBubbleProperties.initialZooming}" from="#{pageFlowScope.initialZooming}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapBubbleProperties.popupAlign}" from="#{pageFlowScope.popupAlign}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapBubbleProperties.markerLabelDisplay}" from="#{pageFlowScope.markerLabelDisplay}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapBubbleProperties.markerLabelPosition}" from="#{pageFlowScope.markerLabelPosition}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapBubbleProperties.markerLabelStyle}" from="#{pageFlowScope.markerLabelStyle}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapBubbleProperties.markerSelectedLabelStyle}" from="#{pageFlowScope.markerSelectedLabelStyle}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapBubbleProperties.markerIconDisplay}" from="#{pageFlowScope.markerIconDisplay}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapBubbleProperties.markerWidth}" from="#{pageFlowScope.markerWidth}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapBubbleProperties.markerHeight}" from="#{pageFlowScope.markerHeight}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapBubbleProperties.markerScaleX}" from="#{pageFlowScope.markerScaleX}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapBubbleProperties.markerScaleY}" from="#{pageFlowScope.markerScaleY}" type="action"/>
+          <amx:setPropertyListener to="#{DvtProperties.geographicMapBubbleProperties.dataSelection}" from="#{pageFlowScope.dataSelection}" type="action"/>
+          <amx:setPropertyListener to="#{viewScope.valuechangenew}" from="" type="action"/>
+        </amx:commandButton>
+    </amx:facet>
+    <amx:facet name="secondary">
+        <amx:commandLink id="props" action="geographicMapProperties2" shortDesc="Properties">
+          <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+        </amx:commandLink>
+        <amx:goLink url="#{GlobalProperties['tagdocUrl']}#dvtm:geographicMap" shortDesc="Tag documentation" disabled="#{GlobalProperties['tagdocUrl'] == ''}"
+                    id="pTagdocUrl">
+          <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+        </amx:goLink>
+        <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/dvtGeo/geographicMapWithPopup" shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                    id="pBookmark">
+          <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+        </amx:goLink>
+    </amx:facet>
+    <amx:outputText value="Click on markers to display a popup." id="ot1" inlineStyle="#{DvtProperties.selectedValuesInlineStyle}"/>
+    <dvtm:geographicMap id="map1"
+                         mapType="#{pageFlowScope.mapType}"
+                         centerX="#{pageFlowScope.centerX}"
+                         centerY="#{pageFlowScope.centerY}"
+                         zoomLevel="#{pageFlowScope.zoomLevel}"
+                         inlineStyle="#{pageFlowScope.inlineStyle}"
+                         animationOnDisplay="#{pageFlowScope.animationOnDisplay}"
+                         initialZooming="#{pageFlowScope.initialZooming}"
+                         shortDesc="#{pageFlowScope.shortDesc}"
+                         mapBoundsChangeListener="#{DvtProperties.geographicMapBubbleProperties.mapBoundsChangeListener}"
+                         styleClass="test">
+      <dvtm:pointDataLayer id="pdl1" var="row"
+                             value="#{bindings.geographicMapPointData.collectionModel}" dataSelection="#{pageFlowScope.dataSelection}">
+        <dvtm:pointLocation pointX="#{row.pointX}" pointY="#{row.pointY}" id="ptl1" type="pointXY">
+            <dvtm:marker id="marker1" shortDesc="#{row.shortDesc}" rendered="#{pageFlowScope.markerRendered}"
+            labelDisplay="#{pageFlowScope.markerLabelDisplay ? 'on' : 'off'}" 
+            labelPosition="#{pageFlowScope.markerLabelPosition}"
+            width="#{pageFlowScope.markerWidth}"
+            height="#{pageFlowScope.markerHeight}"
+            scaleX="#{pageFlowScope.markerScaleX}"
+            scaleY="#{pageFlowScope.markerScaleY}" 
+            labelStyle="#{pageFlowScope.markerLabelStyle}" 
+            selectedLabelStyle="#{pageFlowScope.markerSelectedLabelStyle}" 
+            markerIconDisplay="#{pageFlowScope.markerIconDisplay}"
+            value="#{row.shortDesc}"
+        />
+        </dvtm:pointLocation>
+      </dvtm:pointDataLayer>
+    </dvtm:geographicMap>
+    <amx:panelGroupLayout id="pgl1" layout="vertical">
+        <amx:selectBooleanCheckbox id="pMarkerLabelDisplay" label="labelDisplay" value="#{pageFlowScope.markerLabelDisplay}"/>
+        <amx:selectOneChoice id="pMarkerLabelPosition" label="labelPosition" value="#{pageFlowScope.markerLabelPosition}">
+          <amx:selectItem label="center" value="center"/>
+          <amx:selectItem label="top" value="top"/>
+          <amx:selectItem label="bottom" value="bottom"/>
+          <amx:selectItem label="bubble" value="bubble"/>
+        </amx:selectOneChoice>
+        <amx:selectOneChoice label="markerIconDisplay" id="soc1" value="#{pageFlowScope.markerIconDisplay}">
+          <amx:selectItem id="si1" label="auto" value="auto"/>
+          <amx:selectItem id="si2" label="on" value="on"/>
+          <amx:selectItem id="si3" label="off" value="off"/>
+        </amx:selectOneChoice>
+    </amx:panelGroupLayout>
+  </amx:panelPage>
+</amx:view>

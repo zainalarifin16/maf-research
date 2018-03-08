@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt"
+          xmlns:custom="http://xmlns.example.com/custom">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Events"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Other" shortDesc="Go back to Other"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <!-- TODO link this page to documentation on custom components -->
+      <amx:goLink shortDesc="Tag documentation" disabled="true" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=general/custom/exampleEvents" shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <custom:exampleEvents id="custom1">
+      <amx:showPopupBehavior id="spb1" popupId="swipeUpPopup" type="swipeUp" alignId="pp1" align="overlapBottom"/>
+      <amx:showPopupBehavior id="spb2" popupId="swipeDownPopup" type="swipeDown" alignId="pp1" align="overlapBottom"/>
+      <amx:showPopupBehavior id="spb3" popupId="swipeStartPopup" type="swipeStart" alignId="pp1" align="overlapBottom"/>
+      <amx:showPopupBehavior id="spb4" popupId="swipeEndPopup" type="swipeEnd" alignId="pp1" align="overlapBottom"/>
+      <amx:showPopupBehavior id="spb5" popupId="tapHoldPopup" type="tapHold" alignId="pp1" align="overlapBottom"/>
+    </custom:exampleEvents>
+    <amx:outputText id="otPopupMessage" value="Popup close event: #{pageFlowScope.popupMessage}"
+      inlineStyle="-webkit-user-select: none;"/>
+  </amx:panelPage>
+  <amx:popup id="swipeUpPopup" animation="slideUp" autoDismiss="false" shortDesc="Popup">
+    <amx:outputText id="swipeUpText" value="Swipe Up Popup"/>
+    <amx:commandButton id="closeSwipeUpPopup" text="Close">
+      <amx:closePopupBehavior type="action" popupId="swipeUpPopup"/>
+      <amx:setPropertyListener from="Swipe Up Popup Closed" to="#{pageFlowScope.popupMessage}"/>
+    </amx:commandButton>
+  </amx:popup>
+  <amx:popup id="swipeDownPopup" animation="slideDown" autoDismiss="false" shortDesc="Popup">
+    <amx:outputText id="swipeDownText" value="Swipe Down Popup"/>
+    <amx:commandButton id="closeSwipeDownPopup" text="Close">
+      <amx:closePopupBehavior type="action" popupId="swipeDownPopup"/>
+      <amx:setPropertyListener from="Swipe Down Popup Closed" to="#{pageFlowScope.popupMessage}"/>
+    </amx:commandButton>
+  </amx:popup>
+  <amx:popup id="swipeStartPopup" animation="slideStart" autoDismiss="false" shortDesc="Popup">
+    <amx:outputText id="swipeStartText" value="Swipe Start Popup"/>
+    <amx:commandButton id="closeSwipeStartPopup" text="Close">
+      <amx:closePopupBehavior type="action" popupId="swipeStartPopup"/>
+      <amx:setPropertyListener from="Swipe Start Popup Closed" to="#{pageFlowScope.popupMessage}"/>
+    </amx:commandButton>
+  </amx:popup>
+  <amx:popup id="swipeEndPopup" animation="slideEnd" autoDismiss="false" shortDesc="Popup">
+    <amx:outputText id="swipeEndText" value="Swipe End Popup"/>
+    <amx:commandButton id="closeSwipeEndPopup" text="Close">
+      <amx:closePopupBehavior type="action" popupId="swipeEndPopup"/>
+      <amx:setPropertyListener from="Swipe End Popup Closed" to="#{pageFlowScope.popupMessage}"/>
+    </amx:commandButton>
+  </amx:popup>
+  <amx:popup id="tapHoldPopup" animation="pop" autoDismiss="false" shortDesc="Popup">
+    <amx:outputText id="tapHoldText" value="Tap Hold Popup"/>
+    <amx:commandButton id="closeTapHoldPopup" text="Close">
+      <amx:closePopupBehavior type="action" popupId="tapHoldPopup"/>
+      <amx:setPropertyListener from="Tap Hold Popup Closed" to="#{pageFlowScope.popupMessage}"/>
+    </amx:commandButton>
+  </amx:popup>
+</amx:view>

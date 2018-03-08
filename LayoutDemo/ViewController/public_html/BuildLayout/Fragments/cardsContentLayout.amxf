@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1">
+    <description id="d1">Generic  fragment for card layout</description>
+        <attribute id="a1">
+            <attribute-name id="a3n">contentText1</attribute-name>
+            <attribute-type id="a3t">String</attribute-type>
+        </attribute>
+        <attribute id="a2">
+            <attribute-name id="ad">contentText2</attribute-name>
+            <attribute-type id="a3dt">String</attribute-type>
+        </attribute>
+        <attribute id="a3">
+            <attribute-name id="ad3n">contentText3</attribute-name>
+            <attribute-type id="ad3t">String</attribute-type>
+        </attribute>
+        <attribute id="a4">
+            <attribute-name id="ac3n">contentText4</attribute-name>
+            <attribute-type id="a3ct">String</attribute-type>
+        </attribute>
+        <attribute id="a5">
+            <attribute-name id="accc3n">contentText5</attribute-name>
+            <attribute-type id="ac3t">String</attribute-type>
+        </attribute>
+</fragment>
+   <amx:listView  layout="cards" var="row" showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lddv1">
+        <amx:listItem   styleClass="adfmf-listItem-accent4" inlineStyle="width:25%;height:64px;text-align:center"  showLinkIcon="false" id="liq1">
+            <amx:outputText value="#{contentText1}" id="otd1l"/>
+        </amx:listItem>
+        <amx:listItem  styleClass="adfmf-listItem-accent4" inlineStyle="width:25%;height:64px;text-align:center"  showLinkIcon="false" id="ldiq1">
+            <amx:outputText value="#{contentText2}" id="osst1d"/>
+        </amx:listItem>
+        <amx:listItem  styleClass="adfmf-listItem-accent4" inlineStyle="width:25%;height:64px;text-align:center"  showLinkIcon="false" id="lqid1">
+            <amx:outputText value="#{contentText3}" id="otsdd1"/>
+        </amx:listItem>
+        <amx:listItem  styleClass="adfmf-listItem-accent4" inlineStyle="width:25%;height:64px;text-align:center"  showLinkIcon="false" id="liddq1">
+            <amx:outputText value="#{contentText4}" id="otddd1"/>
+        </amx:listItem>
+        <amx:listItem  styleClass="adfmf-listItem-accent4" inlineStyle="width:25%;height:64px;text-align:center"  showLinkIcon="false" id="lqilk1">
+            <amx:outputText value="#{contentText5}" id="otddc"/>
+        </amx:listItem>
+    </amx:listView>
+</amx:fragmentDef>

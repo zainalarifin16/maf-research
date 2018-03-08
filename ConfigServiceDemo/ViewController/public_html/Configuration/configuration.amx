@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="Configuration" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:outputText value="Enter Configuration Server URI " id="ot2"
+                        styleClass="adfmf-outputText-sectionTitle"/>
+        <amx:validationGroup id="vg1">
+            <amx:inputText value="#{applicationScope.configServiceEndpoint}" label="URI" id="it2" showRequired="true"/>
+        </amx:validationGroup>
+        <amx:tableLayout id="tl1" width="100%">
+            <amx:rowLayout id="rl2">
+                <amx:cellFormat id="cf2" width="100%" halign="center">
+                    <amx:commandButton actionListener="#{bindings.gotoFeature.execute}" text="Proceed"
+                                       disabled="#{!bindings.gotoFeature.enabled}" id="cb2">
+                        <amx:actionListener id="al1" binding="#{bindings.updateConnectionsEndpoints.execute}"/>
+                    </amx:commandButton>
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
+    </amx:panelPage>
+</amx:view>

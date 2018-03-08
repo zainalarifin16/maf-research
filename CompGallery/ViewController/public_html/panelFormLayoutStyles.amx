@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Form Styles" id="hdr"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"
+                         shortDesc="Go back to the previous page"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=layout/panelFormLayout/styles"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:panelStretchLayout id="psl1" scrollPolicy="scroll">
+      <amx:facet name="top">
+        <amx:selectOneButton id="sob1" simple="true" value="#{pageFlowScope.panelFormStyle}">
+          <amx:selectItem id="si1" label="Default" value="Default"/>
+          <amx:selectItem id="si2" label="Inset" value="adfmf-panelFormLayout-insetForm"/>
+        </amx:selectOneButton>
+      </amx:facet>
+      <amx:facet name="center">
+        <amx:outputText id="ot1" value="#{pageFlowScope.panelFormStyle}"
+          styleClass="adfmf-outputText-sectionTitle" inlineStyle="text-transform: none;"/>
+        <amx:panelFormLayout id="panelFormLayout1"
+          styleClass="#{pageFlowScope.panelFormStyle}">
+          <amx:panelLabelAndMessage label="Output" id="plam1">
+            <amx:outputText id="outputText1" value="Text"/>
+          </amx:panelLabelAndMessage>
+          <amx:inputText id="inputText1" label="Input" value="Text"/>
+          <amx:selectOneChoice id="selectOneChoice1" label="Choice" value="item1">
+            <amx:selectItem label="Item 1" value="item1"/>
+            <amx:selectItem label="Item 2" value="item2"/>
+            <amx:selectItem label="Item 3" value="item3"/>
+          </amx:selectOneChoice>
+          <amx:selectBooleanCheckbox id="selectBooleanCheckbox1" label="Boolean" value="true"/>
+          <amx:selectBooleanSwitch id="selectBooleanSwitch1" label="Switch" value="true" offLabel="Off" onLabel="On"/>
+          <amx:panelLabelAndMessage label="Button" id="plam2">
+            <amx:commandButton id="commandButton1" text="Button1"/>
+          </amx:panelLabelAndMessage>
+          <amx:panelLabelAndMessage label="Link" id="plam3">
+            <amx:commandLink id="commandLink1" text="Link"/>
+          </amx:panelLabelAndMessage>
+        </amx:panelFormLayout>
+      </amx:facet>
+    </amx:panelStretchLayout>
+  </amx:panelPage>
+</amx:view>

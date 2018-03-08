@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="layout-taskflow">
+    <default-activity>Layout-Home</default-activity>
+    <managed-bean id="__24">
+      <managed-bean-name>componentProperties</managed-bean-name>
+      <managed-bean-class>mobile.Properties</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="Layout-Home">
+      <page>/Layout-Home.amx</page>
+    </view>
+    <view id="accessoryLayout">
+      <page>/accessoryLayout.amx</page>
+    </view>
+    <view id="cellFormat">
+      <page>/cellFormat.amx</page>
+    </view>
+    <view id="deck">
+      <page>/deck.amx</page>
+    </view>
+    <view id="panelFormLayout">
+      <page>/panelFormLayout.amx</page>
+    </view>
+    <view id="panelFormLayoutStyles">
+      <page>/panelFormLayoutStyles.amx</page>
+    </view>
+    <view id="panelGroupLayout">
+      <page>/panelGroupLayout.amx</page>
+    </view>
+    <view id="panelGroupLayoutStyles">
+      <page>/panelGroupLayoutStyles.amx</page>
+    </view>
+    <view id="panelPage">
+      <page>/panelPage.amx</page>
+    </view>
+    <view id="panelPageStyles">
+      <page>/panelPageStyles.amx</page>
+    </view>
+    <view id="panelSplitter">
+      <page>/panelSplitter.amx</page>
+    </view>
+    <view id="panelSplitterStyles">
+      <page>/panelSplitterStyles.amx</page>
+    </view>
+    <view id="popup">
+      <page>/popup.amx</page>
+    </view>
+    <view id="popupStyles">
+      <page>/popupStyles.amx</page>
+    </view>
+    <view id="rowLayout">
+      <page>/rowLayout.amx</page>
+    </view>
+    <view id="spacer">
+      <page>/spacer.amx</page>
+    </view>
+    <view id="tableLayout">
+      <page>/tableLayout.amx</page>
+    </view>
+    <view id="Properties">
+      <page>/Properties.amx</page>
+    </view>
+    <task-flow-return id="return">
+      <outcome>
+        <name>return</name>
+      </outcome>
+    </task-flow-return>
+    <view id="panelStretchLayout">
+      <page>/panelStretchLayout.amx</page>
+    </view>
+    <view id="masonryLayout">
+      <page>/masonryLayout.amx</page>
+    </view>
+    <view id="flexLayout">
+      <page>/flexLayout.amx</page>
+    </view>
+    <view id="FlexLayoutProperties">
+      <page>/FlexLayoutProperties.amx</page>
+    </view>
+    <control-flow-rule id="__3">
+      <from-activity-id>Layout-Home</from-activity-id>
+      <control-flow-case id="__accessoryLayout">
+        <from-outcome>accessoryLayout</from-outcome>
+        <to-activity-id>accessoryLayout</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>panelGroupLayout</from-outcome>
+        <to-activity-id>panelGroupLayout</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>panelFormLayout</from-outcome>
+        <to-activity-id>panelFormLayout</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>spacer</from-outcome>
+        <to-activity-id>spacer</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__CFCpanelPage">
+        <from-outcome>panelPage</from-outcome>
+        <to-activity-id>panelPage</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>panelSplitter</from-outcome>
+        <to-activity-id>panelSplitter</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>popup</from-outcome>
+        <to-activity-id>popup</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__11">
+        <from-outcome>tableLayout</from-outcome>
+        <to-activity-id>tableLayout</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome>rowLayout</from-outcome>
+        <to-activity-id>rowLayout</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__13">
+        <from-outcome>cellFormat</from-outcome>
+        <to-activity-id>cellFormat</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__17">
+        <from-outcome>deck</from-outcome>
+        <to-activity-id>deck</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__16">
+        <from-outcome>return</from-outcome>
+        <to-activity-id>return</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__1">
+        <from-outcome>panelStretchLayout</from-outcome>
+        <to-activity-id>panelStretchLayout</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__2">
+        <from-outcome>masonryLayout</from-outcome>
+        <to-activity-id>masonryLayout</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__21">
+        <from-outcome>flexLayout</from-outcome>
+        <to-activity-id>flexLayout</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome>properties</from-outcome>
+        <to-activity-id>Properties</to-activity-id>
+        <transition>flipStart</transition>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__CFRpanelFormLayout">
+      <from-activity-id>panelFormLayout</from-activity-id>
+      <control-flow-case id="__CFCpanelFormLayoutStyles">
+        <from-outcome>styles</from-outcome>
+        <to-activity-id>panelFormLayoutStyles</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__CFRpanelGroupLayout">
+      <from-activity-id>panelGroupLayout</from-activity-id>
+      <control-flow-case id="__CFCpanelGroupLayoutStyles">
+        <from-outcome>styles</from-outcome>
+        <to-activity-id>panelGroupLayoutStyles</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__CFRpanelPage">
+      <from-activity-id>panelPage</from-activity-id>
+      <control-flow-case id="__CFCpanelPageStyles">
+        <from-outcome>styles</from-outcome>
+        <to-activity-id>panelPageStyles</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__CFRpanelSplitter">
+      <from-activity-id>panelSplitter</from-activity-id>
+      <control-flow-case id="__CFCpanelSplitterStyles">
+        <from-outcome>styles</from-outcome>
+        <to-activity-id>panelSplitterStyles</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__CFRpopup">
+      <from-activity-id>popup</from-activity-id>
+      <control-flow-case id="__CFCpopupStyles">
+        <from-outcome>styles</from-outcome>
+        <to-activity-id>popupStyles</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>flexLayout</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>flexLayoutProperties</from-outcome>
+        <to-activity-id>FlexLayoutProperties</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-mobile-config>

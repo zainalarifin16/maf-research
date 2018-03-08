@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Chart Axis Customization"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"/>
+    </amx:facet>
+    <amx:flexLayout id="fl1">
+      <amx:panelStretchLayout id="psl1" styleClass="dvtm-gallery-component-panel">
+        <amx:facet name="center">
+          <dvtm:bubbleChart var="row" value="#{bindings.bubbleData.collectionModel}" id="bubbleChart1"
+                            styleClass=" dvtm-gallery-component" footnote="This is a footnote" rolloverBehavior="dim"
+                            title="Chart Title" shortDesc="Bubble chart with custom axis styles">
+            <amx:facet name="dataStamp">
+              <dvtm:chartDataItem group="#{row.group}" x="#{row.x - 25}" y="#{row.y - 25}" z="#{row.z}">
+                <dvtm:attributeGroups id="ag1" type="color" value="#{row.series}"/>
+                <dvtm:attributeGroups id="ag2" type="shape" value="#{row.group}"/>
+              </dvtm:chartDataItem>
+            </amx:facet>
+            <dvtm:legend position="#{pageFlowScope.legendPosition}" id="l1" rendered="#{pageFlowScope.legendDisplay}"
+                         size="#{pageFlowScope.legendSize}">
+              <dvtm:legendSection id="lgs1" source="ag1" title="Category 1"/>
+              <dvtm:legendSection id="lgs2" source="ag2" title="Category 2"/>
+            </dvtm:legend>
+            <dvtm:xAxis size="#{pageFlowScope.xAxisSize}">
+              <dvtm:majorTick id="mtx" lineStyle="#{pageFlowScope.majorTickLineStyle}"
+                              baselineColor="#{pageFlowScope.baselineColor}"
+                              baselineWidth="#{pageFlowScope.baselineWidth}" baselineStyle="solid"
+                              rendered="#{pageFlowScope.majorTickDisplay}"/>
+              <dvtm:axisLine rendered="#{pageFlowScope.xAxisDisplay}"/>
+              <dvtm:tickLabel rendered="#{pageFlowScope.xAxisDisplay}"/>
+            </dvtm:xAxis>
+            <dvtm:yAxis size="#{pageFlowScope.yAxisSize}">
+              <dvtm:majorTick id="mty" lineStyle="#{pageFlowScope.majorTickLineStyle}"
+                              rendered="#{pageFlowScope.majorTickDisplay}"
+                              baselineColor="#{pageFlowScope.baselineColor}"
+                              baselineWidth="#{pageFlowScope.baselineWidth}" baselineStyle="solid"/>
+              <dvtm:axisLine rendered="#{pageFlowScope.yAxisDisplay}"/>
+              <dvtm:tickLabel rendered="#{pageFlowScope.yAxisDisplay}"/>
+            </dvtm:yAxis>
+          </dvtm:bubbleChart>
+        </amx:facet>
+      </amx:panelStretchLayout>
+      <amx:panelGroupLayout id="pglOptionsPanel" scrollPolicy="scroll">
+        <amx:panelFormLayout id="pflOptionsForm" maxColumns="2" rows="4" styleClass="dvtm-gallery-options"
+                             fieldWidth="60%" labelWidth="40%">
+          <amx:selectBooleanCheckbox id="sbcLegend" label="Legend" value="#{pageFlowScope.legendDisplay}"/>
+          <amx:selectBooleanCheckbox id="sbcXAxis" label="X Axis" value="#{pageFlowScope.xAxisDisplay}"/>
+          <amx:selectBooleanCheckbox id="sbcYAxis" label="Y Axis" value="#{pageFlowScope.yAxisDisplay}"/>
+          <amx:selectBooleanCheckbox id="sbcMajorTick" label="Major Tick" value="#{pageFlowScope.majorTickDisplay}"/>
+          <amx:inputText id="itLegendSize" label="size" value="#{pageFlowScope.legendSize}"/>
+          <amx:inputText id="itXAxisSize" label="size" value="#{pageFlowScope.xAxisSize}"/>
+          <amx:inputText id="itYAxisSize" label="size" value="#{pageFlowScope.yAxisSize}"/>
+          <amx:selectOneChoice id="socMajorTickStyle" label="lineStyle" value="#{pageFlowScope.majorTickLineStyle}">
+            <amx:selectItem id="siMajorTickStyleSolid" label="solid" value="solid"/>
+            <amx:selectItem id="siMajorTickStyleDashed" label="dashed" value="dashed"/>
+            <amx:selectItem id="siMajorTickStyleDotted" label="dotted" value="dotted"/>
+          </amx:selectOneChoice>
+        </amx:panelFormLayout>
+        <amx:panelGroupLayout id="pglCommandButtons" layout="horizontal">
+          <amx:commandButton text="More Options..." id="cbMore">
+            <amx:showPopupBehavior popupId="pAdvancedOptions" type="action" align="overlapTopCenter"
+                                   alignId="pflOptionsForm" decoration="anchor"/>
+          </amx:commandButton>
+        </amx:panelGroupLayout>
+      </amx:panelGroupLayout>
+    </amx:flexLayout>
+  </amx:panelPage>
+  <amx:popup id="pAdvancedOptions" styleClass="dvtm-gallery-options-dialog">
+    <amx:panelFormLayout id="pflAdvancedOptions">
+      <amx:inputText id="itBaselineColor" label="baselineColor" value="#{pageFlowScope.baselineColor}"
+                     hintText="baselineColor"/>
+      <amx:inputText id="itBaselineWidth" label="baselineWidth" value="#{pageFlowScope.baselineWidth}"
+                     hintText="baselineWidth"/>
+    </amx:panelFormLayout>
+    <amx:commandButton id="cbClose" styleClass="adfmf-commandButton-actionSheet" text="Close">
+      <amx:closePopupBehavior popupId="pAdvancedOptions" type="action"/>
+    </amx:commandButton>
+  </amx:popup>
+</amx:view>

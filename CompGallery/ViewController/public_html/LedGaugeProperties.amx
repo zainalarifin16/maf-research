@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+        <?audit suppress oracle.ide.xml.validation-error?>
+    </amx:navigationDragBehavior>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+        <amx:outputText id="header" value="Properties"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+        <amx:commandButton id="back" action="#{DvtProperties.validateAndGoBack}" text="Done"/>
+    </amx:facet>
+        <amx:panelFormLayout id="propform" labelWidth="40%" fieldWidth="60%">
+            <amx:inputText id="pValue" label="value" value="#{pageFlowScope.value}"/>
+            <amx:inputText id="pMinValue" label="minValue" value="#{pageFlowScope.minValue}"/>
+            <amx:inputText id="pMaxValue" label="maxValue" value="#{pageFlowScope.maxValue}"/>
+            <amx:inputText id="pTitle" label="title" value="#{pageFlowScope.title}"/>
+            <amx:inputText id="pTitleStyle" label="titleStyle" value="#{pageFlowScope.titleStyle}"/>
+        </amx:panelFormLayout>
+        <amx:outputText id="ott1" value="metricLabel" inlineStyle="padding-top: 10px;font-weight:bold;"/>
+        <amx:panelFormLayout id="metricLabel" labelWidth="40%" fieldWidth="60%">
+            <amx:selectBooleanCheckbox id="sbc1" label="rendered" value="#{pageFlowScope.labelDisplay}"/>
+            <amx:inputText id="pMetricLabelStyle" label="labelStyle" value="#{pageFlowScope.metricLabelStyle}"/>
+        </amx:panelFormLayout>
+        <amx:outputText id="ott2" value="Threshold 1" inlineStyle="padding-top: 10px;font-weight:bold;"/>
+        <amx:panelFormLayout id="threshold1props" labelWidth="40%" fieldWidth="60%">
+            <amx:inputText id="pThreshold1color" label="color" value="#{pageFlowScope.threshold1color}"/>
+            <amx:inputText id="pThreshold1maxValue" label="maxValue" value="#{pageFlowScope.threshold1maxValue}"/>
+            <amx:inputText id="pThreshold1text" label="text" value="#{pageFlowScope.threshold1text}"/>        
+        </amx:panelFormLayout>
+        <amx:outputText id="ott3" value="Threshold 2" inlineStyle="padding-top: 10px;font-weight:bold;"/>
+        <amx:panelFormLayout id="threshold2props" labelWidth="40%" fieldWidth="60%">
+            <amx:inputText id="pThreshold2color" label="color" value="#{pageFlowScope.threshold2color}"/>
+            <amx:inputText id="pThreshold2maxValue" label="maxValue" value="#{pageFlowScope.threshold2maxValue}"/>
+            <amx:inputText id="pThreshold2text" label="text" value="#{pageFlowScope.threshold2text}"/>        
+        </amx:panelFormLayout>
+        <amx:outputText id="ott4" value="Threshold 3" inlineStyle="padding-top: 10px;font-weight:bold;"/>
+        <amx:panelFormLayout id="threshold3props" labelWidth="40%" fieldWidth="60%">
+            <amx:inputText id="pThreshold3color" label="color" value="#{pageFlowScope.threshold3color}"/>
+            <amx:inputText id="pThreshold3maxValue" label="maxValue" value="#{pageFlowScope.threshold3maxValue}"/>
+            <amx:inputText id="pThreshold3text" label="text" value="#{pageFlowScope.threshold3text}"/>        
+        </amx:panelFormLayout>
+        <amx:panelFormLayout id="animationProps" labelWidth="40%" fieldWidth="60%">
+            <amx:inputText id="pAnimationDuration" label="animationDuration" value="#{pageFlowScope.animationDuration}"/>
+            <amx:selectOneChoice id="pAnimationOnDataChange" label="animationOnDataChange" value="#{pageFlowScope.animationOnDataChange}">
+              <amx:selectItem label="auto" value="auto"/>
+              <amx:selectItem label="none" value="none"/>
+              <amx:selectItem label="slideToLeft" value="slideToLeft"/>
+              <amx:selectItem label="slideToRight" value="slideToRight"/>
+              <amx:selectItem label="alphaFade" value="alphaFade"/>
+            </amx:selectOneChoice>
+            <amx:selectOneChoice id="pAnimationOnDisplay" label="animationOnDisplay" value="#{pageFlowScope.animationOnDisplay}">
+              <amx:selectItem label="auto" value="auto"/>
+              <amx:selectItem label="alphaFade" value="alphaFade"/>
+              <amx:selectItem label="none" value="none"/>
+              <amx:selectItem label="zoom" value="zoom"/>
+            </amx:selectOneChoice>
+        </amx:panelFormLayout>
+        <amx:panelFormLayout id="otherProps" labelWidth="40%" fieldWidth="60%">
+            <amx:inputText id="pInlineStyle" label="inlineStyle" value="#{pageFlowScope.inlineStyle}"/>
+            <amx:inputText id="pShortDesc" label="shortDesc" value="#{pageFlowScope.shortDesc}"/>
+        </amx:panelFormLayout>
+  </amx:panelPage>
+</amx:view>

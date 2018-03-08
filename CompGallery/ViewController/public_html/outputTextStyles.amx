@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Text Styles" id="hdr"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"
+                         shortDesc="Go back to the previous page"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=textselect/outputText/styles"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:outputText value="Default" id="ot1" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:outputText value="This is a regular output text" id="ot12"/>
+    <amx:outputText value="adfmf-outputText-bold " id="ot2" styleClass="adfmf-outputText-sectionTitle"
+      inlineStyle="text-transform: none;"/>
+    <amx:outputText value="This is bold output text" id="ot22" styleClass="adfmf-outputText-bold"/>
+    <amx:outputText value="adfmf-outputText-sectionTitle" id="ot3" styleClass="adfmf-outputText-sectionTitle"
+      inlineStyle="text-transform: none;"/>
+    <amx:outputText value="This is title text mostly for heading and titles." id="ot32" styleClass="adfmf-outputText-sectionTitle"
+      inlineStyle="text-transform: uppercase;"/>
+    <amx:outputText value="adfmf-outputText-small" id="ot5" styleClass="adfmf-outputText-sectionTitle"
+      inlineStyle="text-transform: none;"/>
+    <amx:outputText value="This is smaller size output text" id="ot52" styleClass="adfmf-outputText-small"/>
+    <amx:outputText value="adfmf-outputText-note" id="ot6" styleClass="adfmf-outputText-sectionTitle"
+      inlineStyle="text-transform: none;"/>
+    <amx:outputText value="This is even smaller size output text" id="ot62" styleClass="adfmf-outputText-note"/>
+    <amx:outputText value="adfmf-outputText-badge" id="ot4" styleClass="adfmf-outputText-sectionTitle"
+      inlineStyle="text-transform: none;"/>
+    <amx:outputText value="12" id="ot42" styleClass="adfmf-outputText-badge"
+      inlineStyle="margin-left: 15px; margin-right: 15px;"/>
+  </amx:panelPage>
+</amx:view>

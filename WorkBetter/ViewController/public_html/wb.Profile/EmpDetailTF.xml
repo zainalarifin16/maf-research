@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="EmpDetailTF">
+    <default-activity>loadProfile</default-activity>
+    <input-parameter-definition id="__1">
+      <name>empid</name>
+      <value>#{pageFlowScope.empid}</value>
+      <class>java.lang.Integer</class>
+      <required/>
+    </input-parameter-definition>
+    <input-parameter-definition id="__2">
+      <name>isDirectory</name>
+      <value>#{pageFlowScope.isDirectory}</value>
+      <class>java.lang.Boolean</class>
+      <required/>
+    </input-parameter-definition>
+    <input-parameter-definition id="__9">
+      <name>showBackButton</name>
+      <value>#{pageFlowScope.showBackButton}</value>
+      <class>java.lang.Boolean</class>
+      <required/>
+    </input-parameter-definition>
+    <input-parameter-definition id="__11">
+      <name>summaryView</name>
+      <value>#{pageFlowScope.summaryView}</value>
+      <class>java.lang.String</class>
+      <required/>
+    </input-parameter-definition>
+    <method-call id="loadProfile">
+      <method>#{bindings.loadProfile.execute}</method>
+      <outcome>
+        <fixed-outcome>loadProfile</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-call id="EmpDetail_Drill">
+      <task-flow-reference>
+        <document>/wb.Profile/EmpDetailTF.xml</document>
+        <id>EmpDetailTF</id>
+      </task-flow-reference>
+      <input-parameter id="__5">
+        <name>empid</name>
+        <value>#{pageFlowScope.drillEmpid}</value>
+      </input-parameter>
+      <input-parameter id="__6">
+        <name>isDirectory</name>
+        <value>#{pageFlowScope.isDirectory}</value>
+      </input-parameter>
+      <input-parameter id="__10">
+        <name>showBackButton</name>
+        <value>true</value>
+      </input-parameter>
+      <input-parameter id="__12">
+        <name>summaryView</name>
+        <value>summary</value>
+      </input-parameter>
+      <data-control-context>isolated</data-control-context>
+    </task-flow-call>
+    <view id="EmpDetail">
+      <page>/wb.Profile/EmpDetail.amx</page>
+    </view>
+    <router id="FormFactor">
+      <case id="__18">
+        <expression>#{deviceScope.hardware.screen.diagonalSize lt 6}</expression>
+        <outcome>phone</outcome>
+      </case>
+      <default-outcome>tablet</default-outcome>
+    </router>
+    <view id="EmpDetail_phone">
+      <page>/wb.Profile/EmpDetail_phone.amx</page>
+    </view>
+    <task-flow-call id="DeptDetailTF">
+      <task-flow-reference>
+        <document>/wb.Profile/DeptDetailTF.xml</document>
+        <id>DeptDetailTF</id>
+      </task-flow-reference>
+      <input-parameter id="__27">
+        <name>deptid</name>
+        <value>#{pageFlowScope.drillDeptid}</value>
+      </input-parameter>
+      <input-parameter id="__28">
+        <name>summaryView</name>
+        <value>summary</value>
+      </input-parameter>
+      <input-parameter id="__29">
+        <name>isDirectory</name>
+        <value>#{pageFlowScope.isDirectory}</value>
+      </input-parameter>
+      <data-control-context>isolated</data-control-context>
+    </task-flow-call>
+    <control-flow-rule id="__3">
+      <from-activity-id>loadProfile</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>loadProfile</from-outcome>
+        <to-activity-id>FormFactor</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>EmpDetail</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>empDrill</from-outcome>
+        <to-activity-id>EmpDetail_Drill</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__25">
+        <from-outcome>deptDrill</from-outcome>
+        <to-activity-id>DeptDetailTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__19">
+      <from-activity-id>FormFactor</from-activity-id>
+      <control-flow-case id="__20">
+        <from-outcome>tablet</from-outcome>
+        <to-activity-id>EmpDetail</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__21">
+        <from-outcome>phone</from-outcome>
+        <to-activity-id>EmpDetail_phone</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__22">
+      <from-activity-id>EmpDetail_phone</from-activity-id>
+      <control-flow-case id="__23">
+        <from-outcome>empDrill</from-outcome>
+        <to-activity-id>EmpDetail_Drill</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__26">
+        <from-outcome>deptDrill</from-outcome>
+        <to-activity-id>DeptDetailTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <page-flow-scope-behavior>
+      <push-new/>
+    </page-flow-scope-behavior>
+  </task-flow-definition>
+</adfc-mobile-config>

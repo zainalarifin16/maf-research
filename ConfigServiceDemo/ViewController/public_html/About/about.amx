@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="About" id="ot1"/>
+        </amx:facet>
+            <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:outputText value="Overview" id="ot2" styleClass="adfmf-outputText-sectionTitle"/>
+        <amx:outputText value="This application demonstrates use of the Configuration Service to change the end points used in a MAF application. Changes to end points specified in a remotely hosted connections.xml file are propagated to the application running on the device and once the application is re-started it employs the new end points." id="ot3"/>
+        <amx:outputText value="Configuration Service functionality is not currently available for MAF apps running on Windows devices." id="ot4" rendered='#{deviceScope.device.os == "UWP"}'/>
+        <amx:outputText value="How to use the app" id="ot5" styleClass="adfmf-outputText-sectionTitle" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="The ACS sample web application hosts a connections.xml file for this app.  Modify the connections.xml file @PublicSamples/ACS/ACSServiceProject/public_html/com.company.ConfigServiceDemo to specify the connection endpoints for the WebLogic Server on which you will deploy it.  Note that it contains a connection endpoint for 'remotePage'." id="ot6" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="Deploy the web application in the ACS sample to Weblogic Server and make sure that you can access the connections.xml from the browser using the following URI : http://myhost:port/acs/com.company.ConfigServiceDemo/connections.xml" id="ot7" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="Run this app, which has 3 additional features.  You can verify that the Remote URL feature displays google.com." id="ot8" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="In the Configuration feature, enter the URL for your ACS web application as http://myhost:port/acs/ and tap on Proceed." id="ot9" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="Authenticate using Srini/welcome1 and the Download Config feature will be displayed.  Tap on the Download button to invoke the Configuration Service." id="ot10" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="If successful, after download is complete the app will be reset and the user is forced to login. After reset, you can verify that the Remote URL feature displays a different URL, as defined in the connections.xml file hosted by the ACS web application." id="ot11" rendered='#{deviceScope.device.os != "UWP"}'/>
+      </amx:panelPage>
+</amx:view>

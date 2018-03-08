@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.63.75" id="thematicMapCustomMapPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="ThematicMapCustomMapDataList"
+              id="ThematicMapCustomMapDataListIterator"/>
+    <accessorIterator MasterBinding="ThematicMapCustomMapDataListIterator" Binds="productHighlights" RangeSize="-1"
+                      DataControl="ThematicMapCustomMapDataList" BeanClass="model.ProductHighlights"
+                      id="productHighlightsIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="productHighlightsIterator" id="productHighlights">
+      <nodeDefinition DefName="model.ProductHighlights" Name="productHighlights0">
+        <AttrNames>
+          <Item Value="pointName"/>
+          <Item Value="tooltip"/>
+          <Item Value="value"/>
+          <Item Value="description"/>
+          <Item Value="partNum"/>
+          <Item Value="price"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

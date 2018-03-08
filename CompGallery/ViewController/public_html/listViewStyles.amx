@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1" styleClass="#{pageFlowScope.panelPageStyle}">
+    <amx:facet name="header">
+      <amx:outputText value="List View Styles" id="hdr"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"
+                         shortDesc="Go back to the previous page"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dataviews/listView/styles"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:panelStretchLayout id="psl1">
+      <amx:facet name="top">
+        <amx:panelGroupLayout id="pgl1">
+          <amx:outputText value="#{pageFlowScope.panelPageStyle}" id="ot1"
+            styleClass="adfmf-outputText-sectionTitle adfmf-outputText-padded"
+            inlineStyle="text-transform: none;"/>
+          <amx:selectOneButton id="sobPpStyleClass" simple="true" value="#{pageFlowScope.panelPageStyle}"
+            shortDesc="make a selection for panelPage style appearance">
+            <amx:selectItem id="si4" label="Default" value=""/>
+            <amx:selectItem id="si5" label="Springboard" value="adfmf-panelPage-springboard"/>
+          </amx:selectOneButton>
+          <amx:outputText value="#{pageFlowScope.listViewStyle}" id="ot2"
+            styleClass="adfmf-outputText-sectionTitle adfmf-outputText-padded"
+            inlineStyle="text-transform: none;"/>
+          <amx:selectOneButton id="sob1" simple="true" value="#{pageFlowScope.listViewStyle}"
+                             shortDesc="make a selection for listView style appearance">
+            <amx:selectItem id="si1" label="Default" value=""/>
+            <amx:selectItem label="Divider" id="si2" value="adfmf-listView-dividerCounter-accent1"/>
+            <amx:selectItem label="Inset" id="si3" value="adfmf-listView-insetList"/>
+          </amx:selectOneButton>
+        </amx:panelGroupLayout>
+      </amx:facet>
+      <amx:facet name="center">
+        <amx:listView var="row" value="#{bindings.contacts.collectionModel}"
+                      fetchSize="#{bindings.contacts.rangeSize}"
+                      selectedRowKeys="#{bindings.contacts.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.contacts.collectionModel.makeCurrent}" dividerAttribute="last"
+                      dividerMode="firstLetter" id="lv1" collapsibleDividers="true" showDividerCount="true"
+                      styleClass="#{pageFlowScope.listViewStyle}">
+          <amx:listItem id="li1">
+            <?audit suppress oracle.maf.warning-missing-shortDesc?>
+            <amx:outputText value="#{row.first} #{row.last}" id="otl1"/>
+          </amx:listItem>
+        </amx:listView>
+      </amx:facet>
+    </amx:panelStretchLayout>
+  </amx:panelPage>
+</amx:view>

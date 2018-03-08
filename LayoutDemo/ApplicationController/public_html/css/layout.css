@@ -1,0 +1,72 @@
+
+.summary-section-style {
+border-width:1px;
+border-style:dotted;
+border-color:#AED8FA;
+padding:5px;
+}
+
+
+.yellowblock {
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+}
+
+/*
+.amx-panelPage-facet-primary > .custom-springboard-link,
+.amx-panelPage-facet-secondary > .custom-springboard-link,
+.amx-panelPage-facet-primary > .custom-bookmarkable-link,
+.amx-panelPage-facet-secondary > .custom-bookmarkable-link {
+  margin: 6px 7px 0px 7px;
+}
+*/
+/* On Android, make the app icon shift over some more so that there is room for the springboard link */
+
+/*
+HTML[dir=ltr].amx-android-generic .custom-panelPage-with-springboard .amx-panelPage-header-appIcon,
+HTML[dir=ltr].amx-android-chrome .custom-panelPage-with-springboard .amx-panelPage-header-appIcon {
+  margin-left: 10px;
+}
+HTML[dir=rtl].amx-android-generic .custom-panelPage-with-springboard .amx-panelPage-header-appIcon,
+HTML[dir=rtl].amx-android-chrome .custom-panelPage-with-springboard .amx-panelPage-header-appIcon {
+  margin-right: 10px;
+}
+*/
+/* On Android, make the springboard link overlay the app icon */
+
+/*
+HTML[dir=ltr].amx-android-generic .custom-panelPage-with-springboard .custom-springboard-link,
+HTML[dir=ltr].amx-android-chrome .custom-panelPage-with-springboard .custom-springboard-link {
+  padding-right: 30px;
+}
+HTML[dir=rtl].amx-android-generic .custom-panelPage-with-springboard .custom-springboard-link,
+HTML[dir=rtl].amx-android-chrome .custom-panelPage-with-springboard .custom-springboard-link {
+  padding-left: 30px;
+}
+.amx-android-generic .custom-panelPage-with-springboard .custom-springboard-link,
+.amx-android-chrome .custom-panelPage-with-springboard .custom-springboard-link {
+  position: absolute;
+  top: 2px;
+  left: -15px;
+  padding-top: 5px;
+  margin-top: 1px;
+}
+.amx-android-generic .custom-panelPage-with-springboard .custom-springboard-link:active,
+.amx-android-chrome .custom-panelPage-with-springboard .custom-springboard-link:active {
+  background-color: rgba(215, 236, 254, .8);
+}
+
+
+.custom-springboard-feature-selected {
+  font-weight: bold;
+}
+.custom-springboard-title,
+.custom-springboard-feature,
+.custom-springboard-feature-selected {
+  display: block;
+  padding: 8px 0;
+  min-width: 90px;
+}
+*/

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText id="outputText1" value="GPS"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandButton actionListener="#{bindings.startLocationMonitor.execute}" text="Start" id="start"
+                               disabled="#{pageFlowScope.GPSBean.started}">
+                <amx:setPropertyListener from="true" to="#{pageFlowScope.GPSBean.started}"/>
+            </amx:commandButton>
+            <amx:commandButton rendered="#{pageFlowScope.GPSBean.started}" text="Stop" id="commandButton1"
+                               actionListener="#{pageFlowScope.GPSBean.stopLocationMonitor}"
+                               disabled="#{!pageFlowScope.GPSBean.started}">
+                <amx:setPropertyListener from="false" to="#{pageFlowScope.GPSBean.started}"/>
+            </amx:commandButton>
+        </amx:facet>
+        <amx:panelFormLayout id="panelFormLayout1" labelPosition="start" fieldHalign="end" labelWidth="43%">
+            <amx:selectBooleanSwitch id="selectBooleanSwitch1" label="High Accuracy"
+                                     value="#{pageFlowScope.GPSBean.highAccuracy}" offLabel="False" onLabel="True"/>
+            <amx:inputText id="inputText1" label="Update Interval" value="#{pageFlowScope.GPSBean.updateInterval}"/>
+        </amx:panelFormLayout>
+        <amx:panelFormLayout id="panelFormLayout2" labelPosition="start" fieldHalign="end">
+            <amx:panelLabelAndMessage label="Watch ID" id="panelLabelAndMessage8">
+                <amx:outputText value="#{pageFlowScope.GPSBean.watchId}" id="outputText9"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="Timestamp" id="panelLabelAndMessage1">
+                <amx:outputText value="#{pageFlowScope.GPSBean.timestamp}" id="outputText2">
+                    <amx:convertDateTime type="both" dateStyle="medium" timeStyle="short"/>
+                </amx:outputText>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="Longitude" id="panelLabelAndMessage3">
+                <amx:outputText value="#{pageFlowScope.GPSBean.longitude}" id="outputText4">
+                    <amx:convertNumber minIntegerDigits="3" maxIntegerDigits="3" minFractionDigits="6"
+                                       maxFractionDigits="6"/>
+                </amx:outputText>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="Latitude" id="panelLabelAndMessage4">
+                <amx:outputText value="#{pageFlowScope.GPSBean.latitude}" id="outputText5">
+                    <amx:convertNumber minIntegerDigits="3" maxIntegerDigits="3" minFractionDigits="6"
+                                       maxFractionDigits="6"/>
+                </amx:outputText>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="Altitude" id="panelLabelAndMessage5">
+                <amx:outputText value="#{pageFlowScope.GPSBean.altitude}" id="outputText6">
+                    <amx:convertNumber minIntegerDigits="3" maxIntegerDigits="3" minFractionDigits="3"
+                                       maxFractionDigits="3"/>
+                </amx:outputText>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="Heading" id="panelLabelAndMessage6">
+                <amx:outputText value="#{pageFlowScope.GPSBean.heading}" id="outputText7">
+                    <amx:convertNumber minIntegerDigits="3" maxIntegerDigits="3" minFractionDigits="3"
+                                       maxFractionDigits="3"/>
+                </amx:outputText>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="Speed" id="panelLabelAndMessage7">
+                <amx:outputText value="#{pageFlowScope.GPSBean.speed}" id="outputText8">
+                    <amx:convertNumber minIntegerDigits="3" maxIntegerDigits="3" minFractionDigits="3"
+                                       maxFractionDigits="3"/>
+                </amx:outputText>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="Accuracy" id="panelLabelAndMessage2">
+                <amx:outputText value="#{pageFlowScope.GPSBean.accuracy}" id="outputText3"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="Altitude Accuracy" id="panelLabelAndMessage9">
+                <amx:outputText value="#{pageFlowScope.GPSBean.altitudeAccuracy}" id="outputText10"/>
+            </amx:panelLabelAndMessage>
+        </amx:panelFormLayout>
+    </amx:panelPage>
+</amx:view>

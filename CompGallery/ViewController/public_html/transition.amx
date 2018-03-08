@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Transition"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Operations"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:transition"
+                  shortDesc="Tag documentation" disabled="#{GlobalProperties['tagdocUrl'] == ''}"
+                  id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=operations/transition"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:outputText id="ot1" value="Deck with Two amx:transition Children"
+                    styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:outputText id="ot2"
+                    value="backNavigate transition is #{pageFlowScope.componentProperties.transition}"/>
+    <amx:outputText id="ot3"
+                    value="forwardNavigate transition is #{pageFlowScope.componentProperties.transition2}"/>
+    <amx:deck id="deck1" inlineStyle="margin-left:15px;margin-right:15px;width:95px;height:137px;overflow:hidden;"
+              displayedChild="#{pageFlowScope.componentProperties.transitionDisplayedChild}">
+      <amx:transition triggerType="backNavigate"
+                      transition="#{pageFlowScope.componentProperties.transition}"/>
+      <amx:transition triggerType="forwardNavigate"
+                      transition="#{pageFlowScope.componentProperties.transition2}"/>
+      <amx:commandLink id="linkCardBack">
+        <amx:setPropertyListener from="linkCardA"
+                                 to="#{pageFlowScope.componentProperties.transitionDisplayedChild}"/>
+        <amx:image id="imgCardBack" source="images/card-back.png"
+                   inlineStyle="width:95px;height:137px;" shortDesc="Card Back"/>
+        <amx:setPropertyListener from="none"
+                                 to="#{pageFlowScope.componentProperties.transition}"/>
+        <amx:setPropertyListener from="none"
+                                 to="#{pageFlowScope.componentProperties.transition2}"/>
+      </amx:commandLink>
+      <amx:commandLink id="linkCardA">
+        <amx:setPropertyListener from="linkCardB"
+                                 to="#{pageFlowScope.componentProperties.transitionDisplayedChild}"/>
+        <amx:image id="imgCardA" source="images/card-front-a.png"
+                   inlineStyle="width:95px;height:137px;" shortDesc="Card Front A"/>
+        <amx:setPropertyListener from="fade"
+                                 to="#{pageFlowScope.componentProperties.transition}"/>
+        <amx:setPropertyListener from="fade"
+                                 to="#{pageFlowScope.componentProperties.transition2}"/>
+      </amx:commandLink>
+      <amx:commandLink id="linkCardB">
+        <amx:setPropertyListener from="linkCardC"
+                                 to="#{pageFlowScope.componentProperties.transitionDisplayedChild}"/>
+        <amx:image id="imgCardB" source="images/card-front-b.png"
+                   inlineStyle="width:95px;height:137px;" shortDesc="Card Front B"/>
+        <amx:setPropertyListener from="flipDown"
+                                 to="#{pageFlowScope.componentProperties.transition}"/>
+        <amx:setPropertyListener from="flipUp"
+                                 to="#{pageFlowScope.componentProperties.transition2}"/>
+      </amx:commandLink>
+      <amx:commandLink id="linkCardC">
+        <amx:setPropertyListener from="linkCardD"
+                                 to="#{pageFlowScope.componentProperties.transitionDisplayedChild}"/>
+        <amx:image id="imgCardC" source="images/card-front-c.png"
+                   inlineStyle="width:95px;height:137px;" shortDesc="Card Front C"/>
+        <amx:setPropertyListener from="flipEnd"
+                                 to="#{pageFlowScope.componentProperties.transition}"/>
+        <amx:setPropertyListener from="flipStart"
+                                 to="#{pageFlowScope.componentProperties.transition2}"/>
+      </amx:commandLink>
+      <amx:commandLink id="linkCardD">
+        <amx:setPropertyListener from="linkCardE"
+                                 to="#{pageFlowScope.componentProperties.transitionDisplayedChild}"/>
+        <amx:image id="imgCardD" source="images/card-front-d.png"
+                   inlineStyle="width:95px;height:137px;" shortDesc="Card Front D"/>
+        <amx:setPropertyListener from="slideDown"
+                                 to="#{pageFlowScope.componentProperties.transition}"/>
+        <amx:setPropertyListener from="slideUp"
+                                 to="#{pageFlowScope.componentProperties.transition2}"/>
+      </amx:commandLink>
+      <amx:commandLink id="linkCardE">
+        <amx:setPropertyListener from="linkCardBack"
+                                 to="#{pageFlowScope.componentProperties.transitionDisplayedChild}"/>
+        <amx:image id="imgCardE" source="images/card-front-e.png"
+                   inlineStyle="width:95px;height:137px;" shortDesc="Card Front E"/>
+        <amx:setPropertyListener from="slideEnd"
+                                 to="#{pageFlowScope.componentProperties.transition}"/>
+        <amx:setPropertyListener from="slideStart"
+                                 to="#{pageFlowScope.componentProperties.transition2}"/>
+      </amx:commandLink>
+    </amx:deck>
+    <amx:outputText id="ot4" value="Displayed Child" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:selectOneButton id="sobDisplayedChild"
+                         value="#{pageFlowScope.componentProperties.transitionDisplayedChild}"
+                         simple="true" label="Displayed Child" layout="horizontal">
+      <amx:selectItem label="Back" value="linkCardBack"/>
+      <amx:selectItem label="A" value="linkCardA"/>
+      <amx:selectItem label="B" value="linkCardB"/>
+      <amx:selectItem label="C" value="linkCardC"/>
+      <amx:selectItem label="D" value="linkCardD"/>
+      <amx:selectItem label="E" value="linkCardE"/>
+      <amx:selectItem label="n/a" value="bogus"/>
+    </amx:selectOneButton>
+  </amx:panelPage>
+</amx:view>

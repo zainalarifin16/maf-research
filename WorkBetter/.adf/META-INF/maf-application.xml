@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
+                   version="2.0" name="WorkBetter" id="com.oraclecorp.internal.WorkBetter"
+                   appControllerFolder="ApplicationController" listener-class="wb.application.LifeCycleListenerImpl">
+  <adfmf:featureReference refId="wb.Login" id="fr2" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:featureReference refId="wb.Springboard" id="fr3" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:featureReference refId="wb.Directory" id="fr1"/>
+  <adfmf:featureReference refId="wb.Dashboard" id="fr4"/>
+  <adfmf:featureReference refId="wb.MyProfile" id="fr5"/>
+  <adfmf:featureReference refId="wb.MyOrg" id="fr6"/>
+  <adfmf:preferences/>
+  <adfmf:navigation>
+    <adfmf:navigationBar enabled="false"/>
+    <adfmf:springboard enabled="true" showSpringboardAtStartup="false" displayGotoSpringboardControl="false"
+                       width="260">
+      <adfmf:springboardFeatureReference refId="wb.Springboard" id="sfr1"/>
+    </adfmf:springboard>
+  </adfmf:navigation>
+  <adfmf:configuration>
+    <adfmf:allowedSchemeList>
+      <adfmf:allowedScheme value="mailto" id="as1"/>
+      <adfmf:allowedScheme value="twitter" id="as2"/>
+      <adfmf:allowedScheme value="fb" id="as3"/>
+      <adfmf:allowedScheme value="tel" id="as4"/>
+      <adfmf:allowedScheme value="facetime" id="as5"/>
+      <adfmf:allowedScheme value="linkedin" id="as6"/>
+    </adfmf:allowedSchemeList>
+  </adfmf:configuration>
+</adfmf:application>

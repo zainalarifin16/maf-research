@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="task-flow">
+    <default-activity>dvtComponents</default-activity>
+    <managed-bean id="__51">
+      <managed-bean-name>chartProperties</managed-bean-name>
+      <managed-bean-class>mobile.ChartProperties</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean> 
+    <managed-bean id="__52">
+      <managed-bean-name>gaugeProperties</managed-bean-name>
+      <managed-bean-class>mobile.GaugeProperties</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__54">
+      <managed-bean-name>dialGaugeProperties</managed-bean-name>
+      <managed-bean-class>mobile.DialGaugeProperties</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__64">
+      <managed-bean-name>geographicMapProperties</managed-bean-name>
+      <managed-bean-class>mobile.GeographicMapProperties</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__67">
+      <managed-bean-name>thematicMapProperties</managed-bean-name>
+      <managed-bean-class>mobile.ThematicMapProperties</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean> 
+    <view id="Properties">
+      <page>Properties.amx</page>
+    </view>
+    <view id="dvtComponents">
+      <page>dvtComponents.amx</page>
+    </view>
+    <view id="treemap">
+      <page>/treemap.amx</page>
+    </view>
+    <view id="treeviewProperties">
+      <page>/treeviewProperties.amx</page>
+    </view>
+    <view id="sunburst">
+      <page>/sunburst.amx</page>
+    </view>
+    <view id="nBox">
+      <page>/nBox.amx</page>
+    </view>
+    <view id="NBoxProperties">
+      <page>/NBoxProperties.amx</page>
+    </view>
+
+    <task-flow-return id="return">
+      <outcome>
+        <name>return</name>
+      </outcome>
+    </task-flow-return>
+
+    <task-flow-call id="dvt-charts-taskflow">
+      <task-flow-reference>
+        <document>/Gallery/dvt-charts-taskflow.xml</document>
+        <id>dvt-charts-taskflow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="dvt-gauges-taskflow">
+      <task-flow-reference>
+        <document>/Gallery/dvt-gauges-taskflow.xml</document>
+        <id>dvt-gauges-taskflow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="dvt-geo-taskflow">
+      <task-flow-reference>
+        <document>/Gallery/dvt-geo-taskflow.xml</document>
+        <id>dvt-geo-taskflow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="dvt-thematicmap-taskflow">
+      <task-flow-reference>
+        <document>/Gallery/dvt-thematicmap-taskflow.xml</document>
+        <id>dvt-thematicmap-taskflow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="dvt-features-taskflow">
+      <task-flow-reference>
+        <document>/Gallery/dvt-features-taskflow.xml</document>
+        <id>dvt-features-taskflow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="dvt-timeline-taskflow">
+      <task-flow-reference>
+        <document>/Gallery/dvt-timeline-taskflow.xml</document>
+        <id>dvt-timeline-taskflow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="dvt-legend-taskflow">
+      <task-flow-reference>
+        <document>/Gallery/dvt-legend-taskflow.xml</document>
+        <id>dvt-legend-taskflow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>properties</from-outcome>
+        <to-activity-id>Properties</to-activity-id>
+        <transition>flipStart</transition>
+      </control-flow-case> 
+      <control-flow-case id="__10">
+        <from-outcome>treemap</from-outcome>
+        <to-activity-id>treemap</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__13">
+        <from-outcome>sunburst</from-outcome>
+        <to-activity-id>sunburst</to-activity-id>
+      </control-flow-case>      
+      <control-flow-case id="__18">
+        <from-outcome>nBox</from-outcome>
+        <to-activity-id>nBox</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+   
+    <control-flow-rule id="__45">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>return</from-outcome>
+        <to-activity-id>return</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>    
+
+    <control-flow-rule id="__21">
+      <from-activity-id>nBox</from-activity-id>
+      <control-flow-case id="__22">
+        <from-outcome>nBoxProperties</from-outcome>
+        <to-activity-id>NBoxProperties</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__29">
+      <from-activity-id>dvtComponents</from-activity-id>      
+      <control-flow-case id="__82">
+        <from-outcome>dvtCharts</from-outcome>
+        <to-activity-id>dvt-charts-taskflow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__182">
+        <from-outcome>dvtGauges</from-outcome>
+        <to-activity-id>dvt-gauges-taskflow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__183">
+        <from-outcome>dvtGeo</from-outcome>
+        <to-activity-id>dvt-geo-taskflow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__184">
+        <from-outcome>dvtThematicmap</from-outcome>
+        <to-activity-id>dvt-thematicmap-taskflow</to-activity-id>
+      </control-flow-case>
+      
+      <control-flow-case id="__6">
+        <from-outcome>return</from-outcome>
+        <to-activity-id>return</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>dvtFeatures</from-outcome>
+        <to-activity-id>dvt-features-taskflow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>dvtTimeline</from-outcome>
+        <to-activity-id>dvt-timeline-taskflow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>dvtLegend</from-outcome>
+        <to-activity-id>dvt-legend-taskflow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__78">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__79">
+        <from-outcome>return</from-outcome>
+        <to-activity-id>dvtComponents</to-activity-id>
+        <transition>slideRight</transition>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-mobile-config>

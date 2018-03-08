@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.61.89" id="pieChartPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="PieDataList" id="PieDataListIterator"/>
+    <accessorIterator MasterBinding="PieDataListIterator" Binds="pieData" RangeSize="-1" DataControl="PieDataList"
+                      BeanClass="model.PieData" id="pieDataIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="pieDataIterator" id="pieData">
+      <nodeDefinition DefName="model.PieData" Name="pieData0">
+        <AttrNames>
+          <Item Value="label"/>
+          <Item Value="value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

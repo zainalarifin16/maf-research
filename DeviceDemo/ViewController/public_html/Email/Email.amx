@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="outputText1" value="Email"/>
+    </amx:facet>
+        <amx:facet name="primary">
+      <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                    <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandButton actionListener="#{bindings.sendEmail.execute}" text="Send"
+                         disabled="#{!bindings.sendEmail.enabled}" id="commandButton1"/>
+    </amx:facet>
+    <amx:panelFormLayout id="panelFormLayout1" labelPosition="start" fieldHalign="start" labelWidth="15%" >
+      <amx:inputText id="emailto" label="TO" value="#{pageFlowScope.toParam}" hintText="Must be valid emails"
+                     inputType="email"/>
+      <amx:inputText id="emailcc" label="CC" value="#{pageFlowScope.ccParam}" hintText="Must be valid emails"
+                     inputType="email"/>
+      <amx:inputText id="emailbcc" label="BCC" value="#{pageFlowScope.bccParam}" hintText="Must be valid emails"
+                     inputType="email"/>
+      <amx:inputText id="emailsubject" label="SUBJECT" value="#{pageFlowScope.subjectParam}"/>
+      <amx:inputText id="emailbody" label="BODY" value="#{pageFlowScope.bodyParam}" rows="2"/>
+   
+    </amx:panelFormLayout>
+  
+  </amx:panelPage>
+</amx:view>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="dvt-features-taskflow">
+    <default-activity>dvtFeatures</default-activity>
+    <view id="dvtFeatures">
+      <page>/dvtFeatures.amx</page>
+    </view>
+    <task-flow-return id="return">
+      <outcome>
+        <name>return</name>
+      </outcome>
+    </task-flow-return>
+    <view id="sparkChartEnhancements">
+      <page>/sparkChartEnhancements.amx</page>
+    </view>
+    <view id="chartLineTypes">
+      <page>/chartLineTypes.amx</page>
+    </view>
+    <view id="drilling">
+      <page>chartDrilling.amx</page>
+    </view>
+    <view id="sharedAttributeGroups">
+      <page>/sharedAttributeGroups.amx</page>
+    </view>
+    <view id="chartAxisCustomization">
+      <page>/chartAxisCustomization.amx</page>
+    </view>
+    <view id="chartSorting">
+      <page>/chartSorting.amx</page>
+    </view>
+    <view id="barVariableWidth">
+      <page>/barVariableWidth.amx</page>
+    </view>
+    <view id="barStackCategories">
+      <page>/barStackCategories.amx</page>
+    </view>
+    <view id="axisEnhancement">
+      <page>/axisEnhancement.amx</page>
+    </view>
+    <view id="rangeChart">
+      <page>/rangeChart.amx</page>
+    </view>
+    <view id="barChartHierarchicalGroups">
+      <page>/barChartHierarchicalGroups.amx</page>
+    </view>
+    <view id="elections">
+      <page>/elections.amx</page>
+    </view>
+    <view id="timeAxisSkipGaps">
+      <page>/timeAxisSkipGaps.amx</page>
+    </view>
+    <view id="chartItemsBorder">
+      <page>/chartItemsBorder.amx</page>
+    </view>
+    <view id="chartAxisLabelWordWrap">
+      <page>/chartAxisLabelWordWrap.amx</page>
+    </view>
+    <view id="markerShapeAttribute">
+      <page>/markerShapeAttribute.amx</page>
+    </view>
+    <view id="chartAxisLogaritmicScale">
+      <page>/chartAxisLogaritmicScale.amx</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>dvtFeatures</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>return</from-outcome>
+        <to-activity-id>return</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>sparkChartEnhancements</from-outcome>
+        <to-activity-id>sparkChartEnhancements</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__6">
+        <from-outcome>chartLineTypes</from-outcome>
+        <to-activity-id>chartLineTypes</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>sharedAttributeGroups</from-outcome>
+        <to-activity-id>sharedAttributeGroups</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>chartAxisCustomization</from-outcome>
+        <to-activity-id>chartAxisCustomization</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>drilling</from-outcome>
+        <to-activity-id>drilling</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>chartSorting</from-outcome>
+        <to-activity-id>chartSorting</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>barVariableWidth</from-outcome>
+        <to-activity-id>barVariableWidth</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome>barStackCategories</from-outcome>
+        <to-activity-id>barStackCategories</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome>axisEnhancement</from-outcome>
+        <to-activity-id>axisEnhancement</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__13">
+        <from-outcome>rangeChart</from-outcome>
+        <to-activity-id>rangeChart</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__11">
+        <from-outcome>barHierarchicalCategories</from-outcome>
+        <to-activity-id>barChartHierarchicalGroups</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__14">
+        <from-outcome>elections</from-outcome>
+        <to-activity-id>elections</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__15">
+        <from-outcome>timeAxisSkipGaps</from-outcome>
+        <to-activity-id>timeAxisSkipGaps</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__16">
+        <from-outcome>chartItemsBorder</from-outcome>
+        <to-activity-id>chartItemsBorder</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__17">
+        <from-outcome>chartAxisLabelWordWrap</from-outcome>
+        <to-activity-id>chartAxisLabelWordWrap</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__18">
+        <from-outcome>markerShapeAttribute</from-outcome>
+        <to-activity-id>markerShapeAttribute</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__19">
+        <from-outcome>chartAxisLogaritmicScale</from-outcome>
+        <to-activity-id>chartAxisLogaritmicScale</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-mobile-config>

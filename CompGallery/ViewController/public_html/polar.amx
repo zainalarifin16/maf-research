@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Polar Charts"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"></amx:commandButton>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/pieChart"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:flexLayout id="fl1">
+      <amx:panelStretchLayout id="psl1" styleClass="dvtm-gallery-component-panel">
+        <amx:facet name="center">
+          <amx:deck id="deck1" displayedChild="#{pageFlowScope.displayedChild}" inlineStyle="height: 100%;">
+            <dvtm:bubbleChart var="row" value="#{bindings.bubblePolarData.collectionModel}" id="bubbleChart1"
+                              styleClass="dvtm-gallery-component" coordinateSystem="polar">
+              <amx:facet name="dataStamp">
+                <dvtm:chartDataItem group="#{row.group}" x="#{row.x}" y="#{row.y}" z="#{row.z}">
+                  <dvtm:attributeGroups id="ag1" type="color" value="#{row.series}"/>
+                </dvtm:chartDataItem>
+              </amx:facet>
+              <dvtm:legend id="l1">
+                <dvtm:legendSection id="lgs1" source="ag1" title="Cat 1"/>
+              </dvtm:legend>
+              <dvtm:xAxis>
+                <dvtm:axisLine/>
+                <dvtm:tickLabel/>
+              </dvtm:xAxis>
+              <dvtm:yAxis>
+                <dvtm:axisLine/>
+                <dvtm:tickLabel/>
+              </dvtm:yAxis>
+            </dvtm:bubbleChart>
+            <dvtm:lineChart var="row" value="#{bindings.lineData.collectionModel}" id="lineChart1"
+                            styleClass="dvtm-gallery-component" coordinateSystem="polar"
+                            polarGridShape="#{pageFlowScope.polarGridShape}">
+              <amx:facet name="dataStamp">
+                <dvtm:chartDataItem group="#{row.group}" value="#{row.value}" series="#{row.series}"/>
+              </amx:facet>
+              <dvtm:legend position="auto" id="l2"/>
+              <dvtm:xAxis>
+                <dvtm:axisLine/>
+                <dvtm:tickLabel/>
+              </dvtm:xAxis>
+              <dvtm:yAxis>
+                <dvtm:axisLine/>
+                <dvtm:tickLabel/>
+              </dvtm:yAxis>
+            </dvtm:lineChart>
+            <dvtm:barChart var="row" value="#{bindings.barData.collectionModel}" id="barChart1"
+                           styleClass=" dvtm-gallery-component" coordinateSystem="polar">
+              <amx:facet name="dataStamp">
+                <dvtm:chartDataItem id="cdi1" group="#{row.group}" value="#{row.value}" series="#{row.series}"></dvtm:chartDataItem>
+              </amx:facet>
+              <dvtm:legend id="l3"/>
+              <dvtm:xAxis>
+                <dvtm:axisLine/>
+                <dvtm:tickLabel/>
+              </dvtm:xAxis>
+              <dvtm:yAxis>
+                <dvtm:axisLine/>
+                <dvtm:tickLabel/>
+              </dvtm:yAxis>
+            </dvtm:barChart>
+            <dvtm:areaChart var="row" value="#{bindings.lineData.collectionModel}" id="areaChart1"
+                            coordinateSystem="polar" polarGridShape="#{pageFlowScope.polarGridShape}">
+              <amx:facet name="dataStamp">
+                <dvtm:chartDataItem group="#{row.group}" value="#{row.value}" series="#{row.series}"/>
+              </amx:facet>
+              <dvtm:legend id="l4"/>
+              <dvtm:xAxis>
+                <dvtm:axisLine/>
+                <dvtm:tickLabel/>
+              </dvtm:xAxis>
+              <dvtm:yAxis>
+                <dvtm:axisLine/>
+                <dvtm:tickLabel/>
+              </dvtm:yAxis>
+            </dvtm:areaChart>
+            <dvtm:comboChart var="row" value="#{bindings.barData.collectionModel}" id="comboChart1"
+                             styleClass="dvtm-gallery-component" coordinateSystem="polar">
+              <amx:facet name="dataStamp">
+                <dvtm:chartDataItem group="#{row.group}" value="#{row.value}" series="#{row.series}"/>
+              </amx:facet>
+              <amx:facet name="seriesStamp">
+                <dvtm:seriesStyle series="#{row.series}" type="bar"
+                                  rendered="#{(row.series eq 'Series 1') or (row.series eq 'Series 2')}"/>
+                <dvtm:seriesStyle series="#{row.series}" type="bar" pattern="smallDiamond"
+                                  rendered="#{(row.series eq 'Series 3')}"/>
+                <dvtm:seriesStyle series="#{row.series}" type="line" lineWidth="4"
+                                  rendered="#{(row.series eq 'Series 4')}"/>
+                <dvtm:seriesStyle series="#{row.series}" type="area" rendered="#{(row.series eq 'Series 5')}"/>
+              </amx:facet>
+              <dvtm:legend position="#{pageFlowScope.legendPosition}" id="l5"/>
+              <dvtm:xAxis>
+                <dvtm:axisLine/>
+                <dvtm:tickLabel/>
+              </dvtm:xAxis>
+              <dvtm:yAxis>
+                <dvtm:axisLine/>
+                <dvtm:tickLabel/>
+              </dvtm:yAxis>
+            </dvtm:comboChart>
+            <dvtm:scatterChart var="row" value="#{bindings.scatterData.collectionModel}" id="scatterChart1"
+                               styleClass=" dvtm-gallery-component" coordinateSystem="polar">
+              <amx:facet name="dataStamp">
+                <dvtm:chartDataItem group="#{row.group}" x="#{row.x}" y="#{row.y}">
+                  <dvtm:attributeGroups type="color shape" value="#{row.series}" id="ag6"/>
+                </dvtm:chartDataItem>
+              </amx:facet>
+              <dvtm:legend position="#{pageFlowScope.legendPosition}" id="l6">
+                <dvtm:legendSection id="lgs6" source="ag6" title="Legend"/>
+              </dvtm:legend>
+              <dvtm:xAxis>
+                <dvtm:axisLine/>
+                <dvtm:tickLabel/>
+              </dvtm:xAxis>
+              <dvtm:yAxis>
+                <dvtm:axisLine/>
+                <dvtm:tickLabel/>
+              </dvtm:yAxis>
+            </dvtm:scatterChart>
+          </amx:deck>
+        </amx:facet>
+        <amx:facet name="bottom"></amx:facet>
+      </amx:panelStretchLayout>
+      <amx:panelGroupLayout id="pglOptionsPanel" scrollPolicy="scroll">
+        <amx:panelFormLayout id="pflOptionsForm" maxColumns="2" rows="3" styleClass="dvtm-gallery-options"
+                             fieldWidth="60%" labelWidth="40%">
+          <amx:selectOneChoice id="sobDisplayedChild" value="#{pageFlowScope.displayedChild}" label="Chart Type">
+            <amx:selectItem label="Area Chart" value="areaChart1"/>
+            <amx:selectItem label="Bar Chart" value="barChart1"/>
+            <amx:selectItem label="Bubble Chart" value="bubbleChart1"/>
+            <amx:selectItem label="Combo Chart" value="comboChart1"/>
+            <amx:selectItem label="Line Chart" value="lineChart1"/>
+            <amx:selectItem label="Scatter Chart" value="scatterChart1"/>
+          </amx:selectOneChoice>
+          <amx:selectOneChoice id="sobPolarGridShape" value="#{pageFlowScope.polarGridShape}" label="Polar Grid Shape"
+                               rendered="#{(pageFlowScope.displayedChild == 'lineChart1') or (pageFlowScope.displayedChild == 'areaChart1')}">
+            <amx:selectItem label="Circle" value="circle"/>
+            <amx:selectItem label="Polygon" value="polygon"/>
+          </amx:selectOneChoice>
+          <amx:selectOneChoice value="circle"
+                               rendered="#{(pageFlowScope.displayedChild != 'lineChart1') and (pageFlowScope.displayedChild != 'areaChart1')}"
+                               label="Polar Grid Shape" disabled="true">
+            <amx:selectItem label="Circle" value="circle"/>
+          </amx:selectOneChoice>
+          <!-- <amx:outputText value="Start angle" styleClass="adfmf-outputText-sectionTitle"/>
+        <amx:selectOneChoice id="sobStartAngle" value="#{pageFlowScope.startAngle}" simple="true"
+                             label="Start Angle">
+          <amx:selectItem label="0" value="0"/>
+          <amx:selectItem label="60" value="60"/>
+          <amx:selectItem label="90" value="90"/>
+          <amx:selectItem label="120" value="120"/>
+          <amx:selectItem label="150" value="150"/>
+          <amx:selectItem label="180" value="180"/>
+        </amx:selectOneChoice> -->
+        </amx:panelFormLayout>
+      </amx:panelGroupLayout>
+    </amx:flexLayout>
+  </amx:panelPage>
+</amx:view>

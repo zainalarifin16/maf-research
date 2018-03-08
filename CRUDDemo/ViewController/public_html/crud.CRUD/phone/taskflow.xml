@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="taskflow">
+    <default-activity>List</default-activity>
+    <view id="List">
+      <page>/crud.CRUD/phone/List.amx</page>
+    </view>
+    <view id="Detail">
+      <page>/crud.CRUD/phone/Detail.amx</page>
+    </view>
+    <view id="Edit">
+      <page>/crud.CRUD/phone/Edit.amx</page>
+    </view>
+    <method-call id="Create">
+      <method>#{bindings.Create.execute}</method>
+      <outcome>
+        <fixed-outcome>Create</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>List</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>detail</from-outcome>
+        <to-activity-id>Detail</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>add</from-outcome>
+        <to-activity-id>Create</to-activity-id>
+        <transition>flipRight</transition>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>Detail</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>edit</from-outcome>
+        <to-activity-id>Edit</to-activity-id>
+        <transition>flipRight</transition>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>Create</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>Create</from-outcome>
+        <to-activity-id>Edit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <page-flow-scope-behavior>
+      <push-new/>
+    </page-flow-scope-behavior>
+  </task-flow-definition>
+</adfc-mobile-config>

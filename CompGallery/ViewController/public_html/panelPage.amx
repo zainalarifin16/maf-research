@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1"
+    inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+    rendered="#{pageFlowScope.componentProperties.rendered}"
+    styleClass="#{pageFlowScope.componentProperties.styleClass}">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Page"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Layout"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="styles" action="styles" shortDesc="Styles">
+        <amx:image id="stylesIcon" source="images/styles.svg" shortDesc=""/>
+        <amx:setPropertyListener from="Default" to="#{pageFlowScope.panelPageStyle}" type="action"/>
+      </amx:commandLink>
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:panelPage" id="pTagdocUrl"
+                  shortDesc="Tag documentation" disabled="#{GlobalProperties['tagdocUrl'] == ''}">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=layout/panelPage"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:facet name="footer">
+      <amx:outputText id="footer" value="Panel Page Footer"/>
+    </amx:facet>
+    <amx:outputText value="The shell of this page is a panelPage" id="ot1"/>
+  </amx:panelPage>
+</amx:view>

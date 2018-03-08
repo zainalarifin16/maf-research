@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.21.53" id="stockDetailPageDef"
+                Package="Portfolio">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="Portfolio" id="PortfolioIterator"/>
+    <accessorIterator MasterBinding="PortfolioIterator" Binds="stocks" RangeSize="25" DataControl="Portfolio"
+                      BeanClass="Portfolio.Stock" id="stocksIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="stocksIterator" id="stockOrder">
+      <AttrNames>
+        <Item Value="stockOrder"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="stocksIterator" id="change">
+      <AttrNames>
+        <Item Value="change"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="stocksIterator" id="percent">
+      <AttrNames>
+        <Item Value="percent"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="stocksIterator" id="id">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="stocksIterator" id="ticker">
+      <AttrNames>
+        <Item Value="ticker"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="stocksIterator" id="company">
+      <AttrNames>
+        <Item Value="company"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="stocksIterator" id="price">
+      <AttrNames>
+        <Item Value="price"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="stocksIterator" id="previous">
+      <AttrNames>
+        <Item Value="previous"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="stocksIterator" id="volume">
+      <AttrNames>
+        <Item Value="volume"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="stocksIterator" id="Create" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="stocksIterator" id="Delete" RequiresUpdateModel="true" Action="removeCurrentRow"/>
+    <action IterBinding="stocksIterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <methodAction id="saveAllStocks" RequiresUpdateModel="true" Action="invokeMethod" MethodName="saveAllStocks"
+                  IsViewObjectMethod="false" DataControl="Portfolio" InstanceName="data.Portfolio.dataProvider"/>
+    <methodAction id="copyStock" RequiresUpdateModel="true" Action="invokeMethod" MethodName="copyStock"
+                  IsViewObjectMethod="false" DataControl="Portfolio" InstanceName="data.Portfolio.dataProvider">
+      <NamedData NDName="id" NDValue="#{bindings.id.inputValue}" NDType="int"/>
+      <NamedData NDName="ticker" NDValue="#{bindings.ticker.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="company" NDValue="#{bindings.company.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="price" NDValue="#{bindings.price.inputValue}" NDType="double"/>
+      <NamedData NDName="previous" NDValue="#{bindings.previous.inputValue}" NDType="double"/>
+      <NamedData NDName="volume" NDValue="#{bindings.volume.inputValue}" NDType="long"/>
+      <NamedData NDName="orderId" NDValue="#{bindings.stockOrder.inputValue}" NDType="int"/>
+    </methodAction>
+    <methodAction id="resetStock" RequiresUpdateModel="true" Action="invokeMethod" MethodName="resetStock"
+                  IsViewObjectMethod="false" DataControl="Portfolio" InstanceName="data.Portfolio.dataProvider">
+      <NamedData NDName="stockId" NDValue="#{bindings.id.inputValue}" NDType="int"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

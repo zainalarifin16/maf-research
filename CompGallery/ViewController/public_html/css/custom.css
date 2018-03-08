@@ -1,0 +1,525 @@
+/* Copyright (c) 2011, 2017, Oracle and/or its affiliates. All rights reserved. */
+
+/* *************************** START of legacy skin support *************************** */
+
+.amx-flexLayout-itemContainer.adfmf-flexLayout-itemFlexibility_equal.amx-flexLayout-deprecated > * {
+  width: 100%;
+}
+
+/* override default styles */
+.custom-legacy-skin .amx-panelPage-bar .amx-commandLink,
+.custom-legacy-skin .amx-panelPage-bar .amx-goLink {
+  display: inline-block;
+  margin: 6px 6px 0 6px;
+}
+
+.custom-legacy-skin .amx-panelPage-bar .amx-commandLink img,
+.custom-legacy-skin .amx-panelPage-bar .amx-goLink img {
+  width: 32px;
+  height: 32px;
+}
+
+/* On Android, make the app icon shift over some more so that there is room for the springboard link */
+HTML[dir=ltr].amx-android-generic .custom-legacy-skin .custom-panelPage-with-springboard .amx-panelPage-header-appIcon,
+HTML[dir=ltr].amx-android-chrome .custom-legacy-skin .custom-panelPage-with-springboard .amx-panelPage-header-appIcon {
+  margin-left: 10px;
+}
+HTML[dir=rtl].amx-android-generic .custom-legacy-skin .custom-panelPage-with-springboard .amx-panelPage-header-appIcon,
+HTML[dir=rtl].amx-android-chrome .custom-legacy-skin .custom-panelPage-with-springboard .amx-panelPage-header-appIcon {
+  margin-right: 10px;
+}
+
+/* On Android, make the springboard link overlay the app icon */
+HTML[dir=ltr].amx-android-generic .custom-legacy-skin .custom-panelPage-with-springboard .custom-springboard-link,
+HTML[dir=ltr].amx-android-chrome .custom-legacy-skin .custom-panelPage-with-springboard .custom-springboard-link {
+  padding-right: 30px;
+}
+HTML[dir=rtl].amx-android-generic .custom-legacy-skin .custom-panelPage-with-springboard .custom-springboard-link,
+HTML[dir=rtl].amx-android-chrome .custom-legacy-skin .custom-panelPage-with-springboard .custom-springboard-link {
+  padding-left: 30px;
+}
+.amx-android-generic .custom-legacy-skin .custom-panelPage-with-springboard .custom-springboard-link,
+.amx-android-chrome .custom-legacy-skin .custom-panelPage-with-springboard .custom-springboard-link {
+  position: absolute;
+  top: 2px;
+  left: -15px;
+  padding-top: 5px;
+  margin-top: 1px;
+}
+.amx-android-generic .custom-legacy-skin .custom-panelPage-with-springboard .custom-springboard-link:active,
+.amx-android-chrome .custom-legacy-skin .custom-panelPage-with-springboard .custom-springboard-link:active {
+  background-color: rgba(215, 236, 254, .8);
+}
+
+/* *************************** END of legacy skin support *************************** */
+
+/* Bookmarkable links should only appear in hosted mode (the web browser mode at http://jdevadf.oracle.com) */
+.amx-panelPage-facet-primary .amx-goLink.custom-bookmarkable-link,
+.amx-panelPage-facet-secondary .amx-goLink.custom-bookmarkable-link,
+.amx-panelPage-facet-footer .amx-goLink.custom-bookmarkable-link {
+  display: none;
+}
+@media only screen and (min-width: 360px) {
+  /* Skinny screens won't have space so only show if wide enough */
+  .custom-mock-data .amx-panelPage-facet-primary .amx-goLink.custom-bookmarkable-link,
+  .custom-mock-data .amx-panelPage-facet-secondary .amx-goLink.custom-bookmarkable-link,
+  .custom-mock-data .amx-panelPage-facet-footer .amx-goLink.custom-bookmarkable-link {
+    display: inline-block;
+  }
+}
+
+/* Styles for the custom:example component */
+
+.custom-example {
+  border: 1px solid red;
+  padding: 10px;
+}
+
+.custom-example-img {
+  width: 36px;
+  height: 36px;
+  vertical-align: middle;
+}
+HTML[dir=ltr] .custom-example-img {
+  padding-right: 10px;
+}
+HTML[dir=rtl] .custom-example-img {
+  padding-left: 10px;
+}
+
+.custom-example-label {
+  color: orange;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  font-size: 18px;
+}
+
+.custom-example-wrapper {
+  border: 2px dotted lightgray;
+  margin-top: 10px;
+}
+
+/* Styles for the custom:exampleEvents component */
+
+.custom-exampleEvents {
+  position: relative;
+  margin: 5px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+}
+
+.custom-exampleEvents_status {
+  margin: 5px;
+  font-weight: bold;
+}
+
+.custom-exampleEvents_tapBubbleEvent,
+.custom-exampleEvents_removeBubbleEvent,
+.custom-exampleEvents_tapHoldBubbleEvent,
+.custom-exampleEvents_swipeTrigger,
+.custom-exampleEvents_tapHoldTrigger,
+.custom-exampleEvents_dragEvents {
+  margin: 5px;
+  border: 1px dotted yellow;
+  padding: 10px;
+  border-radius: 4px;
+  width: 140px;
+  text-align: center;
+}
+.amx-uwp .custom-exampleEvents_swipeTrigger,
+.amx-uwp .custom-exampleEvents_dragEvents {
+  touch-action: none; /* always block UWP native scrolling and instead honor drags, ignore JDev Error audit which is false */
+}
+
+.custom-exampleEvents_orange {
+  background-color: orange;
+  color: black;
+}
+
+/* Styles for the custom:exampleList component */
+
+.custom-exampleList {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  overflow: auto;
+  border: 1px solid gray;
+  background-color: black;
+  color: white;
+}
+
+.custom-exampleListItem .amx-outputText,
+.custom-exampleList-rowText {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  white-space: nowrap;
+  text-overflow: clip;
+  overflow: hidden;
+  display: block;
+}
+HTML[dir=ltr] .custom-exampleListItem .amx-outputText,
+HTML[dir=ltr] .custom-exampleList-rowText {
+  margin-right: 30px;
+  padding: 10px 0 10px 10px;
+}
+HTML[dir=rtl] .custom-exampleListItem .amx-outputText,
+HTML[dir=rtl] .custom-exampleList-rowText {
+  margin-left: 30px;
+  padding: 10px 10px 10px 0;
+}
+
+.custom-exampleList-header {
+  border-bottom: solid 1px #BBBBBB;
+}
+
+.custom-exampleList-facet-header {
+  background-color: #CCCCCC;
+}
+
+.custom-exampleListItem,
+.custom-exampleList-loadMoreRows {
+  position: relative;
+  border-bottom: solid 1px #BBBBBB;
+  cursor: pointer;
+  min-height: 43px;
+}
+
+.custom-exampleListItem-selected {
+  background-color: white;
+  color: black;
+}
+.custom-exampleListItem-selected .amx-outputText {
+  color: black;
+}
+
+.custom-exampleListItem-caret {
+  width: 9px;
+  height: 13px;
+  position: absolute;
+  top: 50%;
+  margin-top: -7px;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAaCAYAAAC6nQw6AAAAxklEQVR42qXUQQYDMRjF8VDK0FUpZSi9ROlBpjfMaihZdVt6gK5KV6X0AL1B+kKnj2H6PfnIfxX5kUgScs4hYJQOXTdDER3RvMyp/aCyEPUof0vENGhAEpExpkMnLq7BCJ1RrscINT6Mhz1glzqMkBMj5MQIOTFCTozQFLZQMUI+LCrQEl3/IG+0s7a2UhDrsNfopiCEKhHrQrbobiD76ZtN5GEh1qPdKIj1jWzRU0Es6KUgCpQMxPP5E1EhRKwCITTCIhG9Dzs74dL6EW65AAAAAElFTkSuQmCC);
+  background-size: 9px 13px;
+}
+.custom-exampleListItem-selected .custom-exampleListItem-caret {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAaCAYAAAC6nQw6AAAAxklEQVR42qXUQQYDMRjF8VDK0FUpZSi9ROlBpjfMaihZdVt6gK5KV6X0AL1B+kKnj2H6PfnIfxX5kUgScs4hYJQOXTdDER3RvMyp/aCyEPUof0vENGhAEpExpkMnLq7BCJ1RrscINT6Mhz1glzqMkBMj5MQIOTFCTozQFLZQMUI+LCrQEl3/IG+0s7a2UhDrsNfopiCEKhHrQrbobiD76ZtN5GEh1qPdKIj1jWzRU0Es6KUgCpQMxPP5E1EhRKwCITTCIhG9Dzs74dL6EW65AAAAAElFTkSuQmCC);
+}
+HTML[dir=ltr] .custom-exampleListItem-caret {
+  right: 5px;
+}
+HTML[dir=rtl] .custom-exampleListItem-caret {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  left: 5px;
+}
+
+/* Styles for the custom:resizable component */
+
+.custom-resizable {
+  position: relative;
+}
+.custom-resizable-text {
+  position: relative;
+  border: 3px double black;
+  background-color: white;
+}
+.custom-resizable-text.custom-resizable-dragging {
+  border-color: #00A651;
+  background-color: #64DA38;
+}
+.custom-resizable-text > * {
+  color: black;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+.custom-resizable-tl,
+.custom-resizable-tr,
+.custom-resizable-bl,
+.custom-resizable-br {
+  position: absolute;
+  border: 3px double #2E3192;
+  background-color: #17AFF8;
+  opacity: 0.8;
+  border-radius: 12px;
+  width: 16px;
+  height: 16px;
+}
+.amx-uwp .custom-resizable-text,
+.amx-uwp .custom-resizable-tl,
+.amx-uwp .custom-resizable-tr,
+.amx-uwp .custom-resizable-bl,
+.amx-uwp .custom-resizable-br {
+  touch-action: none; /* always block UWP native scrolling and instead honor drags, ignore JDev Error audit which is false */
+}
+.custom-resizable-tl.custom-resizable-dragging,
+.custom-resizable-tr.custom-resizable-dragging,
+.custom-resizable-bl.custom-resizable-dragging,
+.custom-resizable-br.custom-resizable-dragging {
+  border-color: #00A651;
+  background-color: #64DA38;
+}
+.custom-resizable-tl,
+.custom-resizable-tr {
+  top: -12px;
+}
+.custom-resizable-bl,
+.custom-resizable-br {
+  bottom: -12px;
+}
+.custom-resizable-tl,
+.custom-resizable-bl {
+  left: -12px;
+}
+.custom-resizable-tr,
+.custom-resizable-br {
+  right: -12px;
+}
+
+/* Styles used on the Layout - Accessory Layout page */
+.MyGrayLink {
+  background-color: #61788B;
+}
+.MyOrangeLink {
+  background-color: #DB6134;
+}
+.MyRedLink {
+  background-color: #BA0006;
+}
+
+/* Styles used on the General - Custom Component - Overflow page */
+.amx-accessoryLayout_endWrap > .custom-overflow > .amx-commandLink {
+  white-space: pre;
+  text-decoration: none;
+  overflow: hidden;
+  padding: 11px 10px;
+  height: 100%;
+  box-sizing: border-box;
+  color: white;
+}
+.amx-accessoryLayout_endWrap > .custom-overflow {
+  display: table;
+  height: 100%;
+}
+.amx-accessoryLayout_endWrap > .custom-overflow > .amx-commandLink {
+  display: table-cell;
+  vertical-align: middle;
+  white-space: pre;
+  text-decoration: none;
+  overflow: hidden;
+  padding: 11px 10px;
+  height: 100%;
+  box-sizing: border-box;
+  color: white;
+}
+.amx-accessoryLayout.amx-full .amx-accessoryLayout_endWrap > .custom-overflow > .amx-commandLink.adfmf-accessoryLayout-hideWhenFull {
+  display: none;
+}
+
+/* Styles to be used with the commandButton iconDelivery="fetchAndInline" and the image
+   sourceDelivery="fetchAndInline" demos. These styles are relatively new styles that JDev assumes
+   errors but they are not and the audit message should be ignored. */
+.custom-inline-coloring rect {
+  fill: #66C617;
+}
+.custom-inline-coloring path {
+  fill: #CCCCCC;
+}
+.custom-inline-coloring line {
+  stroke: #0672CD;
+}
+
+.amx-image:active rect,
+.amx-commandButton.amx-selected rect {
+  fill: #FD1B23;
+}
+.amx-image:active path,
+.amx-commandButton.amx-selected path {
+  fill: #0672CD;
+}
+.amx-image:active line,
+.amx-commandButton.amx-selected line {
+  stroke: #CE27C3;
+}
+
+/* Styles used on the Layout - Popup page to illustrate align positions */
+
+.amx-commandLink.custom-popupAlignLink {
+  display: block;
+  overflow: hidden;
+  color: white;
+  text-decoration: none;
+  word-break: break-word;
+  width: 42px;
+  height: 42px;
+  padding: 2px;
+  font-size: 10px
+}
+HTML[dir=ltr] table[border="0"] > tr > .amx-cellFormat.custom-blackBorderStart,
+HTML[dir=rtl] table[border="0"] > tr > .amx-cellFormat.custom-blackBorderEnd {
+  border-left: 3px double black;
+}
+HTML[dir=rtl] table[border="0"] > tr > .amx-cellFormat.custom-blackBorderStart,
+HTML[dir=ltr] table[border="0"] > tr > .amx-cellFormat.custom-blackBorderEnd {
+  border-right: 3px double black;
+}
+table[border="0"] > tr > .amx-cellFormat.custom-blackBorderTop {
+  border-top: 3px double black;
+}
+table[border="0"] > tr > .amx-cellFormat.custom-blackBorderBottom {
+  border-bottom: 3px double black;
+}
+
+@media screen and (orientation: landscape)
+             and (min-height: 600px) {
+ .dvtm-gallery-component-panel {
+   height: 400px;
+  }
+}
+
+.amx-panelFormLayout.dvtm-gallery-options .field .field-label {
+  vertical-align: baseline;
+  font-size: 12px;
+}
+
+.dvtm-gallery-container-list .amx-listItem .amx-tableLayout {
+  width:100%;
+}
+
+.dvtm-gallery-container-list .amx-listItem .amx-tableLayout > table {
+  width:95%;
+}
+
+.dvtm-gallery-container-table {
+  margin: 12px 9px 8px 9px;
+}
+
+.dvtm-gallery-container-table > table {
+  width: 100%;
+  border: 1px solid #C8D7E0;
+  background: #FFFFFF;
+  border-radius: 5px;
+}
+
+.dvtm-gallery-container-table > table .field-label {
+  font-size: 12px;
+}
+
+.dvtm-gallery-status-line {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  color: GrayText;
+  padding-left: 10px;
+}
+
+.dvtm-gallery-options-dialog {
+  width: 300px;
+}
+
+.dvtm-gallery-container-list .field-label {
+  vertical-align: baseline;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.dvtm-gallery-container-table td.dvtm-gallery-component-horizontalGauge-cell {
+  padding: 10px 10px;
+  height: 40px;
+}
+
+.dvtm-gallery-container-table td.dvtm-gallery-component-verticalGauge-cell {
+  padding: 10px 10px;
+  height: 250px;
+}
+
+#rlVerticalLabels .field-label, #smgLabels1 .field-label, #smgLabels2 .field-label, #smghr1 .field-label, #smghr2 .field-label, #smghr3 .field-label, #smghr4 .field-label {
+  display:inline-block;
+  padding: 2px;
+}
+
+#tlStatusMeterGauge table td:first-child {
+  width:33%;
+}
+
+.dvtm-gallery-component-title {
+  padding: 5px;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+}
+
+#pp1 #cbMore {
+  padding-left: 7px;
+}
+
+#pp1 #pItemSelection .field-value {
+  position: relative;
+}
+
+#pp1 #pScale .field-value {
+  position: relative;
+}
+
+#smgCircularRow1, #smgCircularRow2 {
+   height: 90px;
+}
+
+.dvtm-gallery-container-table td.dvtm-gallery-component-verticalGauge-cell {
+  padding: 10px 10px;
+  height: 170px;
+}
+
+@media screen and (min-height: 600px) {
+    #smgCircularRow1, #smgCircularRow2 {
+      height: 180px;
+    }
+    .dvtm-gallery-container-table td.dvtm-gallery-component-verticalGauge-cell {
+      padding: 10px 10px;
+      height: 250px;
+    }
+}
+#filmStripAttrGroups .dvtm-chartTitle {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#filmStripAttrGroups .amx-filmStrip-item-content {
+  border: 0px solid black;
+  background-color: transparent;
+}
+
+.lNavigation {
+  padding-left: 20px;
+}
+
+
+.seriesPath {
+  font-size: 12pt;
+}
+#ppStockChart #pglOptionsPanel .field-label {
+  font-size: 0.6em;
+}
+
+#ppStockChart #pglOptionsPanel .amx-selectOneChoice .selectItemsContainer {
+  font-size: 0.7em;
+}
+
+#ppStockChart #pglOptionsPanel .amx-commandButton-label {
+  font-size: 0.8em;
+}
+
+#ppStockChart #pglOptionsPanel #sobData {
+  width: 150px;
+}
+
+#ppStockChart #pglOptionsPanel #socSeriesType {
+  width: 160px;
+}

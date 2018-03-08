@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Common Legend Item" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back">
+        <amx:setPropertyListener to="#{DvtProperties.commonLegendItemProperties.borderColor}"
+                                 from="#{pageFlowScope.borderColor}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.commonLegendItemProperties.color}" from="#{pageFlowScope.color}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.commonLegendItemProperties.lineStyle}"
+                                 from="#{pageFlowScope.lineStyle}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.commonLegendItemProperties.lineWidth}"
+                                 from="#{pageFlowScope.lineWidth}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.commonLegendItemProperties.markerColor}"
+                                 from="#{pageFlowScope.markerColor}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.commonLegendItemProperties.markerShape}"
+                                 from="#{pageFlowScope.markerShape}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.commonLegendItemProperties.pattern}"
+                                 from="#{pageFlowScope.pattern}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.commonLegendItemProperties.symbolType}"
+                                 from="#{pageFlowScope.symbolType}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.commonLegendItemProperties.text}" from="#{pageFlowScope.text}"
+                                 type="action"/>
+      </amx:commandButton>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="chartProperties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#dvtm:legendItem" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/dvtCharts/standaloneLegendItem"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:flexLayout id="fl1">
+      <amx:panelStretchLayout id="psl1" styleClass="dvtm-gallery-component-panel">
+        <amx:facet name="center">
+          <dvtm:legend title="Common Legend" orientation="vertical" halign="center" valign="middle" id="l1">
+            <dvtm:legendSection title="Legend Section" id="ls1">
+              <dvtm:legendItem borderColor="#{pageFlowScope.borderColor}" color="#{pageFlowScope.color}"
+                               lineStyle="#{pageFlowScope.lineStyle}" lineWidth="#{pageFlowScope.lineWidth}"
+                               markerColor="#{pageFlowScope.markerColor}" markerShape="#{pageFlowScope.markerShape}"
+                               pattern="#{pageFlowScope.pattern}" symbolType="#{pageFlowScope.symbolType}"
+                               text="#{pageFlowScope.text}" id="li1"/>
+            </dvtm:legendSection>
+          </dvtm:legend>
+        </amx:facet>
+        <amx:facet name="bottom"></amx:facet>
+      </amx:panelStretchLayout>
+      <amx:panelGroupLayout id="pglOptionsPanel" scrollPolicy="scroll">
+        <amx:panelFormLayout id="pflOptionsForm2" maxColumns="1" rows="1" styleClass="dvtm-gallery-options"
+                             fieldWidth="60%" labelWidth="40%">
+          <amx:inputText id="inpText" label="Text" value="#{pageFlowScope.text}"/>
+        </amx:panelFormLayout>
+        <amx:panelFormLayout id="pflOptionsForm" maxColumns="2" rows="3" styleClass="dvtm-gallery-options"
+                             fieldWidth="60%" labelWidth="40%">
+          <amx:inputText id="inpBorderColor" label="Border Color" value="#{pageFlowScope.borderColor}"/>
+          <amx:inputText id="inpColor" label="Color" value="#{pageFlowScope.color}"/>
+          <amx:selectOneChoice id="socLineStyle" label="Line Style" value="#{pageFlowScope.lineStyle}">
+            <amx:selectItem label="default"/>
+            <amx:selectItem label="dashed" value="dashed"/>
+            <amx:selectItem label="dotted" value="dotted"/>
+            <amx:selectItem label="solid" value="solid"/>
+          </amx:selectOneChoice>
+          <amx:inputText id="inpLineWidth" label="Line Width" value="#{pageFlowScope.lineWidth}"/>
+          <amx:inputText id="inpMarkerColor" label="Marker Color" value="#{pageFlowScope.markerColor}"/>
+          <amx:selectOneChoice id="socMarkerShape" label="Marker Shape" value="#{pageFlowScope.markerShape}">
+            <amx:selectItem label="default"/>
+            <amx:selectItem label="circle" value="circle"/>
+            <amx:selectItem label="square" value="square"/>
+            <amx:selectItem label="plus" value="plus"/>
+            <amx:selectItem label="diamond" value="diamond"/>
+            <amx:selectItem label="triangleUp" value="triangleUp"/>
+            <amx:selectItem label="triangleDown" value="triangleDown"/>
+            <amx:selectItem label="human" value="human"/>
+          </amx:selectOneChoice>
+          <amx:selectOneChoice id="socPattern" label="Pattern" value="#{pageFlowScope.pattern}">
+            <amx:selectItem label="default"/>
+            <amx:selectItem value="smallDiagonalLeft" label="smallDiagonalLeft"/>
+            <amx:selectItem value="smallDiagonalRight" label="smallDiagonalRight"/>
+            <amx:selectItem value="smallChecker" label="smallChecker"/>
+            <amx:selectItem value="smallTriangle" label="smallTriangle"/>
+            <amx:selectItem value="smallCrosshatch" label="smallCrosshatch"/>
+            <amx:selectItem value="smallDiamond" label="smallDiamond"/>
+            <amx:selectItem value="largeDiagonalLeft" label="largeDiagonalLeft"/>
+            <amx:selectItem value="largeDiagonalRight" label="largeDiagonalRight"/>
+            <amx:selectItem value="largeChecker" label="largeChecker"/>
+            <amx:selectItem value="largeTriangle" label="largeTriangle"/>
+            <amx:selectItem value="largeCrosshatch" label="largeCrosshatch"/>
+            <amx:selectItem value="largeDiamond" label="largeDiamond"/>
+          </amx:selectOneChoice>
+          <amx:selectOneChoice id="socSymbolType" label="Symbol Type" value="#{pageFlowScope.symbolType}">
+            <amx:selectItem label="default"/>
+            <amx:selectItem label="line" value="line"/>
+            <amx:selectItem label="lineWithMarker" value="lineWithMarker"/>
+            <amx:selectItem label="marker" value="marker"/>
+          </amx:selectOneChoice>
+        </amx:panelFormLayout>
+      </amx:panelGroupLayout>
+    </amx:flexLayout>
+  </amx:panelPage>
+</amx:view>

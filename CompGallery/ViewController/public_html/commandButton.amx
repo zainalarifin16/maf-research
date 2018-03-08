@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1" styleClass="custom-inline-coloring">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Button"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="General"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="styles" action="styles" shortDesc="Styles">
+        <amx:image id="stylesIcon" source="images/styles.svg" shortDesc=""/>
+        <amx:setPropertyListener from="" to="#{pageFlowScope.buttonColorMarkerClass}" type="action"/>
+        <amx:setPropertyListener from="none" to="#{pageFlowScope.buttonIconChoice}" type="action"/>
+        <amx:setPropertyListener from="adfmf-panelGroupLayout-groupBox" to="#{pageFlowScope.buttonPanelClass}" type="action"/>
+      </amx:commandLink>
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:commandButton"
+                  shortDesc="Tag documentation" disabled="#{GlobalProperties['tagdocUrl'] == ''}"
+                  id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=general/commandButton"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:commandButton id="commandButton2" text="#{pageFlowScope.componentProperties.text}"
+                       rendered="#{pageFlowScope.componentProperties.rendered}"
+                       icon="#{pageFlowScope.componentProperties.icon}"
+                       iconDelivery="#{pageFlowScope.componentProperties.iconDelivery}"
+                       iconPosition="#{pageFlowScope.componentProperties.iconPosition}"
+                       shortDesc="#{pageFlowScope.componentProperties.shortDesc}"
+                       styleClass="#{pageFlowScope.componentProperties.styleClass}"
+                       inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+                       disabled="#{pageFlowScope.componentProperties.disabled}"
+                       actionListener="#{PropertyBean.ActionHandler}"/>
+    <amx:outputText id="outputText1" value="#{viewScope.actionevent}"/>
+  </amx:panelPage>
+</amx:view>

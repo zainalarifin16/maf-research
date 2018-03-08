@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Film Strip"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Data Views"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:filmStrip" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dataviews/filmStrip"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+     <amx:verbatim id="v1">
+       <![CDATA[
+         <script type="text/javascript">
+           function filmStripPageChangeListener(event)
+           {
+             if (window.adf._bootstrapMode != "hosted")
+             {
+               return;
+             }
+
+             adf.mf.log.Framework.logp(adf.mf.log.level.INFO, "filmStrip.amx", "filmStripPageChangeListener", "Emulating Page Change Event in Client Listener.");
+
+             adf.mf.el.setValue({
+                "name": "#{viewScope.pageCount}",
+                "value": event.pageCount
+             },
+             function(request, response)
+             {},
+             function(request, response)
+             {});
+
+             adf.mf.el.setValue({
+                "name": "#{viewScope.displayedPageNo}",
+                "value": (event.displayedPageIndex + 1)
+             },
+             function(request, response)
+             {},
+             function(request, response)
+             {});
+           }
+         </script>
+       ]]>
+    </amx:verbatim>
+    <amx:panelStretchLayout>
+      <amx:facet name="top">
+        <amx:inputNumberSlider inlineStyle="font-weight: bold;" label="Page #{viewScope.displayedPageNo}/#{viewScope.pageCount}" minimum="1"
+                               maximum="#{viewScope.pageCount}" value="#{viewScope.displayedPageNo}"/>
+      </amx:facet>
+      <amx:facet name="center">
+        <amx:filmStrip var="item" value="#{bindings.contacts.collectionModel}" id="fs1"
+                       inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+                       halign="#{pageFlowScope.componentProperties.filmStripHalign}"
+                       itemsPerPage="#{pageFlowScope.componentProperties.itemsPerPage}"
+                       displayedItemKey="#{pageFlowScope.componentProperties.displayedItemKey}"
+                       displayedPageIndex="#{viewScope.displayedPageNo ne null and viewScope.displayedPageNo gt 0 ? viewScope.displayedPageNo - 1 : null}"
+                       orientation="#{pageFlowScope.componentProperties.orientation}"
+                       rendered="#{pageFlowScope.componentProperties.rendered}"
+                       shortDesc="#{pageFlowScope.componentProperties.shortDesc}"
+                       styleClass="#{pageFlowScope.componentProperties.styleClass}"
+                       valign="#{pageFlowScope.componentProperties.filmStripValign}"
+                       itemSizing="#{pageFlowScope.componentProperties.itemSizing}"
+                       pageControlPosition="#{pageFlowScope.componentProperties.pageControlPosition}"
+                       pageChangeListener="#{PropertyBean.filmStripPageChangeListener}">
+          <amx:clientListener method="filmStripPageChangeListener" type="pageChange">
+            <?audit suppress oracle.ide.xml.validation-error?>
+          </amx:clientListener>
+          <amx:filmStripItem id="fsi1" inlineStyle="text-align:center;">
+            <amx:commandLink id="ciLink" action="details" shortDesc="Navigate to details">
+              <amx:image id="ciImage" source="images/people/#{item.first}.png"/>
+              <amx:setPropertyListener from="#{item.rowKey}" to="#{pageFlowScope.currentContact}" type="action"/>
+              <amx:setPropertyListener from="#{item.first}" to="#{pageFlowScope.currentContactFirst}" type="action"/>
+              <amx:setPropertyListener from="#{item.last}" to="#{pageFlowScope.currentContactLast}" type="action"/>
+              <amx:setPropertyListener from="#{item.address}" to="#{pageFlowScope.currentContactAddress}"
+                                       type="action"/>
+              <amx:setPropertyListener from="#{item.city}" to="#{pageFlowScope.currentContactCity}" type="action"/>
+              <amx:setPropertyListener from="#{item.state}" to="#{pageFlowScope.currentContactState}" type="action"/>
+              <amx:setPropertyListener from="#{item.zip}" to="#{pageFlowScope.currentContactZip}" type="action"/>
+              <amx:setPropertyListener from="#{item.phone}" to="#{pageFlowScope.currentContactPhone}" type="action"/>
+              <amx:setPropertyListener from="#{item.mobile}" to="#{pageFlowScope.currentContactMobile}" type="action"/>
+            </amx:commandLink>
+          </amx:filmStripItem>
+        </amx:filmStrip>
+      </amx:facet>
+    </amx:panelStretchLayout>
+  </amx:panelPage>
+</amx:view>

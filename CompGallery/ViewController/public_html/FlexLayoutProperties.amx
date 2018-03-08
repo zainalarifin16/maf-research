@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Properties"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandButton id="back" action="__back" text="Done" shortDesc="Go back to the previous page"/>
+    </amx:facet>
+    <amx:outputText value="Main FlexLayout"/>
+    <amx:panelFormLayout id="propform1" labelWidth="40%" fieldWidth="60%">
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.fl1Rendered}" label="Rendered" id="pRendered1"
+                               offLabel="False" onLabel="True"/>
+      <amx:selectOneChoice label="Orientation" value="#{pageFlowScope.componentProperties.layoutOrientation}"
+                           id="pOrientation1">
+        <amx:selectItem label="auto" value="auto"/>
+        <amx:selectItem label="horizontal" value="horizontal"/>
+        <amx:selectItem label="inverse" value="inverse"/>
+        <amx:selectItem label="vertical" value="vertical"/>
+      </amx:selectOneChoice>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.p1Rendered}" label="Component 1 Rendered"
+                               id="p1Rendered" offLabel="False" onLabel="True"/>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.p2Rendered}" label="Component 2 Rendered"
+                               id="p2Rendered" offLabel="False" onLabel="True"/>
+    </amx:panelFormLayout>
+    <amx:outputText value="Inner FlexLayout (shades of blue)"/>
+    <amx:panelFormLayout id="propform2" labelWidth="40%" fieldWidth="60%">
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.fl2Rendered}" label="Rendered" id="pRendered2"
+                               offLabel="False" onLabel="True"/>
+      <amx:selectOneChoice label="Orientation" value="#{pageFlowScope.componentProperties.innerLayoutOrientation}"
+                           id="pOrientation2">
+        <amx:selectItem label="auto" value="auto"/>
+        <amx:selectItem label="horizontal" value="horizontal"/>
+        <amx:selectItem label="inverse" value="inverse"/>
+        <amx:selectItem label="vertical" value="vertical"/>
+      </amx:selectOneChoice>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.p3Rendered}" label="Component 3 Rendered"
+                               id="p3Rendered" offLabel="False" onLabel="True"/>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.p4Rendered}" label="Component 4 Rendered"
+                               id="p4Rendered" offLabel="False" onLabel="True"/>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.p5Rendered}" label="Component 5 Rendered"
+                               id="p5Rendered" offLabel="False" onLabel="True"/>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.p6Rendered}" label="Component 6 Rendered"
+                               id="p6Rendered" offLabel="False" onLabel="True"/>
+      <amx:selectBooleanSwitch value="#{pageFlowScope.componentProperties.fixedComponentSize}"
+                               label="Fixed Size Children" id="pChildrenSize" offLabel="False" onLabel="True"/>
+      <amx:inputText value="#{pageFlowScope.componentProperties.sizingStyle}" label="Sizing Style" id="pSizeStyle"
+                     rendered="#{pageFlowScope.componentProperties.fixedComponentSize}" autoCapitalize="none"
+                     autoCorrect="off"/>
+
+      <amx:selectOneChoice label="Item Flexibility" value="#{pageFlowScope.componentProperties.itemFlexibility}"
+                           id="pFlexibility" rendered="#{pageFlowScope.componentProperties.fixedComponentSize}">
+        <amx:selectItem label="equal" value="equal"/>
+        <amx:selectItem label="flexible" value="flexible"/>
+        <amx:selectItem label="inflexible" value="inflexible"/>
+        <amx:selectItem label="grow-only" value="grow-only"/>
+        <amx:selectItem label="shrink-only" value="shrink-only"/>
+      </amx:selectOneChoice>
+      
+      <amx:selectOneChoice label="Item Alignment" value="#{pageFlowScope.componentProperties.itemAlignment}"
+                           id="pAlignment" rendered="#{pageFlowScope.componentProperties.fixedComponentSize}">
+        <amx:selectItem label="stretch" value="stretch"/>
+        <amx:selectItem label="start" value="start"/>
+        <amx:selectItem label="end" value="end"/>
+        <amx:selectItem label="center" value="center"/>
+        <amx:selectItem label="baseline" value="baseline"/>
+      </amx:selectOneChoice>
+      
+      <amx:selectOneChoice label="Item Justification" value="#{pageFlowScope.componentProperties.itemJustification}"
+                           id="pJustification" rendered="#{pageFlowScope.componentProperties.fixedComponentSize}">
+        <amx:selectItem label="center" value="center"/>
+        <amx:selectItem label="start" value="start"/>
+        <amx:selectItem label="end" value="end"/>
+        <amx:selectItem label="space-around" value="space-around"/>
+        <amx:selectItem label="space-between" value="space-between"/>
+      </amx:selectOneChoice>
+      
+    </amx:panelFormLayout>
+  </amx:panelPage>
+</amx:view>

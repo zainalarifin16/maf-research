@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1"/>
+    <amx:tableLayout id="tl2" width="100%" shortDesc="table">
+        <amx:rowLayout id="rl15">
+            <amx:cellFormat id="cf33" halign="center" height="40" width="100%" shortDesc="cell">
+                <amx:outputText value="Team Compensation" id="ot10" styleClass="profileHeaderText"/>
+            </amx:cellFormat>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl14">
+            <amx:cellFormat id="cf32" width="100%" halign="center" shortDesc="cell">
+                <amx:fragment src="/fragments/Loading.amxf" id="f2"/>
+                <amx:iterator var="row" value="#{bindings.colleagues.collectionModel}" id="i8"
+                              rendered="#{bindings.loading.inputValue ne 'true'}">
+                    <amx:commandLink id="cl5" action="empDrill" shortDesc="Team Member Link">
+                        <amx:tableLayout id="tl3" width="100%" shortDesc="table">
+                            <amx:rowLayout id="rl19">
+                                <amx:cellFormat id="cf34" width="50" halign="center" height="45" shortDesc="cell">
+                                    <amx:image source="#{row.pic}" id="i9" shortDesc="Person Image"
+                                               styleClass="profileAvatar"/>
+                                </amx:cellFormat>
+                                <amx:cellFormat id="cf38" width="100%" valign="top" shortDesc="cell">
+                                    <dvtm:statusMeterGauge id="statusMeterGauge1"
+                                                           value="#{row.salary + row.bonus + row.commission}"
+                                                           color="#{row.empid ne bindings.empid.inputValue ? '#b3e0c0' : '#68c182'}"
+                                                           animationDuration="300" animationOnDisplay="auto"
+                                                           animationOnDataChange="auto" maxValue="#{row.maxTeamComp}"
+                                                           minValue="1" indicatorSize=".7" borderColor="transparent"
+                                                           inlineStyle="height:40px" visualEffects="none"
+                                                           shortDesc="#{row.firstname} #{row.lastname} : #{(row.salary + row.bonus + row.commission) / 1000}k"/>
+                                </amx:cellFormat>
+                                <amx:cellFormat id="cf1" rendered="#{deviceScope.hardware.screen.diagonalSize lt 6}"
+                                                width="10" shortDesc="cell"/>
+                            </amx:rowLayout>
+                        </amx:tableLayout>
+                        <amx:setPropertyListener id="spl5" from="#{row.empid}" to="#{pageFlowScope.drillEmpid}"/>
+                    </amx:commandLink>
+                </amx:iterator>
+            </amx:cellFormat>
+        </amx:rowLayout>
+    </amx:tableLayout>
+</amx:fragmentDef>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.61.83" id="SearchPageDef"
+                Package="Contacts">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="ContactBean" id="ContactBeanIterator"/>
+    <accessorIterator MasterBinding="ContactBeanIterator" Binds="contactFieldsList" RangeSize="25"
+                      DataControl="ContactBean" BeanClass="Contacts.ContactField" id="contactFieldsListIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="findContacts" RequiresUpdateModel="true" Action="invokeMethod" MethodName="findContacts"
+                  IsViewObjectMethod="false" DataControl="DeviceFeatures"
+                  InstanceName="data.DeviceFeatures.dataProvider"
+                  ReturnName="data.DeviceFeatures.methodResults.findContacts_DeviceFeatures_dataProvider_findContacts_result">
+      <NamedData NDName="contactFields" NDValue="#{pageFlowScope.ContactBean.contactFields}" NDType="java.lang.String"/>
+      <NamedData NDName="filter" NDValue="#{pageFlowScope.ContactBean.filter}" NDType="java.lang.String"/>
+      <NamedData NDName="multiple" NDValue="#{pageFlowScope.ContactBean.multiple}" NDType="boolean"/>
+    </methodAction>
+    <list IterBinding="contactFieldsListIterator" ListOperMode="multiSelect" ListIter="contactFieldsListIterator"
+          id="contactFieldsList" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="fieldName"/>
+      </AttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="fieldName"/>
+        <Item Value="fieldStatus"/>
+      </ListDisplayAttrNames>
+    </list>
+    <methodAction id="toggleSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="toggleSpringboard"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.63.99"
+                id="thematicMapBaseLayerSwitcherPageDef" Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="300" DataControl="ThematicMapDataList" id="ThematicMapDataListIterator"/>
+    <accessorIterator MasterBinding="ThematicMapDataListIterator" Binds="thematicMapData" RangeSize="300"
+                      DataControl="ThematicMapDataList" BeanClass="model.ThematicMapData" id="thematicMapDataIterator"/>
+    <iterator Binds="root" RangeSize="300" DataControl="ThematicMapUSACitiesDataList"
+              id="ThematicMapUSACitiesDataListIterator"/>
+    <accessorIterator MasterBinding="ThematicMapUSACitiesDataListIterator" Binds="thematicMapUSACitiesData"
+                      RangeSize="300" DataControl="ThematicMapUSACitiesDataList"
+                      BeanClass="model.ThematicMapUSACitiesData" id="thematicMapUSACitiesDataIterator"/>
+    <iterator Binds="root" RangeSize="300" DataControl="ThematicMapUSACountiesDataList"
+              id="ThematicMapUSACountiesDataListIterator"/>
+    <accessorIterator MasterBinding="ThematicMapUSACountiesDataListIterator" Binds="thematicMapUSACountiesData"
+                      RangeSize="300" DataControl="ThematicMapUSACountiesDataList"
+                      BeanClass="model.ThematicMapUSACountiesData" id="thematicMapUSACountiesDataIterator"/>
+    <iterator Binds="root" RangeSize="300" DataControl="ThematicMapUSAStatesDataList"
+              id="ThematicMapUSAStatesDataListIterator"/>
+    <accessorIterator MasterBinding="ThematicMapUSAStatesDataListIterator" Binds="thematicMapUSAStatesData"
+                      RangeSize="300" DataControl="ThematicMapUSAStatesDataList"
+                      BeanClass="model.ThematicMapUSAStatesData" id="thematicMapUSAStatesDataIterator"/>
+    <iterator Binds="root" RangeSize="300" DataControl="ThematicMapWorldCitiesDataList"
+              id="ThematicMapWorldCitiesDataListIterator"/>
+    <accessorIterator MasterBinding="ThematicMapWorldCitiesDataListIterator" Binds="thematicMapWorldCitiesData"
+                      RangeSize="300" DataControl="ThematicMapWorldCitiesDataList"
+                      BeanClass="model.ThematicMapWorldCitiesData" id="thematicMapWorldCitiesDataIterator"/>
+    <iterator Binds="root" RangeSize="300" DataControl="ThematicMapWorldContinentsDataList"
+              id="ThematicMapWorldContinentsDataListIterator"/>
+    <accessorIterator MasterBinding="ThematicMapWorldContinentsDataListIterator" Binds="thematicMapWorldContinentsData"
+                      RangeSize="300" DataControl="ThematicMapWorldContinentsDataList"
+                      BeanClass="model.ThematicMapWorldContinentsData" id="thematicMapWorldContinentsDataIterator"/>
+    <iterator Binds="root" RangeSize="300" DataControl="ThematicMapWorldCountriesDataList"
+              id="ThematicMapWorldCountriesDataListIterator"/>
+    <accessorIterator MasterBinding="ThematicMapWorldCountriesDataListIterator" Binds="thematicMapWorldCountriesData"
+                      RangeSize="300" DataControl="ThematicMapWorldCountriesDataList"
+                      BeanClass="model.ThematicMapWorldCountriesData" id="thematicMapWorldCountriesDataIterator"/>
+    <iterator Binds="root" RangeSize="300" DataControl="ThematicMapWorldRegionsDataList"
+              id="ThematicMapWorldRegionsDataListIterator"/>
+    <accessorIterator MasterBinding="ThematicMapWorldRegionsDataListIterator" Binds="thematicMapWorldRegionsData"
+                      RangeSize="300" DataControl="ThematicMapWorldRegionsDataList"
+                      BeanClass="model.ThematicMapWorldRegionsData" id="thematicMapWorldRegionsDataIterator"/>
+    <iterator Binds="root" RangeSize="300" DataControl="ThematicMapZoomCitiesDataList"
+              id="ThematicMapZoomCitiesDataListIterator"/>
+    <accessorIterator MasterBinding="ThematicMapZoomCitiesDataListIterator" Binds="thematicMapZoomCitiesData"
+                      RangeSize="300" DataControl="ThematicMapZoomCitiesDataList"
+                      BeanClass="model.ThematicMapZoomCitiesData" id="thematicMapZoomCitiesDataIterator"/>
+    <iterator Binds="root" RangeSize="300" DataControl="ThematicMapZoomDataList" id="ThematicMapZoomDataListIterator"/>
+    <accessorIterator MasterBinding="ThematicMapZoomDataListIterator" Binds="thematicMapZoomData" RangeSize="300"
+                      DataControl="ThematicMapZoomDataList" BeanClass="model.ThematicMapZoomData"
+                      id="thematicMapZoomDataIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="thematicMapDataIterator" id="thematicMapData">
+      <nodeDefinition DefName="model.ThematicMapData" Name="thematicMapData0">
+        <AttrNames>
+          <Item Value="value"/>
+          <Item Value="name"/>
+          <Item Value="color"/>
+          <Item Value="cat1"/>
+          <Item Value="cat2"/>
+          <Item Value="cat3"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="thematicMapUSACitiesDataIterator" id="thematicMapUSACitiesData">
+      <nodeDefinition DefName="model.ThematicMapUSACitiesData" Name="thematicMapUSACitiesData0">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="shortDesc"/>
+          <Item Value="value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="thematicMapUSAStatesDataIterator" id="thematicMapUSAStatesData">
+      <nodeDefinition DefName="model.ThematicMapUSAStatesData" Name="thematicMapUSAStatesData0">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="cat"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="thematicMapWorldCitiesDataIterator" id="thematicMapWorldCitiesData">
+      <nodeDefinition DefName="model.ThematicMapWorldCitiesData" Name="thematicMapWorldCitiesData0">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="shortDesc"/>
+          <Item Value="value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="thematicMapWorldContinentsDataIterator" id="thematicMapWorldContinentsData">
+      <nodeDefinition DefName="model.ThematicMapWorldContinentsData" Name="thematicMapWorldContinentsData0">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="cat"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="thematicMapWorldCountriesDataIterator" id="thematicMapWorldCountriesData">
+      <nodeDefinition DefName="model.ThematicMapWorldCountriesData" Name="thematicMapWorldCountriesData0">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="cat"/>
+          <Item Value="shortDesc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="thematicMapWorldRegionsDataIterator" id="thematicMapWorldRegionsData">
+      <nodeDefinition DefName="model.ThematicMapWorldRegionsData" Name="thematicMapWorldRegionsData0">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="cat"/>
+          <Item Value="shortDesc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="thematicMapZoomCitiesDataIterator" id="thematicMapZoomCitiesData">
+      <nodeDefinition DefName="model.ThematicMapZoomCitiesData" Name="thematicMapZoomCitiesData0">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="cat1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="thematicMapZoomDataIterator" id="thematicMapZoomData">
+      <nodeDefinition DefName="model.ThematicMapZoomData" Name="thematicMapZoomData0">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="color"/>
+          <Item Value="cat1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

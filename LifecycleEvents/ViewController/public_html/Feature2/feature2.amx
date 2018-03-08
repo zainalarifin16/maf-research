@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText id="outputText1" value="Feature 2"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                    <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:outputText id="outputText2"
+                        value="This demo requires you to run the console application to check for log updates.  This application will log a bunch of data into the log as SEVERE message so you will see them without changing the log level:"/>
+        <amx:spacer id="spacer1" inlineStyle="height:20px;"/>
+        <amx:outputText id="outputText3" value="1) When the application is started"/>
+        <amx:outputText id="outputText4" value="2) When the application is stopped"/>
+        <amx:outputText id="outputText5" value="3) When the application is activated"/>
+        <amx:outputText id="outputText6" value="4) When the application is deactivated"/>
+        <amx:outputText id="outputText7" value="5) When a feature is activated"/>
+        <amx:outputText id="outputText8" value="6) When a feature is deactivated"/>
+     
+    </amx:panelPage>
+</amx:view>

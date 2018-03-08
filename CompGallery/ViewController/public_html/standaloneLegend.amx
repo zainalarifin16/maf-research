@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Common Legend" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"></amx:commandButton>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <!--amx:commandButton id="props" text="Properties" action="chartProperties"/-->
+      <amx:commandLink id="props" action="legendProperties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#dvtm:legend" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/dvtCharts/standaloneLegend"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:flexLayout>
+      <amx:flexLayout orientation="inverse">
+        <dvtm:legend title="#{pageFlowScope.title}" titleHalign="#{pageFlowScope.titleHalign}"
+                     titleStyle="#{pageFlowScope.titleStyle}" orientation="#{pageFlowScope.orientation}"
+                     inlineStyle="#{pageFlowScope.inlineStyle}" scrolling="#{pageFlowScope.scrolling}"
+                     halign="#{pageFlowScope.halign}" valign="#{pageFlowScope.valign}">
+          <?audit suppress oracle.ide.xml.validation-error?>
+          <dvtm:legendSection source="model1" title="Model 1"/>
+          <dvtm:legendSection source="model2" title="Model 2"/>
+          <dvtm:legendSection source="model3" title="Model 3"/>
+        </dvtm:legend>
+        <amx:panelStretchLayout>
+          <amx:facet name="top">
+            <amx:outputText value="Model 1"/>
+          </amx:facet>
+          <amx:facet name="center">
+            <dvtm:thematicMap id="thematicMap2" basemap="world">
+              <dvtm:areaLayer id="areaLayer1" layer="continents">
+                <dvtm:areaDataLayer id="areaDataLayer1" var="row" value="#{bindings.thematicMapData.collectionModel}">
+                  <dvtm:areaLocation id="areaLoc1" name="#{row.name}">
+                    <dvtm:area id="area1" value="#{row.value}">
+                      <dvtm:attributeGroups id="ag1" type="color" value="#{row.cat1}" discriminant="model1"/>
+                    </dvtm:area>
+                    <dvtm:marker id="marker1">
+                      <dvtm:attributeGroups id="ag3" type="shape" value="#{row.cat1}" discriminant="model1"/>
+                    </dvtm:marker>
+                  </dvtm:areaLocation>
+                </dvtm:areaDataLayer>
+              </dvtm:areaLayer>
+              <dvtm:legend id="l1" rendered="false"/>
+            </dvtm:thematicMap>
+          </amx:facet>
+        </amx:panelStretchLayout>
+      </amx:flexLayout>
+      <amx:flexLayout orientation="inverse">
+        <amx:panelStretchLayout>
+          <amx:facet name="top">
+            <amx:outputText value="Model 2"/>
+          </amx:facet>
+          <amx:facet name="center">
+            <dvtm:barChart var="row" value="#{bindings.model1.collectionModel}" id="bc1">
+              <amx:facet name="dataStamp">
+                <dvtm:chartDataItem group="#{row.group}" value="#{row.value}" series="#{row.series}" id="cdi1">
+                  <dvtm:attributeGroups type="color" value="#{row.series}" discriminant="model2"/>
+                </dvtm:chartDataItem>
+              </amx:facet>
+              <dvtm:legend rendered="false" id="l2"/>
+            </dvtm:barChart>
+          </amx:facet>
+        </amx:panelStretchLayout>
+        <amx:panelStretchLayout>
+          <amx:facet name="top">
+            <amx:outputText value="Model 3"/>
+          </amx:facet>
+          <amx:facet name="center">
+            <dvtm:pieChart var="row" value="#{bindings.model2.collectionModel}" id="pc1">
+              <amx:facet name="dataStamp">
+                <dvtm:pieDataItem sliceId="#{row.label}" sliceLabel="#{row.label}" value="#{row.value}" id="pdi1">
+                  <dvtm:attributeGroups type="pattern" value="#{row.label}" discriminant="model3"/>
+                </dvtm:pieDataItem>
+              </amx:facet>
+              <dvtm:legend rendered="false" id="l3"/>
+            </dvtm:pieChart>
+          </amx:facet>
+        </amx:panelStretchLayout>
+      </amx:flexLayout>
+    </amx:flexLayout>
+  </amx:panelPage>
+</amx:view>

@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Dvt Features"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton text="Back" id="back" action="return" styleClass="amx-commandButton-back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtCharts" shortDesc="Bookmarkable Link"
+                  styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" inlineStyle="width:32px;height:32px;" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:listView id="listView1">
+      <amx:listItem id="axisEnhancement" action="axisEnhancement">
+        <amx:tableLayout id="axisEnhancementTL" width="100%">
+          <amx:rowLayout id="axisEnhancementRL1">
+            <amx:cellFormat id="axisEnhancementCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="axisEnhancementI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/lineChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="axisEnhancementCF2" width="100%" height="28px">
+              <amx:outputText id="axisEnhancementOT1" value="Chart Axis Enhancements"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="axisEnhancementRL2">
+            <amx:cellFormat id="axisEnhancementCF3" width="100%" height="12px">
+              <amx:outputText id="axisEnhancementOT2" value="dvtm:axis" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="on" to="#{pageFlowScope.splitDualY}" type="action"/>
+        <amx:setPropertyListener from="outside" to="#{pageFlowScope.axisPosition}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.xAxisPosition}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.yAxisPosition}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.y2AxisPosition}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="chartAxisLabelWordWrap" action="chartAxisLabelWordWrap">
+        <amx:tableLayout id="chartAxisLabelWordWrapTL" width="100%">
+          <amx:rowLayout id="chartAxisLabelWordWrapRL1">
+            <amx:cellFormat id="chartAxisLabelWordWrapCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="chartAxisLabelWordWrapI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/lineChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="chartAxisLabelWordWrapCF2" width="100%" height="28px">
+              <amx:outputText id="chartAxisLabelWordWrapOT1" value="Chart Axis Label - Word Wrap"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="chartAxisLabelWordWrapRL2">
+            <amx:cellFormat id="chartAxisLabelWordWrapCF3" width="100%" height="12px">
+              <amx:outputText id="chartAxisLabelWordWrapOT2" value="dvtm:axis" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="nowrap" to="#{pageFlowScope.whiteSpace}" type="action"/>
+        <amx:setPropertyListener from="barChart" to="#{pageFlowScope.chartType}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="chartAxisLogaritmicScale" action="chartAxisLogaritmicScale">
+        <amx:tableLayout id="chartAxisLogaritmicScaleTL" width="100%">
+          <amx:rowLayout id="chartAxisLogaritmicScaleRL1">
+            <amx:cellFormat id="chartAxisLogaritmicScaleCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="chartAxisLogaritmicScaleI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/lineChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="chartAxisLogaritmicScaleCF2" width="100%" height="28px">
+              <amx:outputText id="chartAxisLogaritmicScaleOT1" value="Chart Axis - Logaritmic Scale"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="chartAxisLogaritmicScaleRL2">
+            <amx:cellFormat id="chartAxisLogaritmicScaleCF3" width="100%" height="12px">
+              <amx:outputText id="chartAxisLogaritmicScaleOT2" value="dvtm:axis" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="log" to="#{pageFlowScope.scaleX}" type="action"/>
+        <amx:setPropertyListener from="log" to="#{pageFlowScope.scaleY}" type="action"/>
+        <amx:setPropertyListener from="areaChart" to="#{pageFlowScope.chartType}" type="action"/>
+      </amx:listItem>
+      <amx:listItem action="chartItemsBorder">
+        <amx:tableLayout id="chartItemsBorderTL" width="100%">
+          <amx:rowLayout id="chartItemsBorderRL1">
+            <amx:cellFormat id="chartItemsBorderCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="chartItemsBorderI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/barChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="chartItemsBorderCF2" width="100%" height="28px">
+              <amx:outputText id="chartItemsBorderOT1" value="Chart Items - Border"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="chartItemsBorderRL2">
+            <amx:cellFormat id="chartItemsBorderCF3" width="100%" height="12px">
+              <amx:outputText id="chartItemsBorderOT2" value="dvtm:barChart" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="barChart" to="#{pageFlowScope.chartType}" type="action"/>
+        <amx:setPropertyListener from="false" to="#{pageFlowScope.itemBorder}" type="action"/>
+        <amx:setPropertyListener from="false" to="#{pageFlowScope.serieBorder}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="chartLineTypes" action="chartLineTypes">
+        <amx:tableLayout id="chartLineTypesTL" width="100%">
+          <amx:rowLayout id="chartLineTypesRL1">
+            <amx:cellFormat id="chartLineTypesCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="chartLineTypesI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/areaChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="chartLineTypesCF2" width="100%" height="28px">
+              <amx:outputText id="chartLineTypesOT1" value="Chart Line Types"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="chartLineTypesRL2">
+            <amx:cellFormat id="chartLineTypesCF3" width="100%" height="12px">
+              <amx:outputText id="chartLineTypesOT2" value="dvtm:lineChart" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.seriesLineType}" type="action"/>
+        <amx:setPropertyListener from="straight" to="#{pageFlowScope.refLineLineType}" type="action"/>
+        <amx:setPropertyListener from="straight" to="#{pageFlowScope.refAreaLineType}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="elections" action="elections" rendered="#{DvtProperties.hostedMode eq false}">
+        <amx:tableLayout id="electionsTL" width="100%">
+          <amx:rowLayout id="electionsRL1">
+            <amx:cellFormat id="electionsCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="celectionsI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/pictoChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="electionsCF2" width="100%" height="28px">
+              <amx:outputText id="electionsOT1" value="Elections"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="electionsRL2">
+            <amx:cellFormat id="electionsCF3" width="100%" height="12px">
+              <amx:outputText id="electionsOT2" value="dvtm:pictoChart" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+      </amx:listItem>
+      <amx:listItem id="markerShapeAttribute" action="markerShapeAttribute">
+        <amx:tableLayout id="markerShapeAttributeTL" width="100%">
+          <amx:rowLayout id="markerShapeAttributeRL1">
+            <amx:cellFormat id="markerShapeAttributeCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="markerShapeAttributeI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/lineChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="markerShapeAttributeCF2" width="100%" height="28px">
+              <amx:outputText id="markerShapeAttributeOT1" value="Marker Shape Attribute"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="markerShapeAttributeRL2">
+            <amx:cellFormat id="markerShapeAttributeCF3" width="100%" height="12px">
+              <amx:outputText id="markerShapeAttributeOT2" value="markerShape" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="areaChart" to="#{pageFlowScope.chartType}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.markerShape}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="sparkChartEnhancements" action="sparkChartEnhancements">
+        <amx:tableLayout id="sparkChartEnhancementsTL" width="100%">
+          <amx:rowLayout id="sparkChartEnhancementsRL1">
+            <amx:cellFormat id="sparkChartEnhancementsCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="sparkChartEnhancementsI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/sparkChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="sparkChartEnhancementsCF2" width="100%" height="28px">
+              <amx:outputText id="sparkChartEnhancementsOT1" value="Spark Chart Enhancements"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="sparkChartEnhancementsRL2">
+            <amx:cellFormat id="sparkChartEnhancementsCF3" width="100%" height="12px">
+              <amx:outputText id="sparkChartEnhancementsOT2" value="dvtm:sparkChart"
+                              styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.markerDisplay}" type="action"/>
+        <amx:setPropertyListener from="2" to="#{pageFlowScope.lineWidth}" type="action"/>
+        <amx:setPropertyListener from="solid" to="#{pageFlowScope.lineStyle}" type="action"/>
+        <amx:setPropertyListener from="straight" to="#{pageFlowScope.lineType}" type="action"/>
+        <amx:setPropertyListener from="square" to="#{pageFlowScope.markerShape}" type="action"/>
+        <amx:setPropertyListener from="10" to="#{pageFlowScope.markerSize}" type="action"/>
+        <amx:setPropertyListener from="red" to="#{pageFlowScope.borderColor}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="sharedAttributeGroups" action="sharedAttributeGroups">
+        <amx:tableLayout id="sharedAttributeGroupsTL" width="100%">
+          <amx:rowLayout id="sharedAttributeGroupsRL1">
+            <amx:cellFormat id="sharedAttributeGroupsCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="sharedAttributeGroupsI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/areaChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="sharedAttributeGroupsCF2" width="100%" height="28px">
+              <amx:outputText id="sharedAttributeGroupsOT1" value="Shared Attribute Groups"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="sharedAttributeGroupsRL2">
+            <amx:cellFormat id="sharedAttributeGroupsCF3" width="100%" height="12px">
+              <amx:outputText id="sharedAttributeGroupsOT2" value="dvtm:attributeGroups"
+                              styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <!--amx:setPropertyListener from="true" to="#{pageFlowScope.legendDisplay}" type="action"/-->
+      </amx:listItem>
+      <amx:listItem id="chartAxisCustomization" action="chartAxisCustomization">
+        <amx:tableLayout id="chartAxisCustomizationTL" width="100%">
+          <amx:rowLayout id="chartAxisCustomizationRL1">
+            <amx:cellFormat id="chartAxisCustomizationCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="chartAxisCustomizationI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/bubbleChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="chartAxisCustomizationCF2" width="100%" height="28px">
+              <amx:outputText id="chartAxisCustomizationOT1" value="Custom Chart Axis"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="chartAxisCustomizationRL2">
+            <amx:cellFormat id="chartAxisCustomizationCF3" width="100%" height="12px">
+              <amx:outputText id="chartAxisCustomizationOT2" value="dvtm:axis" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.legendDisplay}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.legendPosition}" type="action"/>
+        <amx:setPropertyListener from="0.2" to="#{pageFlowScope.legendSize}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.xAxisDisplay}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.yAxisDisplay}" type="action"/>
+        <amx:setPropertyListener from="32px" to="#{pageFlowScope.xAxisSize}" type="action"/>
+        <amx:setPropertyListener from="32px" to="#{pageFlowScope.yAxisSize}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.majorTickDisplay}" type="action"/>
+        <amx:setPropertyListener from="solid" to="#{pageFlowScope.majorTickLineStyle}" type="action"/>
+        <amx:setPropertyListener from="red" to="#{pageFlowScope.baselineColor}" type="action"/>
+        <amx:setPropertyListener from="3" to="#{pageFlowScope.baselineWidth}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="drilling" action="drilling" rendered="#{DvtProperties.hostedMode eq false}">
+        <amx:tableLayout id="drillingTL" width="100%">
+          <amx:rowLayout id="drillingRL1">
+            <amx:cellFormat id="drillingCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="drillingI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/barChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="drillingCF2" width="100%" height="28px">
+              <amx:outputText id="drilling0T1" value="Chart Drilling"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="drillingRL2">
+            <amx:cellFormat id="drillingCF3" width="100%" height="12px">
+              <amx:outputText id="drilling0T2" value="dvtm:barChart" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="vertical" to="#{pageFlowScope.orientation}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.legendDisplay}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.legendPosition}" type="action"/>
+        <amx:setPropertyListener from="false" to="#{pageFlowScope.labelDisplay}" type="action"/>
+        <amx:setPropertyListener from="auto" to="#{pageFlowScope.labelPosition}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.xAxisDisplay}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.yAxisDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.drillingProperties.stack eq 'on' ? true : false}"
+                                 to="#{pageFlowScope.stacked}" type="action"/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.titleDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.drillingProperties}" to="#{pageFlowScope.chartProperties}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.drillingProperties.dataCursor}" to="#{pageFlowScope.dataCursor}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.drillingProperties.dataCursorBehavior}"
+                                 to="#{pageFlowScope.dataCursorBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.drillingProperties.dataSelection}"
+                                 to="#{pageFlowScope.dataSelection}" type="action"/>
+        <amx:setPropertyListener from="Click on group name or series to drill" to="#{pageFlowScope.footnote}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.drillingProperties.footnoteHalign}"
+                                 to="#{pageFlowScope.footnoteHalign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.drillingProperties.hideAndShowBehavior}"
+                                 to="#{pageFlowScope.hideAndShowBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.drillingProperties.inlineStyle}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.drillingProperties.rolloverBehavior}"
+                                 to="#{pageFlowScope.rolloverBehavior}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.drillingProperties.stack}" to="#{pageFlowScope.stack}"
+                                 type="action"/>
+        <amx:setPropertyListener from="All brands" to="#{pageFlowScope.subtitle}" type="action"/>
+        <amx:setPropertyListener from="Total Sales" to="#{pageFlowScope.title}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.drillingProperties.titleHalign}"
+                                 to="#{pageFlowScope.titleHalign}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.drillingProperties.animationOnDataChange}"
+                                 to="#{pageFlowScope.animationOnDataChange}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.drillingProperties.animationIndicators}"
+                                 to="#{pageFlowScope.animationIndicators}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.drillingProperties.animationDuration}"
+                                 to="#{pageFlowScope.animationDuration}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.drillingProperties.animationOnDisplay}"
+                                 to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.drillingProperties.animationUpColor}"
+                                 to="#{pageFlowScope.animationUpColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.drillingProperties.animationDownColor}"
+                                 to="#{pageFlowScope.animationDownColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.drillingProperties.shortDesc}" to="#{pageFlowScope.shortDesc}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.drillingProperties.seriesEffect}"
+                                 to="#{pageFlowScope.seriesEffect}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="chartSorting" action="chartSorting">
+        <amx:tableLayout id="chartSortingTL" width="100%">
+          <amx:rowLayout id="chartSortingRL1">
+            <amx:cellFormat id="chartSortingCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="chartSortingI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/barChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="chartSortingCF2" width="100%" height="28px">
+              <amx:outputText id="chartSortingOT1" value="Chart Sorting"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="chartSortingRL2">
+            <amx:cellFormat id="chartSortingCF3" width="100%" height="12px">
+              <amx:outputText id="chartSortingOT2" value="dvtm:*Chart" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="bar" to="#{pageFlowScope.chartType}" type="action"/>
+        <amx:setPropertyListener from="none" to="#{pageFlowScope.sorting}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="barVariableWidth" action="barVariableWidth">
+        <amx:tableLayout id="barVariableWidthTL" width="100%">
+          <amx:rowLayout id="barVariableWidthRL1">
+            <amx:cellFormat id="barVariableWidthCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="barVariableWidthI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/barChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="barVariableWidthCF2" width="100%" height="28px">
+              <amx:outputText id="barVariableWidthOT1" value="Variable Bar Width"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="barVariableWidthRL2">
+            <amx:cellFormat id="barVariableWidthCF3" width="100%" height="12px">
+              <amx:outputText id="barVariableWidthOT2" value="dvtm:barChart" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+      </amx:listItem>
+      <amx:listItem id="barStackCategories" action="barStackCategories">
+        <amx:tableLayout id="barStackCategoriesTL" width="100%">
+          <amx:rowLayout id="barStackCategoriesRL1">
+            <amx:cellFormat id="barStackCategoriesCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="barStackCategoriesI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/barChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="barStackCategoriesCF2" width="100%" height="28px">
+              <amx:outputText id="barStackCategoriesOT1" value="Chart Stack Categories"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="barStackCategoriesRL2">
+            <amx:cellFormat id="barStackCategoriesCF3" width="100%" height="12px">
+              <amx:outputText id="barStackCategoriesOT2" value="dvtm:barChart" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.stackCategory}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="barHierarchicalCategories" action="barHierarchicalCategories">
+        <amx:tableLayout id="barHierarchicalCategoriesTL" width="100%">
+          <amx:rowLayout id="barHierarchicalCategoriesRL1">
+            <amx:cellFormat id="barHierarchicalCategoriesCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="barHierarchicalCategoriesI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/barChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="barHierarchicalCategoriesCF2" width="100%" height="28px">
+              <amx:outputText id="barHierarchicalCategoriesOT1" value="Chart Hierarchical Groups"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="barHierarchicalCategoriesRL2">
+            <amx:cellFormat id="barHierarchicalCategoriesCF3" width="100%" height="12px">
+              <amx:outputText id="barHierarchicalCategoriesOT2" value="dvtm:barChart" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="font-weight: bold;" to="#{pageFlowScope.labelStyle}" type="action"/>
+        <amx:setPropertyListener from="color: blue;" to="#{pageFlowScope.subLabelStyle}" type="action"/>
+        <amx:setPropertyListener from="vertical" to="#{viewScope.orientation}" type="action"/>
+      </amx:listItem>
+      <amx:listItem action="rangeChart">
+        <amx:tableLayout id="rangeChartTL" width="100%">
+          <amx:rowLayout id="rangeChartRL1">
+            <amx:cellFormat id="rangeChartCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="rangeChartI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/areaChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="rangeChartCF2" width="100%" height="28px">
+              <amx:outputText id="rangeChartOT1" value="Range Chart"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="rangeChartRL2">
+            <amx:cellFormat id="rangeChartCF3" width="100%" height="12px">
+              <amx:outputText id="rangeChartOT2" value="dvtm:areaChart" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+      </amx:listItem>
+      <amx:listItem action="timeAxisSkipGaps">
+        <amx:tableLayout id="timeAxisSkipGapsTL" width="100%">
+          <amx:rowLayout id="timeAxisSkipGapsRL1">
+            <amx:cellFormat id="timeAxisSkipGapsCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="timeAxisSkipGapsI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/barChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="timeAxisSkipGapsCF2" width="100%" height="28px">
+              <amx:outputText id="timeAxisSkipGapsOT1" value="Time Axis - Skip Gaps"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="timeAxisSkipGapsRL2">
+            <amx:cellFormat id="timeAxisSkipGapsCF3" width="100%" height="12px">
+              <amx:outputText id="timeAxisSkipGapsOT2" value="dvtm:barChart" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="enabled" to="#{pageFlowScope.timeAxisType}" type="action"/>
+        <amx:setPropertyListener from="barChart" to="#{pageFlowScope.chartType}" type="action"/>
+      </amx:listItem>
+    </amx:listView>
+  </amx:panelPage>
+</amx:view>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Link (Command) Styles" id="hdr"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"
+                         shortDesc="Go back to the previous page"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=general/commandLink/styles"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:outputText value="Default" id="ot1" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:commandLink text="Link" id="cl1"/>
+    <amx:outputText value="adfmf-commandLink-alternateColor" id="ot2" styleClass="adfmf-outputText-sectionTitle"
+            inlineStyle="text-transform: none;"/>
+    <amx:commandLink text="Link" id="cl2" styleClass="adfmf-commandLink-alternateColor"/>
+    <amx:outputText value="adfmf-commandLink-noUnderline" id="ot3" styleClass="adfmf-outputText-sectionTitle"
+            inlineStyle="text-transform: none;"/>
+    <amx:commandLink text="Link" id="cl3" styleClass="adfmf-commandLink-noUnderline"/>
+  </amx:panelPage>
+</amx:view>

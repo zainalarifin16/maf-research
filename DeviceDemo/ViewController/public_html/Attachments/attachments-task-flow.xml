@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="attachments-task-flow">
+    <default-activity>attachments</default-activity>
+       <managed-bean id="__1">
+      <managed-bean-name>ViewerBean</managed-bean-name>
+      <managed-bean-class>Viewer.ViewerBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="attachments">
+      <page>/Attachments/attachments.amx</page>
+    </view>
+  </task-flow-definition>
+</adfc-mobile-config>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1"/>
+    <amx:flexLayout id="fl1" itemFlexibility="inflexible"
+                    orientation="#{(deviceScope.hardware.screen.diagonalSize lt 6) and (deviceScope.hardware.screen.width gt deviceScope.hardware.screen.height) ? 'horizontal' : 'vertical'}"
+                    styleClass="fullSize">
+        <amx:tableLayout id="tl3"
+                         width="#{(deviceScope.hardware.screen.diagonalSize lt 6) and (deviceScope.hardware.screen.width gt deviceScope.hardware.screen.height) ? deviceScope.hardware.screen.availableWidth/2 : '100%'}"
+                         shortDesc="table">
+            <amx:rowLayout id="rl19">
+                <amx:cellFormat id="cf38" width="100%" halign="center" height="40" shortDesc="cell">
+                    <amx:outputText value="Rating" id="ot15" styleClass="profileHeaderText"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl20">
+                <amx:cellFormat id="cf39" width="100%" halign="center" shortDesc="cell">
+                    <dvtm:statusMeterGauge id="smg1" orientation="circular" value="#{bindings.rating.inputValue}"
+                                           thresholdDisplay="onIndicator" plotArea="on" minValue="0" maxValue="5"
+                                           animationOnDisplay="auto" animationDuration="300"
+                                           styleClass="profileGauge">
+                        <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                        <dvtm:threshold id="t3" maxValue="2" color="#ed6647"/>
+                        <dvtm:threshold id="t4" maxValue="5" color="#47bdef"/>
+                        <dvtm:metricLabel id="ml1" labelStyle="font-size:60px;font-weight:200;">
+                            <amx:convertNumber id="cn2" integerOnly="true"/>
+                        </dvtm:metricLabel>
+                        <dvtm:referenceLine id="rl21" value="#{bindings.teamAvgRating.inputValue}"/>
+                    </dvtm:statusMeterGauge>
+                </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl25">
+                <amx:cellFormat id="cf42" height="30" valign="top" halign="center" shortDesc="cell">
+                    <amx:outputText value="Below" id="otratingftr1" rendered="#{bindings.rating.inputValue lt 3}"
+                                    styleClass="profileText"/>
+                    <amx:outputText value="Average" id="otratingftr2" rendered="#{bindings.rating.inputValue eq 3}"
+                                    styleClass="profileText"/>
+                    <amx:outputText value="Outstanding" id="otratingftr3" rendered="#{bindings.rating.inputValue eq 4}"
+                                    styleClass="profileText"/>
+                    <amx:outputText value="Exceptional" id="otratingftr4" rendered="#{bindings.rating.inputValue eq 5}"
+                                    styleClass="profileText"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:tableLayout id="tl1"
+                         width="#{(deviceScope.hardware.screen.diagonalSize lt 6) and (deviceScope.hardware.screen.width gt deviceScope.hardware.screen.height) ? deviceScope.hardware.screen.availableWidth/2 : '100%'}"
+                         shortDesc="table">
+            <amx:rowLayout id="rl28">
+                <amx:cellFormat id="cf45" width="100%" halign="center" height="40" shortDesc="cell">
+                    <amx:outputText value="Potential" id="ot20" styleClass="profileHeaderText"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl24">
+                <amx:cellFormat id="cf43" width="100%" halign="center" shortDesc="cell">
+                    <dvtm:statusMeterGauge id="smg2" orientation="circular" value="#{bindings.potential.inputValue}"
+                                           thresholdDisplay="onIndicator" plotArea="on" minValue="0" maxValue="5"
+                                           animationOnDisplay="auto" animationDuration="300"
+                                           styleClass="profileGauge">
+                        <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                        <dvtm:threshold id="t5" maxValue="2" color="#ed6647"/>
+                        <dvtm:threshold id="t6" maxValue="5" color="#47bdef"/>
+                        <dvtm:metricLabel id="ml2" labelStyle="font-size:60px;font-weight:200;" textType="number">
+                            <amx:convertNumber id="cn1" integerOnly="true"/>
+                        </dvtm:metricLabel>
+                        <dvtm:referenceLine id="rl26" value="#{bindings.teamAvgPotential.inputValue}"/>
+                    </dvtm:statusMeterGauge>
+                </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl27">
+                <amx:cellFormat id="cf44" height="50" valign="top" halign="center" shortDesc="cell">
+                    <amx:outputText value="Below" id="ot16" rendered="#{bindings.potential.inputValue lt 3}"
+                                    styleClass="profileText"/>
+                    <amx:outputText value="Average" id="ot17" rendered="#{bindings.potential.inputValue eq 3}"
+                                    styleClass="profileText"/>
+                    <amx:outputText value="Outstanding" id="ot18" rendered="#{bindings.potential.inputValue eq 4}"
+                                    styleClass="profileText"/>
+                    <amx:outputText value="Exceptional" id="ot19" rendered="#{bindings.potential.inputValue eq 5}"
+                                    styleClass="profileText"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
+    </amx:flexLayout>
+</amx:fragmentDef>

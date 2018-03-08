@@ -1,0 +1,60 @@
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+  <Reference name="ConfigServerLogin" className="oracle.adf.model.connection.adfmf.LoginConnection"
+             adfCredentialStoreKey="ConfigServerLogin" partial="false" manageInOracleEnterpriseManager="true"
+             deployable="true" xmlns="">
+    <Factory className="oracle.adf.model.connection.adfmf.LoginConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="adfmfLogin">
+        <Contents>
+          <login url="http://192.168.1.231:7101/acs/login.jspx"/>
+          <logout url="http://192.168.1.231:7101/acs/logout.jspx"/>
+          <authenticationMode value="remote"/>
+          <idleTimeout value="300"/>
+          <sessionTimeout value="28800"/>
+          <maxFailuresBeforeCredentialCleared value="3"/>
+          <injectCookiesToRestHttpHeader value="true"/>
+          <includeBasicAuthHeader value="true"/>
+          <rememberCredentials>
+            <enableRememberUserName value="true"/>
+            <rememberUserNameDefault value="true"/>
+            <enableRememberPassword value="false"/>
+            <enableStayLoggedIn value="false"/>
+          </rememberCredentials>
+          <accessControl/>
+          <userObjectFilter/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+  <Reference name="remotePage" className="oracle.adf.model.connection.url.HttpURLConnection" xmlns="">
+    <Factory className="oracle.adf.model.connection.url.URLConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="remotePage">
+        <Contents>
+          <urlconnection name="remotePage" url="https://www.google.com"/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+  <Reference name="ConfigService" className="oracle.adf.model.connection.rest.RestConnection"
+             adfCredentialStoreKey="ConfigServerLogin" xmlns="">
+    <Factory className="oracle.adf.model.connection.rest.RestConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="ConfigService">
+        <Contents>
+          <restconnection name="ConfigService" url="http://192.168.1.231:7101/acs/"/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+  <Reference name="SyncService_base_connection" className="oracle.adf.model.connection.url.HttpURLConnection" xmlns="">
+    <Factory className="oracle.adf.model.connection.url.URLConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="SyncService_base_connection">
+        <Contents>
+          <urlconnection name="SyncService_base_connection" url="http://127.0.0.1"/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+</References>

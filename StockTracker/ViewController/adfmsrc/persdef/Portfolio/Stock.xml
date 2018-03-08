@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE PDefViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<PDefViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Stock"
+  Version="12.1.3.8.49"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  <DesignTime>
+    <Attr Name="_DCName" Value="mobile.DataControls.Portfolio"/>
+    <Attr Name="_SDName" Value="Portfolio.Stock"/>
+  </DesignTime>
+  <PDefAttribute
+    Name="price"
+    IsUpdateable="true">
+    <validation:RangeValidationBean
+      Name="priceRule0"
+      ResId="${adfBundle['mobile.ViewControllerBundle']['Portfolio.Stock.price_Rule_0']}"
+      OnAttribute="price"
+      OperandType="LITERAL"
+      Inverse="false"
+      MinValue="1"
+      MaxValue="1000"/>
+  </PDefAttribute>
+  <PDefAttribute
+    Name="previous"
+    IsUpdateable="true">
+    <validation:RangeValidationBean
+      Name="previousRule1"
+      ResId="${adfBundle['mobile.ViewControllerBundle']['Portfolio.Stock.previous_Rule_3']}"
+      OnAttribute="previous"
+      OperandType="LITERAL"
+      Inverse="false"
+      MinValue="1"
+      MaxValue="1000"/>
+  </PDefAttribute>
+  <PDefAttribute
+    Name="volume"
+    IsUpdateable="true">
+    <validation:RangeValidationBean
+      Name="volumeRule0"
+      ResId="${adfBundle['mobile.ViewControllerBundle']['Portfolio.Stock.volume_Rule_1']}"
+      OnAttribute="volume"
+      OperandType="LITERAL"
+      Inverse="false"
+      MinValue="1"
+      MaxValue="1000"/>
+  </PDefAttribute>
+  <PDefAttribute
+    Name="company"
+    IsUpdateable="true">
+  </PDefAttribute>
+  <PDefAttribute
+    Name="id"
+    PrimaryKey="true"/>
+</PDefViewObject>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.63.75" id="thematicMapCustomMarkerPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="ThematicMapCustomMarkerDataList"
+              id="ThematicMapCustomMarkerDataListIterator"/>
+    <accessorIterator MasterBinding="ThematicMapCustomMarkerDataListIterator" Binds="regions" RangeSize="-1"
+                      DataControl="ThematicMapCustomMarkerDataList" BeanClass="model.Region" id="regionsIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="regionsIterator" id="regions">
+      <nodeDefinition DefName="model.Region" Name="regions0">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="regionName"/>
+          <Item Value="trendValue"/>
+          <Item Value="trendColor"/>
+          <Item Value="trendShape"/>
+          <Item Value="regionColor"/>
+          <Item Value="bestSeller"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

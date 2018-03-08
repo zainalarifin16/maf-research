@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt"
+          xmlns:custom="http://xmlns.example.com/custom">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Show Popup"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:showPopupBehavior" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=operations/showPopupBehavior" shortDesc="Bookmarkable Link"
+                  styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:facet name="footer">
+      <amx:commandButton id="db1" text="Show Popup">
+        <amx:showPopupBehavior align="#{pageFlowScope.componentProperties.align}"
+                         alignId="pph"
+                         decoration="#{pageFlowScope.componentProperties.decoration}"
+                         popupId="popup1"
+                         type="#{pageFlowScope.componentProperties.type}"/>
+      </amx:commandButton>
+    </amx:facet>
+    <amx:spacer id="s1" inlineStyle="height:20px;"/>
+    <amx:panelGroupLayout id="pgl1" layout="horizontal" scrollPolicy="none" inlineStyle="z-index:1">
+      <custom:resizable id="pphResize" start="80" top="80" width="115" height="20">
+        <amx:outputText id="pph" value="Align element" inlineStyle="-webkit-user-select:none;"/>
+      </custom:resizable>
+    </amx:panelGroupLayout>
+    <amx:spacer id="s2" inlineStyle="height:20px;"/>
+    <amx:outputText id="section1" value="Representation of desired positioning for each align value"
+                    styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:outputText id="note1"
+                    value="Try moving or resizing the align element to see how fallback positioning applies."/>
+    <amx:tableLayout id="tl1" inlineStyle="padding:24px">
+      <amx:rowLayout id="rl1">
+        <amx:cellFormat id="cf1a" width="42px"
+                        inlineStyle="background-color:#FF9501;#{pageFlowScope.componentProperties.align=='cornerTopStart'?'outline:5px dotted gray':''}">
+          <amx:commandLink id="cl1a" text="cornerTopStart" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="cornerTopStart"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf1b" width="42px"
+                        inlineStyle="background-color:#FF2967;#{pageFlowScope.componentProperties.align=='topStart'?'outline:5px dotted gray':''}">
+          <amx:commandLink id="cl1b" text="topStart" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="topStart"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf1c" width="12px"/>
+        <amx:cellFormat id="cf1d" width="42px"
+                        inlineStyle="background-color:#FF2967;#{pageFlowScope.componentProperties.align=='topCenter'?'outline:5px dotted gray':''}">
+          <amx:commandLink id="cl1d" text="topCenter" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="topCenter"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf1e" width="12px"/>
+        <amx:cellFormat id="cf1f" width="42px"
+                        inlineStyle="background-color:#FF2967;#{pageFlowScope.componentProperties.align=='topEnd'?'outline:5px dotted gray':''}">
+          <amx:commandLink id="cl1f" text="topEnd" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="topEnd"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf1g" width="42px"
+                        inlineStyle="background-color:#A2845E;#{pageFlowScope.componentProperties.align=='cornerTopEnd'?'outline:5px dotted gray':''}">
+          <amx:commandLink id="cl1g" text="cornerTopEnd" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="cornerTopEnd"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      <amx:rowLayout id="rl2">
+        <amx:cellFormat id="cf2a" width="42px"
+                        inlineStyle="background-color:#EBBB01;#{pageFlowScope.componentProperties.align=='startTop'?'outline:5px dotted gray':''}">
+          <amx:commandLink id="cl2a" text="startTop" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="startTop"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf2b" width="42px"
+                        inlineStyle="background-color:#FF9501;#{pageFlowScope.componentProperties.align=='overlapTopStart'?'outline:5px dotted gray':''}"
+                        styleClass="custom-blackBorderTop custom-blackBorderStart">
+          <amx:commandLink id="cl2b" text="overlapTopStart" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="overlapTopStart"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf2c" width="12px" inlineStyle="background-color:white"
+                        styleClass="custom-blackBorderTop"/>
+        <amx:cellFormat id="cf2d" width="42px"
+                        inlineStyle="background-color:#EE1C24;#{pageFlowScope.componentProperties.align=='overlapTopCenter'?'outline:5px dotted gray':''}"
+                        styleClass="custom-blackBorderTop">
+          <amx:commandLink id="cl2d" text="overlapTopCenter" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="overlapTopCenter"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf2e" width="12px" inlineStyle="background-color:white"
+                        styleClass="custom-blackBorderTop"/>
+        <amx:cellFormat id="cf2f" width="42px"
+                        inlineStyle="background-color:#A2845E;#{pageFlowScope.componentProperties.align=='overlapTopEnd'?'outline:5px dotted gray':''}"
+                        styleClass="custom-blackBorderTop custom-blackBorderEnd">
+          <amx:commandLink id="cl2f" text="overlapTopEnd" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="overlapTopEnd"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf2g" width="42px"
+                        inlineStyle="background-color:#CC73E1;#{pageFlowScope.componentProperties.align=='endTop'?'outline:5px dotted gray':''}">
+          <amx:commandLink id="cl2g" text="endTop" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="endTop"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      <amx:rowLayout id="rl3">
+        <amx:cellFormat id="cf3a" width="42px" height="12px"/>
+        <amx:cellFormat id="cf3b" width="42px" inlineStyle="background-color:white"
+                        styleClass="custom-blackBorderStart"/>
+        <amx:cellFormat id="cf3c" width="12px" inlineStyle="background-color:white"/>
+        <amx:cellFormat id="cf3d" width="42px" inlineStyle="background-color:white"/>
+        <amx:cellFormat id="cf3e" width="12px" inlineStyle="background-color:white"/>
+        <amx:cellFormat id="cf3f" width="42px" inlineStyle="background-color:white"
+                        styleClass="custom-blackBorderEnd"/>
+        <amx:cellFormat id="cf3g" width="42px"/>
+      </amx:rowLayout>
+      <amx:rowLayout id="rl4">
+        <amx:cellFormat id="cf4a" width="42px"
+                        inlineStyle="background-color:#EBBB01;#{pageFlowScope.componentProperties.align=='startMiddle'?'outline:5px dotted gray':''}">
+          <amx:commandLink id="cl4a" text="startMiddle" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="startMiddle"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf4b" width="42px"
+                        inlineStyle="background-color:#00A651;#{pageFlowScope.componentProperties.align=='overlapMiddleStart'?'outline:5px dotted gray':''}"
+                        styleClass="custom-blackBorderStart">
+          <amx:commandLink id="cl4b" text="overlapMiddleStart" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="overlapMiddleStart"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf4c" width="12px" inlineStyle="background-color:white"/>
+        <amx:cellFormat id="cf4d" width="42px"
+                        inlineStyle="background-color:#959595;#{pageFlowScope.componentProperties.align=='overlapMiddleCenter'?'outline:5px dotted gray':''}">
+          <amx:commandLink id="cl4d" text="overlapMiddleCenter" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="overlapMiddleCenter"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf4e" width="12px" inlineStyle="background-color:white"/>
+        <amx:cellFormat id="cf4f" width="42px"
+                        inlineStyle="background-color:#ED008C;#{pageFlowScope.componentProperties.align=='overlapMiddleEnd'?'outline:5px dotted gray':''}"
+                        styleClass="custom-blackBorderEnd">
+          <amx:commandLink id="cl4f" text="overlapMiddleEnd" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="overlapMiddleEnd"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf4g" width="42px"
+                        inlineStyle="background-color:#CC73E1;#{pageFlowScope.componentProperties.align=='endMiddle'?'outline:5px dotted gray':''}">
+          <amx:commandLink id="cl4g" text="endMiddle" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="endMiddle"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      <amx:rowLayout id="rl5">
+        <amx:cellFormat id="cf5a" width="42px" height="12px"/>
+        <amx:cellFormat id="cf5b" width="42px" inlineStyle="background-color:white"
+                        styleClass="custom-blackBorderStart"/>
+        <amx:cellFormat id="cf5c" width="12px" inlineStyle="background-color:white"/>
+        <amx:cellFormat id="cf5d" width="42px" inlineStyle="background-color:white"/>
+        <amx:cellFormat id="cf5e" width="12px" inlineStyle="background-color:white"/>
+        <amx:cellFormat id="cf5f" width="42px" inlineStyle="background-color:white"
+                        styleClass="custom-blackBorderEnd"/>
+        <amx:cellFormat id="cf5g" width="42px"/>
+      </amx:rowLayout>
+      <amx:rowLayout id="rl6">
+        <amx:cellFormat id="cf6a" width="42px"
+                        inlineStyle="background-color:#EBBB01;#{pageFlowScope.componentProperties.align=='startBottom'?'outline:5px dotted gray':''}">
+          <amx:commandLink id="cl6a" text="startBottom" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="startBottom"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf6b" width="42px"
+                        inlineStyle="background-color:#64DA38;#{pageFlowScope.componentProperties.align=='overlapBottomStart'?'outline:5px dotted gray':''}"
+                        styleClass="custom-blackBorderBottom custom-blackBorderStart">
+          <amx:commandLink id="cl6b" text="overlapBottomStart" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="overlapBottomStart"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf6c" width="12px" inlineStyle="background-color:white"
+                        styleClass="custom-blackBorderBottom"/>
+        <amx:cellFormat id="cf6d" width="42px"
+                        inlineStyle="background-color:#2E3192;#{pageFlowScope.componentProperties.align=='overlapBottomCenter'?'outline:5px dotted gray':''}"
+                        styleClass="custom-blackBorderBottom">
+          <amx:commandLink id="cl6d" text="overlapBottomCenter" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="overlapBottomCenter"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf6e" width="12px" inlineStyle="background-color:white"
+                        styleClass="custom-blackBorderBottom"/>
+        <amx:cellFormat id="cf6f" width="42px"
+                        inlineStyle="background-color:#17AFF8;#{pageFlowScope.componentProperties.align=='overlapBottomEnd'?'outline:5px dotted gray':''}"
+                        styleClass="custom-blackBorderBottom custom-blackBorderEnd">
+          <amx:commandLink id="cl6f" text="overlapBottomEnd" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="overlapBottomEnd"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf6g" width="42px"
+                        inlineStyle="background-color:#CC73E1;#{pageFlowScope.componentProperties.align=='endBottom'?'outline:5px dotted gray':''}">
+          <amx:commandLink id="cl6g" text="endBottom" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="endBottom"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      <amx:rowLayout id="rl7">
+        <amx:cellFormat id="cf7a" width="42px"
+                        inlineStyle="background-color:#64DA38;#{pageFlowScope.componentProperties.align=='cornerBottomStart'?'outline:5px dotted gray':''}">
+          <amx:commandLink id="cl7a" text="cornerBottomStart" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="cornerBottomStart"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf7b" width="42px"
+                        inlineStyle="background-color:#67C38D;#{pageFlowScope.componentProperties.align=='bottomStart'?'outline:5px dotted gray':''}">
+          <amx:commandLink id="cl7b" text="bottomStart" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="bottomStart"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf7c" width="12px"/>
+        <amx:cellFormat id="cf7d" width="42px"
+                        inlineStyle="background-color:#67C38D;#{pageFlowScope.componentProperties.align=='bottomCenter'?'outline:5px dotted gray':''}">
+          <amx:commandLink id="cl7d" text="bottomCenter" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="bottomCenter"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf7e" width="12px"/>
+        <amx:cellFormat id="cf7f" width="42px"
+                        inlineStyle="background-color:#67C38D;#{pageFlowScope.componentProperties.align=='bottomEnd'?'outline:5px dotted gray':''}">
+          <amx:commandLink id="cl7f" text="bottomEnd" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="bottomEnd"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf7g" width="42px"
+                        inlineStyle="background-color:#17AFF8;#{pageFlowScope.componentProperties.align=='cornerBottomEnd'?'outline:5px dotted gray':''}">
+          <amx:commandLink id="cl7g" text="cornerBottomEnd" styleClass="custom-popupAlignLink">
+            <amx:setPropertyListener from="cornerBottomEnd"
+                                     to="#{pageFlowScope.componentProperties.align}"/>
+          </amx:commandLink>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
+    <amx:outputText id="section11" value="Sliders to add extra space to the popup content"
+                    styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:panelFormLayout labelPosition="topStart">
+      <amx:panelLabelAndMessage id="contentSpacePlam" label="Popup content space">
+        <amx:tableLayout id="contentSpaceTl" width="100%">
+          <amx:rowLayout id="contentSpaceTr">
+            <amx:cellFormat id="contentSpaceCfW" width="50%">
+              <amx:inputNumberSlider id="contentSpaceW" label="content space w" minimum="1"
+                                     maximum="1000" stepSize="1"
+                                     value="#{pageFlowScope.componentProperties.contentSpaceW}"
+                                     simple="true"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="contentSpaceCfH" width="50%">
+              <amx:inputNumberSlider id="contentSpaceH" label="content space h" minimum="1"
+                                     maximum="1000" stepSize="1"
+                                     value="#{pageFlowScope.componentProperties.contentSpaceH}"
+                                     simple="true"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+      </amx:panelLabelAndMessage>
+    </amx:panelFormLayout>
+    <amx:spacer id="s3" inlineStyle="height:20px;"/>
+  </amx:panelPage>
+  <amx:popup id="popup1" animation="slideDown" autoDismiss="true" backgroundDimming="on">
+    <amx:panelGroupLayout id="pgl2" layout="vertical">
+      <amx:outputText id="outputText2" value="This is a popup!!"/>
+      <amx:commandButton id="commandButton3" text="Close">
+        <amx:closePopupBehavior type="action" popupId="popup1"/>
+      </amx:commandButton>
+    </amx:panelGroupLayout>
+    <amx:spacer inlineStyle="width:#{pageFlowScope.componentProperties.contentSpaceW}px;height:#{pageFlowScope.componentProperties.contentSpaceH}px"/>
+  </amx:popup>
+</amx:view>

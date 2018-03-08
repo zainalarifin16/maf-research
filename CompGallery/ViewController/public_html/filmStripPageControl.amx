@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Dotted Page Control"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Data Views"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:dottedPageControl" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dataviews/dottedPageControl"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:filmStrip var="row" itemSizing="stretched" itemsPerPage="1" value="#{bindings.contacts.collectionModel}">
+      <amx:filmStripItem>
+        <amx:panelFormLayout>
+          <amx:panelLabelAndMessage label="Name">
+            <amx:outputText value="#{row.first} #{row.last}"/>
+          </amx:panelLabelAndMessage>
+          <amx:panelLabelAndMessage label="Address">
+            <amx:outputText value="#{row.address}"/>
+          </amx:panelLabelAndMessage>
+          <amx:panelLabelAndMessage label="City">
+            <amx:outputText value="#{row.city}"/>
+          </amx:panelLabelAndMessage>
+          <amx:panelLabelAndMessage label="State">
+            <amx:outputText value="#{row.state}"/>
+          </amx:panelLabelAndMessage>
+          <amx:panelLabelAndMessage label="ZIP">
+            <amx:outputText value="#{row.zip}"/>
+          </amx:panelLabelAndMessage>
+          <amx:panelLabelAndMessage label="Phone">
+            <amx:outputText value="#{row.phone}"/>
+          </amx:panelLabelAndMessage>
+        </amx:panelFormLayout>
+      </amx:filmStripItem>
+      <amx:facet name="pageControl">
+        <amx:dottedPageControl displayPageCount="#{pageFlowScope.componentProperties.displayArrowLabels}"
+                               dotsInPageSet="#{pageFlowScope.componentProperties.dotsPerGroup}"
+                               lastPageSetBehavior="#{pageFlowScope.componentProperties.lastGroupBehavior}"/>
+      </amx:facet>
+    </amx:filmStrip>
+    <amx:panelFormLayout id="pfl1">
+      <amx:inputText label="Dotted page Group" id="it1" value="#{pageFlowScope.componentProperties.dotsPerGroup}"/>
+      <amx:selectOneChoice label="displayArrowLabels" id="soc1"
+                           value="#{pageFlowScope.componentProperties.displayArrowLabels}">
+        <amx:selectItem id="si1" label="none" value="none"/>
+        <amx:selectItem label="inside" id="si2" value="inside"/>
+        <amx:selectItem label="outside" id="si3" value="outside"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice label="dotsPerGroup" id="soc2"
+                           value="#{pageFlowScope.componentProperties.lastGroupBehavior}">
+        <amx:selectItem id="si4" label="full" value="full"/>
+        <amx:selectItem label="remaining" id="si5" value="remaining"/>
+      </amx:selectOneChoice>
+    </amx:panelFormLayout>
+  </amx:panelPage>
+</amx:view>

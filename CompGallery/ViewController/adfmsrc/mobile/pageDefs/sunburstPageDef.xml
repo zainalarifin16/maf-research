@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.37" id="sunburstPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="SunburstDataList" id="SunburstDataListIterator"/>
+    <accessorIterator MasterBinding="SunburstDataListIterator" Binds="sunburstData" RangeSize="25"
+                      DataControl="SunburstDataList" BeanClass="model.TreeviewData" id="sunburstDataIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="sunburstDataIterator" id="sunburstData">
+      <nodeDefinition DefName="model.TreeviewData" Name="sunburstData0">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="value"/>
+          <Item Value="fillColor"/>
+          <Item Value="cat"/>
+          <Item Value="cat2"/>
+          <Item Value="label"/>
+          <Item Value="marketShare"/>
+          <Item Value="deltaInPosition"/>
+          <Item Value="booksCount"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

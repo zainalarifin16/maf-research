@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="launcher">
+    <default-activity>launcherPage</default-activity>
+    <view id="launcherPage">
+      <page>/Launcher/launcher.amx</page>
+    </view>
+    <task-flow-call id="TaskFlowCall">
+      <task-flow-reference>
+        <document>/Employees/taskflow.xml</document>
+        <id>taskflow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>launcherPage</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>callEmployees</from-outcome>
+        <to-activity-id>TaskFlowCall</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <page-flow-scope-behavior>
+      <push-new/>
+    </page-flow-scope-behavior>
+  </task-flow-definition>
+</adfc-mobile-config>

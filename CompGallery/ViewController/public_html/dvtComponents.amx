@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+        <?audit suppress oracle.ide.xml.validation-error?>
+    </amx:navigationDragBehavior>
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText id="header" value="Visualization"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <!--amx:commandButton text="Home" id="cb1" action="__back"/-->
+            <amx:commandButton text="Home" id="back" action="return" styleClass="amx-commandButton-back"/>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents" shortDesc="Bookmarkable Link"
+                        styleClass="custom-bookmarkable-link" id="pBookmark">
+                <amx:image id="bookmarkIcon" source="images/bookmark.svg"
+                           shortDesc=""/>
+            </amx:goLink>
+        </amx:facet>
+        <amx:listView id="listView1">
+            <amx:listItem id="dvtCharts" action="dvtCharts">
+                <amx:outputText value="Charts" id="dvtChartso"/>
+                <!--<amx:tableLayout id="comboChartTL" width="100%">
+          <amx:rowLayout id="comboChartRL1">
+            <amx:cellFormat id="comboChartCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="comboChartI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/comboChart-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="comboChartCF2" width="100%" height="28px">
+              <amx:outputText value="Charts" id="dvtChartso"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>-->
+            </amx:listItem>
+            <amx:listItem id="dvtGauges" action="dvtGauges">
+                <amx:outputText value="Gauges" id="dvtGaugesso"/>
+                <!--<amx:tableLayout id="gaugesTL" width="100%">
+          <amx:rowLayout id="gaugesRL1">
+            <amx:cellFormat id="gaugesCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="gaugesI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/gauge-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="gaugesCF2" width="100%" height="28px">
+              <amx:outputText value="Gauges" id="dvtGaugesso"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>-->
+            </amx:listItem>
+            <amx:listItem id="dvtGeo" action="dvtGeo">
+                <amx:outputText value="Geographic Map" id="dvtGeoso"/>
+                <!--<amx:tableLayout id="geoTL" width="100%">
+          <amx:rowLayout id="geoRL1">
+            <amx:cellFormat id="geoCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="geoI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/map-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="geoCF2" width="100%" height="28px">
+              <amx:outputText value="Geographic Map" id="dvtGeoso"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>-->
+            </amx:listItem>
+            <amx:listItem id="dvtLegend" action="dvtLegend">
+                <amx:outputText value="Common Legend" id="dvtLegendOT"/>
+            </amx:listItem>
+            <amx:listItem id="dvtThematicmap" action="dvtThematicmap">
+                <amx:outputText value="Thematic Map" id="dvtThematicmapso"/>
+                <!--<amx:tableLayout id="thematicMapTL" width="100%">
+          <amx:rowLayout id="thematicMapRL1">
+            <amx:cellFormat id="thematicMapCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="thematicMapI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/map-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="thematicMapCF2" width="100%" height="28px">
+              <amx:outputText value="Thematic map" id="dvtThematicmapso"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>-->
+            </amx:listItem>
+            <amx:listItem id="dvtTimeline" action="dvtTimeline">
+                <amx:outputText value="Timeline" id="dvtTimelineOT"/>
+            </amx:listItem>
+            <amx:listItem id="dvtFeatures" action="dvtFeatures">
+                <amx:outputText value="Features" id="dvtFeaturesId"/>
+            </amx:listItem>
+            <amx:listItem id="nBox" action="nBox">
+                <amx:tableLayout id="nBoxTL" width="100%">
+                    <amx:rowLayout id="nBoxRL1">
+                        <amx:cellFormat id="nBoxCF1" rowSpan="2" width="50px" halign="center">
+                            <amx:image id="nBoxI" inlineStyle="width:32px;height:32px" shortDesc=""
+                                       source="images/nbox.png"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="nBoxCF2" width="100%" height="28px">
+                            <amx:outputText id="nBoxOT1" value="NBox"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout id="nBoxRL2">
+                        <amx:cellFormat id="nBoxCF3" width="100%" height="12px">
+                            <amx:outputText id="nBoxOT2" value="dvtm:nBox" styleClass="adfmf-listItem-captionText"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+                <amx:setPropertyListener from="#{NBoxProperties.cellTitle}" to="#{pageFlowScope.cellTitle}"
+                                         type="action"/>
+                <amx:setPropertyListener from="#{NBoxProperties.columnsTitle}" to="#{pageFlowScope.columnsTitle}"
+                                         type="action"/>
+                <amx:setPropertyListener from="#{NBoxProperties.emptyText}" to="#{pageFlowScope.emptyText}"
+                                         type="action"/>
+                <amx:setPropertyListener from="#{NBoxProperties.groupBehavior}" to="#{pageFlowScope.groupBehavior}"
+                                         type="action"/>
+                <amx:setPropertyListener from="#{NBoxProperties.highlightedRowKeys}"
+                                         to="#{pageFlowScope.highlightedRowKeys}" type="action"/>
+                <amx:setPropertyListener from="#{NBoxProperties.inlineStyle}" to="#{pageFlowScope.inlineStyle}"
+                                         type="action"/>
+                <amx:setPropertyListener from="#{NBoxProperties.maximizedColumn}" to="#{pageFlowScope.maximizedColumn}"
+                                         type="action"/>
+                <amx:setPropertyListener from="#{NBoxProperties.maximizedRow}" to="#{pageFlowScope.maximizedRow}"
+                                         type="action"/>
+                <amx:setPropertyListener from="#{NBoxProperties.nodeSelection}" to="#{pageFlowScope.nodeSelection}"
+                                         type="action"/>
+                <amx:setPropertyListener from="#{NBoxProperties.rowsTitle}" to="#{pageFlowScope.rowsTitle}"
+                                         type="action"/>
+                <amx:setPropertyListener from="#{NBoxProperties.selectedRowKeys}" to="#{pageFlowScope.selectedRowKeys}"
+                                         type="action"/>
+                <amx:setPropertyListener from="#{NBoxProperties.shortDesc}" to="#{pageFlowScope.shortDesc}"
+                                         type="action"/>
+                <amx:setPropertyListener from="#{NBoxProperties.showCount}" to="#{pageFlowScope.showCount}"
+                                         type="action"/>
+                <amx:setPropertyListener from="#{NBoxProperties.showIcon}" to="#{pageFlowScope.showIcon}"
+                                         type="action"/>
+                <amx:setPropertyListener from="#{NBoxProperties.showDetails}" to="#{pageFlowScope.showDetails}"
+                                         type="action"/>
+                <amx:setPropertyListener from="#{NBoxProperties.showDepartment}" to="#{pageFlowScope.showDepartment}"
+                                         type="action"/>
+                <amx:setPropertyListener from="#{NBoxProperties.showRole}" to="#{pageFlowScope.showRole}"
+                                         type="action"/>
+                <amx:setPropertyListener from="#{NBoxProperties.showExperience}" to="#{pageFlowScope.showExperience}"
+                                         type="action"/>
+                <amx:setPropertyListener from="#{NBoxProperties.groupDepartment}" to="#{pageFlowScope.groupDepartment}"
+                                         type="action"/>
+                <amx:setPropertyListener from="#{NBoxProperties.groupRole}" to="#{pageFlowScope.groupRole}"
+                                         type="action"/>
+                <amx:setPropertyListener from="#{NBoxProperties.groupExperience}" to="#{pageFlowScope.groupExperience}"
+                                         type="action"/>
+                <amx:setPropertyListener from="#{NBoxProperties.showHighlightedNodes}"
+                                         to="#{pageFlowScope.showHighlightedNodes}" type="action"/>
+            </amx:listItem>
+            <amx:listItem id="sunburst" action="sunburst">
+                <amx:tableLayout id="sunburstTL" width="100%">
+                    <amx:rowLayout id="sunburstRL1">
+                        <amx:cellFormat id="sunburstCF1" rowSpan="2" width="50px" halign="center">
+                            <amx:image id="sunburstI" inlineStyle="width:32px;height:32px" shortDesc=""
+                                       source="images/sunburst.png"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="sunburstCF2" width="100%" height="28px">
+                            <amx:outputText id="sunburstOT1" value="Sunburst"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout id="sunburstRL2">
+                        <amx:cellFormat id="sunburstCF3" width="100%" height="12px">
+                            <amx:outputText id="sunburstOT2" value="dvtm:sunburst"
+                                            styleClass="adfmf-listItem-captionText"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+                <amx:setPropertyListener from="#{DvtProperties.sunburstProperties.animationDuration}"
+                                         to="#{pageFlowScope.animationDuration}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.sunburstProperties.animationOnDataChange}"
+                                         to="#{pageFlowScope.animationOnDataChange}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.sunburstProperties.animationOnDisplay}"
+                                         to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.sunburstProperties.colorLabel}"
+                                         to="#{pageFlowScope.colorLabel}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.sunburstProperties.emptyText}"
+                                         to="#{pageFlowScope.emptyText}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.sunburstProperties.inlineStyle}"
+                                         to="#{pageFlowScope.inlineStyle}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.sunburstProperties.nodeSelection}"
+                                         to="#{pageFlowScope.nodeSelection}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.sunburstProperties.rendered}"
+                                         to="#{pageFlowScope.rendered}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.sunburstProperties.rotation}"
+                                         to="#{pageFlowScope.rotation}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.sunburstProperties.shortDesc}"
+                                         to="#{pageFlowScope.shortDesc}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.sunburstProperties.sizeLabel}"
+                                         to="#{pageFlowScope.sizeLabel}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.sunburstProperties.sorting}"
+                                         to="#{pageFlowScope.sorting}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.sunburstProperties.startAngle}"
+                                         to="#{pageFlowScope.startAngle}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.sunburstProperties.styleClass}"
+                                         to="#{pageFlowScope.styleClass}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.sunburstProperties.fillColor}"
+                                         to="#{pageFlowScope.fillColor}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.sunburstProperties.fillPattern}"
+                                         to="#{pageFlowScope.fillPattern}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.sunburstProperties.labelHalign}"
+                                         to="#{pageFlowScope.labelHalign}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.sunburstProperties.labelDisplay}"
+                                         to="#{pageFlowScope.labelDisplay}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.sunburstProperties.isTreemap}"
+                                         to="#{pageFlowScope.isTreemap}" type="action"/>
+                <amx:setPropertyListener from="false" to="#{pageFlowScope.showRadius}" type="action"/>
+            </amx:listItem>
+            <amx:listItem id="treemap" action="treemap">
+                <amx:tableLayout id="treemapTL" width="100%">
+                    <amx:rowLayout id="treemapRL1">
+                        <amx:cellFormat id="treemapCF1" rowSpan="2" width="50px" halign="center">
+                            <amx:image id="treemapI" inlineStyle="width:32px;height:32px" shortDesc=""
+                                       source="images/treemap.png"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="treemapCF2" width="100%" height="28px">
+                            <amx:outputText id="treemapOT1" value="Treemap"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout id="treemapRL2">
+                        <amx:cellFormat id="treemapCF3" width="100%" height="12px">
+                            <amx:outputText id="treemapOT2" value="dvtm:treemap"
+                                            styleClass="adfmf-listItem-captionText"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+                <amx:setPropertyListener from="#{DvtProperties.treemapProperties.animationDuration}"
+                                         to="#{pageFlowScope.animationDuration}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.treemapProperties.animationOnDataChange}"
+                                         to="#{pageFlowScope.animationOnDataChange}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.treemapProperties.animationOnDisplay}"
+                                         to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.treemapProperties.shortDesc}"
+                                         to="#{pageFlowScope.shortDesc}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.treemapProperties.layout}" to="#{pageFlowScope.layout}"
+                                         type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.treemapProperties.nodeSelection}"
+                                         to="#{pageFlowScope.nodeSelection}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.treemapProperties.rendered}"
+                                         to="#{pageFlowScope.rendered}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.treemapProperties.emptyText}"
+                                         to="#{pageFlowScope.emptyText}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.treemapProperties.inlineStyle}"
+                                         to="#{pageFlowScope.inlineStyle}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.treemapProperties.sizeLabel}"
+                                         to="#{pageFlowScope.sizeLabel}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.treemapProperties.styleClass}"
+                                         to="#{pageFlowScope.styleClass}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.treemapProperties.colorLabel}"
+                                         to="#{pageFlowScope.colorLabel}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.treemapProperties.sorting}" to="#{pageFlowScope.sorting}"
+                                         type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.treemapProperties.fillColor}"
+                                         to="#{pageFlowScope.fillColor}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.treemapProperties.fillPattern}"
+                                         to="#{pageFlowScope.fillPattern}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.treemapProperties.labelDisplay}"
+                                         to="#{pageFlowScope.labelDisplay}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.treemapProperties.labelHalign}"
+                                         to="#{pageFlowScope.labelHalign}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.treemapProperties.labelValign}"
+                                         to="#{pageFlowScope.labelValign}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.treemapProperties.selectedRowKeys}"
+                                         to="#{pageFlowScope.selectedRowKeys}" type="action"/>
+                <amx:setPropertyListener from="#{DvtProperties.treemapProperties.isTreemap}"
+                                         to="#{pageFlowScope.isTreemap}" type="action"/>
+            </amx:listItem>
+        </amx:listView>
+    </amx:panelPage>
+</amx:view>

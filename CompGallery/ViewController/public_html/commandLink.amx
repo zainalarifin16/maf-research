@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Link (Command)"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="General"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="styles" action="styles" shortDesc="Styles">
+        <amx:image id="stylesIcon" source="images/styles.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:commandLink" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=general/commandLink"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:outputText id="otnf" value="Outside a form"
+      styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:commandLink id="commandLink2"
+      text="#{pageFlowScope.componentProperties.text}"
+      rendered="#{pageFlowScope.componentProperties.rendered}"
+      styleClass="#{pageFlowScope.componentProperties.styleClass}"
+      inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+      disabled="#{pageFlowScope.componentProperties.disabled}"
+      actionListener="#{PropertyBean.ActionHandler}"/>
+    <amx:outputText id="otnfi" value="With an image child instead of text"
+      styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:commandLink id="commandLink3"
+      rendered="#{pageFlowScope.componentProperties.rendered}"
+      styleClass="#{pageFlowScope.componentProperties.styleClass}"
+      inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+      disabled="#{pageFlowScope.componentProperties.disabled}"
+      actionListener="#{PropertyBean.ActionHandler}">
+      <amx:image id="image1" source="images/person.svg"
+        shortDesc="#{pageFlowScope.componentProperties.text}"
+        inlineStyle="padding-left: 4px; padding-right: 4px;"/>
+    </amx:commandLink>
+    <amx:outputText id="otf" value="Inside a form"
+      styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:panelFormLayout id="form">
+      <amx:panelLabelAndMessage id="panelLabelAndMessage1" label="Label">
+        <amx:commandLink id="commandLink4"
+          text="#{pageFlowScope.componentProperties.text}"
+          rendered="#{pageFlowScope.componentProperties.rendered}"
+          styleClass="#{pageFlowScope.componentProperties.styleClass}"
+          inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+          disabled="#{pageFlowScope.componentProperties.disabled}"
+          actionListener="#{PropertyBean.ActionHandler}"/>
+      </amx:panelLabelAndMessage>
+    </amx:panelFormLayout>
+    <amx:outputText id="outputText1" value="#{viewScope.actionevent}"/>
+  </amx:panelPage>
+</amx:view>

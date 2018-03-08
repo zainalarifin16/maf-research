@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf-skins xmlns="http://xmlns.oracle.com/adf/mf/skin">
+    <skin-addition id="s1">
+        <skin-id>mobileAlta-v1.6</skin-id>
+        <style-sheet-name>css/wb.css</style-sheet-name>
+    </skin-addition>
+
+    <!--
+    If you wanted to create a new skin, you'd extend an existing skin and create a new family
+    and you must specify the new skin family in your maf-config.xml
+    
+    Note:  The version stanza is required and you must use the version in your id
+
+    <skin id="c1">
+        <id>customMobileAlta-v1</id>
+        <family>customMobileAlta</family>
+        <version>
+            <default>true</default>
+            <name>v1</name>
+        </version>
+        <extends>mobileAlta-v1.1</extends>
+        <style-sheet-name>resources/css/custom.css</style-sheet-name>
+    </skin>    
+    -->
+</adfmf-skins>

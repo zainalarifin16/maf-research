@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.0.0" id="funnelChartPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="FunnelDataList" id="FunnelDataListIterator"/>
+    <accessorIterator MasterBinding="FunnelDataListIterator" Binds="funnelData" RangeSize="-1"
+                      DataControl="FunnelDataList" BeanClass="model.FunnelData" id="funnelDataIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="funnelDataIterator" id="funnelData">
+      <nodeDefinition DefName="model.FunnelData" Name="funnelData0">
+        <AttrNames>
+          <Item Value="borderColor"/>
+          <Item Value="color"/>
+          <Item Value="label"/>
+          <Item Value="shortDesc"/>
+          <Item Value="targetValue"/>
+          <Item Value="value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

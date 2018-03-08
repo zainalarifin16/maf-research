@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.61.89" id="sparkChartPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="SparkDataList" id="SparkDataListIterator"/>
+    <accessorIterator MasterBinding="SparkDataListIterator" Binds="sparkData" RangeSize="-1" DataControl="SparkDataList"
+                      BeanClass="model.SparkData" id="sparkDataIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="sparkDataIterator" id="sparkData">
+      <nodeDefinition DefName="model.SparkData" Name="sparkData0">
+        <AttrNames>
+          <Item Value="color"/>
+          <Item Value="date"/>
+          <Item Value="value"/>
+          <Item Value="floatValue"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

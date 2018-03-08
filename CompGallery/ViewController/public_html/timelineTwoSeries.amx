@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Header" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back" shortDesc="back"/>
+    </amx:facet>
+    <amx:panelStretchLayout id="psl1">
+      <amx:facet name="center">
+        <dvtm:timeline id="tl1" startTime="2013-02-01" endTime="2014-02-01">
+          <dvtm:timelineSeries id="ts1" var="evt" value="#{bindings.series1Data.collectionModel}">
+            <dvtm:timelineItem startTime="#{evt.startDate}" endTime="#{evt.endDate}" description="#{evt.description}"
+                               title="#{evt.title}" id="ti1"/>
+          </dvtm:timelineSeries>
+          <dvtm:timelineSeries id="ts2" var="evt" value="#{bindings.series2Data.collectionModel}">
+            <dvtm:timelineItem startTime="#{evt.startDate}" endTime="#{evt.endDate}" description="#{evt.description}"
+                               title="#{evt.title}" id="ti2"/>
+          </dvtm:timelineSeries>
+          <dvtm:timeAxis id="ta1" scale="months"/>
+          <dvtm:timeAxis id="ta2" scale="years" type="major"/>
+          <dvtm:overview id="ov1" inlineStyle="height:50px;" rendered="true"/>
+        </dvtm:timeline>
+      </amx:facet>
+    </amx:panelStretchLayout>
+  </amx:panelPage>
+</amx:view>

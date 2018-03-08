@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">emps</property>
+      <property
+         name="page">/SecureEmps/emps.amx</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>emps&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">264.80078</property>
+      <property
+         name="x">263.0</property>
+   </View>
+   <View
+      id="View3">
+      <property
+         name="activityId">details</property>
+      <property
+         name="page">/SecureEmps/details.amx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>details&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">248.86719</property>
+      <property
+         name="x">504.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="View3">
+      <property
+         name="fromOutcome">detail</property>
+      <property
+         name="sdm:polyPoints">R50,304.0,264.73438,463.0,248.80078,L50</property>
+   </ControlFlowCase>
+</SDM>

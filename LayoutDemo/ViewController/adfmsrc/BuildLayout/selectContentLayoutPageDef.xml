@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.18.50" id="selectContentLayoutPageDef"
+                Package="BuildLayout">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="LayoutWizardBean" id="LayoutWizardBeanIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="toggleSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="toggleSpringboard"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider"/>
+    <attributeValues IterBinding="LayoutWizardBeanIterator" id="renderNoneContentLayout">
+      <AttrNames>
+        <Item Value="renderNoneContentLayout"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LayoutWizardBeanIterator" id="renderCardsContentLayout">
+      <AttrNames>
+        <Item Value="renderCardsContentLayout"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LayoutWizardBeanIterator" id="renderListviewContentLayout">
+      <AttrNames>
+        <Item Value="renderListviewContentLayout"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LayoutWizardBeanIterator" id="renderSwimlaneContentLayout">
+      <AttrNames>
+        <Item Value="renderSwimlaneContentLayout"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LayoutWizardBeanIterator" id="renderFilmstripContentLayout">
+      <AttrNames>
+        <Item Value="renderFilmstripContentLayout"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LayoutWizardBeanIterator" id="renderTabstopContentLayout">
+      <AttrNames>
+        <Item Value="renderTabstopContentLayout"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LayoutWizardBeanIterator" id="renderTabsbottomContentLayout">
+      <AttrNames>
+        <Item Value="renderTabsbottomContentLayout"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LayoutWizardBeanIterator" id="renderMasonryContentLayout">
+      <AttrNames>
+        <Item Value="renderMasonryContentLayout"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LayoutWizardBeanIterator" id="renderFlexContentLayout">
+      <AttrNames>
+        <Item Value="renderFlexContentLayout"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

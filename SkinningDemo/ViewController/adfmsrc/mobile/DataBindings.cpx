@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.11.19" id="DataBindings"
+             SeparateXMLFiles="false" Package="mobile" ClientType="Generic">
+  <pageMap>
+    <page path="/Springboard/springboard.amx" usageId="mobile_springboardPageDef"/>
+    <page path="/Skinning/Skin.amx" usageId="mobile_SkinPageDef"/>
+    <page path="/About/About.amx" usageId="mobile_AboutPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="mobile_springboardPageDef" path="Springboard.springboardPageDef"/>
+    <page id="mobile_SkinPageDef" path="Skinning.SkinPageDef"/>
+    <page id="mobile_AboutPageDef" path="About.AboutPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="ApplicationFeatures" path="application.ApplicationFeatures"/>
+  </dataControlUsages>
+</Application>

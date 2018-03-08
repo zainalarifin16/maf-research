@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Time Axis Chart"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back">
+        <amx:setPropertyListener to="#{DvtProperties.lineChartProperties.dataCursor}" from="#{pageFlowScope.dataCursor}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.lineChartProperties.dataCursorBehavior}"
+                                 from="#{pageFlowScope.dataCursorBehavior}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.lineChartProperties.dataSelection}"
+                                 from="#{pageFlowScope.dataSelection}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.lineChartProperties.footnote}" from="#{pageFlowScope.footnote}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.lineChartProperties.footnoteHalign}"
+                                 from="#{pageFlowScope.footnoteHalign}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.lineChartProperties.hideAndShowBehavior}"
+                                 from="#{pageFlowScope.hideAndShowBehavior}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.lineChartProperties.inlineStyle}"
+                                 from="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.lineChartProperties.rolloverBehavior}"
+                                 from="#{pageFlowScope.rolloverBehavior}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.lineChartProperties.subtitle}" from="#{pageFlowScope.subtitle}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.lineChartProperties.title}" from="#{pageFlowScope.title}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.lineChartProperties.titleHalign}"
+                                 from="#{pageFlowScope.titleHalign}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.lineChartProperties.animationOnDataChange}"
+                                 from="#{pageFlowScope.animationOnDataChange}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.lineChartProperties.animationIndicators}"
+                                 from="#{pageFlowScope.animationIndicators}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.lineChartProperties.animationDuration}"
+                                 from="#{pageFlowScope.animationDuration}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.lineChartProperties.animationOnDisplay}"
+                                 from="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.lineChartProperties.animationUpColor}"
+                                 from="#{pageFlowScope.animationUpColor}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.lineChartProperties.animationDownColor}"
+                                 from="#{pageFlowScope.animationDownColor}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.lineChartProperties.shortDesc}" from="#{pageFlowScope.shortDesc}"
+                                 type="action"/>
+      </amx:commandButton>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="chartProperties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#dvtm:lineChart" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/dvtCharts/timeAxisChart"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:flexLayout id="fl1">
+      <amx:panelStretchLayout id="psl1" styleClass="dvtm-gallery-component-panel">
+        <amx:facet name="center">
+          <dvtm:lineChart var="row" value="#{bindings.stockData.collectionModel}" id="lc1"
+                          styleClass="dvtm-gallery-component" dataCursor="off" initialZooming="last"
+                          title="#{pageFlowScope.title}" subtitle="#{pageFlowScope.subtitle}" timeAxisType="enabled"
+                          dataSelection="#{pageFlowScope.dataSelection}" zoomAndScroll="#{pageFlowScope.zoomAndScroll}"
+                          footnote="#{pageFlowScope.footnote}" footnoteHalign="#{pageFlowScope.footnoteHalign}">
+            <amx:facet name="dataStamp">
+              <dvtm:chartDataItem group="#{row.date}" value="#{row.value}" series="#{row.name}" id="cdi1"
+                                  label="#{pageFlowScope.labelDisplay ? row.value : ''}"/>
+            </amx:facet>
+            <amx:facet name="overview">
+              <dvtm:overview id="ovw" rendered="#{pageFlowScope.overviewDisplay}" inlineStyle="height:15%;"/>
+            </amx:facet>
+            <dvtm:legend position="#{pageFlowScope.legendPosition}" id="l1" rendered="#{pageFlowScope.legendDisplay}"/>
+          </dvtm:lineChart>
+        </amx:facet>
+        <amx:facet name="bottom"></amx:facet>
+      </amx:panelStretchLayout>
+      <amx:panelGroupLayout id="pglOptionsPanel" scrollPolicy="scroll">
+        <amx:panelFormLayout id="pflOptionsForm" maxColumns="2" rows="3" styleClass="dvtm-gallery-options"
+                             fieldWidth="60%" labelWidth="40%">
+          <amx:selectBooleanCheckbox id="sbcLegend" label="Legend" value="#{pageFlowScope.legendDisplay}"/>
+          <amx:selectBooleanCheckbox id="sbcOverview" label="Overview" value="#{pageFlowScope.overviewDisplay}"/>
+          <amx:selectOneChoice id="socSelection" label="Select" value="#{pageFlowScope.dataSelection}">
+            <amx:selectItem id="siSelectionNone" label="none" value="none"/>
+            <amx:selectItem id="siSelectionSingle" label="single" value="single"/>
+            <amx:selectItem id="siSelectionMultiple" label="multiple" value="multiple"/>
+          </amx:selectOneChoice>
+          <amx:selectOneChoice id="socLegendPosition" label="Position" value="#{pageFlowScope.legendPosition}"
+                               disabled="#{!pageFlowScope.legendDisplay}">
+            <amx:selectItem id="siLegendPositionAuto" label="auto" value="auto"/>
+            <amx:selectItem id="siLegendPositionBottom" label="bottom" value="bottom"/>
+            <amx:selectItem id="siLegendPositionEnd" label="end" value="end"/>
+            <amx:selectItem id="siLegendPositionStart" label="start" value="start"/>
+            <amx:selectItem id="siLegendPositionTop" label="top" value="top"/>
+          </amx:selectOneChoice>
+          <amx:selectOneChoice id="socZoomScroll" label="Zoom" value="#{pageFlowScope.zoomAndScroll}">
+            <amx:selectItem id="siZoomScrollOff" label="off" value="off"/>
+            <amx:selectItem id="siZoomScrollDelayed" label="delayed" value="delayed"/>
+            <amx:selectItem id="siZoomScrollLive" label="live" value="live"/>
+          </amx:selectOneChoice>
+        </amx:panelFormLayout>
+        <amx:panelGroupLayout id="pglCommandButtons" layout="horizontal">
+          <amx:commandButton text="Data Refresh" id="cbRefresh" actionListener="#{BarDataList.refreshChart}"
+                             disabled="true"/>
+          <amx:commandButton text="More Options..." id="cbMore" disabled="true"/>
+        </amx:panelGroupLayout>
+      </amx:panelGroupLayout>
+    </amx:flexLayout>
+  </amx:panelPage>
+</amx:view>

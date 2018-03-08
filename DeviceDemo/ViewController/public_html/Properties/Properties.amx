@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText id="outputText1" value="Properties"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:outputText value="BASICS" id="ot3"/>
+        <amx:panelFormLayout id="panelFormLayout1" labelPosition="start" fieldHalign="start" labelWidth="43%">
+            <amx:panelLabelAndMessage id="oslabel" label="OS">
+                <amx:outputText id="os" value="#{deviceScope.device.os}"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage id="versionlabel" label="Version">
+                <amx:outputText id="version" value="#{deviceScope.device.version}"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage id="platformlabel" label="Platform">
+                <amx:outputText id="platform" value="#{deviceScope.device.platform}"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage id="modellabel" label="Model">
+                <amx:outputText id="model" value="#{deviceScope.device.model}"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage id="namelabel" label="Name">
+                <amx:outputText id="name" value="#{deviceScope.device.name}"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage id="phonegaplabel" label="Phonegap">
+                <amx:outputText id="phonegap" value="#{deviceScope.device.phonegap}"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage id="networklabel" label="Network">
+                <amx:outputText id="network" value="#{deviceScope.hardware.networkStatus}"/>
+            </amx:panelLabelAndMessage>
+        </amx:panelFormLayout>
+        <amx:spacer id="s2"/>
+        <amx:outputText value="DISPLAY" id="ot1"/>
+        <amx:panelFormLayout id="pfl1">
+            <amx:panelLabelAndMessage id="availheightlabel" label="Available Height">
+                <amx:outputText id="availheight" value="#{deviceScope.hardware.screen.availableHeight}"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage id="availwidthlabel" label="Available Width">
+                <amx:outputText id="availwidth" value="#{deviceScope.hardware.screen.availableWidth}"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage id="heightlabel" label="Height">
+                <amx:outputText id="height" value="#{deviceScope.hardware.screen.height}"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage id="widthlabel" label="Width">
+                <amx:outputText id="width" value="#{deviceScope.hardware.screen.width}"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage id="dpilabel" label="DPI">
+                <amx:outputText id="dpi" value="#{deviceScope.hardware.screen.dpi}"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage id="scalefactorlabel" label="Scale Factor">
+                <amx:outputText id="scaleFactor" value="#{deviceScope.hardware.screen.scaleFactor}">
+                    <amx:convertNumber id="cn2" type="number" minFractionDigits="2" maxFractionDigits="2"/>
+                </amx:outputText>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage id="screensizelabel" label="Screen Size">
+                <amx:outputText id="screenSize" value="#{deviceScope.hardware.screen.diagonalSize}">
+                    <amx:convertNumber id="cn1" type="number" maxFractionDigits="2" minFractionDigits="2"/>
+                </amx:outputText>
+            </amx:panelLabelAndMessage>
+        </amx:panelFormLayout>
+        <amx:outputText value="PLUGINS" id="ot2"/>
+        <amx:spacer id="s1"/>
+        <amx:panelFormLayout fieldHalign="end" id="pfl2" labelPosition="start" labelWidth="43%">
+            <amx:selectBooleanSwitch id="hasAccelerometer" label="Accelerometer"
+                                     value="#{deviceScope.hardware.hasAccelerometer}" readOnly="true" offLabel="No"
+                                     onLabel="Yes"/>
+            <amx:selectBooleanSwitch id="hasCamera" label="Camera" value="#{deviceScope.hardware.hasCamera}"
+                                     readOnly="true" offLabel="No" onLabel="Yes"/>
+            <amx:selectBooleanSwitch id="hasCompass" label="Compass" value="#{deviceScope.hardware.hasCompass}"
+                                     readOnly="true" offLabel="No" onLabel="Yes"/>
+            <amx:selectBooleanSwitch id="hasContacts" label="Contacts" value="#{deviceScope.hardware.hasContacts}"
+                                     readOnly="true" offLabel="No" onLabel="Yes"/>
+            <amx:selectBooleanSwitch id="hasFileAccess" label="File Access"
+                                     value="#{deviceScope.hardware.hasFileAccess}" readOnly="true" offLabel="No"
+                                     onLabel="Yes"/>
+            <amx:selectBooleanSwitch id="hasGeolocation" label="Geolocation"
+                                     value="#{deviceScope.hardware.hasGeolocation}" readOnly="true" offLabel="No"
+                                     onLabel="Yes"/>
+            <amx:selectBooleanSwitch id="hasLocalStorage" label="Local Storage"
+                                     value="#{deviceScope.hardware.hasLocalStorage}" readOnly="true" offLabel="No"
+                                     onLabel="Yes"/>
+            <amx:selectBooleanSwitch id="hasMediaPlayer" label="Media Player"
+                                     value="#{deviceScope.hardware.hasMediaPlayer}" readOnly="true" offLabel="No"
+                                     onLabel="Yes"/>
+            <amx:selectBooleanSwitch id="hasMediaRecorder" label="Media Recorder"
+                                     value="#{deviceScope.hardware.hasMediaRecorder}" readOnly="true" offLabel="No"
+                                     onLabel="Yes"/>
+            <amx:selectBooleanSwitch id="hastTouchScreen" label="Touch Screen"
+                                     value="#{deviceScope.hardware.hasTouchScreen}" readOnly="true" offLabel="No"
+                                     onLabel="Yes"/>
+        </amx:panelFormLayout>
+    </amx:panelPage>
+</amx:view>

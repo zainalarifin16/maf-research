@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+        <amx:outputText id="header" value="Properties"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+        <amx:commandButton id="back" action="#{DvtProperties.validateAndGoBack}" text="Done"/>
+    </amx:facet>
+        <amx:panelFormLayout id="valueProps" labelWidth="40%" fieldWidth="60%">
+            <amx:inputText id="pValue" label="value" value="#{pageFlowScope.value}"/>
+            <amx:inputText id="pMinValue" label="minValue" value="#{pageFlowScope.minValue}"/>
+            <amx:inputText id="pMaxValue" label="maxValue" value="#{pageFlowScope.maxValue}"/>
+        </amx:panelFormLayout>
+        <amx:panelFormLayout id="imagesProps" labelWidth="40%" fieldWidth="60%">
+            <amx:selectOneChoice id="pBackground" label="background" value="#{pageFlowScope.background}">
+              <amx:selectItem label="circleAntique" value="circleAntique"/>
+              <amx:selectItem label="circleDark" value="circleDark"/>
+              <amx:selectItem label="circleLight" value="circleLight"/>
+              <amx:selectItem label="rectangleAntique" value="rectangleAntique"/>
+              <amx:selectItem label="rectangleDark" value="rectangleDark"/>
+              <amx:selectItem label="rectangleLight" value="rectangleLight"/>
+              <amx:selectItem label="domeAntique" value="domeAntique"/>
+              <amx:selectItem label="domeDark" value="domeDark"/>
+              <amx:selectItem label="domeLight" value="domeLight"/>
+            </amx:selectOneChoice>
+            <amx:selectOneChoice id="pIndicator" label="indicator" value="#{pageFlowScope.indicator}">
+              <amx:selectItem label="needleAntique" value="needleAntique"/>
+              <amx:selectItem label="needleDark" value="needleDark"/>
+              <amx:selectItem label="needleLight" value="needleLight"/>
+            </amx:selectOneChoice>      
+        </amx:panelFormLayout>
+        <amx:panelFormLayout id="animationProps" labelWidth="40%" fieldWidth="60%">
+            <amx:inputText id="pAnimationDuration" label="animationDuration" value="#{pageFlowScope.animationDuration}"/>
+            <amx:selectOneChoice id="pAnimationOnDataChange" label="animationOnDataChange" value="#{pageFlowScope.animationOnDataChange}">
+              <amx:selectItem label="none" value="none"/>
+              <amx:selectItem label="auto" value="auto"/>
+            </amx:selectOneChoice>
+            <amx:selectOneChoice id="pAnimationOnDisplay" label="animationOnDisplay" value="#{pageFlowScope.animationOnDisplay}">
+              <amx:selectItem label="none" value="none"/>
+              <amx:selectItem label="auto" value="auto"/>
+              <amx:selectItem label="alphaFade" value="alphaFade"/>
+            </amx:selectOneChoice>
+        </amx:panelFormLayout>
+        <amx:panelFormLayout id="otherProps" labelWidth="40%" fieldWidth="60%">
+            <amx:inputText id="pShortDesc" label="shortDesc" value="#{pageFlowScope.shortDesc}"/>
+        </amx:panelFormLayout>
+        <amx:panelFormLayout id="styleProps" labelWidth="40%" fieldWidth="60%">
+            <amx:inputText id="pInlineStyle" label="inlineStyle" value="#{pageFlowScope.inlineStyle}"/>
+            <amx:inputText id="pStyleClass" label="styleClass" value="#{pageFlowScope.styleClass}"/>
+        </amx:panelFormLayout>
+        <amx:panelFormLayout id="inputProps" labelWidth="40%" fieldWidth="60%">
+            <amx:inputText id="pInputIncrement" label="inputIncrement" value="#{pageFlowScope.inputIncrement}"/>
+            <amx:selectBooleanCheckbox id="sbcReadOnly" label="readOnly" value="#{pageFlowScope.readOnly}"/>
+        </amx:panelFormLayout>
+        <amx:outputText id="outt1" value="tickLabel" inlineStyle="padding-top: 10px;font-weight:bold;"/> 
+        <amx:panelFormLayout id="tickLabelProps" labelWidth="40%" fieldWidth="60%">
+            <amx:selectOneChoice id="pTickScaling" label="Tick scaling" value="#{pageFlowScope.tickScaling}">
+              <amx:selectItem label="none" value="none"/>
+              <amx:selectItem label="thousand" value="thousand"/>
+              <amx:selectItem label="million" value="million"/>
+              <amx:selectItem label="billion" value="billion"/>
+              <amx:selectItem label="trillion" value="trillion"/>
+              <amx:selectItem label="quadrillion" value="quadrillion"/>
+            </amx:selectOneChoice>
+            <amx:inputText id="pTickLabelStyle" label="labelStyle" value="#{pageFlowScope.tickLabelStyle}"/>
+         </amx:panelFormLayout>
+        <amx:outputText id="outt2" value="metricLabel" inlineStyle="padding-top: 10px;font-weight:bold;"/> 
+        <amx:panelFormLayout id="metricLabelProps" labelWidth="40%" fieldWidth="60%">
+             <amx:selectOneChoice id="pMetricScaling" label="Value scaling" value="#{pageFlowScope.metricScaling}">
+              <amx:selectItem label="none" value="none"/>
+              <amx:selectItem label="thousand" value="thousand"/>
+              <amx:selectItem label="million" value="million"/>
+              <amx:selectItem label="billion" value="billion"/>
+              <amx:selectItem label="trillion" value="trillion"/>
+              <amx:selectItem label="quadrillion" value="quadrillion"/>
+            </amx:selectOneChoice>            
+            <amx:inputText id="pMetricLabelStyle" label="labelStyle" value="#{pageFlowScope.metricLabelStyle}"/>
+            <amx:selectBooleanCheckbox value="#{pageFlowScope.metricLabelRendered}" label="metricLabelRendered" id="sbc1"/>
+            <amx:inputText id="pMetricLabelText" label="metricLabelText" value="#{pageFlowScope.metricLabelText}"/>
+        </amx:panelFormLayout>
+  </amx:panelPage>
+</amx:view>

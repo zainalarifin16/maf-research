@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="crud.mobile.ViewControllerBundle" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="crudmodel.Contact.id_LABEL">
+        <source>ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Contact.first_LABEL">
+        <source>First</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Contact.last_LABEL">
+        <source>Last</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Contact.phone_LABEL">
+        <source>Phone</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Contact.email_LABEL">
+        <source>Email</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Contact.birthDate_LABEL">
+        <source>Birth Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Contact.address_LABEL">
+        <source>Address</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Contact.city_LABEL">
+        <source>City</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Contact.state_LABEL">
+        <source>State</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Person.first_LABEL">
+        <source>First</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Person.last_LABEL">
+        <source>Last</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Person.phone_LABEL">
+        <source>Phone</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Person.email_LABEL">
+        <source>Email</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Person.birthDate_LABEL">
+        <source>Birth Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Person.address_LABEL">
+        <source>Address</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Person.city_LABEL">
+        <source>City</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Person.state_LABEL">
+        <source>State</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Person.first_Rule_0">
+        <source>First Name must be between 1 and 20 characters</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Person.last_Rule_0">
+        <source>Last Name must be between 1 and 25 characters</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Person.phone_Rule_0">
+        <source>Phone cannot be more than 20 characters</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Person.email_Rule_0">
+        <source>Email cannot be more than 25 characters</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Person.address_Rule_0">
+        <source>Address cannot be more than 50 characters</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Person.city_Rule_0">
+        <source>City cannot be more than 30 characters</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Person.state_Rule_0">
+        <source>State must be less than 10 characters</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="crudmodel.Person.id_LABEL">
+        <source>ID</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

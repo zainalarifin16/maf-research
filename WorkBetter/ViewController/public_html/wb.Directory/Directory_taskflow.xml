@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="taskflow">
+    <default-activity>FormFactor</default-activity>
+    <view id="List">
+      <page>/wb.Directory/List.amx</page>
+    </view>
+    <task-flow-call id="EmpDetailTF">
+      <task-flow-reference>
+        <document>/wb.Profile/EmpDetailTF.xml</document>
+        <id>EmpDetailTF</id>
+      </task-flow-reference>
+      <input-parameter id="__1">
+        <name>empid</name>
+        <value>#{pageFlowScope.drillEmpid}</value>
+      </input-parameter>
+      <input-parameter id="__2">
+        <name>isDirectory</name>
+        <value>true</value>
+      </input-parameter>
+      <input-parameter id="__5">
+        <name>showBackButton</name>
+        <value>true</value>
+      </input-parameter>
+      <input-parameter id="__12">
+        <name>summaryView</name>
+        <value>summary</value>
+      </input-parameter>
+      <data-control-context>isolated</data-control-context>
+    </task-flow-call>
+    <router id="FormFactor">
+      <case id="__11">
+        <expression>#{deviceScope.hardware.screen.diagonalSize lt 6}</expression>
+        <outcome>phone</outcome>
+      </case>
+      <default-outcome>tablet</default-outcome>
+    </router>
+    <view id="List_phone">
+      <page>/wb.Directory/List_phone.amx</page>
+    </view>
+    <control-flow-rule id="__3">
+      <from-activity-id>List</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>profile</from-outcome>
+        <to-activity-id>EmpDetailTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>FormFactor</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>tablet</from-outcome>
+        <to-activity-id>List</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>phone</from-outcome>
+        <to-activity-id>List_phone</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>List_phone</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>profile</from-outcome>
+        <to-activity-id>EmpDetailTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <page-flow-scope-behavior>
+      <push-new/>
+    </page-flow-scope-behavior>
+  </task-flow-definition>
+</adfc-mobile-config>

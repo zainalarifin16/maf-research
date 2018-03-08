@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="List View"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Data Views"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="styles" action="styles" shortDesc="Styles">
+        <amx:image id="stylesIcon" source="images/styles.svg" shortDesc=""/>
+        <amx:setPropertyListener from="Default" to="#{pageFlowScope.panelPageStyle}" type="action"/>
+        <amx:setPropertyListener from="" to="#{pageFlowScope.listViewStyle}" type="action"/>
+      </amx:commandLink>
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:listView" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dataviews/listView" shortDesc="Bookmarkable Link"
+                  styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:facet name="footer">
+      <amx:commandButton id="cbReset" text="Reset" rendered="#{!GlobalProperties['hostedMode']}"
+        actionListener="#{bindings.resetViaInserts.execute}"/>
+      <amx:outputText id="outputText7" value="#{viewScope.movedata}"/>
+    </amx:facet>
+    <amx:listView id="listView1" var="row" value="#{bindings.contacts.collectionModel}"
+                  bufferSize="#{pageFlowScope.componentProperties.bufferSize}"
+                  bufferStrategy="#{pageFlowScope.componentProperties.bufferStrategy}"
+                  collapsedDividers="#{pageFlowScope.componentProperties.collapsedDividers}"
+                  collapsibleDividers="#{pageFlowScope.componentProperties.collapsibleDividers}"
+                  contentStyle="#{pageFlowScope.componentProperties.contentStyle}"
+                  dividerAttribute="#{pageFlowScope.componentProperties.dividerAttribute}"
+                  dividerMode="#{pageFlowScope.componentProperties.dividerMode}"
+                  editMode="#{pageFlowScope.componentProperties.editMode}"
+                  halign="#{pageFlowScope.componentProperties.halign}"
+                  inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+                  layout="#{pageFlowScope.componentProperties.layoutLV}"
+                  moveListener="#{PropertyBean.MoveHandler}"
+                  rendered="#{pageFlowScope.componentProperties.rendered}"
+                  sectionIndex="#{pageFlowScope.componentProperties.sectionIndex}"
+                  showDividerCount="#{pageFlowScope.componentProperties.showDividerCount}"
+                  showMoreStrategy="#{pageFlowScope.componentProperties.showMoreStrategy}"
+                  styleClass="#{pageFlowScope.componentProperties.styleClass}">
+      <amx:listItem id="listItem1" action="details"
+                    inlineStyle="#{pageFlowScope.componentProperties['layoutLV'] == 'cards' and !pageFlowScope.componentProperties['editMode'] ? 'width:240px' : ''}">
+        <amx:accessoryLayout id="swipeToReveal"
+          endDesc="Reveal delete button" endFullTriggerSelector=".full-trigger">
+          <amx:facet name="end">
+            <amx:commandLink id="clDelete" text="Delete" styleClass="full-trigger"
+              rendered="#{!GlobalProperties['hostedMode']}" disabled="#{!bindings.removeRowWithKey.enabled}"
+              actionListener="#{bindings.removeRowWithKey.execute}">
+              <amx:setPropertyListener id="splDelete" from="#{row.rowKey}" to="#{pageFlowScope.rowKeyToDelete}"/>
+            </amx:commandLink>
+          </amx:facet>
+          <amx:outputText value="#{row.first} #{row.last}" id="outputText1"
+                          rendered="#{pageFlowScope.componentProperties['layoutLV'] == 'rows' or pageFlowScope.componentProperties['editMode']}"/>
+          <amx:tableLayout id="tl1" layout="weighted" cellPadding="5"
+                           rendered="#{pageFlowScope.componentProperties['layoutLV'] == 'cards' and !pageFlowScope.componentProperties['editMode']}">
+            <amx:rowLayout id="rl1">
+              <amx:cellFormat id="cfFace" valign="top">
+                <amx:image id="face" source="images/person-160.png" shortDesc="Face"
+                           inlineStyle="width: 40px; height: 40px; border: 2px solid #FFF; box-shadow: 0 1px 2px rgba(0,0,0,0.4); border-radius: 50%; margin: 0px;"
+                           rendered="#{pageFlowScope.componentProperties['layoutLV'] == 'cards'}"/>
+              </amx:cellFormat>
+              <amx:cellFormat id="cfDetail">
+                <amx:outputText id="cardName" inlineStyle="white-space:normal;"
+                                value="#{row.first} #{row.last}"/>
+                <amx:spacer id="cardSp" height="10"/>
+                <amx:outputText id="cardAddr1" inlineStyle="font-size:10px;white-space:normal;"
+                                value="#{row.address}"/>
+                <amx:outputText id="cardAddr2" inlineStyle="font-size:10px;white-space:normal;"
+                                value="#{row.city}, #{row.state} #{row.zip}"/>
+                <amx:outputText id="cardPhone" inlineStyle="font-size:10px;white-space:normal;"
+                                value="#{row.phone}"/>
+                <amx:outputText id="cardMobile" inlineStyle="font-size:10px;white-space:normal;"
+                                value="#{row.mobile}"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+        </amx:accessoryLayout>
+        <amx:setPropertyListener from="#{row.rowKey}" to="#{pageFlowScope.currentContact}" type="action"/>
+        <amx:setPropertyListener from="#{row.first}" to="#{pageFlowScope.currentContactFirst}" type="action"/>
+        <amx:setPropertyListener from="#{row.last}" to="#{pageFlowScope.currentContactLast}" type="action"/>
+        <amx:setPropertyListener from="#{row.address}" to="#{pageFlowScope.currentContactAddress}" type="action"/>
+        <amx:setPropertyListener from="#{row.city}" to="#{pageFlowScope.currentContactCity}" type="action"/>
+        <amx:setPropertyListener from="#{row.state}" to="#{pageFlowScope.currentContactState}" type="action"/>
+        <amx:setPropertyListener from="#{row.zip}" to="#{pageFlowScope.currentContactZip}" type="action"/>
+        <amx:setPropertyListener from="#{row.phone}" to="#{pageFlowScope.currentContactPhone}" type="action"/>
+        <amx:setPropertyListener from="#{row.mobile}" to="#{pageFlowScope.currentContactMobile}" type="action"/>
+      </amx:listItem>
+    </amx:listView>
+  </amx:panelPage>
+</amx:view>

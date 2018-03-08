@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.18.50" id="DataBindings"
+             SeparateXMLFiles="false" Package="mobile" ClientType="Generic">
+  <pageMap>
+    <page path="/About/about.amx" usageId="mobile_aboutPageDef"/>
+    <page path="/BuildLayout/Pages/selectPageLayout.amx" usageId="mobile_selectPageLayoutPageDef"/>
+    <page path="/BuildLayout/Pages/selectContentLayout.amx" usageId="mobile_selectContentLayoutPageDef"/>
+    <page path="/BuildLayout/Pages/selectLayoutOptions.amx" usageId="mobile_selectLayoutOptionsPageDef"/>
+    <page path="/Springboard/springboard.amx" usageId="mobile_springboardPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="mobile_aboutPageDef" path="About.aboutPageDef"/>
+    <page id="mobile_selectPageLayoutPageDef" path="BuildLayout.selectPageLayoutPageDef"/>
+    <page id="mobile_selectContentLayoutPageDef" path="BuildLayout.selectContentLayoutPageDef"/>
+    <page id="mobile_selectLayoutOptionsPageDef" path="BuildLayout.selectLayoutOptionsPageDef"/>
+    <page id="mobile_springboardPageDef" path="Springboard.springboardPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="LayoutWizardBean" path="mobile.LayoutWizardBean"/>
+    <dc id="ApplicationFeatures" path="application.ApplicationFeatures"/>
+  </dataControlUsages>
+</Application>

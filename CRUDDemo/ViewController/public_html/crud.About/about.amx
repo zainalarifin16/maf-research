@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="About" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink id="cl1" actionListener="#{bindings.toggleSpringboard.execute}"
+                             shortDesc="Springboard Link">
+                <amx:image id="i1" source="/images/springboard.svg" shortDesc="Springboard Image"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:outputText value="This application demonstrates you how to code a Create/Read/Update/Delete application that writes to a local SQLite database for local storage."
+                        id="ot3"/>
+        <amx:outputText value="The important aspects of this application show you how to use different rowset Indicators (RSINAME) of an iterator so that you can have different edit vs read interators on the same data so that when you're editing if you hit cancel, it properly throws away your edits."
+                        id="ot2"/>
+    </amx:panelPage>
+</amx:view>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:popup id="p1" backgroundDimming="on" autoDismiss="true">
+    <amx:panelFormLayout id="pfl1" labelPosition="topStart" inlineStyle="width:200px">
+      <amx:selectOneChoice label="Section Index" id="soc1"
+                           value="#{pageFlowScope.componentProperties.sectionIndex}">
+        <amx:selectItem id="si1" label="&lt;default>"/>
+        <amx:selectItem id="si2" value="auto" label="auto"/>
+        <amx:selectItem id="si3" value="off" label="off"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice label="Divider Mode" id="soc2"
+                           value="#{pageFlowScope.componentProperties.dividerMode}">
+        <amx:selectItem id="si4" label="&lt;default>"/>
+        <amx:selectItem id="si5" value="all" label="all"/>
+        <amx:selectItem id="si6" value="firstLetter" label="first letter"/>
+      </amx:selectOneChoice>
+    </amx:panelFormLayout>
+  </amx:popup>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="List View + Indexer"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+        <amx:showPopupBehavior popupId="p1" id="spb1" alignId="props" decoration="anchor"
+                               align="bottomCenter"/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:listView" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dataviews/listViewIndexerHosted" shortDesc="Bookmarkable Link"
+                  styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:listView id="lv1" var="row" showDividerCount="true"
+                  value="#{bindings.longList.collectionModel}"
+                  fetchSize="#{bindings.longList.rangeSize}" dividerAttribute="firstName"
+                  dividerMode="#{pageFlowScope.componentProperties.dividerMode}"
+                  inlineStyle="height:100%"
+                  sectionIndex="#{pageFlowScope.componentProperties.sectionIndex}" bufferSize="0"
+                  bufferStrategy="viewport" showMoreStrategy="autoScroll">
+      <amx:listItem showLinkIcon="false" id="li1"
+                    actionListener="#{bindings.setCurrentRowWithKey.execute}">
+        <amx:setPropertyListener to="#{viewScope.selecterRowId}" from="#{row.id}"/>
+        <amx:outputText value="#{row.firstName} #{row.lastName}" id="ot1"/>
+      </amx:listItem>
+    </amx:listView>
+  </amx:panelPage>
+</amx:view>

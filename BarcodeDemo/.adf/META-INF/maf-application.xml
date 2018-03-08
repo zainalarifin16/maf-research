@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
+                   version="1.0" name="Barcode" id="com.oraclecorp.internal.BarcodeDemo"
+                   appControllerFolder="ApplicationController" listener-class="application.LifeCycleListenerImpl">
+  <adfmf:featureReference id="fr1" refId="Springboard" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:featureReference id="fr2" refId="About"/>
+  <adfmf:featureReference id="fr3" refId="Scanner"/>
+  <adfmf:navigation>
+    <adfmf:navigationBar enabled="false"/>
+    <adfmf:springboard enabled="true" displayGotoSpringboardControl="false" showSpringboardAtStartup="false"
+                       width="250">
+      <adfmf:springboardFeatureReference id="sfr1" refId="Springboard"/>
+    </adfmf:springboard>
+  </adfmf:navigation>
+  <!--This is the old plugin configuration information and is left here for you to use when migrating your plugins.
+Please delete this commented section after you have completed your migration.
+-->
+  <!--<adfmf:cordovaPlugins>
+    <adfmf:plugin fullyQualifiedName="BarcodeScanner"
+                  implementationClass="com.phonegap.plugins.barcodescanner.BarcodeScanner" platform="Android"
+                  name="BarcodeScanner">
+      <adfmf:androidPluginInfo>
+        <adfmf:resourcePackageName>com.google.zxing.client.android</adfmf:resourcePackageName>
+        <adfmf:androidManifestActivities>&lt;activity android:name="com.google.zxing.client.android.CaptureActivity"
+          android:screenOrientation="landscape"
+          android:clearTaskOnLaunch="true"
+          android:configChanges="orientation|keyboardHidden"
+          android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+          android:windowSoftInputMode="stateAlwaysHidden"
+          android:exported="false"&gt;
+  &lt;intent-filter&gt;
+    &lt;action android:name="com.phonegap.plugins.barcodescanner.SCAN"/&gt;
+    &lt;category android:name="android.intent.category.DEFAULT"/&gt;
+  &lt;/intent-filter&gt;
+&lt;/activity&gt;
+&lt;activity android:name="com.google.zxing.client.android.encode.EncodeActivity" android:label="@string/share_name"&gt;
+  &lt;intent-filter&gt;
+    &lt;action android:name="com.phonegap.plugins.barcodescanner.ENCODE"/&gt;
+    &lt;category android:name="android.intent.category.DEFAULT"/&gt;
+  &lt;/intent-filter&gt;
+&lt;/activity&gt;
+&lt;activity android:name="com.google.zxing.client.android.HelpActivity" android:label="@string/share_name"&gt;
+  &lt;intent-filter&gt;
+     &lt;action android:name="android.intent.action.VIEW"/&gt;
+     &lt;category android:name="android.intent.category.DEFAULT"/&gt;
+  &lt;/intent-filter&gt;
+&lt;/activity&gt;</adfmf:androidManifestActivities>
+      </adfmf:androidPluginInfo>
+    </adfmf:plugin>
+    <adfmf:plugin platform="iOS" fullyQualifiedName="org.apache.cordova.barcodeScanner" name="BarcodeScanner"
+                  implementationClass="CDVBarcodeScanner">
+      <adfmf:iosPluginInfo>
+        <adfmf:linkerFlags>-l BarcodeScanner -lc++ -liconv -framework CoreVideo -framework AssetsLibrary -framework AVFoundation</adfmf:linkerFlags>
+      </adfmf:iosPluginInfo>
+    </adfmf:plugin>
+  </adfmf:cordovaPlugins>-->
+</adfmf:application>

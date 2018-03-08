@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
+                   version="1.0" name="SlidingWindows" id="com.oraclecorp.internal.SlidingWindows"
+                   appControllerFolder="ApplicationController" listener-class="application.LifeCycleListenerImpl">
+  <adfmf:featureReference id="fr1" refId="About"/>
+  <adfmf:featureReference id="fr2" refId="Examples"/>
+  <adfmf:featureReference id="fr3" refId="Springboard" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:featureReference id="fr4" refId="SlidingDrawer" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:featureReference refId="RemoteURL" id="fr6" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:featureReference refId="controlBar" id="fr7" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:navigation>
+    <adfmf:navigationBar enabled="false"/>
+    <adfmf:springboard enabled="true" showSpringboardAtStartup="false" displayGotoSpringboardControl="false"
+                       width="250">
+      <adfmf:springboardFeatureReference refId="Springboard" id="sfr1"/>
+    </adfmf:springboard>
+  </adfmf:navigation>
+  <!--Remote URL WhiteList is no longer supported by MAF.
+Please delete this commented section after reviewing it.
+-->
+  <!--<adfmf:remoteURLWhiteList>
+    <adfmf:domain id="d1">*</adfmf:domain>
+  </adfmf:remoteURLWhiteList>-->
+</adfmf:application>

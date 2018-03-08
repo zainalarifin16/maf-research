@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.12.18" id="DataBindings"
+             SeparateXMLFiles="false" Package="mobile" ClientType="Generic">
+  <pageMap>
+    <page path="/About/about.amx" usageId="mobile_aboutPageDef"/>
+    <page path="/Springboard/springboard.amx" usageId="mobile_springboardPageDef"/>
+    <page path="/Programmatic/View1.amx" usageId="mobile_View1PageDef"/>
+    <page path="/Router/Home.amx" usageId="mobile_HomePageDef"/>
+    <page path="/Transitions/Transitions.amx" usageId="mobile_TransitionsPageDef"/>
+    <page path="/CallReturn/Home.amx" usageId="mobile_HomePageDef1"/>
+    <page path="/Employees/EmpList.amx" usageId="mobile_EmpListPageDef"/>
+    <page path="/Employees/EmpDetail.amx" usageId="mobile_EmpDetailPageDef"/>
+    <page path="/Launcher/launcher.amx" usageId="mobile_launcherPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="mobile_aboutPageDef" path="About.aboutPageDef"/>
+    <page id="mobile_springboardPageDef" path="Springboard.springboardPageDef"/>
+    <page id="mobile_View1PageDef" path="Programmatic.View1PageDef"/>
+    <page id="mobile_HomePageDef" path="Router.HomePageDef"/>
+    <page id="mobile_TransitionsPageDef" path="Transitions.TransitionsPageDef"/>
+    <page id="mobile_HomePageDef1" path="CallReturn.HomePageDef"/>
+    <page id="mobile_EmpListPageDef" path="Employees.EmpListPageDef"/>
+    <page id="mobile_EmpDetailPageDef" path="Employees.EmpDetailPageDef"/>
+    <page id="mobile_launcherPageDef" path="Launcher.launcherPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="LauncherBean" path="mobile.LauncherBean"/>
+    <dc id="EmployeeList" path="mobile.EmployeeList"/>
+    <dc id="ApplicationFeatures" path="application.ApplicationFeatures"/>
+  </dataControlUsages>
+</Application>

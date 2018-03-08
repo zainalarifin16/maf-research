@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE PDefViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<PDefViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Compensation"
+  Version="12.1.3.14.0">
+  <DesignTime>
+    <Attr Name="_DCName" Value="wb.application.DataControls.HRService"/>
+    <Attr Name="_SDName" Value="wb.model.Compensation"/>
+  </DesignTime>
+  <PDefAttribute
+    Name="salary"
+    IsUpdateable="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['wb.application.ApplicationControllerBundle']['wb.model.Compensation.salary_LABEL']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </PDefAttribute>
+  <PDefAttribute
+    Name="bonus"
+    IsUpdateable="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['wb.application.ApplicationControllerBundle']['wb.model.Compensation.bonus_LABEL']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </PDefAttribute>
+  <PDefAttribute
+    Name="commission"
+    IsUpdateable="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['wb.application.ApplicationControllerBundle']['wb.model.Compensation.commission_LABEL']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </PDefAttribute>
+</PDefViewObject>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
+  <adfmf:feature id="People" name="People" securityEnabled="false">
+    <adfmf:content id="People.1">
+      <adfmf:amx file="People/taskflow.xml#taskflow"/>
+    </adfmf:content>
+    <adfmf:properties id="p1">
+      <adfmf:property name="iOSWebView" value="default" id="p2"/>
+    </adfmf:properties>
+  </adfmf:feature>
+</adfmf:features>

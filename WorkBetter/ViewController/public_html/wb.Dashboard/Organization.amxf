@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1"/>
+    <amx:outputText value="My Organization" id="ot1" styleClass="tile-title"/>
+    <amx:commandLink id="cl1" action="myOrg" styleClass="fullSize" shortDesc="Organization Link">
+        <amx:tableLayout id="tl1" width="100%" styleClass="myorg-background" shortDesc="table">
+            <amx:rowLayout id="rl1">
+                <amx:cellFormat id="cf1" height="242px" width="50%" halign="center" shortDesc="cell">
+                    <amx:panelGroupLayout id="pgl2" halign="center" styleClass="circle-container bluecolor">
+                        <amx:outputText value="#{bindings.teamsize.inputValue}" id="ot2"
+                                        styleClass="circle-metrictext metrictext-yellow"/>
+                        <amx:outputText value="Directs" id="ot3" styleClass="metriclabel"/>
+                    </amx:panelGroupLayout>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf2" height="242px" width="50%" halign="center" shortDesc="cell">
+                    <amx:panelGroupLayout id="pgl3" halign="center" styleClass="circle-container ltgreencolor">
+                        <amx:outputText value="#{bindings.orgsize.inputValue}" id="ot4"
+                                        styleClass="circle-metrictext metrictext-yellow"/>
+                        <amx:outputText value="Total" id="ot5" styleClass="metriclabel"/>
+                    </amx:panelGroupLayout>
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener id="spl1" from="summary" to="#{UserBean.orgListTab}"/>
+        <amx:setPropertyListener id="spl2" from="true" to="#{pageFlowScope.showBackButton}"/>
+    </amx:commandLink>
+</amx:fragmentDef>

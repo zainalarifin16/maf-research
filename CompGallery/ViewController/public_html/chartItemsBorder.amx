@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:navigationDragBehavior id="ndb2" direction="forward" action="chartProperties">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Chart Items - Borders"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"/>
+    </amx:facet>
+    <amx:facet name="secondary"></amx:facet>
+    <amx:flexLayout id="fl1">
+      <dvtm:areaChart id="bc1" rendered="#{pageFlowScope.chartType == 'areaChart'}">
+        <amx:facet name="dataStamp">
+          <dvtm:chartDataItem group="Group A" series="Series 1" value="74"/>
+          <dvtm:chartDataItem group="Group B" series="Series 1" value="42"/>
+          <dvtm:chartDataItem group="Group C" series="Series 1" value="70"/>
+          <dvtm:chartDataItem group="Group D" series="Series 1" value="36"/>
+          <dvtm:chartDataItem group="Group A" series="Series 2" value="50"/>
+          <dvtm:chartDataItem group="Group B" series="Series 2" value="58"/>
+          <dvtm:chartDataItem group="Group C" series="Series 2" value="46"/>
+          <dvtm:chartDataItem group="Group D" series="Series 2" value="54"/>
+          <dvtm:chartDataItem group="Group A" series="Series 3" value="34"/>
+          <dvtm:chartDataItem group="Group B" series="Series 3" value="22"/>
+          <dvtm:chartDataItem group="Group C" series="Series 3" value="30"/>
+          <dvtm:chartDataItem group="Group D" series="Series 3" value="32"/>
+          <dvtm:chartDataItem group="Group A" series="Series 4" value="18"/>
+          <dvtm:chartDataItem group="Group B" series="Series 4" value="6"/>
+          <dvtm:chartDataItem group="Group C" series="Series 4" value="14"
+                              borderColor="#{pageFlowScope.itemBorder ? 'red' : null}"
+                              borderWidth="#{pageFlowScope.itemBorder ? 5 : 0}"/>
+          <dvtm:chartDataItem group="Group D" series="Series 4" value="22"/>
+        </amx:facet>
+        <amx:facet name="seriesStamp">
+          <dvtm:seriesStyle id="ss1" series="Series 3" borderColor="#{pageFlowScope.serieBorder ? 'blue' : null}"
+                            borderWidth="#{pageFlowScope.serieBorder ? 5 : 0}"/>
+        </amx:facet>
+      </dvtm:areaChart>
+      <dvtm:barChart id="bc2" rendered="#{pageFlowScope.chartType == 'barChart'}">
+        <amx:facet name="dataStamp">
+          <dvtm:chartDataItem group="Group A" series="Series 1" value="42"/>
+          <dvtm:chartDataItem group="Group B" series="Series 1" value="34"
+                              borderColor="#{pageFlowScope.itemBorder ? 'red' : null}"
+                              borderWidth="#{pageFlowScope.itemBorder ? 5 : 0}"/>
+          <dvtm:chartDataItem group="Group A" series="Series 2" value="55"/>
+          <dvtm:chartDataItem group="Group B" series="Series 2" value="30"/>
+          <dvtm:chartDataItem group="Group A" series="Series 3" value="36"/>
+          <dvtm:chartDataItem group="Group B" series="Series 3" value="50"/>
+          <dvtm:chartDataItem group="Group A" series="Series 4" value="22"/>
+          <dvtm:chartDataItem group="Group B" series="Series 4" value="46"/>
+          <dvtm:chartDataItem group="Group A" series="Series 5" value="38"/>
+          <dvtm:chartDataItem group="Group B" series="Series 5" value="52"/>
+        </amx:facet>
+        <amx:facet name="seriesStamp">
+          <dvtm:seriesStyle id="ss2" series="Series 3" borderColor="#{pageFlowScope.serieBorder ? 'blue' : null}"
+                            borderWidth="#{pageFlowScope.serieBorder ? 5 : 0}"/>
+        </amx:facet>
+      </dvtm:barChart>
+      <dvtm:bubbleChart id="bc3" rendered="#{pageFlowScope.chartType == 'bubbleChart'}">
+        <amx:facet name="dataStamp">
+          <dvtm:chartDataItem group="Group A" series="Series 1" x="15" y="25" z="5" markerShape="circle"/>
+          <dvtm:chartDataItem group="Group B" series="Series 1" x="25" y="30" z="12" markerShape="square"/>
+          <dvtm:chartDataItem group="Group C" series="Series 1" x="25" y="45" z="12" markerShape="diamond"/>
+          <dvtm:chartDataItem group="Group A" series="Series 2" x="15" y="15" z="8" markerShape="circle"/>
+          <dvtm:chartDataItem group="Group B" series="Series 2" x="20" y="35" z="14" markerShape="square"
+                              borderColor="#{pageFlowScope.itemBorder ? 'red' : null}"
+                              borderWidth="#{pageFlowScope.itemBorder ? 5 : 0}"/>
+          <dvtm:chartDataItem group="Group C" series="Series 2" x="40" y="55" z="35" markerShape="diamond"/>
+          <dvtm:chartDataItem group="Group A" series="Series 3" x="10" y="10" z="8" markerShape="circle"/>
+          <dvtm:chartDataItem group="Group B" series="Series 3" x="18" y="55" z="10" markerShape="square"/>
+          <dvtm:chartDataItem group="Group C" series="Series 3" x="40" y="50" z="18" markerShape="diamond"/>
+          <dvtm:chartDataItem group="Group A" series="Series 4" x="8" y="20" z="6" markerShape="circle"/>
+          <dvtm:chartDataItem group="Group B" series="Series 4" x="11" y="30" z="8" markerShape="square"/>
+          <dvtm:chartDataItem group="Group C" series="Series 4" x="30" y="40" z="15" markerShape="diamond"/>
+        </amx:facet>
+        <amx:facet name="seriesStamp">
+          <dvtm:seriesStyle id="ss3" series="Series 3" borderColor="#{pageFlowScope.serieBorder ? 'blue' : null}"
+                            borderWidth="#{pageFlowScope.serieBorder ? 5 : 0}"/>
+        </amx:facet>
+        <dvtm:legend position="end" rendered="false" id="l11"/>
+      </dvtm:bubbleChart>
+      <dvtm:pieChart id="bc4" rendered="#{pageFlowScope.chartType == 'pieChart'}">
+        <amx:facet name="dataStamp">
+          <dvtm:pieDataItem label="Series 1" value="42"/>
+          <dvtm:pieDataItem label="Series 2" value="55" borderColor="#{pageFlowScope.itemBorder ? 'red' : null}"
+                            borderWidth="#{pageFlowScope.itemBorder ? 5 : 0}"/>
+          <dvtm:pieDataItem label="Series 3" value="36"/>
+          <dvtm:pieDataItem label="Series 4" value="10"/>
+          <dvtm:pieDataItem label="Series 5" value="5"/>
+        </amx:facet>
+      </dvtm:pieChart>
+      <dvtm:funnelChart id="bc5" rendered="#{pageFlowScope.chartType == 'funnelChart'}">
+        <amx:facet name="dataStamp">
+          <dvtm:funnelDataItem label="Series 1" value="42"/>
+          <dvtm:funnelDataItem label="Series 2" value="55" borderColor="#{pageFlowScope.itemBorder ? 'red' : null}"
+                               borderWidth="#{pageFlowScope.itemBorder ? 5 : 0}"/>
+          <dvtm:funnelDataItem label="Series 3" value="36"/>
+          <dvtm:funnelDataItem label="Series 4" value="10"/>
+          <dvtm:funnelDataItem label="Series 5" value="5"/>
+        </amx:facet>
+      </dvtm:funnelChart>
+      <amx:panelGroupLayout id="pglOptionsPanel" scrollPolicy="scroll">
+        <amx:outputText id="otDesc" inlineStyle="font-size: 12px; padding: 16px; display: block;"
+                        value="Border Color and Border Width attributes are supported on some types of charts.                          Border can be specified on individual items, or on whole serie."/>
+        <amx:selectOneButton label="Apply blue border on serie:" id="sob1" value="#{pageFlowScope.serieBorder}"
+                             rendered="#{pageFlowScope.chartType != 'pieChart' and pageFlowScope.chartType != 'funnelChart'}">
+          <amx:selectItem id="si1" label="on" value="true"/>
+          <amx:selectItem id="si2" label="off" value="false"/>
+        </amx:selectOneButton>
+        <amx:selectOneButton label="Apply red border on item:" id="sob2" value="#{pageFlowScope.itemBorder}"
+                             rendered="#{pageFlowScope.chartType != 'areaChart'}">
+          <amx:selectItem id="si11" label="on" value="true"/>
+          <amx:selectItem id="si12" label="off" value="false"/>
+        </amx:selectOneButton>
+        <amx:selectOneButton label="Chart Type:" id="sob3" value="#{pageFlowScope.chartType}">
+          <amx:selectItem id="si21" label="Area" value="areaChart"/>
+          <amx:selectItem id="si22" label="Bar" value="barChart"/>
+          <amx:selectItem id="si23" label="Bubble" value="bubbleChart"/>
+          <amx:selectItem id="si24" label="Pie" value="pieChart"/>
+          <amx:selectItem id="si25" label="Funnel" value="funnelChart"/>
+        </amx:selectOneButton>
+      </amx:panelGroupLayout>
+    </amx:flexLayout>
+  </amx:panelPage>
+</amx:view>

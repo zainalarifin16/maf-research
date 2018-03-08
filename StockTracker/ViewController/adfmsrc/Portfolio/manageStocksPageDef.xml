@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.11.19" id="manageStocksPageDef"
+                Package="Portfolio">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="Portfolio" id="PortfolioIterator" ChangeEventPolicy="ppr"/>
+    <accessorIterator MasterBinding="PortfolioIterator" Binds="stocks" RangeSize="25" DataControl="Portfolio"
+                      BeanClass="Portfolio.Stock" id="stocksIterator" ChangeEventPolicy="ppr"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="stocksIterator" id="stocks">
+      <nodeDefinition DefName="Portfolio.Stock" Name="stocks0">
+        <AttrNames>
+          <Item Value="ticker"/>
+          <Item Value="company"/>
+          <Item Value="id"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="stocksIterator" id="stockOrder">
+      <AttrNames>
+        <Item Value="stockOrder"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="stocksIterator" id="change">
+      <AttrNames>
+        <Item Value="change"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="stocksIterator" id="percent">
+      <AttrNames>
+        <Item Value="percent"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="stocksIterator" id="id">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="stocksIterator" id="setCurrentRowWithKey" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{pageFlowScope.rowKey}" NDType="java.lang.String"/>
+    </action>
+    <methodAction id="addStock" RequiresUpdateModel="true" Action="invokeMethod" MethodName="addStock"
+                  IsViewObjectMethod="false" DataControl="Portfolio" InstanceName="data.Portfolio.dataProvider">
+      <NamedData NDName="ticker" NDValue=' ""' NDType="java.lang.String"/>
+      <NamedData NDName="company" NDValue=' ""' NDType="java.lang.String"/>
+      <NamedData NDName="price" NDValue="0" NDType="double"/>
+      <NamedData NDName="previous" NDValue="0" NDType="double"/>
+      <NamedData NDName="volume" NDValue="0" NDType="long"/>
+    </methodAction>
+    <action IterBinding="stocksIterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="stocksIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.61.89" id="scatterChartPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="ScatterDataList" id="ScatterDataListIterator"/>
+    <accessorIterator MasterBinding="ScatterDataListIterator" Binds="scatterData" RangeSize="-1"
+                      DataControl="ScatterDataList" BeanClass="model.ScatterData" id="scatterDataIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="scatterDataIterator" id="scatterData">
+      <nodeDefinition DefName="model.ScatterData" Name="scatterData0">
+        <AttrNames>
+          <Item Value="series"/>
+          <Item Value="x"/>
+          <Item Value="y"/>
+          <Item Value="group"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

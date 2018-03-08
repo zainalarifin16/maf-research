@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE PDefViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<PDefViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ContactField"
+  Version="12.1.3.16.34">
+  <DesignTime>
+    <Attr Name="_DCName" Value="mobile.DataControls.ContactBean"/>
+    <Attr Name="_SDName" Value="Contacts.ContactField"/>
+  </DesignTime>
+</PDefViewObject>

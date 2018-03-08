@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
+                   version="1.0" name="SecurityDemo" id="com.oraclecorp.internal.SecurityDemo" appControllerFolder="ApplicationController"
+                   listener-class="application.LifeCycleListenerImpl">
+  <adfmf:featureReference refId="Springboard" id="fr1" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:featureReference refId="About" id="fr2"/>
+  <adfmf:featureReference refId="SecureEmps" id="fr3"/>
+  <adfmf:navigation>
+    <adfmf:springboard enabled="true" showSpringboardAtStartup="false" displayGotoSpringboardControl="false"
+                       width="250">
+      <adfmf:springboardFeatureReference refId="Springboard" id="sfr1"/>
+    </adfmf:springboard>
+    <adfmf:navigationBar enabled="false"/>
+  </adfmf:navigation>
+  <adfmf:login defaultConnRefId="login"/>
+</adfmf:application>

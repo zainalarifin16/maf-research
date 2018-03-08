@@ -1,0 +1,24 @@
+<!-- Copyright (c) 2013, 2014, Oracle and/or its affiliates. All rights reserved. -->
+<!DOCTYPE html>
+<html height="100%">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>Bookmark</title>
+    <script>
+    function init()
+    {
+      var queryString = "";
+      var questionMarkIndex = window.location.href.indexOf("?");
+      if (questionMarkIndex != -1)
+        queryString = "&" + window.location.href.substring(questionMarkIndex+1);
+      var taskFlow = "Gallery/task-flow.xml%23task-flow";
+      if (queryString.indexOf("feature=About") != -1)
+        taskFlow = "About/task-flow.xml%23task-flow";
+      window.location = "../bootstrap.html?file=" + taskFlow + "&featureRoot=./" + queryString;
+    }
+    </script>
+  </head>
+  <body onload="init()">
+  </body>
+</html>

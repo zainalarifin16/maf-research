@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Gauges"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton text="Back" id="back" action="return" styleClass="amx-commandButton-back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/dvtGauges" shortDesc="Bookmarkable Link"
+                  styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg"
+                   shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:listView id="listView1">
+      <amx:listItem id="ledGauge" action="ledGauge">
+        <amx:tableLayout id="ledGaugeTL" width="100%">
+          <amx:rowLayout id="ledGaugeRL1">
+            <amx:cellFormat id="ledGaugeCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="ledGaugeI" inlineStyle="width:32px;height:32px" shortDesc="" source="images/gauge-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="ledGaugeCF2" width="100%" height="28px">
+              <amx:outputText id="ledGaugeOT1" value="LED Gauge"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="ledGaugeRL2">
+            <amx:cellFormat id="ledGaugeCF3" width="100%" height="12px">
+              <amx:outputText id="ledGaugeOT2" value="dvtm:ledGauge" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.labelDisplay}" type="action"/>
+        <amx:setPropertyListener from="false" to="#{pageFlowScope.borderDisplay}" type="action"/>
+        <amx:setPropertyListener from="0" to="#{pageFlowScope.rotation}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ledGaugeProperties}" to="#{pageFlowScope.gaugeProperties}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ledGaugeProperties.color}" to="#{pageFlowScope.color}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ledGaugeProperties.borderColor}"
+                                 to="#{pageFlowScope.borderColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ledGaugeProperties.inlineStyle}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ledGaugeProperties.minValue}" to="#{pageFlowScope.minValue}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ledGaugeProperties.maxValue}" to="#{pageFlowScope.maxValue}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ledGaugeProperties.value}" to="#{pageFlowScope.value}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ledGaugeProperties.title}" to="#{pageFlowScope.title}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ledGaugeProperties.titleStyle}" to="#{pageFlowScope.titleStyle}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ledGaugeProperties.threshold1color}"
+                                 to="#{pageFlowScope.threshold1color}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ledGaugeProperties.threshold1maxValue}"
+                                 to="#{pageFlowScope.threshold1maxValue}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ledGaugeProperties.threshold1text}"
+                                 to="#{pageFlowScope.threshold1text}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ledGaugeProperties.threshold2color}"
+                                 to="#{pageFlowScope.threshold2color}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ledGaugeProperties.threshold2maxValue}"
+                                 to="#{pageFlowScope.threshold2maxValue}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ledGaugeProperties.threshold2text}"
+                                 to="#{pageFlowScope.threshold2text}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ledGaugeProperties.threshold3color}"
+                                 to="#{pageFlowScope.threshold3color}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ledGaugeProperties.threshold3maxValue}"
+                                 to="#{pageFlowScope.threshold3maxValue}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ledGaugeProperties.threshold3text}"
+                                 to="#{pageFlowScope.threshold3text}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ledGaugeProperties.animationOnDataChange}"
+                                 to="#{pageFlowScope.animationOnDataChange}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ledGaugeProperties.animationOnDisplay}"
+                                 to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ledGaugeProperties.animationDuration}"
+                                 to="#{pageFlowScope.animationDuration}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ledGaugeProperties.shortDesc}" to="#{pageFlowScope.shortDesc}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ledGaugeProperties.metricLabelStyle}"
+                                 to="#{pageFlowScope.metricLabelStyle}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="statusMeterGaugeHorizontal" action="statusMeterGaugeHorizontal">
+        <amx:tableLayout id="statusMeterGaugeTL" width="100%">
+          <amx:rowLayout id="statusMeterGaugeRL1">
+            <amx:cellFormat id="statusMeterGaugeCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="statusMeterGaugeI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/gauge-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="statusMeterGaugeCF2" width="100%" height="28px">
+              <amx:outputText id="statusMeterGaugeOT1" value="Status Meter Gauge: Horizontal"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="statusMeterGaugeRL2">
+            <amx:cellFormat id="statusMeterGaugeCF3" width="100%" height="12px">
+              <amx:outputText id="statusMeterGaugeOT2" value="dvtm:statusMeterGauge"
+                              styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.labelDisplay}" type="action"/>
+        <amx:setPropertyListener from="horizontal" to="#{pageFlowScope.gaugeOrientation}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties}"
+                                 to="#{pageFlowScope.gaugeProperties}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.color}" to="#{pageFlowScope.color}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.borderColor}" to="#{pageFlowScope.borderColor}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.borderRadius}" to="#{pageFlowScope.borderRadius}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.inlineStyle}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="0"
+                                 to="#{pageFlowScope.inputIncrement}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.minValue}"
+                                 to="#{pageFlowScope.minValue}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.maxValue}"
+                                 to="#{pageFlowScope.maxValue}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.value}" to="#{pageFlowScope.value}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.readOnly}"
+                                 to="#{pageFlowScope.readOnly}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.threshold1color}"
+                                 to="#{pageFlowScope.threshold1color}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.threshold1maxValue}"
+                                 to="#{pageFlowScope.threshold1maxValue}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.threshold1text}"
+                                 to="#{pageFlowScope.threshold1text}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.threshold2color}"
+                                 to="#{pageFlowScope.threshold2color}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.threshold2maxValue}"
+                                 to="#{pageFlowScope.threshold2maxValue}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.threshold2text}"
+                                 to="#{pageFlowScope.threshold2text}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.threshold3color}"
+                                 to="#{pageFlowScope.threshold3color}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.threshold3maxValue}"
+                                 to="#{pageFlowScope.threshold3maxValue}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.threshold3text}"
+                                 to="#{pageFlowScope.threshold3text}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.indicatorSize}"
+                                 to="#{pageFlowScope.indicatorSize}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.metricLabelPosition}"
+                                 to="#{pageFlowScope.metricLabelPosition}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.metricLabelText}"
+                                 to="#{pageFlowScope.metricLabelText}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.innerRadius}"
+                                 to="#{pageFlowScope.innerRadius}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.startAngle}"
+                                 to="#{pageFlowScope.startAngle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.angleExtent}"
+                                 to="#{pageFlowScope.angleExtent}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.plotArea}"
+                                 to="#{pageFlowScope.plotArea}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.plotAreaColor}"
+                                 to="#{pageFlowScope.plotAreaColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.plotAreaBorderColor}"
+                                 to="#{pageFlowScope.plotAreaBorderColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.plotAreaBorderRadius}"
+                                 to="#{pageFlowScope.plotAreaBorderRadius}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.title}"
+                                 to="#{pageFlowScope.title}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.titleStyle}"
+                                 to="#{pageFlowScope.titleStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.titlePosition}"
+                                 to="#{pageFlowScope.titlePosition}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.thresholdDisplay}"
+                                 to="#{pageFlowScope.thresholdDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.referenceLineValue}"
+                                 to="#{pageFlowScope.referenceLineValue}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.referenceLineColor}"
+                                 to="#{pageFlowScope.referenceLineColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.animationOnDisplay}"
+                                 to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.animationOnDataChange}"
+                                 to="#{pageFlowScope.animationOnDataChange}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.animationDuration}"
+                                 to="#{pageFlowScope.animationDuration}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.shortDesc}"
+                                 to="#{pageFlowScope.shortDesc}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeHorizontalProperties.metricLabelStyle}"
+                                 to="#{pageFlowScope.metricLabelStyle}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="statusMeterGaugeVertical" action="statusMeterGaugeVertical">
+        <amx:tableLayout id="statusMeterGaugeVerticalTL" width="100%">
+          <amx:rowLayout id="statusMeterGaugeVerticalRL1">
+            <amx:cellFormat id="statusMeterGaugeVerticalCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="statusMeterGaugeVerticalI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/gauge-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="statusMeterGaugeVerticalCF2" width="100%" height="28px">
+              <amx:outputText id="statusMeterGaugeVerticalOT1" value="Status Meter Gauge: Vertical"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="statusMeterGaugeVerticalRL2">
+            <amx:cellFormat id="statusMeterGaugeVerticalCF3" width="100%" height="12px">
+              <amx:outputText id="statusMeterGaugeVerticalOT2" value="dvtm:statusMeterGauge"
+                              styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.labelDisplay}" type="action"/>
+        <amx:setPropertyListener from="vertical" to="#{pageFlowScope.gaugeOrientation}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties}"
+                                 to="#{pageFlowScope.gaugeProperties}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.color}" to="#{pageFlowScope.color}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.borderColor}" to="#{pageFlowScope.borderColor}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.borderRadius}" to="#{pageFlowScope.borderRadius}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.inlineStyle}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="0"
+                                 to="#{pageFlowScope.inputIncrement}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.minValue}"
+                                 to="#{pageFlowScope.minValue}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.maxValue}"
+                                 to="#{pageFlowScope.maxValue}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.value}" to="#{pageFlowScope.value}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.readOnly}"
+                                 to="#{pageFlowScope.readOnly}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.threshold1color}"
+                                 to="#{pageFlowScope.threshold1color}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.threshold1maxValue}"
+                                 to="#{pageFlowScope.threshold1maxValue}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.threshold1text}"
+                                 to="#{pageFlowScope.threshold1text}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.threshold2color}"
+                                 to="#{pageFlowScope.threshold2color}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.threshold2maxValue}"
+                                 to="#{pageFlowScope.threshold2maxValue}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.threshold2text}"
+                                 to="#{pageFlowScope.threshold2text}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.threshold3color}"
+                                 to="#{pageFlowScope.threshold3color}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.threshold3maxValue}"
+                                 to="#{pageFlowScope.threshold3maxValue}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.threshold3text}"
+                                 to="#{pageFlowScope.threshold3text}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.indicatorSize}"
+                                 to="#{pageFlowScope.indicatorSize}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.metricLabelPosition}"
+                                 to="#{pageFlowScope.metricLabelPosition}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.metricLabelText}"
+                                 to="#{pageFlowScope.metricLabelText}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.innerRadius}"
+                                 to="#{pageFlowScope.innerRadius}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.startAngle}"
+                                 to="#{pageFlowScope.startAngle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.angleExtent}"
+                                 to="#{pageFlowScope.angleExtent}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.plotArea}"
+                                 to="#{pageFlowScope.plotArea}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.plotAreaColor}"
+                                 to="#{pageFlowScope.plotAreaColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.plotAreaBorderColor}"
+                                 to="#{pageFlowScope.plotAreaBorderColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.plotAreaBorderRadius}"
+                                 to="#{pageFlowScope.plotAreaBorderRadius}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.title}"
+                                 to="#{pageFlowScope.title}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.titleStyle}"
+                                 to="#{pageFlowScope.titleStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.titlePosition}"
+                                 to="#{pageFlowScope.titlePosition}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.thresholdDisplay}"
+                                 to="#{pageFlowScope.thresholdDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.referenceLineValue}"
+                                 to="#{pageFlowScope.referenceLineValue}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.referenceLineColor}"
+                                 to="#{pageFlowScope.referenceLineColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.animationOnDisplay}"
+                                 to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.animationOnDataChange}"
+                                 to="#{pageFlowScope.animationOnDataChange}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.animationDuration}"
+                                 to="#{pageFlowScope.animationDuration}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.shortDesc}"
+                                 to="#{pageFlowScope.shortDesc}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.metricLabelStyle}"
+                                 to="#{pageFlowScope.metricLabelStyle}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="statusMeterGaugeCircular" action="statusMeterGaugeCircular">
+        <amx:tableLayout id="statusMeterGaugeCircularTL" width="100%">
+          <amx:rowLayout id="statusMeterGaugeCircularRL1">
+            <amx:cellFormat id="statusMeterGaugeCircularCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="statusMeterGaugeCircularI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/gauge-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="statusMeterGaugeCircularCF2" width="100%" height="28px">
+              <amx:outputText id="statusMeterGaugeCircularOT1" value="Status Meter Gauge: Circular"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="statusMeterGaugeCircularRL2">
+            <amx:cellFormat id="statusMeterGaugeCircularCF3" width="100%" height="12px">
+              <amx:outputText id="statusMeterGaugeCircularOT2" value="dvtm:statusMeterGauge"
+                              styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.labelDisplay}" type="action"/>
+        <amx:setPropertyListener from="circular" to="#{pageFlowScope.gaugeOrientation}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties}"
+                                 to="#{pageFlowScope.gaugeProperties}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.color}" to="#{pageFlowScope.color}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.borderColor}" to="#{pageFlowScope.borderColor}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.borderRadius}" to="#{pageFlowScope.borderRadius}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.inlineStyle}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="0"
+                                 to="#{pageFlowScope.inputIncrement}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.minValue}"
+                                 to="#{pageFlowScope.minValue}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.maxValue}"
+                                 to="#{pageFlowScope.maxValue}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.value}" to="#{pageFlowScope.value}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.readOnly}"
+                                 to="#{pageFlowScope.readOnly}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.threshold1color}"
+                                 to="#{pageFlowScope.threshold1color}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.threshold1maxValue}"
+                                 to="#{pageFlowScope.threshold1maxValue}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.threshold1text}"
+                                 to="#{pageFlowScope.threshold1text}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.threshold2color}"
+                                 to="#{pageFlowScope.threshold2color}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.threshold2maxValue}"
+                                 to="#{pageFlowScope.threshold2maxValue}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.threshold2text}"
+                                 to="#{pageFlowScope.threshold2text}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.threshold3color}"
+                                 to="#{pageFlowScope.threshold3color}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.threshold3maxValue}"
+                                 to="#{pageFlowScope.threshold3maxValue}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.threshold3text}"
+                                 to="#{pageFlowScope.threshold3text}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.indicatorSize}"
+                                 to="#{pageFlowScope.indicatorSize}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.metricLabelPosition}"
+                                 to="#{pageFlowScope.metricLabelPosition}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeVerticalProperties.metricLabelText}"
+                                 to="#{pageFlowScope.metricLabelText}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.innerRadius}"
+                                 to="#{pageFlowScope.innerRadius}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.startAngle}"
+                                 to="#{pageFlowScope.startAngle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.angleExtent}"
+                                 to="#{pageFlowScope.angleExtent}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.plotArea}"
+                                 to="#{pageFlowScope.plotArea}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.plotAreaColor}"
+                                 to="#{pageFlowScope.plotAreaColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.plotAreaBorderColor}"
+                                 to="#{pageFlowScope.plotAreaBorderColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.plotAreaBorderRadius}"
+                                 to="#{pageFlowScope.plotAreaBorderRadius}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.title}"
+                                 to="#{pageFlowScope.title}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.titleStyle}"
+                                 to="#{pageFlowScope.titleStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.titlePosition}"
+                                 to="#{pageFlowScope.titlePosition}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.thresholdDisplay}"
+                                 to="#{pageFlowScope.thresholdDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.referenceLineValue}"
+                                 to="#{pageFlowScope.referenceLineValue}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.referenceLineColor}"
+                                 to="#{pageFlowScope.referenceLineColor}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.animationOnDisplay}"
+                                 to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.animationOnDataChange}"
+                                 to="#{pageFlowScope.animationOnDataChange}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.animationDuration}"
+                                 to="#{pageFlowScope.animationDuration}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.shortDesc}"
+                                 to="#{pageFlowScope.shortDesc}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.statusMeterGaugeCircularProperties.metricLabelStyle}"
+                                 to="#{pageFlowScope.metricLabelStyle}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="dialGauge" action="dialGauge">
+        <amx:tableLayout id="dialGaugeTL" width="100%">
+          <amx:rowLayout id="dialGaugeRL1">
+            <amx:cellFormat id="dialGaugeCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="dialGaugeI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/gauge-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="dialGaugeCF2" width="100%" height="28px">
+              <amx:outputText id="dialGaugeOT1" value="Dial Gauge"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="dialGaugeRL2">
+            <amx:cellFormat id="dialGaugeCF3" width="100%" height="12px">
+              <amx:outputText id="dialGaugeOT2" value="dvtm:dialGauge" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="#{DvtProperties.dialGaugeProperties}" to="#{pageFlowScope.dialGaugeProperties}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.dialGaugeProperties.indicator}" to="#{pageFlowScope.indicator}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.dialGaugeProperties.background}" to="#{pageFlowScope.background}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.dialGaugeProperties.inlineStyle}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.dialGaugeProperties.value}" to="#{pageFlowScope.value}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.dialGaugeProperties.minValue}" to="#{pageFlowScope.minValue}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.dialGaugeProperties.maxValue}" to="#{pageFlowScope.maxValue}"
+                                 type="action"/>
+        <amx:setPropertyListener from="0"
+                                 to="#{pageFlowScope.inputIncrement}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.dialGaugeProperties.animationDuration}"
+                                 to="#{pageFlowScope.animationDuration}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.dialGaugeProperties.animationOnDataChange}"
+                                 to="#{pageFlowScope.animationOnDataChange}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.dialGaugeProperties.animationOnDisplay}"
+                                 to="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.dialGaugeProperties.shortDesc}" to="#{pageFlowScope.shortDesc}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.dialGaugeProperties.inlineStyle}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.dialGaugeProperties.styleClass}" to="#{pageFlowScope.styleClass}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.dialGaugeProperties.readOnly}" to="#{pageFlowScope.readOnly}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.dialGaugeProperties.tickScaling}"
+                                 to="#{pageFlowScope.tickScaling}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.dialGaugeProperties.metricScaling}"
+                                 to="#{pageFlowScope.metricScaling}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.dialGaugeProperties.tickLabelStyle}"
+                                 to="#{pageFlowScope.tickLabelStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.dialGaugeProperties.metricLabelStyle}"
+                                 to="#{pageFlowScope.metricLabelStyle}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.dialGaugeProperties.metricLabelText}"
+                                 to="#{pageFlowScope.metricLabelText}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.dialGaugeProperties.metricLabelRendered}"
+                                 to="#{pageFlowScope.metricLabelRendered}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="ratingGauge" action="ratingGauge">
+        <amx:tableLayout id="ratingGaugeTL" width="100%">
+          <amx:rowLayout id="ratingGaugeRL1">
+            <amx:cellFormat id="ratingGaugeCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="ratingGaugeI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/gauge-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="ratingGaugeCF2" width="100%" height="28px">
+              <amx:outputText id="ratingGaugeOT1" value="Rating Gauge: Horizontal"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="ratingGaugeRL2">
+            <amx:cellFormat id="ratingGaugeCF3" width="100%" height="12px">
+              <amx:outputText id="ratingGaugeOT2" value="dvtm:ratingGauge" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties}"
+                                 to="#{pageFlowScope.ratingGaugeProperties}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties.value}" to="#{pageFlowScope.value}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties.minValue}" to="#{pageFlowScope.minValue}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties.maxValue}" to="#{pageFlowScope.maxValue}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties.readOnly}" to="#{pageFlowScope.readOnly}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties.shortDesc}" to="#{pageFlowScope.shortDesc}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties.orientation}" to="#{pageFlowScope.orientation}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties.shape}" to="#{pageFlowScope.shape}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties.changedShape}"
+                                 to="#{pageFlowScope.changedShape}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties.unselectedShape}"
+                                 to="#{pageFlowScope.unselectedShape}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties.inputIncrement}"
+                                 to="#{pageFlowScope.inputIncrement}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties.inlineStyle}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="#ED2C02" to="#{pageFlowScope.changedColor}" type="action"/>
+        <amx:setPropertyListener from="#007CC8" to="#{pageFlowScope.hoverColor}" type="action"/>
+        <amx:setPropertyListener from="#F8C15A" to="#{pageFlowScope.selectedColor}" type="action"/>
+        <amx:setPropertyListener from="#C4CED7" to="#{pageFlowScope.unselectedColor}" type="action"/>
+      </amx:listItem>
+      <amx:listItem id="ratingGaugeVertical" action="ratingGaugeVertical">
+        <amx:tableLayout id="ratingGaugeVerticalTL" width="100%">
+          <amx:rowLayout id="ratingGaugeVerticalRL1">
+            <amx:cellFormat id="ratingGaugeVerticalCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="ratingGaugeVerticalI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="images/gauge-64.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="ratingGaugeVerticalCF2" width="100%" height="28px">
+              <amx:outputText id="ratingGaugeVerticalOT1" value="Rating Gauge: Vertical"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="ratingGaugeVerticalRL2">
+            <amx:cellFormat id="ratingGaugeVerticalCF3" width="100%" height="12px">
+              <amx:outputText id="ratingGaugeVerticalOT2" value="dvtm:ratingGauge" styleClass="adfmf-listItem-captionText"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties}"
+                                 to="#{pageFlowScope.ratingGaugeProperties}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties.value}" to="#{pageFlowScope.value}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties.minValue}" to="#{pageFlowScope.minValue}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties.maxValue}" to="#{pageFlowScope.maxValue}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties.readOnly}" to="#{pageFlowScope.readOnly}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties.shortDesc}" to="#{pageFlowScope.shortDesc}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties.orientation}" to="#{pageFlowScope.orientation}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties.shape}" to="#{pageFlowScope.shape}"
+                                 type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties.changedShape}"
+                                 to="#{pageFlowScope.changedShape}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties.unselectedShape}"
+                                 to="#{pageFlowScope.unselectedShape}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties.inputIncrement}"
+                                 to="#{pageFlowScope.inputIncrement}" type="action"/>
+        <amx:setPropertyListener from="#{DvtProperties.ratingGaugeProperties.inlineStyleVertical}"
+                                 to="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener from="#ED2C02" to="#{pageFlowScope.changedColor}" type="action"/>
+        <amx:setPropertyListener from="#007CC8" to="#{pageFlowScope.hoverColor}" type="action"/>
+        <amx:setPropertyListener from="#F8C15A" to="#{pageFlowScope.selectedColor}" type="action"/>
+        <amx:setPropertyListener from="#C4CED7" to="#{pageFlowScope.unselectedColor}" type="action"/>
+      </amx:listItem>
+    </amx:listView>
+  </amx:panelPage>
+</amx:view>

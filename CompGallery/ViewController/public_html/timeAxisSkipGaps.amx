@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:navigationDragBehavior id="ndb2" direction="forward" action="chartProperties">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Time Axis - Skip Gaps"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"/>
+    </amx:facet>
+    <amx:facet name="secondary"></amx:facet>
+    <amx:flexLayout id="fl1">
+      <dvtm:barChart id="bc1" timeAxisType="enabled"
+                     rendered="#{pageFlowScope.chartType + pageFlowScope.timeAxisType == 'barChartenabled'}">
+        <amx:facet name="dataStamp">
+          <dvtm:chartDataItem group="9/24/2015" value="8"/>
+          <dvtm:chartDataItem group="9/25/2015" value="8"/>
+          <dvtm:chartDataItem group="9/28/2015" value="12"/>
+          <dvtm:chartDataItem group="9/29/2015" value="15"/>
+          <dvtm:chartDataItem group="9/30/2015" value="17"/>
+          <dvtm:chartDataItem group="10/1/2015" value="11"/>
+          <dvtm:chartDataItem group="10/2/2015" value="15"/>
+          <dvtm:chartDataItem group="10/5/2015" value="10"/>
+          <dvtm:chartDataItem group="10/6/2015" value="14"/>
+        </amx:facet>
+      </dvtm:barChart>
+      <dvtm:barChart id="bc2" timeAxisType="skipGaps"
+                     rendered="#{pageFlowScope.chartType + pageFlowScope.timeAxisType == 'barChartskipGaps'}">
+        <amx:facet name="dataStamp">
+          <dvtm:chartDataItem group="9/24/2015" value="8"/>
+          <dvtm:chartDataItem group="9/25/2015" value="8"/>
+          <dvtm:chartDataItem group="9/28/2015" value="12"/>
+          <dvtm:chartDataItem group="9/29/2015" value="15"/>
+          <dvtm:chartDataItem group="9/30/2015" value="17"/>
+          <dvtm:chartDataItem group="10/1/2015" value="11"/>
+          <dvtm:chartDataItem group="10/2/2015" value="15"/>
+          <dvtm:chartDataItem group="10/5/2015" value="10"/>
+          <dvtm:chartDataItem group="10/6/2015" value="14"/>
+        </amx:facet>
+      </dvtm:barChart>
+      <dvtm:lineChart id="bc3" timeAxisType="enabled"
+                      rendered="#{pageFlowScope.chartType + pageFlowScope.timeAxisType == 'lineChartenabled'}">
+        <amx:facet name="dataStamp">
+          <dvtm:chartDataItem group="9/24/2015" value="8"/>
+          <dvtm:chartDataItem group="9/25/2015" value="8"/>
+          <dvtm:chartDataItem group="9/28/2015" value="12"/>
+          <dvtm:chartDataItem group="9/29/2015" value="15"/>
+          <dvtm:chartDataItem group="9/30/2015" value="17"/>
+          <dvtm:chartDataItem group="10/1/2015" value="11"/>
+          <dvtm:chartDataItem group="10/2/2015" value="15"/>
+          <dvtm:chartDataItem group="10/5/2015" value="10"/>
+          <dvtm:chartDataItem group="10/6/2015" value="14"/>
+        </amx:facet>
+      </dvtm:lineChart>
+      <dvtm:lineChart id="bc4" timeAxisType="skipGaps"
+                      rendered="#{pageFlowScope.chartType + pageFlowScope.timeAxisType == 'lineChartskipGaps'}">
+        <amx:facet name="dataStamp">
+          <dvtm:chartDataItem group="9/24/2015" value="8"/>
+          <dvtm:chartDataItem group="9/25/2015" value="8"/>
+          <dvtm:chartDataItem group="9/28/2015" value="12"/>
+          <dvtm:chartDataItem group="9/29/2015" value="15"/>
+          <dvtm:chartDataItem group="9/30/2015" value="17"/>
+          <dvtm:chartDataItem group="10/1/2015" value="11"/>
+          <dvtm:chartDataItem group="10/2/2015" value="15"/>
+          <dvtm:chartDataItem group="10/5/2015" value="10"/>
+          <dvtm:chartDataItem group="10/6/2015" value="14"/>
+        </amx:facet>
+      </dvtm:lineChart>
+      <dvtm:areaChart id="bc5" timeAxisType="enabled"
+                      rendered="#{pageFlowScope.chartType + pageFlowScope.timeAxisType == 'areaChartenabled'}">
+        <amx:facet name="dataStamp">
+          <dvtm:chartDataItem group="9/24/2015" value="8"/>
+          <dvtm:chartDataItem group="9/25/2015" value="8"/>
+          <dvtm:chartDataItem group="9/28/2015" value="12"/>
+          <dvtm:chartDataItem group="9/29/2015" value="15"/>
+          <dvtm:chartDataItem group="9/30/2015" value="17"/>
+          <dvtm:chartDataItem group="10/1/2015" value="11"/>
+          <dvtm:chartDataItem group="10/2/2015" value="15"/>
+          <dvtm:chartDataItem group="10/5/2015" value="10"/>
+          <dvtm:chartDataItem group="10/6/2015" value="14"/>
+        </amx:facet>
+      </dvtm:areaChart>
+      <dvtm:areaChart id="bc6" timeAxisType="skipGaps"
+                      rendered="#{pageFlowScope.chartType + pageFlowScope.timeAxisType == 'areaChartskipGaps'}">
+        <amx:facet name="dataStamp">
+          <dvtm:chartDataItem group="9/24/2015" value="8"/>
+          <dvtm:chartDataItem group="9/25/2015" value="8"/>
+          <dvtm:chartDataItem group="9/28/2015" value="12"/>
+          <dvtm:chartDataItem group="9/29/2015" value="15"/>
+          <dvtm:chartDataItem group="9/30/2015" value="17"/>
+          <dvtm:chartDataItem group="10/1/2015" value="11"/>
+          <dvtm:chartDataItem group="10/2/2015" value="15"/>
+          <dvtm:chartDataItem group="10/5/2015" value="10"/>
+          <dvtm:chartDataItem group="10/6/2015" value="14"/>
+        </amx:facet>
+      </dvtm:areaChart>
+      <amx:panelGroupLayout id="pglOptionsPanel" scrollPolicy="scroll">
+        <amx:outputText id="otDesc" inlineStyle="font-size: 12px; padding: 16px; display: block;"
+                        value="When chart with time axis has data with irregular intervals, we display the data at the actual time locations by default (timeAxisType='enabled'). However, there are cases where the time intervals are irregular, but the app wants to display the groups at a regular distance. This is very common in stock charts where the after-hour or the weekend data don't exist, but the app doesn't want the chart to display the gaps."/>
+        <amx:panelGroupLayout id="pgl1" layout="horizontal">
+          <amx:selectOneButton label="timeAxisType = " id="sob1" value="#{pageFlowScope.timeAxisType}"
+                               inlineStyle="width: 350px">
+            <amx:selectItem id="si1" label="enabled" value="enabled"/>
+            <amx:selectItem id="si2" label="skipGaps" value="skipGaps"/>
+          </amx:selectOneButton>
+        </amx:panelGroupLayout>
+        <amx:selectOneButton label="Chart Type:" id="sob2" value="#{pageFlowScope.chartType}">
+          <amx:selectItem id="si11" label="Bar Chart" value="barChart"/>
+          <amx:selectItem id="si12" label="Line Chart" value="lineChart"/>
+          <amx:selectItem id="si13" label="Area Chart" value="areaChart"/>
+        </amx:selectOneButton>
+      </amx:panelGroupLayout>
+    </amx:flexLayout>
+  </amx:panelPage>
+</amx:view>

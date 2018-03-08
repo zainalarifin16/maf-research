@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.8.30" id="DashboardPageDef"
+                Package="wb.mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="HRService" id="HRServiceIterator"/>
+    <accessorIterator MasterBinding="HRServiceIterator" Binds="orgSummary" RangeSize="25" DataControl="HRService"
+                      BeanClass="wb.model.OrgSummary" id="orgSummaryIterator"/>
+    <accessorIterator MasterBinding="orgSummaryIterator" Binds="orgDepartments" RangeSize="-1" DataControl="HRService"
+                      BeanClass="wb.model.Department" id="orgDepartmentsIterator"/>
+    <accessorIterator MasterBinding="orgSummaryIterator" Binds="attrition" RangeSize="-1" DataControl="HRService"
+                      BeanClass="wb.model.Attrition" id="attritionIterator"/>
+    <accessorIterator MasterBinding="HRServiceIterator" Binds="orgEmployees" RangeSize="25" DataControl="HRService"
+                      BeanClass="wb.model.Employee" id="orgEmployeesIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="orgSummaryIterator" id="empid">
+      <AttrNames>
+        <Item Value="empid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="empmeetings">
+      <AttrNames>
+        <Item Value="empmeetings"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="emptimeoffs">
+      <AttrNames>
+        <Item Value="emptimeoffs"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="empevents">
+      <AttrNames>
+        <Item Value="empevents"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="emptrainings">
+      <AttrNames>
+        <Item Value="emptrainings"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="teammeetings">
+      <AttrNames>
+        <Item Value="teammeetings"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="teamtimeoffs">
+      <AttrNames>
+        <Item Value="teamtimeoffs"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="teamevents">
+      <AttrNames>
+        <Item Value="teamevents"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="teamtrainings">
+      <AttrNames>
+        <Item Value="teamtrainings"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="teamlossimpacthigh">
+      <AttrNames>
+        <Item Value="teamlossimpacthigh"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="teamlossimpactmed">
+      <AttrNames>
+        <Item Value="teamlossimpactmed"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="teamlossimpactlow">
+      <AttrNames>
+        <Item Value="teamlossimpactlow"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="teamlossriskhigh">
+      <AttrNames>
+        <Item Value="teamlossriskhigh"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="teamlossriskmed">
+      <AttrNames>
+        <Item Value="teamlossriskmed"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="teamlossrisklow">
+      <AttrNames>
+        <Item Value="teamlossrisklow"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="teamavgrating">
+      <AttrNames>
+        <Item Value="teamavgrating"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="teamavgpotential">
+      <AttrNames>
+        <Item Value="teamavgpotential"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="orgsize">
+      <AttrNames>
+        <Item Value="orgsize"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="teamsize">
+      <AttrNames>
+        <Item Value="teamsize"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="orgcompratioabove">
+      <AttrNames>
+        <Item Value="orgcompratioabove"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="orgcompratioin">
+      <AttrNames>
+        <Item Value="orgcompratioin"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="orgcompratiobelow">
+      <AttrNames>
+        <Item Value="orgcompratiobelow"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="orgavgrating">
+      <AttrNames>
+        <Item Value="orgavgrating"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="orgavgpotential">
+      <AttrNames>
+        <Item Value="orgavgpotential"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="deptavgcompratioabove">
+      <AttrNames>
+        <Item Value="deptavgcompratioabove"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="deptavgcompratioin">
+      <AttrNames>
+        <Item Value="deptavgcompratioin"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="deptavgcompratiobelow">
+      <AttrNames>
+        <Item Value="deptavgcompratiobelow"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="orgSummaryIterator" id="totalattrition">
+      <AttrNames>
+        <Item Value="totalattrition"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="orgDepartmentsIterator" id="orgDepartments">
+      <nodeDefinition DefName="wb.model.Department" Name="orgDepartments0">
+        <AttrNames>
+          <Item Value="deptname"/>
+          <Item Value="deptminrating"/>
+          <Item Value="deptmaxrating"/>
+          <Item Value="deptavgrating"/>
+          <Item Value="deptavgcompratio"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="attritionIterator" id="attrition">
+      <nodeDefinition DefName="wb.model.Attrition" Name="attrition0">
+        <AttrNames>
+          <Item Value="atype"/>
+          <Item Value="anum"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="toggleSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="toggleSpringboard"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider"/>
+    <tree IterBinding="orgEmployeesIterator" id="orgEmployees">
+      <nodeDefinition DefName="wb.model.Employee" Name="orgEmployees0">
+        <AttrNames>
+          <Item Value="lossimpactstr"/>
+          <Item Value="lossriskstr"/>
+          <Item Value="pic"/>
+          <Item Value="empid"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

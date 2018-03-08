@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.61.83" id="DetailsPageDef"
+                Package="Contacts">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="findContacts.result" DataControl="DeviceFeatures" RangeSize="25"
+                    BeanClass="oracle.adf.model.datacontrols.device.Contact" id="findContactsIterator"/>
+    <accessorIterator MasterBinding="findContactsIterator" Binds="name" RangeSize="25" DataControl="DeviceFeatures"
+                      BeanClass="oracle.adf.model.datacontrols.device.ContactName" id="nameIterator"/>
+    <accessorIterator MasterBinding="findContactsIterator" Binds="emails" RangeSize="25" DataControl="DeviceFeatures"
+                      BeanClass="oracle.adf.model.datacontrols.device.ContactField" id="emailsIterator"/>
+    <invokeAction id="SetContact" Binds="setCurrentRowWithKeyValue"/>
+    <accessorIterator MasterBinding="findContactsIterator" Binds="addresses" RangeSize="25"
+                      DataControl="DeviceFeatures" BeanClass="oracle.adf.model.datacontrols.device.ContactAddresses"
+                      id="addressesIterator"/>
+    <accessorIterator MasterBinding="findContactsIterator" Binds="categories" RangeSize="25"
+                      DataControl="DeviceFeatures" BeanClass="oracle.adf.model.datacontrols.device.ContactField"
+                      id="categoriesIterator"/>
+    <accessorIterator MasterBinding="findContactsIterator" Binds="ims" RangeSize="25" DataControl="DeviceFeatures"
+                      BeanClass="oracle.adf.model.datacontrols.device.ContactField" id="imsIterator"/>
+    <accessorIterator MasterBinding="findContactsIterator" Binds="organizations" RangeSize="25"
+                      DataControl="DeviceFeatures"
+                      BeanClass="oracle.adf.model.datacontrols.device.ContactOrganization" id="organizationsIterator"/>
+    <accessorIterator MasterBinding="findContactsIterator" Binds="phoneNumbers" RangeSize="25"
+                      DataControl="DeviceFeatures" BeanClass="oracle.adf.model.datacontrols.device.ContactField"
+                      id="phoneNumbersIterator"/>
+    <accessorIterator MasterBinding="findContactsIterator" Binds="photos" RangeSize="25" DataControl="DeviceFeatures"
+                      BeanClass="oracle.adf.model.datacontrols.device.ContactField" id="photosIterator"/>
+    <accessorIterator MasterBinding="findContactsIterator" Binds="urls" RangeSize="25" DataControl="DeviceFeatures"
+                      BeanClass="oracle.adf.model.datacontrols.device.ContactField" id="urlsIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="findContacts" RequiresUpdateModel="true" Action="invokeMethod" MethodName="findContacts"
+                  IsViewObjectMethod="false" DataControl="DeviceFeatures"
+                  InstanceName="data.DeviceFeatures.dataProvider"
+                  ReturnName="data.DeviceFeatures.methodResults.findContacts_DeviceFeatures_dataProvider_findContacts_result">
+      <NamedData NDName="contactFields" NDValue="#{pageFlowScope.ContactBean.contactFields}" NDType="java.lang.String"/>
+      <NamedData NDName="filter" NDValue="#{pageFlowScope.ContactBean.filter}" NDType="java.lang.String"/>
+      <NamedData NDName="multiple" NDValue="#{pageFlowScope.ContactBean.multiple}" NDType="boolean"/>
+    </methodAction>
+    <attributeValues IterBinding="findContactsIterator" id="id">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="findContactsIterator" id="displayName">
+      <AttrNames>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="findContactsIterator" id="nickname">
+      <AttrNames>
+        <Item Value="nickname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="findContactsIterator" id="birthday">
+      <AttrNames>
+        <Item Value="birthday"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="findContactsIterator" id="note">
+      <AttrNames>
+        <Item Value="note"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="nameIterator" id="formatted">
+      <AttrNames>
+        <Item Value="formatted"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="nameIterator" id="familyName">
+      <AttrNames>
+        <Item Value="familyName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="nameIterator" id="givenName">
+      <AttrNames>
+        <Item Value="givenName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="nameIterator" id="middleName">
+      <AttrNames>
+        <Item Value="middleName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="nameIterator" id="honorificPrefix">
+      <AttrNames>
+        <Item Value="honorificPrefix"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="nameIterator" id="honorificSuffix">
+      <AttrNames>
+        <Item Value="honorificSuffix"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="emailsIterator" id="emails">
+      <nodeDefinition DefName="oracle.adf.model.datacontrols.device.ContactField" Name="emails0">
+        <AttrNames>
+          <Item Value="type"/>
+          <Item Value="value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="findContactsIterator" id="setCurrentRowWithKeyValue"
+            InstanceName="DeviceFeatures.dataProvider" DataControl="DeviceFeatures" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDValue="#{pageFlowScope.currentCon}" NDType="java.lang.String"/>
+    </action>
+    <tree IterBinding="addressesIterator" id="addresses">
+      <nodeDefinition DefName="oracle.adf.model.datacontrols.device.ContactAddresses" Name="addresses0">
+        <AttrNames>
+          <Item Value="type"/>
+          <Item Value="streetAddress"/>
+          <Item Value="locality"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="categoriesIterator" id="categories">
+      <nodeDefinition DefName="oracle.adf.model.datacontrols.device.ContactField" Name="categories0">
+        <AttrNames>
+          <Item Value="type"/>
+          <Item Value="value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="imsIterator" id="ims">
+      <nodeDefinition DefName="oracle.adf.model.datacontrols.device.ContactField" Name="ims0">
+        <AttrNames>
+          <Item Value="type"/>
+          <Item Value="value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="organizationsIterator" id="organizations">
+      <nodeDefinition DefName="oracle.adf.model.datacontrols.device.ContactOrganization" Name="organizations0">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="department"/>
+          <Item Value="title"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="phoneNumbersIterator" id="phoneNumbers">
+      <nodeDefinition DefName="oracle.adf.model.datacontrols.device.ContactField" Name="phoneNumbers0">
+        <AttrNames>
+          <Item Value="type"/>
+          <Item Value="value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="photosIterator" id="photos">
+      <nodeDefinition DefName="oracle.adf.model.datacontrols.device.ContactField" Name="photos0">
+        <AttrNames>
+          <Item Value="type"/>
+          <Item Value="value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="urlsIterator" id="urls">
+      <nodeDefinition DefName="oracle.adf.model.datacontrols.device.ContactField" Name="urls0">
+        <AttrNames>
+          <Item Value="type"/>
+          <Item Value="value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

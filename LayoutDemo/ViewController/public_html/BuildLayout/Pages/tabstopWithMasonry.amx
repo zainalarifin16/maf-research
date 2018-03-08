@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="Tabs Top &amp; Masonry" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton action="__back" id="cb1"/>
+        </amx:facet>
+        <amx:panelStretchLayout scrollPolicy="scroll" id="psl1">
+            <amx:facet name="top">
+                <amx:panelGroupLayout styleClass="summary-section-style"
+                                      rendered="#{pageFlowScope.useFixedSummaryView=='true'}" layout="horizontal"
+                                      halign="center" id="pgl1">
+                    <amx:outputText value="Summary Section" id="ot2"/>
+                </amx:panelGroupLayout>
+                <amx:selectOneButton value="#{HandlerBean.selectedTabsTopContent}" simple="true" layout="horizontal"
+                                     valueChangeListener="#{HandlerBean.handleTabsTopContentSelection}" id="sob1">
+                    <amx:selectItem label="Tab1" value="Tab1" id="si1"/>
+                    <amx:selectItem label="Tab2" value="Tab2" id="si2"/>
+                    <amx:selectItem label="Tab3" value="Tab3" id="si3"/>
+                    <amx:selectItem label="Tab4" value="Tab4" id="si4"/>
+                </amx:selectOneButton>
+            </amx:facet>
+            <amx:facet name="center">
+                <amx:deck displayedChild="#{HandlerBean.selectedTabsTopContent =='' ? 'Tab1' : HandlerBean.selectedTabsTopContent}"
+                          inlineStyle="text-align:center;" id="d1">
+                    <amx:transition id="tBack" triggerType="backNavigate" transition="slideEnd"/>
+                    <amx:transition id="tFwd" triggerType="forwardNavigate" transition="slideStart"/>
+                    <amx:fragment src="/BuildLayout/Fragments/masonryContentLayout.amxf" id="Tab1">
+                        <amx:attribute name="contentText1" value="Rotate" id="c1"/>
+                        <amx:attribute name="contentText2" value="device" id="c2"/>
+                        <amx:attribute name="contentText3" value="to" id="c3"/>
+                        <amx:attribute name="contentText4" value="rearrange" id="c4"/>
+                        <amx:attribute name="contentText5" value="the" id="c5"/>
+                        <amx:attribute name="contentText6" value="tiles" id="c6"/>
+                    </amx:fragment>
+                    <amx:fragment src="/BuildLayout/Fragments/masonryContentLayout.amxf" id="Tab2">
+                        <amx:attribute name="contentText1" value="ROTATE" id="c21"/>
+                        <amx:attribute name="contentText2" value="DEVICE" id="c22"/>
+                        <amx:attribute name="contentText3" value="TO" id="c23"/>
+                        <amx:attribute name="contentText4" value="REARRANGE" id="c24"/>
+                        <amx:attribute name="contentText5" value="THE" id="c25"/>
+                        <amx:attribute name="contentText6" value="TILES" id="ce6"/>
+                    </amx:fragment>
+                    <amx:fragment src="/BuildLayout/Fragments/masonryContentLayout.amxf" id="Tab3">
+                        <amx:attribute name="contentText1" value="rOtAtE" id="cf1"/>
+                        <amx:attribute name="contentText2" value="dEvIcE" id="cv2"/>
+                        <amx:attribute name="contentText3" value="TO" id="cd3"/>
+                        <amx:attribute name="contentText4" value="rEARRAnge" id="ce4"/>
+                        <amx:attribute name="contentText5" value="the" id="ce5"/>
+                        <amx:attribute name="contentText6" value="tILEs" id="cf6"/>
+                    </amx:fragment>
+                    <amx:fragment src="/BuildLayout/Fragments/masonryContentLayout.amxf" id="Tab4">
+                        <amx:attribute name="contentText1" value="rotate" id="ff1"/>
+                        <amx:attribute name="contentText2" value="device" id="fv2"/>
+                        <amx:attribute name="contentText3" value="to" id="fd3"/>
+                        <amx:attribute name="contentText4" value="rearrange" id="fe4"/>
+                        <amx:attribute name="contentText5" value="the" id="cfe5"/>
+                        <amx:attribute name="contentText6" value="tiles" id="cff6"/>
+                    </amx:fragment>
+                </amx:deck>
+            </amx:facet>
+        </amx:panelStretchLayout>
+    </amx:panelPage>
+</amx:view>

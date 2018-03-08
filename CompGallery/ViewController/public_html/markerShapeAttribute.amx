@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Marker Shape Attribute"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"/>
+    </amx:facet>
+    <amx:facet name="secondary"></amx:facet>
+    <amx:flexLayout id="fl1">
+      <dvtm:areaChart id="bc1" rendered="#{pageFlowScope.chartType == 'areaChart'}">
+        <amx:facet name="dataStamp">
+          <dvtm:chartDataItem series="China" group="2008" value="4558"/>
+          <dvtm:chartDataItem series="China" group="2010" value="6040"/>
+          <dvtm:chartDataItem series="China" group="2012" value="8462"/>
+          <dvtm:chartDataItem series="China" group="2014" value="10355"/>
+        </amx:facet>
+        <amx:facet name="seriesStamp">
+          <dvtm:seriesStyle id="ss3" series="China" markerDisplayed="true" markerShape="#{pageFlowScope.markerShape}"
+                            markerSize="30"/>
+        </amx:facet>
+        <dvtm:xAxis title="year"/>
+        <dvtm:yAxis title="GDP">
+          <dvtm:tickLabel labelStyle="">
+            <amx:convertNumber type="currency"/>
+          </dvtm:tickLabel>
+        </dvtm:yAxis>
+        <dvtm:legend rendered="false"/>
+      </dvtm:areaChart>
+      <dvtm:lineChart id="bc2" rendered="#{pageFlowScope.chartType == 'lineChart'}">
+        <amx:facet name="dataStamp">
+          <dvtm:chartDataItem series="China" group="2008" value="4558"/>
+          <dvtm:chartDataItem series="China" group="2010" value="6040"/>
+          <dvtm:chartDataItem series="China" group="2012" value="8462"/>
+          <dvtm:chartDataItem series="China" group="2014" value="10355"/>
+        </amx:facet>
+        <amx:facet name="seriesStamp">
+          <dvtm:seriesStyle id="ss13" series="China" markerDisplayed="true" markerShape="#{pageFlowScope.markerShape}"
+                            markerSize="30"/>
+        </amx:facet>
+        <dvtm:xAxis title="year"/>
+        <dvtm:yAxis title="GDP">
+          <dvtm:tickLabel labelStyle="">
+            <amx:convertNumber type="currency"/>
+          </dvtm:tickLabel>
+        </dvtm:yAxis>
+        <dvtm:legend rendered="false"/>
+      </dvtm:lineChart>
+      <dvtm:bubbleChart id="bc3" rendered="#{pageFlowScope.chartType == 'bubbleChart'}" zoomAndScroll="live">
+        <amx:facet name="dataStamp">
+          <dvtm:chartDataItem group="2014" series="United States" x="319072" y="17419" z="46405.26"
+                              markerShape="#{pageFlowScope.markerShape}"/>
+          <dvtm:chartDataItem group="2014" series="Euro Area" x="337470" y="13410" z="32789.48"
+                              markerShape="#{pageFlowScope.markerShape}"/>
+          <dvtm:chartDataItem group="2014" series="China" x="1367820" y="10355" z="3865.88"
+                              markerShape="#{pageFlowScope.markerShape}"/>
+          <dvtm:chartDataItem group="2014" series="Japan" x="127020" y="4601" z="37595.18"
+                              markerShape="#{pageFlowScope.markerShape}"/>
+          <!--<dvtm:chartDataItem group="2014" series="Germany" x="80770" y="3868" z="39717.70" markerSource="images/flags/Germany.svg"/>-->
+          <dvtm:chartDataItem group="2014" series="India" x="1254020" y="2067" z="1262.64"
+                              markerShape="#{pageFlowScope.markerShape}"/>
+          <!--<dvtm:chartDataItem group="2014" series="Brazil" x="204450" y="2346" z="5969.68" markerSource="images/flags/Brazil.svg"/>-->
+          <dvtm:chartDataItem group="2014" series="Russia" x="146270" y="1861" z="6843.91"
+                              markerShape="#{pageFlowScope.markerShape}"/>
+          <!--<dvtm:chartDataItem group="2014" series="United Kingdom" x="64880" y="2989" z="40967.70" markerSource="images/flags/United_Kingdom.svg"/>-->
+          <!--<dvtm:chartDataItem group="2014" series="France" x="66630" y="2829" z="35669.59" markerSource="images/flags/France.svg"/>-->
+          <!--<dvtm:chartDataItem group="2014" series="Indonesia" x="255460" y="889" z="1865.85" markerSource="images/flags/Indonesia.svg"/>-->
+          <dvtm:chartDataItem group="2014" series="Pakistan" x="189870" y="244" z="818.87"
+                              markerShape="#{pageFlowScope.markerShape}"/>
+          <dvtm:chartDataItem group="2014" series="Nigeria" x="178520" y="569" z="302.35"
+                              markerShape="#{pageFlowScope.markerShape}"/>
+          <dvtm:chartDataItem group="2014" series="Italy" x="60800" y="2141" z="28484.35"
+                              markerShape="#{pageFlowScope.markerShape}"/>
+        </amx:facet>
+        <dvtm:xAxis title="population"/>
+        <dvtm:yAxis title="GDP">
+          <dvtm:tickLabel labelStyle="">
+            <amx:convertNumber type="currency"/>
+          </dvtm:tickLabel>
+        </dvtm:yAxis>
+      </dvtm:bubbleChart>
+      <dvtm:scatterChart id="bc4" rendered="#{pageFlowScope.chartType == 'scatterChart'}" zoomAndScroll="live">
+        <amx:facet name="dataStamp">
+          <dvtm:chartDataItem series="2014" group="United States" x="319072" y="17419" z="5"
+                              markerShape="#{pageFlowScope.markerShape}"/>
+          <dvtm:chartDataItem series="2014" group="Euro Area" x="337470" y="13410" z="5"
+                              markerShape="#{pageFlowScope.markerShape}"/>
+          <dvtm:chartDataItem series="2014" group="China" x="1367820" y="10355" z="5"
+                              markerShape="#{pageFlowScope.markerShape}"/>
+          <dvtm:chartDataItem series="2014" group="Japan" x="127020" y="4601" z="5"
+                              markerShape="#{pageFlowScope.markerShape}"/>
+          <dvtm:chartDataItem series="2014" group="Germany" x="80770" y="3868" z="5"
+                              markerShape="#{pageFlowScope.markerShape}"/>
+          <dvtm:chartDataItem series="2014" group="India" x="1254020" y="2067" z="5"
+                              markerShape="#{pageFlowScope.markerShape}"/>
+          <dvtm:chartDataItem series="2014" group="Brazil" x="204450" y="2346" z="5"
+                              markerShape="#{pageFlowScope.markerShape}"/>
+          <dvtm:chartDataItem series="2014" group="Russia" x="146270" y="1861" z="5"
+                              markerShape="#{pageFlowScope.markerShape}"/>
+          <dvtm:chartDataItem series="2014" group="United Kingdom" x="64880" y="2989" z="5"
+                              markerShape="#{pageFlowScope.markerShape}"/>
+          <dvtm:chartDataItem series="2014" group="France" x="66630" y="2829" z="5"
+                              markerShape="#{pageFlowScope.markerShape}"/>
+          <dvtm:chartDataItem series="2014" group="Indonesia" x="255460" y="889" z="5"
+                              markerShape="#{pageFlowScope.markerShape}"/>
+          <dvtm:chartDataItem series="2014" group="Pakistan" x="189870" y="244" z="5"
+                              markerShape="#{pageFlowScope.markerShape}"/>
+          <dvtm:chartDataItem series="2014" group="Nigeria" x="178520" y="569" z="5"
+                              markerShape="#{pageFlowScope.markerShape}"/>
+          <dvtm:chartDataItem series="2014" group="Italy" x="60800" y="2141" z="5"
+                              markerShape="#{pageFlowScope.markerShape}"/>
+        </amx:facet>
+        <amx:facet name="seriesStamp">
+          <dvtm:seriesStyle id="ss41" series="2014" markerSize="30"/>
+        </amx:facet>
+        <dvtm:xAxis title="population"/>
+        <dvtm:yAxis title="GDP">
+          <dvtm:tickLabel labelStyle="">
+            <amx:convertNumber type="currency"/>
+          </dvtm:tickLabel>
+        </dvtm:yAxis>
+      </dvtm:scatterChart>
+      <amx:panelGroupLayout id="pglOptionsPanel" scrollPolicy="scroll">
+        <amx:outputText id="otDesc" inlineStyle="font-size: 12px; padding: 16px; display: block;"
+                        value="Marker Source attribute is supported on some types of charts.                          Marker Source can be specified on individual items, or on whole serie."/>
+        <amx:selectOneChoice label="markerShape:" id="sob1" value="#{pageFlowScope.markerShape}">
+          <amx:selectItem id="si11" label="auto" value="auto"/>
+          <amx:selectItem id="si12" label="circle" value="circle"/>
+          <amx:selectItem id="si13" label="diamond" value="diamond"/>
+          <amx:selectItem id="si14" label="human" value="human"/>
+          <amx:selectItem id="si15" label="plus" value="plus"/>
+          <amx:selectItem id="si16" label="rectangle" value="rectangle"/>
+          <amx:selectItem id="si17" label="square" value="square"/>
+          <amx:selectItem id="si18" label="star" value="star"/>
+          <amx:selectItem id="si19" label="triangleUp" value="triangleUp"/>
+          <amx:selectItem id="si20" label="triangleDown" value="triangleDown"/>
+        </amx:selectOneChoice>
+        <amx:selectOneButton label="Chart Type:" id="sob3" value="#{pageFlowScope.chartType}">
+          <amx:selectItem id="si21" label="Area" value="areaChart"/>
+          <amx:selectItem id="si22" label="Line" value="lineChart"/>
+          <amx:selectItem id="si23" label="Bubble" value="bubbleChart"/>
+          <amx:selectItem id="si24" label="Scatter" value="scatterChart"/>
+        </amx:selectOneButton>
+      </amx:panelGroupLayout>
+    </amx:flexLayout>
+  </amx:panelPage>
+</amx:view>

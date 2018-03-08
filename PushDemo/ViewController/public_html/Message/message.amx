@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Message" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+        <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+            <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+        </amx:commandLink>
+    </amx:facet>
+        <amx:outputText value="The message received via push notification is displayed below:" id="ot10"/>
+        <amx:spacer id="s1"/>
+        <amx:outputText value="#{applicationScope.pushMessage}" id="ot12"/>
+  </amx:panelPage>
+</amx:view>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText id="outputText1" value="Method Invocation"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                <amx:image inlineStyle="width:32px;height:32px;" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:outputText id="outputText2"
+                        value="This example shows you how to call a method from a bean wrapped in a Data Control wrapper via the methodAction.  Here the BeanDC.java is wrapped in a Data Control and then the DoMyMethod is invoked which navigates to a hidden feature."/>
+       <amx:panelGroupLayout layout="horizontal" halign="center" id="pgl1">
+        <amx:commandButton styleClass="adfmf-commandButton-small" actionListener="#{bindings.DoMyMethod.execute}" text="Do MyMethod"
+                           id="commandButton1"/>
+        </amx:panelGroupLayout>
+        
+    </amx:panelPage>
+</amx:view>

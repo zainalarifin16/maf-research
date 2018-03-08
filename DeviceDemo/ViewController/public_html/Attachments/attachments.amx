@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="Attachments" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandButton text="View" id="cb1" shortDesc="View"
+                               actionListener="#{pageFlowScope.ViewerBean.viewerHandler}"/>
+        </amx:facet>
+        <amx:tableLayout inlineStyle="background-color:rgb(255,240,187)" id="tl1" cellPadding="5" cellSpacing="5">
+            <amx:rowLayout id="rl1">
+                <amx:cellFormat id="cf1">
+                    <amx:image source="/images/Warning_Icon_C-iOS8.svg" id="i2"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf2">
+                    <amx:outputText value="The attachment must be locally on this device to use this method." id="ot6"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:selectOneChoice label="Document" id="soc1" value="#{pageFlowScope.ViewerBean.document}">
+            <amx:selectItem id="si1" label="doc.doc" value="doc.doc"/>
+            <amx:selectItem id="si2" label="pdf.pdf" value="pdf.pdf"/>
+            <amx:selectItem id="si3" label="ppt.pptx" value="ppt.pptx"/>
+            <amx:selectItem id="si4" label="xls.xlsx" value="xls.xlsx"/>
+            <amx:selectItem id="si5" label="mp4.mp4" value="mp4.mp4"/>
+            <amx:selectItem id="si6" label="png.png" value="png.png"/>
+        </amx:selectOneChoice>
+        <amx:outputText id="file" value="#{pageFlowScope.ViewerBean.file}"/>
+        <amx:spacer id="s1" height="10"/>
+        <amx:outputText value="NOTES" id="cot7" styleClass="adfmf-outputText-sectionTitle"/>
+        <amx:spacer id="Ds1" height="10"/>
+        <amx:outputText value="This example shows how to use the displayFile method of the DeviceFeatures data control to show attachments."
+                        id="ot2"/>
+        <amx:spacer id="s2" height="10"/>
+        <amx:outputText value="On iOS these are launched in the context of the app. On Android it will try to find a suitable launcher app and if multiple are found, it will present a list."
+                        id="ot3"/>
+    </amx:panelPage>
+</amx:view>

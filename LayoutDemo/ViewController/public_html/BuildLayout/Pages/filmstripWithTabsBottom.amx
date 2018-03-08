@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="Filmstrip &amp; Tabs Bottom" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton action="__back" id="cb1"/>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandButton id="cb2"/>
+        </amx:facet>
+        <amx:panelStretchLayout id="psl1">
+            <amx:facet name="top">
+                <amx:panelGroupLayout inlineStyle="border-bottom-style:solid;border-color:#F6F6F7;padding:5px;"
+                                      rendered="#{pageFlowScope.useFixedSummaryView=='true'}" layout="horizontal"
+                                      halign="center" id="pgl1">
+                    <amx:outputText value="Summary Section" id="ot2"/>
+                </amx:panelGroupLayout>
+            </amx:facet>
+            <amx:facet name="center">
+                <amx:filmStrip inlineStyle="height:95%;" itemsPerPage="1" halign="center" id="fs1">
+                    <amx:filmStripItem inlineStyle="height:#{deviceScope.hardware.screen.availableHeight}px;width:#{deviceScope.hardware.screen.availableWidth}px" id="fsi1">
+                        <amx:fragment src="/BuildLayout/Fragments/tabsBottomContentLayout.amxf" id="f1"/>
+                    </amx:filmStripItem>
+                    <amx:filmStripItem inlineStyle="height:#{deviceScope.hardware.screen.availableHeight}px;width:#{deviceScope.hardware.screen.availableWidth}px" id="fsi2">
+                        <amx:fragment src="/BuildLayout/Fragments/tabsBottomContentLayout.amxf" id="fsa1"/>
+                    </amx:filmStripItem>
+                    <amx:filmStripItem inlineStyle="height:#{deviceScope.hardware.screen.availableHeight}px;width:#{deviceScope.hardware.screen.availableWidth}px" id="fsi3">
+                        <amx:fragment src="/BuildLayout/Fragments/tabsBottomContentLayout.amxf" id="f1d"/>
+                    </amx:filmStripItem>
+                </amx:filmStrip>
+            </amx:facet>
+        </amx:panelStretchLayout>
+    </amx:panelPage>
+</amx:view>

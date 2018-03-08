@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
+  <adfmf:feature id="Feature1" name="Feature1">
+    <adfmf:content id="Feature1.1">
+      <adfmf:amx file="Feature1/taskflow.xml#taskflow"/>
+    </adfmf:content>
+    <adfmf:properties id="p9">
+      <adfmf:property name="iOSWebView" value="default" id="p10"/>
+    </adfmf:properties>
+    <adfmf:preferences>
+      <adfmf:preferenceGroup id="f1top" label="F1 Preferences">
+        <adfmf:preferenceBoolean id="f1Boolean" label="F1 Boolean" default="true"/>
+        <adfmf:preferenceNumber id="f1Number" label="F1 Number" default="123"/>
+        <adfmf:preferenceList id="f1List" label="F1 List" default="item1">
+          <adfmf:preferenceValue id="id1" name="item1" value="item1"/>
+          <adfmf:preferenceValue id="id2" name="item2" value="item2"/>
+          <adfmf:preferenceValue id="id3" name="item3" value="item3"/>
+        </adfmf:preferenceList>
+        <adfmf:preferenceText id="f1text" label="F1 Text" default="default text"/>
+        <adfmf:preferenceText id="f1SecretText" label="F1 Secret Text" secret="true" default="secret text"/>
+        <adfmf:preferencePage id="f1Page" label="F1 Page">
+          <adfmf:preferenceGroup id="f1SubGroup" label="F1 Sub Group">
+            <adfmf:preferenceBoolean id="f1SubBoolean" label="F1 Sub Boolean" default="true"/>
+            <adfmf:preferenceNumber id="f1SubNumber" label="F1 Sub Number" default="456"/>
+            <adfmf:preferenceList id="f1SubList" label="F1 Sub List" default="a">
+              <adfmf:preferenceValue id="id4" name="item1" value="item1"/>
+              <adfmf:preferenceValue id="id5" name="item2" value="item2"/>
+              <adfmf:preferenceValue id="id6" name="item3" value="item3"/>
+            </adfmf:preferenceList>
+            <adfmf:preferenceText id="f1SubText" label="F1 Sub Text" default="default sub text"/>
+            <adfmf:preferenceText id="f1SubSecretText" label="F1 Sub Secret Text" default="Sub Secret" secret="true"/>
+          </adfmf:preferenceGroup>
+        </adfmf:preferencePage>
+      </adfmf:preferenceGroup>
+    </adfmf:preferences>
+  </adfmf:feature>
+  <adfmf:feature id="Feature2" name="Feature2">
+    <adfmf:content id="Feature2.1">
+      <adfmf:amx file="Feature2/taskflow.xml#taskflow"/>
+    </adfmf:content>
+    <adfmf:properties id="pd10">
+      <adfmf:property name="iOSWebView" value="default" id="p13"/>
+    </adfmf:properties>
+    <adfmf:preferences>
+      <adfmf:preferenceGroup id="f2top" label="F2 Preferences">
+        <adfmf:preferenceBoolean id="f2Boolean" label="F2 Boolean" default="true"/>
+        <adfmf:preferenceNumber id="f2Number" label="F2 Number" default="123"/>
+        <adfmf:preferenceList id="f2List" label="F2 List" default="item1">
+          <adfmf:preferenceValue id="id7" name="item1" value="item1"/>
+          <adfmf:preferenceValue id="id8" name="item2" value="item2"/>
+          <adfmf:preferenceValue id="id9" name="item3" value="item3"/>
+        </adfmf:preferenceList>
+        <adfmf:preferenceText id="f2text" label="F2 Text" default="default text"/>
+        <adfmf:preferenceText id="f2SecretText" label="F2 Secret Text" secret="true" default="secret text"/>
+        <adfmf:preferencePage id="f2Page" label="F2 Page">
+          <adfmf:preferenceGroup id="f2SubGroup" label="F2 Sub Group">
+            <adfmf:preferenceBoolean id="f2SubBoolean" label="F2 Sub Boolean" default="true"/>
+            <adfmf:preferenceNumber id="f2SubNumber" label="F2 Sub Number" default="456"/>
+            <adfmf:preferenceList id="f2SubList" label="F2 Sub List" default="a">
+              <adfmf:preferenceValue id="id10" name="item1" value="item1"/>
+              <adfmf:preferenceValue id="id11" name="item2" value="item2"/>
+              <adfmf:preferenceValue id="id12" name="item3" value="item3"/>
+            </adfmf:preferenceList>
+            <adfmf:preferenceText id="f2SubText" label="F2 Sub Text" default="default sub text"/>
+            <adfmf:preferenceText id="f2SubSecretText" label="F2 Sub Secret Text" default="Sub Secret" secret="true"/>
+          </adfmf:preferenceGroup>
+        </adfmf:preferencePage>
+      </adfmf:preferenceGroup>
+    </adfmf:preferences>
+  </adfmf:feature>
+  <adfmf:feature id="App" name="App">
+    <adfmf:content id="App.1">
+      <adfmf:amx file="App/taskflow.xml#taskflow"/>
+    </adfmf:content>
+    <adfmf:properties id="pq9">
+      <adfmf:property name="iOSWebView" value="default" id="p1b0"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="About" name="About">
+    <adfmf:content id="About.1">
+      <adfmf:amx file="About/about.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="pv9">
+      <adfmf:property name="iOSWebView" value="default" id="p10d"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="Springboard" name="Springboard">
+    <adfmf:content id="Springboard.1">
+      <adfmf:amx file="Springboard/springboard.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="pd9">
+      <adfmf:property name="iOSWebView" value="default" id="sp10"/>
+    </adfmf:properties>
+  </adfmf:feature>
+</adfmf:features>

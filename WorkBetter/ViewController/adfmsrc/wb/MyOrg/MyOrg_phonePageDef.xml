@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.20.8" id="MyOrg_phonePageDef"
+                Package="wb.MyOrg">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="HRService" id="HRServiceIterator"/>
+    <accessorIterator MasterBinding="HRServiceIterator" Binds="orgEmployees" RangeSize="25" DataControl="HRService"
+                      BeanClass="wb.model.Employee" id="orgEmployeesIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="toggleSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="toggleSpringboard"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider"/>
+    <tree IterBinding="orgEmployeesIterator" id="orgEmployees">
+      <nodeDefinition DefName="wb.model.Employee" Name="orgEmployees0">
+        <AttrNames>
+          <Item Value="empid"/>
+          <Item Value="pic"/>
+          <Item Value="firstname"/>
+          <Item Value="lastname"/>
+          <Item Value="title"/>
+          <Item Value="deptname"/>
+          <Item Value="teamAvgRating"/>
+          <Item Value="rating"/>
+          <Item Value="potential"/>
+          <Item Value="lossriskstr"/>
+          <Item Value="lossimpactstr"/>
+          <Item Value="office"/>
+          <Item Value="city"/>
+          <Item Value="state"/>
+          <Item Value="jobcode"/>
+          <Item Value="compratio"/>
+          <Item Value="bonus"/>
+          <Item Value="commission"/>
+          <Item Value="salary"/>
+          <Item Value="active"/>
+          <Item Value="phone"/>
+          <Item Value="email"/>
+          <Item Value="mobile"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="sortOrgEmployees" RequiresUpdateModel="true" Action="invokeMethod" MethodName="sortOrgEmployees"
+                  IsViewObjectMethod="false" DataControl="HRService" InstanceName="data.HRService.dataProvider">
+      <NamedData NDName="sorttype" NDValue="#{UserBean.orgListFilter}" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

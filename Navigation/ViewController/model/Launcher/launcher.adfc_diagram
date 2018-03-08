@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">launcherPage</property>
+      <property
+         name="x">126.0</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>launcherPage&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">188.80078</property>
+      <property
+         name="page">/Launcher/launcher.amx</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <TaskFlowCall
+      id="TaskFlowCall3">
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>TaskFlowCall&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="activityId">TaskFlowCall</property>
+      <property
+         name="x">408.0</property>
+      <property
+         name="y">188.60156</property>
+      <property
+         name="documentReference">/Employees/taskflow.xml</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="taskFlowId">taskflow</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="TaskFlowCall3">
+      <property
+         name="fromOutcome">callEmployees</property>
+      <property
+         name="sdm:polyPoints">R50,167.0,188.73438,367.0,188.53516,L50</property>
+   </ControlFlowCase>
+</SDM>

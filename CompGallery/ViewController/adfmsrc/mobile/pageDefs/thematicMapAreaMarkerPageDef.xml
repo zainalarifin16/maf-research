@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.62.49" id="thematicMapAreaMarkerPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="ThematicMapDataList" id="ThematicMapDataListIterator"/>
+    <accessorIterator MasterBinding="ThematicMapDataListIterator" Binds="thematicMapData" RangeSize="-1"
+                      DataControl="ThematicMapDataList" BeanClass="model.ThematicMapData" id="thematicMapDataIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="thematicMapDataIterator" id="thematicMapData">
+      <nodeDefinition DefName="model.ThematicMapData" Name="thematicMapData0">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>          
+          <Item Value="color"/>
+          <Item Value="cat1"/>
+          <Item Value="cat2"/>
+          <Item Value="cat3"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

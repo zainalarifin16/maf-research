@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="People" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink id="cl1" actionListener="#{bindings.toggleSpringboard.execute}"
+                             shortDesc="Springboard Link">
+                <amx:image id="i1" source="/images/springboard.svg" shortDesc="Springboard Image"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:panelSplitter id="ps1">
+            <amx:facet name="navigator">
+                <amx:panelStretchLayout id="psl1">
+                    <amx:facet name="top">
+                        <amx:tableLayout id="tl2" width="100%">
+                            <amx:rowLayout id="rl3">
+                                <amx:cellFormat id="cf4" width="50%">
+                                    <amx:spacer id="s1" width="10"/>
+                                    <amx:outputText value="People List" id="ot2"/>
+                                </amx:cellFormat>
+                                <amx:cellFormat id="cf5" width="50%" halign="end">
+                                    <amx:commandButton text="Add" id="cb1" styleClass="adfmf-commandButton-small">
+                                        <amx:actionListener id="al5" binding="#{bindings.Create_edit.execute}"/>
+                                        <amx:setPropertyListener id="spl1" from="#{true}" to="#{viewScope.newMode}"/>
+                                        <amx:showPopupBehavior id="spb1" popupId="p1" align="overlapMiddleCenter"
+                                                               alignId="pp1"/>
+                                    </amx:commandButton>
+                                    <amx:spacer id="s3" width="10"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                        </amx:tableLayout>
+                    </amx:facet>
+                    <amx:facet name="center">
+                        <amx:listView var="row" value="#{bindings.person.collectionModel}"
+                                      fetchSize="#{bindings.person.rangeSize}"
+                                      selectedRowKeys="#{bindings.person.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.person.collectionModel.makeCurrent}"
+                                      showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1">
+                            <amx:listItem id="li1">
+                                <amx:accessoryLayout id="al1">
+                                    <amx:facet name="end">
+                                        <amx:commandLink id="cl15" text="Delete"
+                                                         actionListener="#{bindings.RemoveRow.execute}">
+                                            <amx:setPropertyListener id="spl3" from="#{row.id}"
+                                                                     to="#{viewScope.selectedId}"/>
+                                        </amx:commandLink>
+                                    </amx:facet>
+                                    <amx:tableLayout width="100%" id="tl1">
+                                        <amx:rowLayout id="rl2">
+                                            <amx:cellFormat width="10px" rowSpan="2" id="cf3"/>
+                                            <amx:cellFormat width="100%"
+                                                            height="#{deviceScope.device.os=='Android'?'36':'32'}px"
+                                                            id="cf2">
+                                                <amx:outputText value="#{row.first} #{row.last}" id="ot4"/>
+                                            </amx:cellFormat>
+                                        </amx:rowLayout>
+                                        <amx:rowLayout id="rl1">
+                                            <amx:cellFormat width="100%"
+                                                            height="#{deviceScope.device.os=='Android'?'22':'19'}px"
+                                                            id="cf1">
+                                                <amx:outputText value="#{row.email}"
+                                                                styleClass="adfmf-listItem-captionText" id="ot3"/>
+                                            </amx:cellFormat>
+                                        </amx:rowLayout>
+                                    </amx:tableLayout>
+                                </amx:accessoryLayout>
+                            </amx:listItem>
+                        </amx:listView>
+                    </amx:facet>
+                </amx:panelStretchLayout>
+            </amx:facet>
+            <amx:panelItem id="pi1">
+                <amx:panelStretchLayout id="psl2">
+                    <amx:facet name="top">
+                        <amx:tableLayout id="tl3" width="100%">
+                            <amx:rowLayout id="rl4">
+                                <amx:cellFormat id="cf6" width="50%">
+                                    <amx:spacer id="s4" width="10"/>
+                                    <amx:outputText value="Detail" id="ot5"/>
+                                </amx:cellFormat>
+                                <amx:cellFormat id="cf7" width="50%" halign="end">
+                                    <amx:commandButton text="Edit" id="cb2" styleClass="adfmf-commandButton-small">
+                                        <amx:actionListener id="al4" binding="#{bindings.SetCurrentRow_edit.execute}"/>
+                                        <amx:actionListener id="al10"
+                                                            binding="#{bindings.reloadFromStore_edit.execute}"/>
+                                        <amx:setPropertyListener id="spl2" from="#{false}" to="#{viewScope.newMode}"/>
+                                        <amx:showPopupBehavior id="spb2" popupId="p1" align="overlapMiddleCenter"
+                                                               alignId="pp1"/>
+                                    </amx:commandButton>
+                                    <amx:spacer id="s2" width="10"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                        </amx:tableLayout>
+                    </amx:facet>
+                    <amx:facet name="center">
+                        <amx:panelFormLayout id="pfl1">
+                            <amx:panelLabelAndMessage label="#{bindings.id.hints.label}" id="plam4">
+                                <amx:outputText value="#{bindings.id.inputValue}" id="ot9">
+                                    <amx:convertNumber groupingUsed="false" id="cn1"/>
+                                </amx:outputText>
+                            </amx:panelLabelAndMessage>
+                            <amx:panelLabelAndMessage label="#{bindings.first.hints.label}" id="plam5">
+                                <amx:outputText value="#{bindings.first.inputValue}" id="ot10"/>
+                            </amx:panelLabelAndMessage>
+                            <amx:panelLabelAndMessage label="#{bindings.last.hints.label}" id="plam9">
+                                <amx:outputText value="#{bindings.last.inputValue}" id="ot14"/>
+                            </amx:panelLabelAndMessage>
+                            <amx:panelLabelAndMessage label="#{bindings.phone.hints.label}" id="plam3">
+                                <amx:outputText value="#{bindings.phone.inputValue}" id="ot8"/>
+                            </amx:panelLabelAndMessage>
+                            <amx:panelLabelAndMessage label="#{bindings.email.hints.label}" id="plam6">
+                                <amx:outputText value="#{bindings.email.inputValue}" id="ot11"/>
+                            </amx:panelLabelAndMessage>
+                            <amx:panelLabelAndMessage label="#{bindings.birthDate.hints.label}" id="plam8">
+                                <amx:outputText value="#{bindings.birthDate.inputValue}" id="ot13">
+                                    <amx:convertDateTime pattern="#{bindings.birthDate.format}" id="cdt1"/>
+                                </amx:outputText>
+                            </amx:panelLabelAndMessage>
+                            <amx:panelLabelAndMessage label="#{bindings.address.hints.label}" id="plam7">
+                                <amx:outputText value="#{bindings.address.inputValue}" id="ot12"/>
+                            </amx:panelLabelAndMessage>
+                            <amx:panelLabelAndMessage label="#{bindings.city.hints.label}" id="plam2">
+                                <amx:outputText value="#{bindings.city.inputValue}" id="ot7"/>
+                            </amx:panelLabelAndMessage>
+                            <amx:panelLabelAndMessage label="#{bindings.state.hints.label}" id="plam1">
+                                <amx:outputText value="#{bindings.state.inputValue}" id="ot6"/>
+                            </amx:panelLabelAndMessage>
+                        </amx:panelFormLayout>
+                    </amx:facet>
+                </amx:panelStretchLayout>
+            </amx:panelItem>
+        </amx:panelSplitter>
+    </amx:panelPage>
+    <amx:popup id="p1" animation="zoom">
+        <amx:panelGroupLayout id="pgl3" inlineStyle="width:300px;height:450px">
+            <amx:tableLayout id="tl4" width="100%">
+                <amx:rowLayout id="rl5">
+                    <amx:cellFormat id="cf8" width="30%">
+                        <amx:commandButton text="Cancel" id="cb3" inlineStyle="width:75px">
+                            <amx:closePopupBehavior id="cpb1" popupId="p1"/>
+                            <amx:actionListener id="al6" binding="#{bindings.RemoveRow_edit.execute}"
+                                                type="#{viewScope.newMode ? 'action' : ''}"/>
+                        </amx:commandButton>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf10" width="40%" halign="center">
+                        <amx:outputText value="Edit Contact" id="ot15"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf9" width="30%" halign="end">
+                        <amx:commandButton text="Save" id="cb4" inlineStyle="width:75px">
+                            <amx:validationBehavior id="vb1" group="vg1"/>
+                            <amx:actionListener id="al2" binding="#{bindings.saveToStore_edit.execute}"/>
+                            <amx:closePopupBehavior id="cpb2" popupId="p1"/>
+                            <amx:actionListener id="al9" type="#{viewScope.newMode ? '' : 'action'}"
+                                                binding="#{bindings.reloadFromStore.execute}"/>
+                            <amx:actionListener id="al7" type="#{viewScope.newMode ? 'action' : ''}"
+                                                binding="#{bindings.executeQuery.execute}"/>
+                            <amx:actionListener id="al3" type="#{viewScope.newMode ? 'action' : ''}"
+                                                binding="#{bindings.SetCurrentRow.execute}"/>
+                        </amx:commandButton>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+            <amx:validationGroup id="vg1">
+                <amx:panelFormLayout id="pfl2" fieldHalign="start" fieldWidth="70%" labelWidth="30%">
+                    <amx:panelLabelAndMessage label="#{bindings.editid.hints.label}" id="plam10">
+                        <amx:outputText value="#{bindings.editid.inputValue}" id="ot16"/>
+                    </amx:panelLabelAndMessage>
+                    <amx:inputText value="#{bindings.editfirst.inputValue}" label="#{bindings.editfirst.hints.label}"
+                                   id="it8"/>
+                    <amx:inputText value="#{bindings.editlast.inputValue}" label="#{bindings.editlast.hints.label}"
+                                   id="it3"/>
+                    <amx:inputText value="#{bindings.editphone.inputValue}" label="#{bindings.editphone.hints.label}"
+                                   id="it4"/>
+                    <amx:inputText value="#{bindings.editemail.inputValue}" label="#{bindings.editemail.hints.label}"
+                                   id="it1"/>
+                    <amx:inputDate value="#{bindings.editbirthDate.inputValue}"
+                                   label="#{bindings.editbirthDate.hints.label}" id="id1"/>
+                    <amx:inputText value="#{bindings.editaddress.inputValue}"
+                                   label="#{bindings.editaddress.hints.label}" id="it5"/>
+                    <amx:inputText value="#{bindings.editcity.inputValue}" label="#{bindings.editcity.hints.label}"
+                                   id="it7"/>
+                    <amx:inputText value="#{bindings.editstate.inputValue}" label="#{bindings.editstate.hints.label}"
+                                   id="it6"/>
+                </amx:panelFormLayout>
+            </amx:validationGroup>
+        </amx:panelGroupLayout>
+    </amx:popup>
+</amx:view>

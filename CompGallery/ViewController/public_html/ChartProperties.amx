@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+        <amx:outputText id="header" value="Properties"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+        <amx:commandButton id="back" action="__back" text="Done"/>
+    </amx:facet>
+        <amx:panelFormLayout id="propform" labelWidth="40%" fieldWidth="60%">
+            <amx:selectOneChoice id="pThreeDEffect" label="3D Effect" value="#{pageFlowScope.threeDEffect}"
+                            rendered="#{pageFlowScope.chartProperties.SThreeDEffect}">
+              <amx:selectItem label="off" value="#{false}"/>
+              <amx:selectItem label="on" value="#{true}"/>
+            </amx:selectOneChoice>
+            <amx:inputText id="pColor" label="color" value="#{pageFlowScope.color}"
+                            rendered="#{pageFlowScope.chartProperties.SColor}"/>
+            <amx:selectOneChoice id="pDataCursor" label="dataCursor" value="#{pageFlowScope.dataCursor}"
+                            rendered="#{pageFlowScope.chartProperties.SDataCursor}">
+              <amx:selectItem label="auto" value="auto"/>
+              <amx:selectItem label="off" value="off"/>
+              <amx:selectItem label="on" value="on"/>
+            </amx:selectOneChoice>
+            <amx:selectOneChoice id="pDataCursorBehavior" label="dataCursorBehavior" value="#{pageFlowScope.dataCursorBehavior}"
+                            rendered="#{pageFlowScope.chartProperties.SDataCursorBehavior}">
+              <amx:selectItem label="auto" value="auto"/>
+              <amx:selectItem label="smooth" value="smooth"/>
+              <amx:selectItem label="snap" value="snap"/>
+            </amx:selectOneChoice>
+            <amx:selectOneChoice id="pDataSelection" label="dataSelection" value="#{pageFlowScope.dataSelection}"
+                            rendered="#{pageFlowScope.chartProperties.SDataSelection}">
+              <amx:selectItem label="none" value="none"/>
+              <amx:selectItem label="single" value="single"/>
+              <amx:selectItem label="multiple" value="multiple"/>
+            </amx:selectOneChoice>
+            <amx:inputText id="pFootnote" label="footnote" value="#{pageFlowScope.footnote}"
+                            rendered="#{pageFlowScope.chartProperties.SFootnote}"/>
+            <amx:selectOneChoice id="pFootnoteHalign" label="footnoteHalign" value="#{pageFlowScope.footnoteHalign}"
+                            rendered="#{pageFlowScope.chartProperties.SFootnote}">
+              <amx:selectItem label="center" value="center"/>
+              <amx:selectItem label="end" value="end"/>
+              <amx:selectItem label="start" value="start"/>
+            </amx:selectOneChoice>
+            <amx:selectOneChoice id="pHideAndShowBehavior" label="hideAndShowBehavior" value="#{pageFlowScope.hideAndShowBehavior}"
+                            rendered="#{pageFlowScope.chartProperties.SHideAndShowBehavior}">
+              <amx:selectItem label="none" value="none"/>
+              <amx:selectItem label="withRescale" value="withRescale"/>
+              <amx:selectItem label="withoutRescale" value="withoutRescale"/>
+            </amx:selectOneChoice>
+            <amx:inputText id="pInlineStyle" label="inlineStyle" value="#{pageFlowScope.inlineStyle}"/>
+            <amx:selectOneChoice id="pRolloverBehavior" label="rolloverBehavior" value="#{pageFlowScope.rolloverBehavior}"
+                            rendered="#{pageFlowScope.chartProperties.SRolloverBehavior}">
+              <amx:selectItem label="none" value="none"/>
+              <amx:selectItem label="dim" value="dim"/>
+            </amx:selectOneChoice>
+            <amx:inputText id="pRolloverBehaviorDelay" label="rolloverBehaviorDelay" value="#{pageFlowScope.rolloverBehaviorDelay}"
+                            rendered="#{pageFlowScope.chartProperties.SRolloverBehavior}"/>
+            <amx:selectOneChoice id="socScaleX" label="scaleX" value="#{pageFlowScope.scaleX}" 
+                            rendered="#{pageFlowScope.chartProperties.SScaleX}">
+              <amx:selectItem id="siScaleXLinear" label="linear" value="linear"/>
+              <amx:selectItem id="siScaleXLog" label="log" value="log"/>
+            </amx:selectOneChoice>
+            <amx:selectOneChoice id="socScaleY" label="scaleY" value="#{pageFlowScope.scaleY}" 
+                            rendered="#{pageFlowScope.chartProperties.SScaleY}">
+              <amx:selectItem id="siScaleYLinear" label="linear" value="linear"/>
+              <amx:selectItem id="siScaleYLog" label="log" value="log"/>
+            </amx:selectOneChoice>
+            <amx:selectOneChoice id="pSeriesEffect" label="seriesEffect" value="#{pageFlowScope.seriesEffect}"
+                            rendered="#{pageFlowScope.chartProperties.SSeriesEffect}">
+              <amx:selectItem label="color" value="color"/>
+              <amx:selectItem label="gradient" value="gradient"/>
+              <amx:selectItem label="pattern" value="pattern"/>
+            </amx:selectOneChoice>
+            <amx:selectBooleanCheckbox id="sbcStack" label="Stack" value="#{pageFlowScope.stack}"/>
+            <amx:selectOneChoice id="pStackLabel" label="stackLabel" value="#{pageFlowScope.stackLabel}"
+                            rendered="#{pageFlowScope.chartProperties.SStackLabel}">
+              <amx:selectItem label="off" value="off"/>
+              <amx:selectItem label="on" value="on"/>
+            </amx:selectOneChoice>
+            <amx:inputText id="pStackLabelStyle" label="stackLabelStyle" value="#{pageFlowScope.stackLabelStyle}"
+                            rendered="#{pageFlowScope.chartProperties.SStackLabel}"/>
+            <amx:inputText id="pSubtitle" label="subtitle" value="#{pageFlowScope.subtitle}"
+                            rendered="#{pageFlowScope.chartProperties.SSubtitle}"/>            
+            <amx:inputText id="pTitle" label="title" value="#{pageFlowScope.title}"
+                            rendered="#{pageFlowScope.chartProperties.STitle}"/>
+            <amx:selectOneChoice id="pTitleHalign" label="titleHalign" value="#{pageFlowScope.titleHalign}"
+                            rendered="#{pageFlowScope.chartProperties.STitle}">
+              <amx:selectItem label="center" value="center"/>
+              <amx:selectItem label="end" value="end"/>
+              <amx:selectItem label="start" value="start"/>
+            </amx:selectOneChoice>
+            <amx:inputText id="pShortDesc" label="shortDesc" value="#{pageFlowScope.shortDesc}"/>
+            <amx:selectOneChoice id="pZoomAndScroll" label="zoomAndScroll" value="#{pageFlowScope.zoomAndScroll}"
+                            rendered="#{pageFlowScope.chartProperties.SZoomAndScroll}">
+              <amx:selectItem label="off" value="off"/>
+              <amx:selectItem label="delayed" value="delayed"/>
+              <amx:selectItem label="delayedScrollOnly" value="delayedScrollOnly"/>
+              <amx:selectItem label="live" value="live"/>
+              <amx:selectItem label="liveScrollOnly" value="liveScrollOnly"/>
+            </amx:selectOneChoice>
+            <amx:selectOneChoice id="pZoomDirection" label="zoomDirection" value="#{pageFlowScope.zoomDirection}"
+                            rendered="#{pageFlowScope.chartProperties.SZoomDirection}">
+              <amx:selectItem label="x" value="x"/>
+              <amx:selectItem label="y" value="y"/>
+              <amx:selectItem label="auto" value="auto"/>
+            </amx:selectOneChoice>
+        </amx:panelFormLayout>
+        <amx:panelFormLayout id="styleProps" labelWidth="40%" fieldWidth="60%">
+            <amx:selectOneChoice id="pAnimationOnDataChange" label="animationOnDataChange" value="#{pageFlowScope.animationOnDataChange}"
+                            rendered="#{pageFlowScope.chartProperties.SAnimationOnDataChange}">
+              <amx:selectItem label="alphaFade" value="alphaFade"/>
+              <amx:selectItem label="auto" value="auto"/>
+              <amx:selectItem label="none" value="none"/>
+              <amx:selectItem label="slideToLeft" value="slideToLeft"/>
+              <amx:selectItem label="slideToRight" value="slideToRight"/>
+            </amx:selectOneChoice>
+            <amx:selectOneChoice id="pAnimationIndicators" label="animationIndicators" value="#{pageFlowScope.animationIndicators}"
+                            rendered="#{pageFlowScope.chartProperties.SAnimationIndicators}">
+              <amx:selectItem label="all" value="all"/>
+              <amx:selectItem label="none" value="none"/>
+            </amx:selectOneChoice>
+            <amx:inputText id="pAnimationDuration" label="animationDuration" value="#{pageFlowScope.animationDuration}" rendered="#{pageFlowScope.chartProperties.SAnimationDuration}"/>
+            <amx:selectOneChoice id="pAnimationOnDisplay" label="animationOnDisplay" value="#{pageFlowScope.animationOnDisplay}"
+                            rendered="#{pageFlowScope.chartProperties.SAnimationOnDisplay}">
+              <amx:selectItem label="alphaFade" value="alphaFade"/>
+              <amx:selectItem label="auto" value="auto"/>
+              <amx:selectItem label="none" value="none"/>
+              <amx:selectItem label="zoom" value="zoom"/>
+            </amx:selectOneChoice>
+            <amx:inputText id="pAnimationUpColor" label="animationUpColor" value="#{pageFlowScope.animationUpColor}" rendered="#{pageFlowScope.chartProperties.SAnimationUpColor}"/>
+            <amx:inputText id="pAnimationDownColor" label="animationDownColor" value="#{pageFlowScope.animationDownColor}" rendered="#{pageFlowScope.chartProperties.SAnimationDownColor}"/>
+        </amx:panelFormLayout>
+  </amx:panelPage>
+</amx:view>

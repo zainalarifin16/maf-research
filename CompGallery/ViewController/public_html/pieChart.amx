@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:navigationDragBehavior id="ndb2" direction="forward" action="chartProperties">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Pie Chart"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back">
+        <amx:setPropertyListener to="#{DvtProperties.pieChartProperties.dataSelection}"
+                                 from="#{pageFlowScope.dataSelection}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.pieChartProperties.footnote}" from="#{pageFlowScope.footnote}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.pieChartProperties.footnoteHalign}"
+                                 from="#{pageFlowScope.footnoteHalign}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.pieChartProperties.hideAndShowBehavior}"
+                                 from="#{pageFlowScope.hideAndShowBehavior}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.pieChartProperties.inlineStyle}"
+                                 from="#{pageFlowScope.inlineStyle}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.pieChartProperties.rolloverBehavior}"
+                                 from="#{pageFlowScope.rolloverBehavior}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.pieChartProperties.rolloverBehaviorDelay}"
+                                 from="#{pageFlowScope.rolloverBehaviorDelay}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.pieChartProperties.subtitle}" from="#{pageFlowScope.subtitle}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.pieChartProperties.threeDEffect}"
+                                 from="#{pageFlowScope.threeDEffect}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.pieChartProperties.title}" from="#{pageFlowScope.title}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.pieChartProperties.titleHalign}"
+                                 from="#{pageFlowScope.titleHalign}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.pieChartProperties.animationOnDataChange}"
+                                 from="#{pageFlowScope.animationOnDataChange}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.pieChartProperties.animationIndicators}"
+                                 from="#{pageFlowScope.animationIndicators}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.pieChartProperties.animationDuration}"
+                                 from="#{pageFlowScope.animationDuration}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.pieChartProperties.animationOnDisplay}"
+                                 from="#{pageFlowScope.animationOnDisplay}" type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.pieChartProperties.shortDesc}" from="#{pageFlowScope.shortDesc}"
+                                 type="action"/>
+        <amx:setPropertyListener to="#{DvtProperties.pieChartProperties.seriesEffect}"
+                                 from="#{pageFlowScope.seriesEffect}" type="action"/>
+      </amx:commandButton>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="chartProperties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#dvtm:pieChart" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/dvtCharts/pieChart"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:flexLayout id="fl1">
+      <amx:panelStretchLayout id="psl1" styleClass="dvtm-gallery-component-panel">
+        <amx:facet name="center">
+          <dvtm:pieChart var="row" value="#{bindings.pieData.collectionModel}" id="pieChart1"
+                         styleClass="dvtm-gallery-component" centerLabel="#{pageFlowScope.pieCenterLabel}"
+                         dataSelection="#{pageFlowScope.dataSelection}" footnote="#{pageFlowScope.footnote}"
+                         footnoteHalign="#{pageFlowScope.footnoteHalign}" innerRadius="#{pageFlowScope.innerRadius}"
+                         hideAndShowBehavior="#{pageFlowScope.hideAndShowBehavior}"
+                         rolloverBehavior="#{pageFlowScope.rolloverBehavior}"
+                         rolloverBehaviorDelay="#{pageFlowScope.rolloverBehaviorDelay}"
+                         selectionEffect="#{pageFlowScope.pieSelectionEffect}"
+                         seriesEffect="#{pageFlowScope.seriesEffect}" sliceGaps="#{pageFlowScope.sliceGaps}"
+                         subtitle="#{pageFlowScope.titleDisplay ? pageFlowScope.subtitle : ''}"
+                         threeDEffect="#{pageFlowScope.threeDEffect ? 'on' : 'off'}"
+                         title="#{pageFlowScope.titleDisplay ? pageFlowScope.title : ''}"
+                         titleHalign="#{pageFlowScope.titleHalign}"
+                         animationOnDataChange="#{pageFlowScope.animationOnDataChange}"
+                         animationDuration="#{pageFlowScope.animationDuration}"
+                         animationOnDisplay="#{pageFlowScope.animationOnDisplay}"
+                         shortDesc="#{pageFlowScope.shortDesc}">
+            <amx:facet name="dataStamp">
+              <dvtm:pieDataItem label="#{row.label}" value="#{row.value}"/>
+            </amx:facet>
+            <dvtm:legend position="#{pageFlowScope.legendPosition}" id="l1" rendered="#{pageFlowScope.legendDisplay}"/>
+          </dvtm:pieChart>
+        </amx:facet>
+        <amx:facet name="bottom"></amx:facet>
+      </amx:panelStretchLayout>
+      <amx:panelGroupLayout id="pglOptionsPanel" scrollPolicy="scroll">
+        <amx:panelFormLayout id="pflOptionsForm" maxColumns="2" rows="4" styleClass="dvtm-gallery-options"
+                             fieldWidth="60%" labelWidth="40%">
+          <amx:selectBooleanCheckbox id="sbcLegend" label="Legend" value="#{pageFlowScope.legendDisplay}"/>
+          <amx:selectBooleanCheckbox id="sbc3DEffect" label="3D" value="#{pageFlowScope.threeDEffect}"/>
+          <amx:selectBooleanCheckbox id="sbcTitles" label="Titles" value="#{pageFlowScope.titleDisplay}"/>
+          <amx:selectOneChoice id="socSliceGaps" label="sliceGaps" value="#{pageFlowScope.sliceGaps}">
+            <amx:selectItem id="siSliceGaps0" label="0%" value="0"/>
+            <amx:selectItem id="siSliceGaps50" label="50%" value="0.5"/>
+            <amx:selectItem id="siSliceGaps100" label="100%" value="1.0"/>
+          </amx:selectOneChoice>
+          <amx:selectOneChoice id="socLegendPosition" label="Position" value="#{pageFlowScope.legendPosition}"
+                               disabled="#{!pageFlowScope.legendDisplay}">
+            <amx:selectItem id="siLegendPositionAuto" label="auto" value="auto"/>
+            <amx:selectItem id="siLegendPositionBottom" label="bottom" value="bottom"/>
+            <amx:selectItem id="siLegendPositionEnd" label="end" value="end"/>
+            <amx:selectItem id="siLegendPositionStart" label="start" value="start"/>
+            <amx:selectItem id="siLegendPositionTop" label="top" value="top"/>
+          </amx:selectOneChoice>
+          <amx:selectOneChoice id="socSelection" label="Select" value="#{pageFlowScope.dataSelection}">
+            <amx:selectItem id="siSelectionNone" label="none" value="none"/>
+            <amx:selectItem id="siSelectionSingle" label="single" value="single"/>
+            <amx:selectItem id="siSelectionMultiple" label="multiple" value="multiple"/>
+          </amx:selectOneChoice>
+          <amx:selectOneChoice id="socInnerRadius" label="innerRadius" value="#{pageFlowScope.innerRadius}">
+            <amx:selectItem id="siInnerRadius0" label="0%" value="0"/>
+            <amx:selectItem id="siInnerRadius25" label="25%" value="0.25"/>
+            <amx:selectItem id="siInnerRadius50" label="50%" value="0.5"/>
+            <amx:selectItem id="siInnerRadius75" label="75%" value="0.75"/>
+          </amx:selectOneChoice>
+        </amx:panelFormLayout>
+        <amx:panelGroupLayout id="pglCommandButtons" layout="horizontal">
+          <amx:commandButton text="Data Refresh" id="cbRefresh" actionListener="#{PieDataList.refreshChart}"
+                             disabled="#{DvtProperties.hostedMode}"/>
+          <amx:commandButton text="More Options..." id="cbMore">
+            <amx:showPopupBehavior popupId="pAdvancedOptions" type="action" align="overlapTopCenter"
+                                   alignId="pflOptionsForm" decoration="anchor"/>
+          </amx:commandButton>
+        </amx:panelGroupLayout>
+      </amx:panelGroupLayout>
+    </amx:flexLayout>
+  </amx:panelPage>
+  <amx:popup id="pAdvancedOptions" styleClass="dvtm-gallery-options-dialog">
+    <amx:panelFormLayout id="pflAdvancedOptions">
+      <amx:inputText id="itCenterLabel" label="centerLabel" value="#{pageFlowScope.pieCenterLabel}"/>
+      <amx:selectOneChoice id="socHideAndShowBehavior" label="hideAndShowBehavior"
+                           value="#{pageFlowScope.hideAndShowBehavior}">
+        <amx:selectItem id="sliHideAndShowBehaviorNone" label="none" value="none"/>
+        <amx:selectItem id="sliHideAndShowBehaviorWithRescale" label="withRescale" value="withRescale"/>
+        <amx:selectItem id="sliHideAndShowBehaviorWithoutRescale" label="withoutRescale" value="withoutRescale"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="socRolloverBehavior" label="rolloverBehavior" value="#{pageFlowScope.rolloverBehavior}">
+        <amx:selectItem id="rolloverBehaviorNone" label="none" value="none"/>
+        <amx:selectItem id="rolloverBehaviorDim" label="dim" value="dim"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="socSelectionEffect" label="selectionEffect" value="#{pageFlowScope.pieSelectionEffect}">
+        <amx:selectItem id="siExplode" label="explode" value="explode"/>
+        <amx:selectItem id="siHighlight" label="highlight" value="highlight"/>
+        <amx:selectItem id="siHighlightAndExplode" label="highlightAndExplode" value="highlightAndExplode"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="socSeriesEffect" label="seriesEffect" value="#{pageFlowScope.seriesEffect}">
+        <amx:selectItem id="siSeriesEffectColor" label="color" value="color"/>
+        <amx:selectItem id="siSeriesEffectGradient" label="gradient" value="gradient"/>
+        <amx:selectItem id="siSeriesEffectPattern" label="pattern" value="pattern"/>
+      </amx:selectOneChoice>
+      <amx:inputText id="itShortdesc" label="shortDesc" value="#{pageFlowScope.shortDesc}"/>
+      <amx:inputText id="itSubtitle" label="subtitle" value="#{pageFlowScope.subtitle}"/>
+      <amx:inputText id="itTitle" label="title" value="#{pageFlowScope.title}"/>
+    </amx:panelFormLayout>
+    <amx:commandButton id="cbClose" styleClass="adfmf-commandButton-actionSheet" text="Close">
+      <amx:closePopupBehavior popupId="pAdvancedOptions" type="action"/>
+    </amx:commandButton>
+  </amx:popup>
+</amx:view>

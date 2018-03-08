@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.18.50" id="List_phonePageDef"
+                Package="wb.Directory">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="HRService" id="HRServiceIterator"/>
+    <accessorIterator MasterBinding="HRServiceIterator" Binds="directory" RangeSize="25" DataControl="HRService"
+                      BeanClass="wb.model.Employee" id="directoryIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="toggleSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="toggleSpringboard"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider"/>
+    <tree IterBinding="directoryIterator" id="directory">
+      <nodeDefinition DefName="wb.model.Employee" Name="directory0">
+        <AttrNames>
+          <Item Value="empid"/>
+          <Item Value="pic"/>
+          <Item Value="firstname"/>
+          <Item Value="lastname"/>
+          <Item Value="title"/>
+          <Item Value="deptname"/>
+          <Item Value="office"/>
+          <Item Value="address"/>
+          <Item Value="city"/>
+          <Item Value="state"/>
+          <Item Value="jobcode"/>
+          <Item Value="phone"/>
+          <Item Value="mobile"/>
+          <Item Value="email"/>
+          <Item Value="active"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="directoryIterator" id="Execute" InstanceName="wb.model.HRService.directory"
+            DataControl="HRService" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <attributeValues IterBinding="HRServiceIterator" id="filter">
+      <AttrNames>
+        <Item Value="filter"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

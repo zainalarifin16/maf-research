@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Shared Attribute Groups"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="#{GlobalProperties.tagdocUrl}#dvtm:attributeGroups" shortDesc="Tag documentation" disabled="#{GlobalProperties.tagdocUrl == ''}"
+                  id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" inlineStyle="width:32px;height:32px;" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/dvtFeatures/sharedAttributeGroups" shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" inlineStyle="width:32px;height:32px;" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:flexLayout id="fl1">
+    <amx:panelStretchLayout id="psl1" styleClass="dvtm-gallery-component-panel" inlineStyle="text-align: center;">
+    <amx:facet name="top">
+      <amx:outputText value="Articles Count in Total" id="ot1" inlineStyle="text-align: center; font-weight: bold; margin-top: 30px;"/>
+    </amx:facet>
+    <amx:facet name="center">
+    <dvtm:sunburst id="s1" value="#{bindings.articles.collectionModel}" var="row">
+      <dvtm:sunburstNode value="#{row.count}" label="#{row.author} (#{row.count})" id="sn1">
+         <?audit suppress oracle.ide.xml.validation-error?>
+         <dvtm:attributeGroups type="color" label="#{row.author}" value="#{row.author}" discriminant="customModel"/>
+      </dvtm:sunburstNode>
+    </dvtm:sunburst>
+    </amx:facet>
+    </amx:panelStretchLayout>
+    <amx:panelStretchLayout id="psl2" styleClass="dvtm-gallery-component-panel" inlineStyle="text-align: center;">
+    <amx:facet name="top">
+      <amx:outputText value="Articles Count per Year" id="ot2" inlineStyle="text-align: center; font-weight: bold; margin-top: 30px;"/>
+    </amx:facet>
+    <amx:facet name="center">
+    <amx:filmStrip
+      itemsPerPage="1" inlineStyle="width: 500px; margin:0 auto;" id="filmStripAttrGroups">
+      <amx:filmStripItem id="fsi1" inlineStyle="text-align:center; height: 300px; width: 500px;">
+    <dvtm:barChart var="row" value="#{bindings.articlesPerYear2014.collectionModel}" id="bc1" dataLabelPosition="center"
+                   title="2014" titleHalign="center" inlineStyle="height:290px">
+      <amx:facet name="dataStamp">
+        <dvtm:chartDataItem group="#{row.year}" value="#{row.count}"
+                            series="#{row.author}" id="cdi1" label="#{row.author} (#{row.count})"
+                            labelStyle="font-size: 15px;">
+            <dvtm:attributeGroups type="color" label="#{row.author}" value="#{row.author}" discriminant="customModel"/>
+        </dvtm:chartDataItem>
+      </amx:facet>
+      <dvtm:xAxis>
+        <dvtm:tickLabel rendered="false"/>
+      </dvtm:xAxis>
+      <dvtm:legend position="end" id="l1" rendered="false"/>
+    </dvtm:barChart>
+    </amx:filmStripItem>
+    <amx:filmStripItem id="fsi2" inlineStyle="text-align:center; height: 300px; width: 500px;">
+    <dvtm:barChart var="row" value="#{bindings.articlesPerYear2013.collectionModel}" id="bc2" dataLabelPosition="center"
+                   title="2013" titleHalign="center" inlineStyle="height:290px">
+      <amx:facet name="dataStamp">
+        <dvtm:chartDataItem group="#{row.year}" value="#{row.count}"
+                            series="#{row.author}" id="cdi2" label="#{row.author} (#{row.count})"
+                            labelStyle="font-size: 15px;">
+            <dvtm:attributeGroups type="color" label="#{row.author}" value="#{row.author}" discriminant="customModel"/>
+        </dvtm:chartDataItem>
+      </amx:facet>
+      <dvtm:xAxis>
+        <dvtm:tickLabel rendered="false"/>
+      </dvtm:xAxis>
+      <dvtm:legend position="end" id="l2" rendered="false"/>
+    </dvtm:barChart>
+    </amx:filmStripItem>
+    <amx:filmStripItem id="fsi3" inlineStyle="text-align:center; height: 300px; width: 500px;">
+    <dvtm:barChart var="row" value="#{bindings.articlesPerYear2012.collectionModel}" id="bc3" dataLabelPosition="center"
+                   title="2012" titleHalign="center" inlineStyle="height:290px">
+      <amx:facet name="dataStamp">
+        <dvtm:chartDataItem group="#{row.year}" value="#{row.count}"
+                            series="#{row.author}" id="cdi3" label="#{row.author} (#{row.count})"
+                            labelStyle="font-size: 15px;">
+            <dvtm:attributeGroups type="color" label="#{row.author}" value="#{row.author}" discriminant="customModel"/>
+        </dvtm:chartDataItem>
+      </amx:facet>
+      <dvtm:xAxis>
+        <dvtm:tickLabel rendered="false"/>
+      </dvtm:xAxis>
+      <dvtm:legend position="end" id="l3" rendered="false"/>
+    </dvtm:barChart>
+    </amx:filmStripItem>
+    <amx:filmStripItem id="fsi4" inlineStyle="text-align:center; height: 300px; width: 500px;">
+    <dvtm:barChart var="row" value="#{bindings.articlesPerYear2011.collectionModel}" id="bc4" dataLabelPosition="center"
+                   title="2011" titleHalign="center" inlineStyle="height:290px">
+      <amx:facet name="dataStamp">
+        <dvtm:chartDataItem group="#{row.year}" value="#{row.count}"
+                            series="#{row.author}" id="cdi4" label="#{row.author} (#{row.count})"
+                            labelStyle="font-size: 15px;">
+            <dvtm:attributeGroups type="color" label="#{row.author}" value="#{row.author}" discriminant="customModel"/>
+        </dvtm:chartDataItem>
+      </amx:facet>
+      <dvtm:xAxis>
+        <dvtm:tickLabel rendered="false"/>
+      </dvtm:xAxis>
+      <dvtm:legend position="end" id="l4" rendered="false"/>
+    </dvtm:barChart>
+    </amx:filmStripItem>
+    </amx:filmStrip>
+    </amx:facet>
+    </amx:panelStretchLayout>
+    </amx:flexLayout>
+  </amx:panelPage>
+</amx:view>

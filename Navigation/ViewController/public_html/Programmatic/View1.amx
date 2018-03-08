@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Programmatic" id="ot1"/>
+    </amx:facet>
+        <amx:facet name="primary">
+          <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+              <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+          </amx:commandLink>
+        </amx:facet>
+    <amx:outputText value="This example shows you how to navigate the current taskflow from within Java code.  This comes in very handy when you want to conditionally go to another page without the user having to click a command component." id="ot2"/>
+    <amx:selectOneChoice label="Navigate to" id="soc1" value="#{pageFlowScope.outcome}"
+                         valueChangeListener="#{pageFlowScope.ProgrammaticBean.valueChangeNavigate}">
+      <amx:selectItem id="si1" label="- none -" value=""/>
+      <amx:selectItem id="si2" label="View2" value="gotoView2"/>
+    </amx:selectOneChoice>
+
+  </amx:panelPage>
+</amx:view>

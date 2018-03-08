@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="About" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+        <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+            <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+        </amx:commandLink>
+    </amx:facet>
+        <amx:outputText value="Overview" id="ot2" styleClass="adfmf-outputText-sectionTitle"/>
+        <amx:outputText value="This application demonstrates how to register for and receive push notifications." id="ot3"/>
+        <amx:outputText value="Push notifications functionality is not currently available for MAF apps running on Windows devices." id="ot4" rendered='#{deviceScope.device.os == "UWP"}'/>
+        <amx:outputText value="The PushPugin core plugin is enabled in maf-application.xml.  The registered application lifecycle event listener (ALCL) implements PushNotificationConfig and a push notification EventListener is instantiated within the start() method of the ALCL." id="ot5" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="On app launch, the framework registers the device with Google Cloud Messaging (GCM) or Apple Push Notification Service (APNs) and receives a device token." id="ot6" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="The mobile app must send the device token and user id to the server application so that it can link the user to the device. This is typically done following user login, but in this case the user id is registered with the server application manually." id="ot7" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="The app receives push notification messages via the onMessage() method of the push notification EventListener." id="ot8" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="How to use the app" id="ot9" styleClass="adfmf-outputText-sectionTitle" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="Deploy the PushServer web app to WLS.  Details of how to configure and run the server app are found in MessageBean.java within the PushServer app." id="ot10" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="Set the 'gcmSenderId' property in adf-config.xml in the PushDemo app." id="ot11" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="Set the appropriate server IP address in connections.xml in the PushDemo app." id="ot12" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="Deploy the PushDemo app to a mobile device (using a push-enabled provisioning profile for iOS) and launch it." id="ot13" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="Once the mobile app has registered with GCM or APNs, if not done so previously, register with the server app using the Register feature.  If running the server on a corporate network, you may require to run a VPN on the device for this step." id="ot14" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="Run pushregistration.xml on the server, select the appropriate user id, enter a message and click on 'Push Message'." id="ot15" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="If the app is running on the device, navigate to the Message feature to view the notification message." id="ot16" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="Otherwise, the notification message should be displayed in the device’s notification center and tapping on it will launch the app." id="ot17" rendered='#{deviceScope.device.os != "UWP"}'/>
+      </amx:panelPage>
+</amx:view>

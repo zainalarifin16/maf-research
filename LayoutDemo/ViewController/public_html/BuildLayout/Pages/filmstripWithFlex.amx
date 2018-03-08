@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="Filmstrip &amp; Flex" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton action="__back" id="cb1"/>
+        </amx:facet>
+        <amx:panelStretchLayout id="psl1">
+            <amx:facet name="top">
+                <amx:panelGroupLayout styleClass="summary-section-style" 
+                                      rendered="#{pageFlowScope.useFixedSummaryView=='true'}" layout="horizontal"
+                                      halign="center" id="pgl1">
+                    <amx:outputText value="Summary Section" id="ot2"/>
+                </amx:panelGroupLayout>
+            </amx:facet>
+            <amx:facet name="center">
+                <amx:filmStrip inlineStyle="width:96%;height:95%;margin-top:15px;" itemsPerPage="1" halign="center" id="fs1" styleClass="amx-fitParent amx-filmStrip-stretchItems">
+                <amx:filmStripItem  id="fsi1">
+                <amx:fragment src="/BuildLayout/Fragments/flexContentLayout.amxf" inlineStyle="height:100%;" id="f1">
+                    <amx:attribute name="contentText1" value="Rotate device" id="a1"/>
+                    <amx:attribute name="contentText2" value="to change" id="a2"/>
+                    <amx:attribute name="contentText3" value="layout" id="a3"/>                
+                </amx:fragment>
+                    </amx:filmStripItem>
+                    <amx:filmStripItem  id="fsi2">
+                <amx:fragment src="/BuildLayout/Fragments/flexContentLayout.amxf" inlineStyle="height:100%;" id="f2">
+                    <amx:attribute name="contentText1" value="ROTATE DEVICE" id="a12"/>
+                    <amx:attribute name="contentText2" value="TO CHANGE" id="a22"/>
+                    <amx:attribute name="contentText3" value="LAYOUT" id="a23"/>                
+                </amx:fragment>
+                    </amx:filmStripItem>
+                    <amx:filmStripItem  id="fsi3">
+                <amx:fragment src="/BuildLayout/Fragments/flexContentLayout.amxf" inlineStyle="height:100%;" id="f3">
+                    <amx:attribute name="contentText1" value="rOTaTe deVice" id="a21"/>
+                    <amx:attribute name="contentText2" value="to cHaNge" id="ae2"/>
+                    <amx:attribute name="contentText3" value="LaYoUt" id="aw3"/>                
+                </amx:fragment>
+                    </amx:filmStripItem>
+                </amx:filmStrip>
+            </amx:facet>
+        </amx:panelStretchLayout>
+    </amx:panelPage>
+</amx:view>

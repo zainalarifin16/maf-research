@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+        <amx:outputText id="header" value="Timeline"/>
+    </amx:facet>
+    <amx:facet name="primary">
+        <amx:commandButton id="back" action="__back" text="Back" shortDesc="timeline" />
+    </amx:facet>
+    <amx:facet name="secondary">
+        <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/timeline" shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                    id="pBookmark">
+            <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc="image"/>
+        </amx:goLink>
+    </amx:facet>
+    <amx:panelStretchLayout id="psl1">
+         <?audit suppress oracle.ide.xml.validation-error?>
+      <amx:facet name="center">
+         <dvtm:timeline
+               id="tl"
+               itemSelection="#{pageFlowScope.itemSelection}"
+               startTime="#{pageFlowScope.startTime}"
+               endTime="#{pageFlowScope.endTime}">
+            <dvtm:timelineSeries
+                       id="ts1"
+                       label="#{pageFlowScope.s1Label}"
+                       value="#{bindings.series1Data.collectionModel}"
+                       var="row">
+                    <dvtm:timelineItem
+                       id="ti1"
+                       startTime="#{row.startDate}"
+                       endTime="#{row.endDate}"
+                       title="#{row.title}"
+                       description="#{row.description}"
+                       durationFillColor="#{row.durationFillColor}"/>
+              </dvtm:timelineSeries>
+              <dvtm:timelineSeries
+                       id="ts2"
+                       label="#{pageFlowScope.s2Label}"
+                       value="#{bindings.series2Data.collectionModel}"
+                       var="row">
+                    <dvtm:timelineItem
+                       id="ti2"
+                       startTime="#{row.startDate}"
+                       endTime="#{row.endDate}"
+                       title="#{row.title}"
+                       description="#{row.description}"
+                       durationFillColor="#{row.durationFillColor}"/>
+              </dvtm:timelineSeries>
+              <dvtm:timeAxis
+                   scale="#{pageFlowScope.scale}"/>
+         </dvtm:timeline>
+      </amx:facet>
+      <amx:facet name="bottom">
+        <amx:panelGroupLayout layout="horizontal">
+        <amx:selectOneChoice id="pScale" label="scale" value="#{pageFlowScope.scale}">
+          <amx:selectItem label="days" value="days"/>
+          <amx:selectItem label="weeks" value="weeks"/>
+          <amx:selectItem label="months" value="months"/>
+          <amx:selectItem label="years" value="years"/>
+        </amx:selectOneChoice>
+        <amx:selectOneChoice id="pItemSelection" label="itemSelection" value="#{pageFlowScope.itemSelection}">
+          <amx:selectItem label="none" value="none"/>
+          <amx:selectItem label="single" value="single"/>
+        </amx:selectOneChoice>
+        </amx:panelGroupLayout>
+        <amx:commandButton text="More Options..." id="cbMore">
+          <amx:showPopupBehavior popupId="pAdvancedOptions" type="action"
+                                 align="overlapTopCenter" alignId="cbMore" decoration="anchor"/>
+        </amx:commandButton>
+      </amx:facet>
+    </amx:panelStretchLayout>
+  </amx:panelPage>
+  <amx:popup id="pAdvancedOptions" styleClass="dvtm-gallery-options-dialog">
+      <amx:panelFormLayout id="pflAdvancedOptions">
+        <amx:inputText id="pStartTime" label="startTime" value="#{pageFlowScope.startTime}" />
+        <amx:inputText id="pEndTime" label="endTime" value="#{pageFlowScope.endTime}" />
+        <amx:inputText id="pS1Label" label="Series1 Label" value="#{pageFlowScope.s1Label}" />
+        <amx:inputText id="pS2Label" label="Series2 Label" value="#{pageFlowScope.s2Label}" />
+      </amx:panelFormLayout>
+      <amx:commandButton id="cbClose" styleClass="adfmf-commandButton-actionSheet" text="Close">
+        <amx:closePopupBehavior popupId="pAdvancedOptions" type="action"/>
+      </amx:commandButton>
+    </amx:popup>
+</amx:view>

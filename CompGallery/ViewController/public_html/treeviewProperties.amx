@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+      <?audit suppress oracle.ide.xml.validation-error?>
+   </amx:navigationDragBehavior>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+        <amx:outputText id="header" value="Properties"/>
+    </amx:facet>
+    <amx:facet name="primary">
+        <amx:commandButton id="back" action="__back" text="Back"/>
+    </amx:facet>
+        <amx:outputText id="treemapOutt" value="General" inlineStyle="padding-top: 10px;font-weight:bold;"/> 
+        <amx:panelFormLayout id="treemapProps" labelWidth="40%" fieldWidth="60%">
+           <amx:selectOneChoice id="pRendered" label="rendered" value="#{pageFlowScope.rendered}">
+              <amx:selectItem label="true" value="true"/>
+              <amx:selectItem label="false" value="false"/>
+           </amx:selectOneChoice>
+           <amx:selectOneChoice id="pSorting" label="sorting" value="#{pageFlowScope.sorting}">
+              <amx:selectItem label="on" value="on"/>
+              <amx:selectItem label="off" value="off"/>
+           </amx:selectOneChoice>
+        </amx:panelFormLayout>
+        <amx:outputText id="animationOutt" value="Animations" inlineStyle="padding-top: 10px;font-weight:bold;"/>
+        <amx:panelFormLayout id="animationProps" labelWidth="40%" fieldWidth="60%" styleClass="dvtm-gallery-options">
+            <amx:selectOneChoice id="pAnimationOnDataChange" label="animationOnDataChange" value="#{pageFlowScope.animationOnDataChange}">
+              <amx:selectItem label="auto" value="auto"/>
+              <amx:selectItem label="none" value="none"/>
+            </amx:selectOneChoice>
+            <amx:selectOneChoice id="pAnimationOnDisplay" label="animationOnDisplay" value="#{pageFlowScope.animationOnDisplay}">
+              <amx:selectItem label="auto" value="auto"/>
+              <amx:selectItem label="none" value="none"/>
+            </amx:selectOneChoice>
+            <amx:inputText id="pAnimationDuration" label="animationDuration" value="#{pageFlowScope.animationDuration}" />
+        </amx:panelFormLayout>
+        <amx:outputText id="styleOutt" value="Styles" inlineStyle="padding-top: 10px;font-weight:bold;"/> 
+        <amx:panelFormLayout id="styleProps" labelWidth="40%" fieldWidth="60%">
+           <amx:inputText id="pInlineStyle" label="inlineStyle" value="#{pageFlowScope.inlineStyle}"/>
+           <amx:inputText id="pStyleClass" label="styleClass" value="#{pageFlowScope.styleClass}"/>  
+        </amx:panelFormLayout>
+        <amx:outputText id="otherOutt" value="Other" inlineStyle="padding-top: 10px;font-weight:bold;"/>
+        <amx:panelFormLayout id="otherProps" labelWidth="40%" fieldWidth="60%">
+            <amx:inputText id="pEmptyText" label="emptyText" value="#{pageFlowScope.emptyText}" />
+            <amx:inputText id="pShortDesc" label="shortDesc" value="#{pageFlowScope.shortDesc}"/>
+        </amx:panelFormLayout>
+  </amx:panelPage>
+</amx:view>

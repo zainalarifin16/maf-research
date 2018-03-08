@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1"/>
+    <amx:panelStretchLayout id="psl2">
+        <amx:facet name="top">
+            <amx:tableLayout id="tl4" width="100%" shortDesc="table">
+                <amx:rowLayout id="rl16">
+                    <amx:cellFormat id="cf35" width="100%" shortDesc="cell">
+                        <amx:outputText value="Location" id="ot13" styleClass="profileHeaderText"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl17">
+                    <amx:cellFormat id="cf36" shortDesc="cell">
+                        <amx:outputText value="#{bindings.address.inputValue}, #{bindings.city.inputValue}, #{bindings.state.inputValue} #{bindings.postal.inputValue}"
+                                        rendered="#{bindings.loading.inputValue ne 'true'}" id="ot14"
+                                        styleClass="profileText"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+            <amx:fragment src="/fragments/Loading.amxf" id="f2"/>
+        </amx:facet>
+        <amx:facet name="center">
+            <dvtm:geographicMap id="geomp1" rendered="#{bindings.loading.inputValue ne 'true'}"
+                                shortDesc="Deparment Map">
+                <dvtm:pointDataLayer id="pdl1">
+                    <dvtm:pointLocation id="pl2" type="address"
+                                        address="#{bindings.address.inputValue}, #{bindings.city.inputValue}, #{bindings.state.inputValue}, #{bindings.country.inputValue}">
+                        <dvtm:marker id="m2" shortDesc="Geomap Marker"/>
+                    </dvtm:pointLocation>
+                </dvtm:pointDataLayer>
+            </dvtm:geographicMap>
+        </amx:facet>
+    </amx:panelStretchLayout>
+</amx:fragmentDef>

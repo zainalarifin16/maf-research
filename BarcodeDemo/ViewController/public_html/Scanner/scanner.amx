@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Scanner" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+        <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+            <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+        </amx:commandLink>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandButton text="Scan" id="cl2" actionListener="#{viewScope.BarcodeBean.scanBarcode}"/>
+    </amx:facet>
+    <amx:outputText value="INSTRUCTIONS" styleClass="adfmf-outputText-sectionTitle" id="ot2"/>
+    <amx:outputText value="1. Press the Scan button in the header to launch the barcode scanner." id="ot3"/>
+    <amx:outputText value="2. Position the rear camera so that a barcode is displayed inside the view finder rectangle. The barcode will be automatically scanned." id="ot4"/>
+    <amx:spacer id="s1" height="20"/>
+    <amx:outputText value="SCAN DETAILS" styleClass="adfmf-outputText-sectionTitle" id="ot5"/>
+    <amx:outputText value="NO BARCODE SCANNED YET" id="ot6"
+                    rendered='#{viewScope.BarcodeBean.barcodeResult == "" &amp;&amp; viewScope.BarcodeBean.barcodeError == ""}'/>
+    <amx:outputText value="#{viewScope.BarcodeBean.barcodeError}" id="ot7"
+                    rendered='#{viewScope.BarcodeBean.barcodeError != ""}'/>
+    <amx:panelFormLayout id="pfl1" labelPosition="start" maxColumns="2" showHorizontalDividers="true" rows="3"
+                         fieldHalign="start" labelWidth="100" rendered='#{viewScope.BarcodeBean.barcodeResult != ""}'>
+    <amx:panelLabelAndMessage label="Result" id="plam1">
+      <amx:outputText value="#{viewScope.BarcodeBean.barcodeResult}" id="ot87"/>
+    </amx:panelLabelAndMessage>
+    <amx:panelLabelAndMessage label="Format" id="plam2">
+      <amx:outputText value="#{viewScope.BarcodeBean.barcodeFormat}" id="ot9"/>
+    </amx:panelLabelAndMessage>
+    <amx:panelLabelAndMessage label="Cancelled" id="plam3">
+      <amx:outputText value="#{viewScope.BarcodeBean.barcodeCancelled}" id="ot10"/>
+    </amx:panelLabelAndMessage>
+    </amx:panelFormLayout>
+  </amx:panelPage>
+</amx:view>

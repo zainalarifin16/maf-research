@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Split View"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Layout"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="styles" action="styles" shortDesc="Styles">
+        <amx:image id="stylesIcon" source="images/styles.svg" shortDesc=""/>
+        <amx:setPropertyListener from="List Item 1" to="#{pageFlowScope.listItem}" type="action"/>
+        <amx:setPropertyListener from="Default" to="#{pageFlowScope.panelSplitterStyle}" type="action"/>
+      </amx:commandLink>
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:panelSplitter" id="pTagdocUrl"
+                  shortDesc="Tag documentation" disabled="#{GlobalProperties['tagdocUrl'] == ''}">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=layout/panelSplitter"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:panelSplitter id="ps2" animation="#{pageFlowScope.componentProperties.animationPS}" 
+                       navigatorDisplay="#{pageFlowScope.componentProperties.navigatorDisplay}"
+                       navigatorDisclosureState="#{pageFlowScope.componentProperties.navigatorDisclosureState}"
+                       inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+                       position="#{pageFlowScope.componentProperties.position}"
+                       rendered="#{pageFlowScope.componentProperties.rendered}"
+                       selectedItem="#{pageFlowScope.componentProperties.selectedItem}"
+                       styleClass="#{pageFlowScope.componentProperties.styleClass}">
+      <amx:facet name="navigator">
+        <amx:listView id="lv1">
+          <amx:listItem id="li1">
+            <amx:outputText value="Show Panel 1" id="ot1"/>
+            <amx:setPropertyListener from="panel1"
+                                     to="#{pageFlowScope.componentProperties.selectedItem}"
+                                     type="action"/>
+          </amx:listItem>
+          <amx:listItem id="li2">
+            <amx:outputText value="Show Panel 2" id="ot2"/>
+            <amx:setPropertyListener from="panel2"
+                                     to="#{pageFlowScope.componentProperties.selectedItem}"
+                                     type="action"/>
+          </amx:listItem>
+        </amx:listView>
+      </amx:facet>
+      <amx:panelItem id="panel1">
+        <amx:outputText id="otp2" value="This is panel 1"
+          styleClass="adfmf-outputText-padded"/>
+        <amx:panelFormLayout labelPosition="start" id="pfl1">
+          <amx:panelLabelAndMessage id="panelLabelAndMessage1" label="Field1">
+            <amx:outputText id="outputText1" value="Field1"/>
+          </amx:panelLabelAndMessage>
+          <amx:panelLabelAndMessage id="panelLabelAndMessage2" label="Field2">
+            <amx:outputText id="outputText2" value="Field2"/>
+          </amx:panelLabelAndMessage>
+          
+        </amx:panelFormLayout>
+        <amx:panelGroupLayout layout="horizontal" halign="center">
+          <amx:spacer width="20"/>
+          <amx:commandLink text="Navigator Inline">
+            <amx:setPropertyListener from="inline" to="#{pageFlowScope.componentProperties.navigatorDisplay}" type="action"/>
+          </amx:commandLink>
+          <amx:spacer width="20"/>
+          <amx:commandLink text="Navigator Overlay">
+            <amx:setPropertyListener from="overlay" to="#{pageFlowScope.componentProperties.navigatorDisplay}" type="action"/>
+          </amx:commandLink>
+          <amx:spacer width="20"/>
+          <amx:commandLink text="Navigator auto">
+            <amx:setPropertyListener from="auto" to="#{pageFlowScope.componentProperties.navigatorDisplay}" type="action"/>
+          </amx:commandLink>
+        </amx:panelGroupLayout>
+        <amx:panelGroupLayout layout="horizontal" halign="center">
+          <amx:spacer height="20"/>
+        </amx:panelGroupLayout >
+        <amx:panelGroupLayout layout="horizontal" halign="center">
+          <amx:spacer width="20"/>
+          <amx:commandLink text="Open Navigator">
+            <amx:setPropertyListener from="open" to="#{pageFlowScope.componentProperties.navigatorDisclosureState}" type="action"/>
+          </amx:commandLink>
+          <amx:spacer width="20"/>
+          <amx:commandLink text="Close Navigator">
+            <amx:setPropertyListener from="closed" to="#{pageFlowScope.componentProperties.navigatorDisclosureState}" type="action"/>
+          </amx:commandLink>
+          <amx:spacer width="20"/>
+          <amx:commandLink text="Disclose=auto">
+            <amx:setPropertyListener from="auto" to="#{pageFlowScope.componentProperties.navigatorDisclosureState}" type="action"/>
+          </amx:commandLink>
+        </amx:panelGroupLayout>
+        <amx:panelGroupLayout layout="horizontal" halign="center">
+          <amx:spacer width="20"/>
+          <amx:commandLink text="Set Position to 50%">
+            <amx:setPropertyListener from="50%" to="#{pageFlowScope.componentProperties.position}" type="action"/>
+          </amx:commandLink>
+          <amx:spacer width="20"/>
+          <amx:commandLink text="Set Position to 33%" id="navSetPos33">
+            <amx:setPropertyListener from="33%" to="#{pageFlowScope.componentProperties.position}" type="action"/>
+          </amx:commandLink>
+        </amx:panelGroupLayout>
+      </amx:panelItem>
+      <amx:panelItem id="panel2">
+        <amx:outputText id="otp3" value="This is panel 2"
+          styleClass="adfmf-outputText-padded"/>
+        <amx:panelFormLayout labelPosition="topStart" id="pfl2">
+          <amx:panelLabelAndMessage id="panelLabelAndMessage3" label="Field1">
+            <amx:outputText id="outputText3" value="Field1"/>
+          </amx:panelLabelAndMessage>
+          <amx:panelLabelAndMessage id="panelLabelAndMessage4" label="Field2">
+            <amx:outputText id="outputText4" value="Field2"/>
+          </amx:panelLabelAndMessage>
+          <amx:panelLabelAndMessage id="panelLabelAndMessage5" label="Field2">
+            <amx:outputText id="outputText5" value="Field2"/>
+          </amx:panelLabelAndMessage>
+        </amx:panelFormLayout>
+      </amx:panelItem>
+    </amx:panelSplitter>
+  </amx:panelPage>
+</amx:view>

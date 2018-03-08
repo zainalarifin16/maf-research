@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Button Set Styles" id="hdr"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"
+                         shortDesc="Go back to the previous page"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=textselect/selectOneButton/styles"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:outputText value="Default" id="ot1" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:selectOneButton id="sob1" simple="true" value="#{pageFlowScope.textvalue}">
+      <amx:selectItem id="si11" label="Item1" value="item1"/>
+      <amx:selectItem id="si12" label="Item2" value="item2"/>
+      <amx:selectItem id="si13" label="Item3" value="item3"/>
+    </amx:selectOneButton>
+    <amx:outputText value="adfmf-selectOneButton-tabStyle" id="ot2" styleClass="adfmf-outputText-sectionTitle"
+      inlineStyle="text-transform: none;"/>
+    <amx:selectOneButton id="sob2" simple="true" value="#{pageFlowScope.textvalue}" styleClass="adfmf-selectOneButton-tabStyle">
+      <amx:selectItem id="si21" label="Item1" value="item1"/>
+      <amx:selectItem id="si22" label="Item2" value="item2"/>
+      <amx:selectItem id="si23" label="Item3" value="item3"/>
+    </amx:selectOneButton>
+     <amx:outputText value="adfmf-selectOneButton-tabStyle layout=&quot;vertical&quot;" id="ot3" styleClass="adfmf-outputText-sectionTitle"
+      inlineStyle="text-transform: none;"/>
+    <amx:selectOneButton id="sob3" simple="true" value="#{pageFlowScope.textvalue}" layout="vertical"
+      styleClass="adfmf-selectOneButton-tabStyle">
+      <amx:selectItem id="si31" label="Item1" value="item1"/>
+      <amx:selectItem id="si32" label="Item2" value="item2"/>
+      <amx:selectItem id="si33" label="Item3" value="item3"/>
+    </amx:selectOneButton>
+    <amx:outputText value="layout=&quot;vertical&quot;" id="ot4" styleClass="adfmf-outputText-sectionTitle"
+      inlineStyle="text-transform: none;"/>
+    <amx:selectOneButton id="sob4" simple="true" value="#{pageFlowScope.textvalue}" layout="vertical">
+      <amx:selectItem id="si41" label="Item1" value="item1"/>
+      <amx:selectItem id="si42" label="Item2" value="item2"/>
+      <amx:selectItem id="si43" label="Item3" value="item3"/>
+    </amx:selectOneButton>
+  </amx:panelPage>
+</amx:view>

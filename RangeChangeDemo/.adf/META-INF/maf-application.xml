@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
+                   version="1.0" name="RangeChangeDemo" id="com.oraclecorp.internal.RangeChangeDemo"
+                   appControllerFolder="ApplicationController" listener-class="application.LifeCycleListenerImpl">
+  <adfmf:featureReference id="f1" refId="About"/>
+  <adfmf:featureReference id="f2" refId="Settings"/>
+  <adfmf:featureReference id="f3" refId="Pattern1"/>
+  <adfmf:featureReference id="f4" refId="Pattern2"/>
+  <adfmf:featureReference id="f5" refId="Springboard" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:preferences>
+    <adfmf:preferenceGroup id="preferences" label="Preferences">
+      <adfmf:preferenceList id="showMoreStrategy" label="ShowMoreStrategy" default="autoLink">
+        <adfmf:preferenceValue name="autoLink" value="autoLink" id="pv1"/>
+        <adfmf:preferenceValue name="autoScroll" value="autoScroll" id="pv2"/>
+        <adfmf:preferenceValue name="forceLink" value="forceLink" id="pv3"/>
+        <adfmf:preferenceValue name="forceScroll" value="forceScroll" id="pv4"/>
+        <adfmf:preferenceValue name="off" value="off" id="pv5"/>
+      </adfmf:preferenceList>
+      <adfmf:preferenceList id="bufferStrategy" label="BufferStrategy" default="viewport">
+        <adfmf:preferenceValue name="additive" value="additive" id="pv6"/>
+        <adfmf:preferenceValue name="viewport" value="viewport" id="pv7"/>
+      </adfmf:preferenceList>
+      <adfmf:preferenceNumber id="bufferSize" label="BufferSize" default="100"/>
+    </adfmf:preferenceGroup>
+  </adfmf:preferences>
+  <adfmf:navigation>
+    <adfmf:navigationBar enabled="false"/>
+    <adfmf:springboard enabled="true" width="250" showSpringboardAtStartup="false"
+                       displayGotoSpringboardControl="false">
+      <adfmf:springboardFeatureReference id="sf1" refId="Springboard"/>
+    </adfmf:springboard>
+  </adfmf:navigation>
+</adfmf:application>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1"/>
+    <amx:panelSplitter position=" "  id="ps1">
+        <amx:facet name="navigator" >
+            <amx:listView var="row" showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1">
+                <amx:listItem id="li1">
+                    <amx:commandLink text="Link1" id="cl1">
+                        <amx:setPropertyListener from="Link1" to="#{pageFlowScope.splitContentValue}"
+                                                 id="spl1"/>
+                    </amx:commandLink>
+                </amx:listItem>
+                <amx:listItem id="li2">
+                    <amx:commandLink text="Link2" id="cl2">
+                        <amx:setPropertyListener from="Link2" to="#{pageFlowScope.splitContentValue}"
+                                                 id="spl2"/>
+                    </amx:commandLink>
+                </amx:listItem>
+                <amx:listItem id="li3">
+                    <amx:commandLink text="Link3" id="cl3">
+                        <amx:setPropertyListener from="Link3" to="#{pageFlowScope.splitContentValue}"
+                                                 id="spl3"/>
+                    </amx:commandLink>
+                </amx:listItem>
+                <amx:listItem id="li4">
+                    <amx:commandLink text="Link4" id="cl4">
+                        <amx:setPropertyListener from="Link4" to="#{pageFlowScope.splitContentValue}"
+                                                 id="spl4"/>
+                    </amx:commandLink>
+                </amx:listItem>
+            </amx:listView>
+        </amx:facet>
+        <amx:panelItem id="pi1">
+         <amx:deck
+                displayedChild="#{pageFlowScope.splitContentValue=='' ? 'Link1' : pageFlowScope.splitContentValue}" inlineStyle="text-align:center;" id="d1">
+        <amx:panelGroupLayout halign="center" valign="middle" id="pgl1">
+        <amx:outputText value="outputText1" id="Link1"/>
+        </amx:panelGroupLayout>
+          <amx:panelGroupLayout halign="center" valign="middle" id="pgdl1">
+        <amx:outputText value="outputText2" id="Link2"/>
+        </amx:panelGroupLayout>
+          <amx:panelGroupLayout halign="center" valign="middle" id="pgddl1">
+        <amx:outputText value="outputText3" id="Link3"/>
+        </amx:panelGroupLayout>
+          <amx:panelGroupLayout halign="center" valign="middle" id="pgl1ff">
+        <amx:outputText value="outputText4" id="Link4"/>
+        </amx:panelGroupLayout>
+      </amx:deck>
+        </amx:panelItem>
+    </amx:panelSplitter>
+</amx:fragmentDef>

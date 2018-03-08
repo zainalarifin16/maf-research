@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1"/>
+    <amx:panelStretchLayout inlineStyle="border-width:1px;border-style:solid;margin-left:10px;margin-right:10px;border-color:#AED8FA"
+                            id="psl1">
+        <amx:facet name="center">
+            <amx:deck displayedChild="#{pageFlowScope.currentThumbnailContentValue =='' ? 'Link1' : pageFlowScope.currentThumbnailContentValue}"
+                      inlineStyle="text-align:center;height:100%" id="d1">
+                <amx:panelGroupLayout halign="center" valign="middle"
+                                      inlineStyle="position: absolute;top:0;bottom:0;left:0;right:0;" layout="vertical"
+                                      id="Link1">
+                    <amx:flexLayout id="Link1d" itemFlexibility="equal"
+                                    inlineStyle="position: absolute;top:0;bottom:0;left:0;right:0;"
+                                    orientation="vertical">
+                        <amx:spacer inlineStyle="background-color:green;width:100%;" id="s1"/>
+                        <amx:outputText styleClass="adfmf-flexLayout-itemFlexibility_inflexible" value="2"
+                                        inlineStyle="font-size: 36px"/>
+                        <amx:spacer inlineStyle="background-color:maroon;width:100%;" id="sd1"/>
+                    </amx:flexLayout>
+                </amx:panelGroupLayout>
+                <amx:flexLayout id="Link2" itemFlexibility="equal"
+                                inlineStyle="position: absolute;top:0;bottom:0;left:0;right:0;" orientation="vertical">
+                    <amx:spacer inlineStyle="background-color:green;width:100%;" id="s1d"/>
+                </amx:flexLayout>
+                <amx:panelGroupLayout halign="center" valign="middle" id="Link5">
+                    <amx:flexLayout id="fl1" itemFlexibility="#{'equal,inflexible'}">
+                        <amx:panelStretchLayout inlineStyle="background-color: #ff0000;">
+                            <amx:facet name="center"></amx:facet>
+                        </amx:panelStretchLayout>
+                        <amx:flexLayout inlineStyle="background-color: #00ff00;" orientation="inverse"
+                                        itemFlexibility="inflexible" itemJustification="center">
+                            <amx:outputText value="Text" inlineStyle="font-size: 36px"/>
+                        </amx:flexLayout>
+                        <!-- the third component with equal flexibility - we have reached end of enumeration so we start again from the first equal,inflexible -->
+                        <amx:panelStretchLayout inlineStyle="background-color: #0000ff;">
+                            <amx:facet name="center"></amx:facet>
+                        </amx:panelStretchLayout>
+                        <!-- the fourth component would be inflexible and the fifth flexible again -->
+                    </amx:flexLayout>
+                </amx:panelGroupLayout>
+                <amx:flexLayout id="Link3" itemFlexibility="inflexible" itemAlignment="center"
+                                itemJustification="center">
+                    <amx:panelGroupLayout id="pgl1" layout="vertical" halign="center" inlineStyle="width: 100%">
+                        <amx:outputText id="ot1" value="You have no MAX applications."
+                                        inlineStyle="color:#999; white-space:normal; font-weight:bold; font-size:20px"/>
+                        <amx:outputText id="ot2" value="Let's add your first one by clicking on the plus below!"
+                                        inlineStyle="font-size:14px"/>
+                        <amx:commandButton id="cb1" icon="/builtin/images/func_plus_gray_32@2x.png"
+                                           shortDesc="The Add App Link" styleClass="adfmf-commandButton-rounded"/>
+                    </amx:panelGroupLayout>
+                </amx:flexLayout>
+                <amx:panelGroupLayout halign="center" valign="middle" id="Link4">
+                    <amx:flexLayout id="fcl1" orientation="vertical" itemFlexibility="#{'equal,inflexible'}">
+                        <amx:spacer id="cs1"/>
+                        <amx:panelGroupLayout id="pgxl1" layout="vertical" halign="center" inlineStyle="width: 100%">
+                            <amx:outputText id="oht1" value="You have no MAX applications."
+                                            inlineStyle="color:#999; white-space:normal; font-weight:bold; font-size:20px"/>
+                            <amx:outputText id="ogt2" value="Let's add your first one by clicking on the plus below!"
+                                            inlineStyle="font-size:14px"/>
+                            <amx:commandButton id="cbdd1" icon="/builtin/images/func_plus_gray_32@2x.png"
+                                               shortDesc="The Add App Link" styleClass="adfmf-commandButton-rounded"/>
+                        </amx:panelGroupLayout>
+                        <amx:spacer id="s2"/>
+                    </amx:flexLayout>
+                </amx:panelGroupLayout>
+            </amx:deck>
+        </amx:facet>
+        <amx:facet name="bottom">
+            <amx:tableLayout halign="center" borderWidth="1" width="100%" inlineStyle="height:64px;" id="tl1">
+                <amx:rowLayout id="rl1">
+                    <amx:cellFormat inlineStyle="border:1px;border-style:solid;margin:5px;background-color:#DAE9F5;border-color:#AED8FA"
+                                    halign="center" height="64px;" width="25%" id="cf1">
+                        <amx:commandLink text="Link1" id="cl1">
+                            <amx:setPropertyListener from="Link1" to="#{pageFlowScope.currentThumbnailContentValue}"
+                                                     id="spl1"/>
+                        </amx:commandLink>
+                    </amx:cellFormat>
+                    <amx:cellFormat inlineStyle="border:1px;border-style:solid;margin:5px;background-color:#DAE9F5;border-color:#AED8FA"
+                                    halign="center" height="64px;" width="25%" id="cf2">
+                        <amx:commandLink text="Link2" id="cl2">
+                            <amx:setPropertyListener from="Link2" to="#{pageFlowScope.currentThumbnailContentValue}"
+                                                     id="spl2"/>
+                        </amx:commandLink>
+                    </amx:cellFormat>
+                    <amx:cellFormat inlineStyle="border:1px;border-style:solid;margin:5px;background-color:#DAE9F5;border-color:#AED8FA"
+                                    halign="center" height="64px;" width="25%" id="cf3">
+                        <amx:commandLink text="Link3" id="cl3">
+                            <amx:setPropertyListener from="Link3" to="#{pageFlowScope.currentThumbnailContentValue}"
+                                                     id="spl3"/>
+                        </amx:commandLink>
+                    </amx:cellFormat>
+                    <amx:cellFormat inlineStyle="border:1px;border-style:solid;margin:5px;background-color:#DAE9F5;border-color:#AED8FA"
+                                    halign="center" height="64px;" width="25%" id="cf4">
+                        <amx:commandLink text="Link4" id="cl4">
+                            <amx:setPropertyListener from="Link4" to="#{pageFlowScope.currentThumbnailContentValue}"
+                                                     id="spl4"/>
+                        </amx:commandLink>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:facet>
+    </amx:panelStretchLayout>
+</amx:fragmentDef>

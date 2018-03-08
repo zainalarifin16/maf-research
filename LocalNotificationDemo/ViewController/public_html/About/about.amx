@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="About" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+        <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+      </amx:commandLink>
+    </amx:facet>
+        <amx:outputText value="Overview" id="ot2" styleClass="adfmf-outputText-sectionTitle"/>
+        <amx:outputText value="This application demonstrates how to schedule and receive local notifications." id="ot3"/>
+        <amx:outputText value="Local notifications functionality is not currently available for MAF apps running on Windows devices." id="ot4" rendered='#{deviceScope.device.os == "UWP"}'/>
+        <amx:outputText value="A local notification EventListener is instantiated within the start() method of the registered Application Lifecycle Listener (ALCL)." id="ot5" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="The app receives local notification messages via the onMessage() method of the local notification EventListener." id="ot6" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="How to use the app" id="ot7" styleClass="adfmf-outputText-sectionTitle" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="The app has two features that demonstrate how to add a local notification:" id="ot8" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="In the 'Data Control' feature, the addlocalNotification method has been dragged onto the page from the Device Features Data Control." id="ot9" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="In the 'Managed Bean' feature, the AMX code calls methods on a managed bean that provides greater flexibility." id="ot10" rendered='#{deviceScope.device.os != "UWP"}'/>
+        <amx:outputText value="When the app receives a local notification, it jumps to the 'Notification' feature which displays the message and JSON payload of the notification." id="ot11" rendered='#{deviceScope.device.os != "UWP"}'/>
+      </amx:panelPage>
+</amx:view>

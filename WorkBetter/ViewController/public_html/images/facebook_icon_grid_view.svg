@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="facebook_icon_grid_view" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
+<g>
+	<g>
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M0,0v29.92h15V18l-3.14,0v-3.98h3.16c0,0-0.01-1.83-0.02-3.99
+			c0-1.98,1.79-3.92,4.02-3.94c0,0,0.06,0,0.09,0c2.83,0,4.84,0,4.84,0l0.01,3.86h-4c0,0-0.95,0.07-0.96,1.38c0,0.08,0,0.25,0,0.25
+			v2.42h4.94l-0.66,3.98l-4.29,0.01l-0.01,11.94H30V0H0z"/>
+	</g>
+</g>
+</svg>

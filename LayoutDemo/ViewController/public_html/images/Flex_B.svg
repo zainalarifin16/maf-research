@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Flex_Layout" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="150px" height="194px" viewBox="-14.5 15.5 150 194" enable-background="new -14.5 15.5 150 194"
+	 xml:space="preserve">
+<rect id="Background_Panel" x="-14.5" y="15.62" fill="#FFFFFF" width="150" height="194"/>
+<g id="Right_Vertical_Bar">
+	<g>
+		<rect x="86.006" y="16.007" fill="#DAE9F5" width="48.986" height="192.986"/>
+		<path fill="#AED8FA" d="M134.485,16.514v191.972H86.514V16.514H134.485 M135.5,15.5h-50v194h50V15.5L135.5,15.5z"/>
+	</g>
+</g>
+<g id="Left_Vertical_Bar">
+	<g>
+		<rect x="-14.16" y="16.007" fill="#DAE9F5" width="48.986" height="192.986"/>
+		<path fill="#AED8FA" d="M34.319,16.514v191.972h-47.972V16.514H34.319 M35.333,15.5h-50v194h50V15.5L35.333,15.5z"/>
+	</g>
+</g>
+<text id="C_Enabled" transform="matrix(1.0066 0 0 1 103.666 115.584)" fill="#0572CE" font-family="'HelveticaNeue'" font-size="20">C</text>
+<text id="B_Enabled" transform="matrix(1.0066 0 0 1 53.666 115.584)" fill="#0572CE" font-family="'HelveticaNeue'" font-size="20">B</text>
+<text id="A_Selected" transform="matrix(1.0066 0 0 1 4.207 115.584)" fill="#0572CE" font-family="'HelveticaNeue'" font-size="20">A</text>
+</svg>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+        <amx:outputText id="header" value="Properties"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+        <amx:commandButton id="back" action="__back" text="Done"/>
+    </amx:facet>
+        <amx:panelFormLayout id="propform" labelWidth="40%" fieldWidth="60%">
+          <amx:inputText id="pBorderColor" label="borderColor" value="#{pageFlowScope.borderColor}"/>
+          <amx:inputText id="pBorderWidth" label="borderWidth" value="#{pageFlowScope.borderWidth}"/>
+          <amx:inputText id="itColumnCount" label="columnCount" value="#{pageFlowScope.columnCount}"/>
+          <amx:inputText id="itColumnWidth" label="columnWidth" value="#{pageFlowScope.columnWidth}"/>
+          <amx:selectOneChoice id="socDataSelection" label="dataSelection" value="#{pageFlowScope.dataSelection}">
+            <amx:selectItem id="siDataSelectionNone" label="none" value="none"/>
+            <amx:selectItem id="siDataSelectionSingle" label="single" value="single"/>
+            <amx:selectItem id="siDataSelectionMultiple" label="multiple" value="multiple"/>
+          </amx:selectOneChoice>
+          <!--<amx:selectOneChoice id="socDrilling" label="drilling" value="#{pageFlowScope.drilling}">
+            <amx:selectItem id="siDrillingOn" label="on" value="on"/>
+            <amx:selectItem id="siDrillingOff" label="off" value="off"/>
+          </amx:selectOneChoice>-->
+          <amx:inputText id="itEmptyText" label="emptyText" value="#{pageFlowScope.emptyText}"/>
+          <amx:inputText id="itInlineStyle" label="inlineStyle" value="#{pageFlowScope.inlineStyle}"/>
+          <amx:selectOneChoice id="socLayout" label="layout" value="#{pageFlowScope.layout}">
+            <amx:selectItem id="siLayoutHorizontal" label="vertical" value="vertical"/>
+            <amx:selectItem id="siLayoutVertical" label="horizontal" value="horizontal"/>
+          </amx:selectOneChoice>
+          <amx:selectOneChoice id="socLayoutOrigin" label="layoutOrigin" value="#{pageFlowScope.layoutOrigin}">
+            <amx:selectItem id="siLayoutOriginTopEnd" label="topEnd" value="topEnd"/>
+            <amx:selectItem id="siLayoutOriginBottomStart" label="bottomStart" value="bottomStart"/>
+            <amx:selectItem id="siLayoutOriginBottomEnd" label="bottomEnd" value="bottomEnd"/>
+            <amx:selectItem id="siLayoutOriginTopStart" label="topStart" value="topStart"/>
+          </amx:selectOneChoice>
+          <amx:selectBooleanCheckbox id="sbcRendered" label="rendered" value="#{pageFlowScope.rendered}"/>
+          <amx:selectOneChoice id="socRolloverBehavior" label="rolloverBehavior" value="#{pageFlowScope.rolloverBehavior}">
+            <amx:selectItem id="siRolloverBehaviorNone" label="none" value="none"/>
+            <amx:selectItem id="siRolloverBehaviorDim" label="dim" value="dim"/>
+          </amx:selectOneChoice>
+          <amx:inputText id="itRolloverBehaviorDelay" label="rolloverBehaviorDelay" value="#{pageFlowScope.rolloverBehaviorDelay}"/>
+          <amx:inputText id="itRowCount" label="rowCount" value="#{pageFlowScope.rowCount}"/>
+          <amx:inputText id="itRowHeight" label="rowHeight" value="#{pageFlowScope.rowHeight}"/>
+          <amx:inputText id="pShortDesc" label="shortDesc" value="#{pageFlowScope.shortDesc}"/>
+          <amx:inputText id="pStyleClass" label="styleClass" value="#{pageFlowScope.styleClass}"/>
+          <amx:selectOneChoice id="socShape" label="shape" value="#{pageFlowScope.shape}">
+            <amx:selectItem id="siShapeSquare" label="square" value="square"/>
+            <amx:selectItem id="siShapeCircle" label="circle" value="circle"/>
+            <amx:selectItem id="siShapeDiamond" label="diamond" value="diamond"/>
+            <amx:selectItem id="siShapeTriangleUp" label="triangleUp" value="triangleUp"/>
+            <amx:selectItem id="siShapeTriangleDown" label="triangleDown" value="triangleDown"/>
+            <amx:selectItem id="siShapeStar" label="star" value="star"/>
+            <amx:selectItem id="siShapePlus" label="plus" value="plus"/>
+            <amx:selectItem id="siShapeHuman" label="human" value="human"/>
+            <amx:selectItem id="siShapeRectangle" label="rectangle" value="rectangle"/>
+          </amx:selectOneChoice>
+        </amx:panelFormLayout>
+        <amx:panelFormLayout id="styleProps" labelWidth="40%" fieldWidth="60%">
+          <amx:selectOneChoice id="pAnimationOnDataChange" label="animationOnDataChange" value="#{pageFlowScope.animationOnDataChange}">
+            <amx:selectItem label="alphaFade" value="alphaFade"/>
+            <amx:selectItem label="auto" value="auto"/>
+            <amx:selectItem label="none" value="none"/>
+            <amx:selectItem label="slideToLeft" value="slideToLeft"/>
+            <amx:selectItem label="slideToRight" value="slideToRight"/>
+          </amx:selectOneChoice>
+          <amx:inputText id="pAnimationDuration" label="animationDuration" value="#{pageFlowScope.animationDuration}"/>
+          <amx:selectOneChoice id="pAnimationOnDisplay" label="animationOnDisplay" value="#{pageFlowScope.animationOnDisplay}">
+            <amx:selectItem label="alphaFade" value="alphaFade"/>
+            <amx:selectItem label="auto" value="auto"/>
+            <amx:selectItem label="none" value="none"/>
+            <amx:selectItem label="zoom" value="zoom"/>
+          </amx:selectOneChoice>
+        </amx:panelFormLayout>
+  </amx:panelPage>
+</amx:view>

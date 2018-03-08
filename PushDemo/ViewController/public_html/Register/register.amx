@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Register" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+        <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+            <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+        </amx:commandLink>
+    </amx:facet>
+    <amx:panelGroupLayout id="pgl4" inlineStyle="margin:10px;">
+        <!-- If there's no error but also no token -->
+        <amx:panelGroupLayout id="pgl3"
+                              rendered="#{empty applicationScope.errorMessage &amp;&amp; empty applicationScope.deviceToken}">
+            <amx:outputText value="The app is attempting to register with Google Cloud Messaging (GCM)..." id="ot11"
+                            rendered='#{deviceScope.device.os == "Android"}'/>
+            <amx:outputText value="The app is attempting to register with Apple Push Notificaiton Service (APNs)..."
+                            id="ot10" rendered='#{deviceScope.device.os == "iOS"}'/>
+        </amx:panelGroupLayout>
+        <!-- If there was an error -->
+        <amx:panelGroupLayout id="pgl2" rendered="#{not (empty applicationScope.errorMessage)}">
+            <amx:outputText value="There was an error registering with Google Cloud Messaging (GCM):" id="ot6"
+                            rendered='#{deviceScope.device.os == "Android"}'/>
+            <amx:outputText value="There was an error registering with Apple Push Notificaiton Service (APNs):"
+                            id="ot7" rendered='#{deviceScope.device.os == "iOS"}'/>
+            <amx:outputText value="#{applicationScope.errorMessage}" id="ot8"/>
+        </amx:panelGroupLayout>
+        <!-- If registration was successful -->
+        <amx:panelGroupLayout id="pgl1" rendered="#{not (empty applicationScope.deviceToken)}">
+            <amx:outputText value="The app has registered this device with Google Cloud Messaging (GCM) and received a token of identificaiton: #{applicationScope.deviceToken}"
+                            id="ot4" rendered='#{deviceScope.device.os == "Android"}'/>
+            <amx:outputText value="The app has registered with Apple Push Notificaiton Service (APNs) and received a token of identificaiton: #{applicationScope.deviceToken}"
+                            id="ot5" rendered='#{deviceScope.device.os == "iOS"}'/>
+            <amx:spacer id="s1" height="10"/>
+            <amx:outputText value="Enter a unique user ID (e.g. your email address) and tap the Register button to register this device with the server application."
+                            id="ot9"/>
+            <amx:inputText label="User ID" id="it1" value="#{applicationScope.userId}"/>
+            <amx:commandButton text="Register" id="cb2"
+                               actionListener="#{applicationScope.pushRegisterBean.registerWithAppProvider}"
+                               rendered="#{empty applicationScope.errorMessage}"/>
+            <amx:outputText value="#{applicationScope.registerResponse}" id="ot12"/>
+        </amx:panelGroupLayout>
+    </amx:panelGroupLayout>
+  </amx:panelPage>
+</amx:view>

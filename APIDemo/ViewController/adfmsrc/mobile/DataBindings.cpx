@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.2.61.19" id="DataBindings"
+             SeparateXMLFiles="false" Package="mobile" ClientType="Generic">
+  <pageMap>
+    <page path="/Method.amx" usageId="mobile_MethodPageDef"/>
+    <page path="/ELResolution.amx" usageId="mobile_ELResolutionPageDef"/>
+    <page path="/Springboard/springboard.amx" usageId="mobile_springboardPageDef"/>
+    <page path="/About/about.amx" usageId="mobile_aboutPageDef"/>
+    <page path="/actionListener.amx" usageId="mobile_actionListenerPageDef"/>
+    <page path="/Success.amx" usageId="mobile_SuccessPageDef"/>
+    <page path="/valueListener.amx" usageId="mobile_valueListenerPageDef"/>
+    <page path="/Javascript/Javascript.amx" usageId="mobile_HomePageDef"/>
+    <page path="/ValueListener/valueListener.amx" usageId="mobile_valueListenerPageDef1"/>
+    <page path="/ActionListener/actionListener.amx" usageId="mobile_actionListenerPageDef1"/>
+    <page path="/Method/Method.amx" usageId="mobile_MethodPageDef1"/>
+    <page path="/ELResolution/ELResolution.amx" usageId="mobile_ELResolutionPageDef1"/>
+    <page path="/Success/Success.amx" usageId="mobile_SuccessPageDef1"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="mobile_MethodPageDef" path="mobile.pageDefs.MethodPageDef"/>
+    <page id="mobile_ELResolutionPageDef" path="mobile.pageDefs.ELResolutionPageDef"/>
+    <page id="mobile_springboardPageDef" path="Springboard.springboardPageDef"/>
+    <page id="mobile_aboutPageDef" path="About.aboutPageDef"/>
+    <page id="mobile_actionListenerPageDef" path="mobile.pageDefs.actionListenerPageDef"/>
+    <page id="mobile_SuccessPageDef" path="mobile.pageDefs.SuccessPageDef"/>
+    <page id="mobile_valueListenerPageDef" path="mobile.pageDefs.valueListenerPageDef"/>
+    <page id="mobile_HomePageDef" path="Javascript.HomePageDef"/>
+    <page id="mobile_valueListenerPageDef1" path="ValueListener.valueListenerPageDef"/>
+    <page id="mobile_actionListenerPageDef1" path="ActionListener.actionListenerPageDef"/>
+    <page id="mobile_MethodPageDef1" path="Method.MethodPageDef"/>
+    <page id="mobile_ELResolutionPageDef1" path="ELResolution.ELResolutionPageDef"/>
+    <page id="mobile_SuccessPageDef1" path="Success.SuccessPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="BeanDC" path="mobile.BeanDC"/>
+    <dc id="ApplicationFeatures" path="application.ApplicationFeatures"/>
+  </dataControlUsages>
+</Application>

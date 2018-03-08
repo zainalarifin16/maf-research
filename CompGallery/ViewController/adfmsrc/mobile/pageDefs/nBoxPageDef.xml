@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.9.30" id="nBoxPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="NBoxDataList" id="NBoxDataListIterator"/>
+    <accessorIterator MasterBinding="NBoxDataListIterator" Binds="NBoxNodesDataList" RangeSize="25"
+                      DataControl="NBoxDataList" BeanClass="model.NBoxNode" id="NBoxNodesDataListIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="NBoxNodesDataListIterator" id="NBoxNodesDataList">
+      <nodeDefinition DefName="model.NBoxNode" Name="NBoxNodesDataList0">
+        <AttrNames>
+          <Item Value="potential"/>
+          <Item Value="performance"/>
+          <Item Value="name"/>
+          <Item Value="position"/>
+          <Item Value="id"/>
+          <Item Value="role"/>
+          <Item Value="department"/>
+          <Item Value="experience"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

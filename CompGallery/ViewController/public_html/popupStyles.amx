@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Popup Styles" id="hdr"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"
+                         shortDesc="Go back to the previous page"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=layout/popup/styles"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:listView id="lvMessages">
+      <amx:listItem id="liPopupWithTitle">
+        <amx:outputText id="otPopupWithTitle" value="Popup containing an outputText title"/>
+        <amx:showPopupBehavior popupId="popupWithTitle" type="action"
+          alignId="liPopupWithTitle" align="bottomCenter" decoration="anchor"/>
+      </amx:listItem>
+      <amx:listItem id="liMessages">
+        <amx:outputText id="otAll" value="Messages example"/>
+        <amx:clientListener type="action" method="window.handleAll"/>
+        <amx:verbatim id="v1"><![CDATA[
+          <script type="text/javascript">
+          window.handleAll = function(clientEvent)
+            {
+              var amxNodeId = clientEvent.amxNodeId;
+              adf.mf.api.amx.addMessage("fatal", "Out of memory", "The application must quit.", amxNodeId);
+              adf.mf.api.amx.addMessage("error", "Crash detected", "The vehicle has encountered an obstruction.", amxNodeId);
+              adf.mf.api.amx.addMessage("warning", "The British are coming", "One if by land, two if by sea.", amxNodeId);
+              adf.mf.api.amx.addMessage("confirmation", "Spring has sprung", "The flowers are blooming.", amxNodeId);
+              adf.mf.api.amx.addMessage("info", "Four", "2 + 2 = 4", amxNodeId);
+            };
+          </script>
+        ]]></amx:verbatim>
+      </amx:listItem>
+    </amx:listView>
+  </amx:panelPage>
+  <amx:popup id="popupWithTitle" animation="zoom" autoDismiss="true" backgroundDimming="on">
+    <amx:panelGroupLayout id="popupPgl" layout="vertical">
+      <amx:outputText id="popupTitle" value="Popup Title Text" styleClass="adfmf-outputText-titleBar"/>
+      <amx:outputText id="popupBody1" value="The above outputText serves as a title for this popup."/>
+      <amx:outputText id="popupBody2" value="It uses a styleClass of 'adfmf-outputText-titleBar'."/>
+    </amx:panelGroupLayout>
+  </amx:popup>
+</amx:view>

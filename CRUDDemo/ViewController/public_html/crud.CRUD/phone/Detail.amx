@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="#{bindings.first.inputValue}" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton id="cb1" action="__back"/>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandButton id="cb2" action="edit" text="Edit">
+                <amx:setPropertyListener id="spl2" from="#{false}" to="#{pageFlowScope.newMode}"/>
+            </amx:commandButton>
+        </amx:facet>
+        <amx:panelFormLayout id="pfl1" fieldHalign="start" fieldWidth="70%" labelWidth="30%">
+            <amx:panelLabelAndMessage label="#{bindings.id.hints.label}" id="plam9">
+                <amx:outputText value="#{bindings.id.inputValue}" id="ot10">
+                    <amx:convertNumber groupingUsed="false" id="cn1"/>
+                </amx:outputText>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.first.hints.label}" id="plam8">
+                <amx:outputText value="#{bindings.first.inputValue}" id="ot9"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.last.hints.label}" id="plam3">
+                <amx:outputText value="#{bindings.last.inputValue}" id="ot4"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.phone.hints.label}" id="plam2">
+                <amx:outputText value="#{bindings.phone.inputValue}" id="ot3"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.email.hints.label}" id="plam6">
+                <amx:outputText value="#{bindings.email.inputValue}" id="ot7"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.birthDate.hints.label}" id="plam4">
+                <amx:outputText value="#{bindings.birthDate.inputValue}" id="ot5">
+                    <amx:convertDateTime pattern="#{bindings.birthDate.format}" id="cdt1"/>
+                </amx:outputText>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.address.hints.label}" id="plam1">
+                <amx:outputText value="#{bindings.address.inputValue}" id="ot2"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.city.hints.label}" id="plam7">
+                <amx:outputText value="#{bindings.city.inputValue}" id="ot8"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.state.hints.label}" id="plam5">
+                <amx:outputText value="#{bindings.state.inputValue}" id="ot6"/>
+            </amx:panelLabelAndMessage>
+        </amx:panelFormLayout>
+    </amx:panelPage>
+</amx:view>

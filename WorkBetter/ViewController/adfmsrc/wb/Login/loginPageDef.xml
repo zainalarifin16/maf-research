@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.8.30" id="loginPageDef" Package="wb.Login">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+  </executables>
+  <bindings>
+    <methodAction id="login" RequiresUpdateModel="true" Action="invokeMethod" MethodName="login"
+                  IsViewObjectMethod="false" DataControl="HRService" InstanceName="data.HRService.dataProvider">
+      <NamedData NDName="empid" NDValue="#{viewScope.empid}" NDType="int"/>
+    </methodAction>
+    <methodAction id="resetAndGotoDashboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="resetFeature"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider">
+      <NamedData NDName="fid" NDValue="wb.Dashboard" NDType="java.lang.String"/>
+      <NamedData NDName="gotoTheFeature" NDValue="true" NDType="java.lang.Boolean"/>
+    </methodAction>
+    <methodAction id="resetMyOrg" RequiresUpdateModel="true" Action="invokeMethod" MethodName="resetFeature"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider">
+      <NamedData NDName="fid" NDValue="wb.MyOrg" NDType="java.lang.String"/>
+      <NamedData NDName="gotoTheFeature" NDValue="false" NDType="java.lang.Boolean"/>
+    </methodAction>
+    <methodAction id="resetMyProfile" RequiresUpdateModel="true" Action="invokeMethod" MethodName="resetFeature"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider">
+      <NamedData NDName="fid" NDValue="wb.MyProfile" NDType="java.lang.String"/>
+      <NamedData NDName="gotoTheFeature" NDValue="false" NDType="java.lang.Boolean"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

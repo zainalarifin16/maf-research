@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.14.16" id="geographicMapRoutesPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="GeographicMapRouteScenarioList"
+              id="GeographicMapRouteScenarioListIterator"/>
+    <accessorIterator MasterBinding="GeographicMapRouteScenarioListIterator" Binds="scenarios" RangeSize="25"
+                      DataControl="GeographicMapRouteScenarioList" BeanClass="model.GeoMapRouteScenario"
+                      id="routeScenariosIterator"/>
+    <accessorIterator MasterBinding="routeScenariosIterator" Binds="data" RangeSize="25"
+                      DataControl="GeographicMapRouteScenarioList" BeanClass="model.GeographicMapPointData"
+                      id="routePointsIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="routeScenariosIterator" id="routeScenarios">
+      <nodeDefinition DefName="model.GeoMapRouteScenario" Name="routeScenarios0">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="type"/>
+          <Item Value="map"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="data"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="model.GeographicMapPointData" Name="routeScenarios1"
+                      TargetIterator="${bindings.dataIterator}">
+        <AttrNames>
+          <Item Value="pointX"/>
+          <Item Value="pointY"/>
+          <Item Value="shortDesc"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="routeScenariosIterator" id="map">
+      <AttrNames>
+        <Item Value="map"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="routeScenariosIterator" id="type">
+      <AttrNames>
+        <Item Value="type"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="routeScenariosIterator" id="name">
+      <AttrNames>
+        <Item Value="name"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="routePointsIterator" id="routePoints">
+      <nodeDefinition DefName="model.GeographicMapPointData" Name="routePoints0">
+        <AttrNames>
+          <Item Value="pointX"/>
+          <Item Value="pointY"/>
+          <Item Value="type"/>
+          <Item Value="shortDesc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<adf-config xmlns="http://xmlns.oracle.com/adf/config" xmlns:config="http://xmlns.oracle.com/bc4j/configuration"
+            xmlns:sec="http://xmlns.oracle.com/adf/security/config" xmlns:adf="http://xmlns.oracle.com/adf/config/properties">
+  <adf-adfm-config xmlns="http://xmlns.oracle.com/adfm/config">
+    <defaults changeEventPolicy="ppr" useBindVarsForViewCriteriaLiterals="true"/>
+    <startup>
+      <amconfig-overrides>
+        <config:Database jbo.locking.mode="optimistic"/>
+      </amconfig-overrides>
+    </startup>
+  </adf-adfm-config>
+  <sec:adf-security-child xmlns="http://xmlns.oracle.com/adf/security/config">
+    <CredentialStoreContext credentialStoreClass="oracle.adf.share.security.providers.jps.CSFCredentialStore"
+                            credentialStoreLocation="../../src/META-INF/jps-config.xml"/>
+  </sec:adf-security-child>
+  <adf:adf-properties-child xmlns="http://xmlns.oracle.com/adf/config/properties">
+    <!-- oracleMaps or googleMaps (default) -->
+    <adf-property name="mapProvider" value="googleMaps"/>
+
+    <!-- google maps configuration -->
+    <adf-property name="geoMapClientId" value=""/>
+    <adf-property name="geoMapKey" value=""/>
+
+    <!-- oracle maps configuration -->
+    <adf-property name="mapViewerUrl" value="http://elocation.oracle.com/mapviewer"/>
+    <adf-property name="eLocationUrl" value="http://elocation.oracle.com/elocation"/>
+      <!-- to allow ajax calls proxy has to be defined - this configuration is not working with
+           demo elocation.oracle.com server!!! -->
+    <adf-property name="proxyUrl" value="http://elocation.oracle.com/mapviewer/proxy"/>
+      <!-- xmlhttp allows ajax calls which improves performance and allows to use more destinations
+           in directions than standard url encoded requests -->
+    <adf-property name="enableXMLHTTP" value="false"/>
+    <adf-property name="baseMap" value="ELOCATION_MERCATOR.WORLD_MAP"/>
+  </adf:adf-properties-child>
+</adf-config>

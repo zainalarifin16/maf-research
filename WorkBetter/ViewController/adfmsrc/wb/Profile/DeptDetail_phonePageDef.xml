@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.21.11" id="DeptDetail_phonePageDef"
+                Package="wb.Profile">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="HRService" id="HRServiceIterator"/>
+    <accessorIterator MasterBinding="HRServiceIterator" Binds="department" RangeSize="25" DataControl="HRService"
+                      BeanClass="wb.model.Department" id="departmentIterator"/>
+    <accessorIterator MasterBinding="departmentIterator" Binds="manager" RangeSize="25" DataControl="HRService"
+                      BeanClass="wb.model.Employee" id="managerIterator"/>
+    <accessorIterator MasterBinding="departmentIterator" Binds="employees" RangeSize="25" DataControl="HRService"
+                      BeanClass="wb.model.Employee" id="employeesIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="departmentIterator" id="loading">
+      <AttrNames>
+        <Item Value="loading"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="departmentIterator" id="deptid">
+      <AttrNames>
+        <Item Value="deptid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="departmentIterator" id="deptname">
+      <AttrNames>
+        <Item Value="deptname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="departmentIterator" id="address">
+      <AttrNames>
+        <Item Value="address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="departmentIterator" id="city">
+      <AttrNames>
+        <Item Value="city"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="departmentIterator" id="state">
+      <AttrNames>
+        <Item Value="state"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="departmentIterator" id="country">
+      <AttrNames>
+        <Item Value="country"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="departmentIterator" id="postal">
+      <AttrNames>
+        <Item Value="postal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="departmentIterator" id="mgrid">
+      <AttrNames>
+        <Item Value="mgrid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="departmentIterator" id="pic">
+      <AttrNames>
+        <Item Value="pic"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="managerIterator" id="empid">
+      <AttrNames>
+        <Item Value="empid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="managerIterator" id="mgrFirstname">
+      <AttrNames>
+        <Item Value="firstname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="managerIterator" id="mgrLastname">
+      <AttrNames>
+        <Item Value="lastname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="managerIterator" id="mgrTitle">
+      <AttrNames>
+        <Item Value="title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="managerIterator" id="mgrPic">
+      <AttrNames>
+        <Item Value="pic"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="departmentIterator" id="deptavgcompratio">
+      <AttrNames>
+        <Item Value="deptavgcompratio"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="departmentIterator" id="deptavgrating">
+      <AttrNames>
+        <Item Value="deptavgrating"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="departmentIterator" id="deptmaxrating">
+      <AttrNames>
+        <Item Value="deptmaxrating"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="departmentIterator" id="deptminrating">
+      <AttrNames>
+        <Item Value="deptminrating"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="departmentIterator" id="mgrnum">
+      <AttrNames>
+        <Item Value="mgrnum"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="departmentIterator" id="empnum">
+      <AttrNames>
+        <Item Value="empnum"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="employeesIterator" id="employees">
+      <nodeDefinition DefName="wb.model.Employee" Name="employees0">
+        <AttrNames>
+          <Item Value="loading"/>
+          <Item Value="directs"/>
+          <Item Value="firstname"/>
+          <Item Value="lastname"/>
+          <Item Value="title"/>
+          <Item Value="empid"/>
+          <Item Value="pic"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

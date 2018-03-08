@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="About" id="ot1"/>
+        </amx:facet>
+        <amx:spacer height="5" id="s8"/>
+        <amx:outputText value="This application shows you how to use the URL Scheme.  If you go to the mobile browser and enter the URL listed below, it will launch this app and navigate direclty to the employee detail screen."
+                        id="ot2"/>
+        <amx:outputText value="NOTE:The URL Scheme feature is not expected to work on Chrome browser (both on iOS and Android platforms). You can test this feature on Safari and Firefox browsers." id="ot7"/>
+        <amx:spacer id="s1" height="10"/>
+        <amx:panelFormLayout maxColumns="1" id="pfl1" fieldHalign="start" labelPosition="topStart">
+            <amx:selectOneChoice valueChangeListener="#{pageFlowScope.HandlerBean.handleValueChange}"
+                                 value="#{bindings.selectedEmp.inputValue}" label="Select Employee"
+                                 id="soc1">
+                <amx:selectItems value="#{bindings.selectedEmp.items}" id="si1"/>
+            </amx:selectOneChoice>
+            <amx:panelLabelAndMessage label="URL to launch employee details" id="plam1">
+                <amx:panelGroupLayout id="pgl1" halign="start" layout="horizontal">
+                    <amx:outputText value="usdemo://?emp=#{pageFlowScope.HandlerBean.currentEmployee}" id="ot3"/>
+                </amx:panelGroupLayout>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage  id="plam2">
+                <amx:panelGroupLayout id="pgl2" layout="horizontal" halign="center">
+                    <amx:commandButton actionListener="#{bindings.setCurrentRowWithKey.execute}" action="toDetail" styleClass="adfmf-commandButton-small" text="Employee Details" id="cb1">
+                        <amx:setPropertyListener from="#{pageFlowScope.HandlerBean.currentEmployee}" to="#{applicationScope.empId}" id="spl1"/>
+                    </amx:commandButton>
+                </amx:panelGroupLayout>
+            </amx:panelLabelAndMessage>
+        </amx:panelFormLayout>
+        <amx:spacer height="5" id="s5"/>
+        <amx:spacer height="5" id="s6"/>
+    
+        <amx:spacer id="s2" height="10"/>
+        <amx:outputText value="The code to parse the incoming URL string is in the ApplicationController project in the LifeCycleListenerImpl class in the start method."
+                        id="ot4"/>
+        <amx:spacer id="s3" height="10"/>
+        <amx:outputText value="The definition of which URL Scheme to use is in the maf-application.xml file." id="ot5"/>
+        <amx:spacer id="s4" height="10"/>
+        <amx:outputText value="Note:  Because a wildcard navigation rule is used in the taskflow, we must use explicit back navigation on the pages instead of using the '__back' outcome so that we ensure our navigation is correct."
+                        id="ot6"/>
+        <amx:spacer height="5" id="s7"/>
+    </amx:panelPage>
+</amx:view>

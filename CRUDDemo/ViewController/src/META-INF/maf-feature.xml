@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
+<adfmf:feature id="crud.About" name="About">
+    <adfmf:content id="crud.About.1">
+      <adfmf:amx file="crud.About/about.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p3">
+      <adfmf:property name="iOSWebView" value="default" id="p4"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="crud.CRUD" name="CRUD">
+    <adfmf:content id="crud.CRUD.2">
+      <adfmf:constraints>
+        <adfmf:constraint property="hardware.screen.diagonalSize" operator="less" value="7" id="c1"/>
+      </adfmf:constraints>
+      <adfmf:amx file="crud.CRUD/phone/taskflow.xml#taskflow"/>
+    </adfmf:content>
+    <adfmf:content id="crud.CRUD.1">
+      <adfmf:amx file="crud.CRUD/taskflow.xml#taskflow"/>
+    </adfmf:content>
+    <adfmf:properties id="p5">
+      <adfmf:property name="iOSWebView" value="default" id="p6"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="crud.Springboard" name="Springboard">
+    <adfmf:content id="crud.Springboard.1">
+      <adfmf:amx file="crud.Springboard/springboard.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p1">
+      <adfmf:property name="iOSWebView" value="default" id="p2"/>
+    </adfmf:properties>
+  </adfmf:feature>
+</adfmf:features>

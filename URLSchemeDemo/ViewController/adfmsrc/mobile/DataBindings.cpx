@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.2.64.36" id="DataBindings"
+             SeparateXMLFiles="false" Package="mobile" ClientType="Generic">
+  <pageMap>
+    <page path="/People/List.amx" usageId="mobile_ListPageDef"/>
+    <page path="/People/Detail.amx" usageId="mobile_DetailPageDef"/>
+    <page path="/People/Home.amx" usageId="mobile_HomePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="mobile_ListPageDef" path="People.ListPageDef"/>
+    <page id="mobile_DetailPageDef" path="People.DetailPageDef"/>
+    <page id="mobile_HomePageDef" path="People.HomePageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="LauncherBean" path="mobile.LauncherBean"/>
+    <dc id="ApplicationFeatures" path="application.ApplicationFeatures"/>
+    <dc id="EmployeeList" path="mobile.EmployeeList"/>
+  </dataControlUsages>
+</Application>

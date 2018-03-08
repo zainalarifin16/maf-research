@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.12.25" id="rangeChartPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <iterator Binds="root" RangeSize="25" DataControl="RangeDataList" id="RangeDataListIterator"/>
+    <accessorIterator MasterBinding="RangeDataListIterator" Binds="rangeData" RangeSize="25" DataControl="RangeDataList"
+                      BeanClass="model.RangeData" id="rangeDataIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="rangeDataIterator" id="rangeData">
+      <nodeDefinition DefName="model.RangeData" Name="rangeData0">
+        <AttrNames>
+          <Item Value="group"/>
+          <Item Value="series"/>
+          <Item Value="low"/>
+          <Item Value="high"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

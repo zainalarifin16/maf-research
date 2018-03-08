@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Chart Line Type"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="btnBack" action="__back" text="Back" shortDesc="back"/>
+    </amx:facet>
+    <amx:flexLayout id="fl1">
+      <amx:panelStretchLayout id="psl1" styleClass="dvtm-gallery-component-panel">
+        <amx:facet name="center">
+          <dvtm:lineChart id="lineChart1" styleClass=" dvtm-gallery-component">
+            <amx:facet name="dataStamp">
+              <dvtm:chartDataItem group="2008" value="100" series="Series"/>
+              <dvtm:chartDataItem group="2009" value="0" series="Series"/>
+              <dvtm:chartDataItem group="2010" value="100" series="Series"/>
+              <dvtm:chartDataItem group="2011" value="0" series="Series"/>
+              <dvtm:chartDataItem group="2012" value="100" series="Series"/>
+            </amx:facet>
+            <amx:facet name="seriesStamp">
+              <dvtm:seriesStyle series="Series" color="blue" lineType="#{pageFlowScope.seriesLineType}"/>
+            </amx:facet>
+            <dvtm:yAxis>
+              <dvtm:referenceArea color="green" shortDesc="Area" displayInLegend="on"
+                                  lineType="#{pageFlowScope.refAreaLineType}" text="Area">
+                <dvtm:referenceAreaItem minValue="110" maxValue="120"/>
+                <dvtm:referenceAreaItem minValue="50" maxValue="65"/>
+                <dvtm:referenceAreaItem minValue="110" maxValue="130"/>
+                <dvtm:referenceAreaItem minValue="80" maxValue="105"/>
+                <dvtm:referenceAreaItem minValue="50" maxValue="100"/>
+              </dvtm:referenceArea>
+              <dvtm:referenceLine color="red" lineWidth="5" lineStyle="dashed" location="front" text="Line"
+                                  shortDesc="Line" displayInLegend="on" lineType="#{pageFlowScope.refLineLineType}">
+                <dvtm:referenceLineItem value="140"/>
+                <dvtm:referenceLineItem value="100"/>
+                <dvtm:referenceLineItem value="140"/>
+                <dvtm:referenceLineItem value="70"/>
+                <dvtm:referenceLineItem value="140"/>
+              </dvtm:referenceLine>
+            </dvtm:yAxis>
+            <dvtm:legend position="end"/>
+          </dvtm:lineChart>
+        </amx:facet>
+      </amx:panelStretchLayout>
+      <amx:panelGroupLayout id="pglOptionsPanel" scrollPolicy="scroll">
+        <amx:panelFormLayout id="pflOptionsForm" maxColumns="2" rows="4" styleClass="dvtm-gallery-options"
+                             fieldWidth="60%" labelWidth="40%">
+          <amx:selectOneChoice id="socSeries" label="Series Line Type" value="#{pageFlowScope.seriesLineType}">
+            <amx:selectItem id="siSeriesNone" label="none" value="none"/>
+            <amx:selectItem id="siSeriesAuto" label="auto" value="auto"/>
+            <amx:selectItem id="siSeriesStraight" label="straight" value="straight"/>
+            <amx:selectItem id="siSeriesCurved" label="curved" value="curved"/>
+            <amx:selectItem id="siSeriesStepped" label="stepped" value="stepped"/>
+            <amx:selectItem id="siSeriesCenteredStepped" label="centeredStepped" value="centeredStepped"/>
+            <amx:selectItem id="siSeriesSegmented" label="segmented" value="segmented"/>
+            <amx:selectItem id="siSeriesCenteredSegmented" label="centeredSegmented" value="centeredSegmented"/>
+          </amx:selectOneChoice>
+          <amx:selectOneChoice id="socLine" label="Reference Line Type" value="#{pageFlowScope.refLineLineType}">
+            <amx:selectItem id="siLineStraight" label="straight" value="straight"/>
+            <amx:selectItem id="siLineCurved" label="curved" value="curved"/>
+            <amx:selectItem id="siLineStepped" label="stepped" value="stepped"/>
+            <amx:selectItem id="siLineCenteredStepped" label="centeredStepped" value="centeredStepped"/>
+            <amx:selectItem id="siLineSegmented" label="segmented" value="segmented"/>
+            <amx:selectItem id="siLineCenteredSegmented" label="centeredSegmented" value="centeredSegmented"/>
+          </amx:selectOneChoice>
+          <amx:selectOneChoice id="socArea" label="Reference Area Type" value="#{pageFlowScope.refAreaLineType}">
+            <amx:selectItem id="siAreaStraight" label="straight" value="straight"/>
+            <amx:selectItem id="siAreaCurved" label="curved" value="curved"/>
+            <amx:selectItem id="siAreaStepped" label="stepped" value="stepped"/>
+            <amx:selectItem id="siAreaCenteredStepped" label="centeredStepped" value="centeredStepped"/>
+          </amx:selectOneChoice>
+        </amx:panelFormLayout>
+      </amx:panelGroupLayout>
+    </amx:flexLayout>
+  </amx:panelPage>
+</amx:view>

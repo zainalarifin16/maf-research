@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Results" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton text="Back" id="cb1" action="__back"/>
+    </amx:facet>
+    <amx:listView var="row" value="#{bindings.Contact.collectionModel}" fetchSize="#{bindings.Contact.rangeSize}"
+                  id="lv1">
+      <amx:listItem id="li1" action="details">
+        <amx:outputText value="#{row.id} #{row.name.givenName}" id="ot2"/>
+        <amx:setPropertyListener from="#{row.rowKey}" to="#{pageFlowScope.currentCon}"/>
+      </amx:listItem>
+    </amx:listView>
+    <!--
+    <amx:outputText value="#{bindings.contactFields.inputValue}" id="ot3"/>
+    -->
+  </amx:panelPage>
+</amx:view>

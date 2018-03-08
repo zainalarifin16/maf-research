@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="About" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                    <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:outputText value="This application demonstrates how to create a custom component which can act as a container for any type of AMX component and provides an expand, collapse functionality."
+                        id="ot3"/>
+        <amx:outputText value="For more details look at the expandcollapse.js file under the js folder. This JavaScript file contains a method ('expandcollapse.prototype.render') which renders the UI of the component. It also contains a method which demonstrates how to render the child componets of the custom component."
+                        id="ot2"/>
+    </amx:panelPage>
+</amx:view>

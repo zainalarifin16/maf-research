@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="taskflow">
+    <default-activity>GPS</default-activity>
+    <managed-bean id="__1">
+      <managed-bean-name>GPSBean</managed-bean-name>
+      <managed-bean-class>GPS.GPSBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="GPS">
+      <page>GPS/GPS.amx</page>
+    </view>
+  </task-flow-definition>
+</adfc-mobile-config>

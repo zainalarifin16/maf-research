@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="Directory"
+                            id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink id="cl1" actionListener="#{bindings.toggleSpringboard.execute}"
+                             styleClass="springboard-icon" shortDesc="Springboard Link">
+                <amx:image id="i1" source="/images/springboard.svg" shortDesc="Springboard Image"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:refreshContainer id="rc1" pullText="Pull to Refresh" busyText="Refreshing"
+                              actionListener="#{bindings.Execute.execute}" refreshDesc="Refresh">
+            <amx:fragment src="/fragments/emplist_phone.amxf" id="f1">
+                <amx:attribute name="Collection" value="#{bindings.directory}" id="a1"/>
+                <amx:attribute name="DirectoryMode" value="true" id="a2"/>
+            </amx:fragment>
+        </amx:refreshContainer>
+    </amx:panelPage>
+</amx:view>

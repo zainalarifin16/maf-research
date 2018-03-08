@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.61.69" id="PicturePageDef"
+                Package="Picture">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.String" Name="getPicture_Return" IsQueriable="false" IsUpdateable="0"
+                DefaultValue="${bindings.getPicture.result}"/>
+      <variable Type="java.lang.String" Name="GetPicture_Return" IsQueriable="false" IsUpdateable="0"
+                DefaultValue="${bindings.GetPicture.result}"/>
+    </variableIterator>
+    <iterator Binds="root" RangeSize="25" DataControl="PictureBean" id="PictureBeanIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="PictureBeanIterator" id="quality">
+      <AttrNames>
+        <Item Value="quality"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PictureBeanIterator" id="destination">
+      <AttrNames>
+        <Item Value="destination"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PictureBeanIterator" id="source">
+      <AttrNames>
+        <Item Value="source"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PictureBeanIterator" id="encoding">
+      <AttrNames>
+        <Item Value="encoding"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PictureBeanIterator" id="targetWidth">
+      <AttrNames>
+        <Item Value="targetWidth"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PictureBeanIterator" id="targetHeight">
+      <AttrNames>
+        <Item Value="targetHeight"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PictureBeanIterator" id="allowEdit">
+      <AttrNames>
+        <Item Value="allowEdit"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="toggleSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="toggleSpringboard"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider"/>
+    <methodAction id="GetPicture" RequiresUpdateModel="true" Action="invokeMethod" MethodName="GetPicture"
+                  IsViewObjectMethod="false" DataControl="PictureBean" InstanceName="data.PictureBean.dataProvider"
+                  ReturnName="data.PictureBean.methodResults.GetPicture_PictureBean_dataProvider_GetPicture_result"/>
+    <attributeValues IterBinding="PictureBeanIterator" id="pictureData">
+      <AttrNames>
+        <Item Value="pictureData"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.9.39" id="datacontrolPageDef"
+                Package="DataControl">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.String" Name="addLocalNotification_Return" IsQueriable="false" IsUpdateable="0"
+                DefaultValue="${bindings.addLocalNotification.result}"/>
+      <variable Type="java.lang.String" Name="addLocalNotification_title" IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="addLocalNotification_alert" IsQueriable="false"/>
+      <variable Type="java.util.Date" Name="addLocalNotification_fireDate" IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="addLocalNotification_repeat" IsQueriable="false"/>
+      <variable Type="int" Name="addLocalNotification_badge" IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="addLocalNotification_sound" IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="addLocalNotification_vibration" IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="addLocalNotification_jsonPayload" IsQueriable="false"/>
+    </variableIterator>
+  </executables>
+  <bindings>
+    <methodAction id="addLocalNotification" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="addLocalNotification" IsViewObjectMethod="false" DataControl="DeviceFeatures"
+                  InstanceName="data.DeviceFeatures.dataProvider"
+                  ReturnName="data.DeviceFeatures.methodResults.addLocalNotification_DeviceFeatures_dataProvider_addLocalNotification_result">
+      <NamedData NDName="title" NDType="java.lang.String" NDValue="${bindings.addLocalNotification_title}"/>
+      <NamedData NDName="alert" NDType="java.lang.String" NDValue="${bindings.addLocalNotification_alert}"/>
+      <NamedData NDName="fireDate" NDType="java.util.Date" NDValue="${bindings.addLocalNotification_fireDate}"/>
+      <NamedData NDName="repeat" NDType="java.lang.String" NDValue="${bindings.addLocalNotification_repeat}"/>
+      <NamedData NDName="badge" NDType="int" NDValue="${bindings.addLocalNotification_badge}"/>
+      <NamedData NDName="sound" NDType="java.lang.String" NDValue="${bindings.addLocalNotification_sound}"/>
+      <NamedData NDName="vibration" NDType="java.lang.String" NDValue="${bindings.addLocalNotification_vibration}"/>
+      <NamedData NDName="jsonPayload" NDType="java.lang.String" NDValue="${bindings.addLocalNotification_jsonPayload}"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="title">
+      <AttrNames>
+        <Item Value="addLocalNotification_title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="alert">
+      <AttrNames>
+        <Item Value="addLocalNotification_alert"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="fireDate">
+      <AttrNames>
+        <Item Value="addLocalNotification_fireDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="repeat">
+      <AttrNames>
+        <Item Value="addLocalNotification_repeat"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="badge">
+      <AttrNames>
+        <Item Value="addLocalNotification_badge"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="sound">
+      <AttrNames>
+        <Item Value="addLocalNotification_sound"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="vibration">
+      <AttrNames>
+        <Item Value="addLocalNotification_vibration"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="jsonPayload">
+      <AttrNames>
+        <Item Value="addLocalNotification_jsonPayload"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="toggleSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="toggleSpringboard"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider"/>
+  </bindings>
+</pageDefinition>

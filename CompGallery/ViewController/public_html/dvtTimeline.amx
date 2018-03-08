@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Timeline" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton text="Back" id="back" action="return" styleClass="amx-commandButton-back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/dvtTimeline" shortDesc="Bookmarkable Link"
+                  styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg"
+                   shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:listView id="listView1">
+      <amx:listItem id="timelineSingleSeries" action="timelineSingleSeries">
+        <amx:tableLayout id="timelineSingleSeriesTL" width="100%">
+          <amx:rowLayout id="timelineSingleSeriesRL1">
+            <amx:cellFormat id="timelineSingleSeriesCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="timelineSingleSeriesI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="/images/timeline.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="timelineSingleSeriesCF2" width="100%" height="28px">
+              <amx:outputText id="timelineSingleSeriesOT1" value="Timeline w/ Single Series"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+      </amx:listItem>
+      <amx:listItem id="timelineTwoSeries" action="timelineTwoSeries">
+        <amx:tableLayout id="timelineTwoSeriesTL" width="100%">
+          <amx:rowLayout id="timelineTwoSeriesRL1">
+            <amx:cellFormat id="timelineTwoSeriesCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="timelineTwoSeriesI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="/images/timeline.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="timelineTwoSeriesCF2" width="100%" height="28px">
+              <amx:outputText id="timelineTwoSeriesOT1" value="Timeline w/ Two Series"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+      </amx:listItem>
+      <amx:listItem id="timelineSingleSeriesOverview" action="timelineSingleSeriesOverview">
+        <amx:tableLayout id="timelineSingleSeriesOverviewTL" width="100%">
+          <amx:rowLayout id="timelineSingleSeriesOverviewRL1">
+            <amx:cellFormat id="timelineSingleSeriesOverviewCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="timelineSingleSeriesOverviewI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="/images/timeline.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="timelineSingleSeriesOverviewCF2" width="100%" height="28px">
+              <amx:outputText id="timelineSingleSeriesOverviewOT1" value="Timeline w/ Series &amp; Overview"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+      </amx:listItem>
+      <amx:listItem id="timelineVerticalOverview" action="timelineVerticalOverview">
+        <amx:tableLayout id="timelineVerticalOverviewTL" width="100%">
+          <amx:rowLayout id="timelineVerticalOverviewRL1">
+            <amx:cellFormat id="timelineVerticalOverviewCF1" rowSpan="2" width="50px" halign="center">
+              <amx:image id="timelineVerticalOverviewI" inlineStyle="width:32px;height:32px" shortDesc=""
+                         source="/images/timeline.png"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="timelineVerticalOverviewCF2" width="100%" height="28px">
+              <amx:outputText id="timelineVerticalOverviewOT1" value="Vertical Timeline w/ Overview"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+      </amx:listItem>
+    </amx:listView>
+  </amx:panelPage>
+</amx:view>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.2.61.69" id="DataBindings"
+             SeparateXMLFiles="false" Package="mobile" ClientType="Generic">
+  <pageMap>
+    <page path="/Email/Email.amx" usageId="mobile_EmailPageDef"/>
+    <page path="/Picture/Picture.amx" usageId="mobile_PicturePageDef"/>
+    <page path="/Picture/Result.amx" usageId="mobile_ResultPageDef"/>
+    <page path="/SMS/SMS.amx" usageId="mobile_SMSPageDef"/>
+    <page path="/GPS/GPS.amx" usageId="mobile_GPSPageDef"/>
+    <page path="/Contacts/Search.amx" usageId="mobile_SearchPageDef"/>
+    <page path="/Contacts/Results.amx" usageId="mobile_ResultsPageDef"/>
+    <page path="/Contacts/Details.amx" usageId="mobile_DetailsPageDef"/>
+    <page path="/Springboard/springboard.amx" usageId="mobile_springboardPageDef"/>
+    <page path="/About/about.amx" usageId="mobile_aboutPageDef"/>
+    <page path="/Attachments/attachments.amx" usageId="mobile_attachmentsPageDef"/>
+    <page path="/Properties/Properties.amx" usageId="mobile_PropertiesPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="mobile_EmailPageDef" path="Email.EmailPageDef"/>
+    <page id="mobile_PicturePageDef" path="Picture.PicturePageDef"/>
+    <page id="mobile_ResultPageDef" path="Picture.ResultPageDef"/>
+    <page id="mobile_SMSPageDef" path="SMS.SMSPageDef"/>
+    <page id="mobile_GPSPageDef" path="GPS.GPSPageDef"/>
+    <page id="mobile_SearchPageDef" path="Contacts.SearchPageDef"/>
+    <page id="mobile_ResultsPageDef" path="Contacts.ResultsPageDef"/>
+    <page id="mobile_DetailsPageDef" path="Contacts.DetailsPageDef"/>
+    <page id="mobile_springboardPageDef" path="Springboard.springboardPageDef"/>
+    <page id="mobile_aboutPageDef" path="About.aboutPageDef"/>
+    <page id="mobile_attachmentsPageDef" path="Attachments.attachmentsPageDef"/>
+    <page id="mobile_PropertiesPageDef" path="Properties.PropertiesPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="ContactBean" path="mobile.ContactBean"/>
+    <dc id="ApplicationFeatures" path="application.ApplicationFeatures"/>
+    <dc id="GPSBean" path="mobile.GPSBean"/>
+    <dc id="PictureBean" path="mobile.PictureBean"/>
+    <dc id="DeviceFeatures" path="application.DeviceFeatures"/>
+  </dataControlUsages>
+</Application>

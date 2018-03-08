@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="Filmstrip &amp; None" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton action="__back" id="cb1"/>
+        </amx:facet>
+        <amx:panelStretchLayout id="psl1">
+            <amx:facet name="top">
+                <amx:panelGroupLayout styleClass="summary-section-style"
+                                      rendered="#{pageFlowScope.useFixedSummaryView=='true'}" layout="horizontal"
+                                      halign="center" id="pgl1">
+                    <amx:outputText value="Summary Section" id="ot2"/>
+                </amx:panelGroupLayout>
+            </amx:facet>
+            <amx:facet name="center">
+                <amx:filmStrip inlineStyle="width:94%;height:95%;margin-top:15px;" itemsPerPage="1" halign="center"
+                               id="fs1" styleClass="amx-fitParent amx-filmStrip-stretchItems">
+                    <amx:filmStripItem id="fsi1">
+                        <amx:fragment src="/BuildLayout/Fragments/noneContentLayout.amxf" id="f1">
+                            <amx:attribute name="contentText1" value="No Content1" id="c1"/>
+                        </amx:fragment>
+                    </amx:filmStripItem>
+                    <amx:filmStripItem id="fsi2">
+                        <amx:fragment src="/BuildLayout/Fragments/noneContentLayout.amxf" id="fd1">
+                            <amx:attribute name="contentText1" value="No Content2" id="cd1"/>
+                        </amx:fragment>
+                    </amx:filmStripItem>
+                    <amx:filmStripItem id="fsi3">
+                        <amx:fragment src="/BuildLayout/Fragments/noneContentLayout.amxf" id="fqs1">
+                            <amx:attribute name="contentText1" value="No Content3" id="cs1"/>
+                        </amx:fragment>
+                    </amx:filmStripItem>
+                </amx:filmStrip>
+            </amx:facet>
+        </amx:panelStretchLayout>
+    </amx:panelPage>
+</amx:view>

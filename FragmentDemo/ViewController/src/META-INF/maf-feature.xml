@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
+  <adfmf:loadBundle basename="mobile.ViewControllerBundle" var="viewcontrollerBundle"/>
+  <adfmf:feature id="Employees" name="Employees">
+    <adfmf:content id="Employees.tablet">
+      <adfmf:constraints>
+        <adfmf:constraint property="hardware.screen.diagonalSize" operator="more" value="6" id="c1"/>
+      </adfmf:constraints>
+      <adfmf:amx file="Employees_tablet/taskflow.xml#taskflow"/>
+    </adfmf:content>
+    <adfmf:content id="Employees.1">
+      <adfmf:amx file="Employees/taskflow.xml#taskflow"/>
+    </adfmf:content>
+    <adfmf:properties id="p1">
+      <adfmf:property name="iOSWebView" value="default" id="p2"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="Departments" name="Departments">
+    <adfmf:content id="Departments.tablet">
+      <adfmf:constraints>
+        <adfmf:constraint property="hardware.screen.diagonalSize" operator="more" value="6" id="c2"/>
+      </adfmf:constraints>
+      <adfmf:amx file="Departments_tablet/taskflow.xml#taskflow"/>
+    </adfmf:content>
+    <adfmf:content id="Departments.1">
+      <adfmf:amx file="Departments/taskflow.xml#taskflow"/>
+    </adfmf:content>
+    <adfmf:properties id="p7">
+      <adfmf:property name="iOSWebView" value="default" id="p8"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="About" name="About">
+    <adfmf:content id="About.1">
+      <adfmf:amx file="About/about.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p3">
+      <adfmf:property name="iOSWebView" value="default" id="p4"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="Springboard" name="Springboard">
+    <adfmf:content id="Springboard.1">
+      <adfmf:amx file="Springboard/springboard.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p5">
+      <adfmf:property name="iOSWebView" value="default" id="p6"/>
+    </adfmf:properties>
+  </adfmf:feature>
+</adfmf:features>

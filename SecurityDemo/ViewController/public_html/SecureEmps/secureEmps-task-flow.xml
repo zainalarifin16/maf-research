@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="US-ASCII" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="secureEmps-task-flow">
+    <default-activity>emps</default-activity>
+    <managed-bean id="__3">
+      <managed-bean-name>EventHandler</managed-bean-name>
+      <managed-bean-class>mobile.EventHandler</managed-bean-class>
+      <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
+    <view id="emps">
+      <page>/SecureEmps/emps.amx</page>
+    </view>
+    <view id="details">
+      <page>/SecureEmps/details.amx</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>emps</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>detail</from-outcome>
+        <to-activity-id>details</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <page-flow-scope-behavior>
+      <push-new/>
+    </page-flow-scope-behavior>
+  </task-flow-definition>
+</adfc-mobile-config>

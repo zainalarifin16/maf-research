@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Textbox"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="styles" action="styles" shortDesc="Styles">
+        <amx:image id="stylesIcon" source="images/styles.svg" shortDesc=""/>
+        <amx:setPropertyListener from="" to="#{pageFlowScope.textvalue}" type="action"/>
+      </amx:commandLink>
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:inputText" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=textselect/inputText"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:outputText id="otnf" value="Outside a form" styleClass="adfmf-outputText-sectionTitle"/>
+    <!--
+      Use #{pageFlowScope.componentProperties.attr} instead of
+      #{pageFlowScope.componentProperties.attr} because the DataChangeEvents won't find the
+      latter syntax. See bug:
+      Bug 19951138 - dce do not work with indexed valueexpressions in javascript
+    -->
+    <amx:inputText id="inputText1" value="#{pageFlowScope.componentProperties.value}"
+                   label="#{pageFlowScope.componentProperties.label}"
+                   hintText="#{pageFlowScope.componentProperties.hintText}"
+                   rows="#{pageFlowScope.componentProperties.rows}"
+                   secret="#{pageFlowScope.componentProperties.secret}"
+                   showRequired="#{pageFlowScope.componentProperties.showRequired}"
+                   rendered="#{pageFlowScope.componentProperties.rendered}"
+                   required="#{pageFlowScope.componentProperties.required}"
+                   simple="#{pageFlowScope.componentProperties.simple}"
+                   styleClass="#{pageFlowScope.componentProperties.styleClass}"
+                   inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+                   readOnly="#{pageFlowScope.componentProperties.readOnly}"
+                   disabled="#{pageFlowScope.componentProperties.disabled}"
+                   maximumLength="#{pageFlowScope.componentProperties.maximumLength}"
+                   valueChangeListener="#{PropertyBean.ValueChangeHandler}"
+                   autoCapitalize="#{pageFlowScope.componentProperties.autoCapitalize}"
+                   autoCorrect="#{pageFlowScope.componentProperties.autoCorrect}"
+                   keyboardDismiss="#{pageFlowScope.componentProperties.keyboardDismiss}"
+                   showClear="#{pageFlowScope.componentProperties.showClear}"
+                   inputType="#{pageFlowScope.componentProperties.inputType}"/>
+    <amx:outputText id="otf" value="Inside a form" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:panelFormLayout id="form">
+      <amx:inputText id="inputText2" value="#{pageFlowScope.componentProperties.value}"
+                     label="#{pageFlowScope.componentProperties.label}"
+                     hintText="#{pageFlowScope.componentProperties.hintText}"
+                     rows="#{pageFlowScope.componentProperties.rows}"
+                     secret="#{pageFlowScope.componentProperties.secret}"
+                     showRequired="#{pageFlowScope.componentProperties.showRequired}"
+                     rendered="#{pageFlowScope.componentProperties.rendered}"
+                     required="#{pageFlowScope.componentProperties.required}"
+                     simple="#{pageFlowScope.componentProperties.simple}"
+                     styleClass="#{pageFlowScope.componentProperties.styleClass}"
+                     inlineStyle="#{pageFlowScope.componentProperties.inlineStyle}"
+                     readOnly="#{pageFlowScope.componentProperties.readOnly}"
+                     disabled="#{pageFlowScope.componentProperties.disabled}"
+                     maximumLength="#{pageFlowScope.componentProperties.maximumLength}"
+                     valueChangeListener="#{PropertyBean.ValueChangeHandler}"
+                     autoCapitalize="#{pageFlowScope.componentProperties.autoCapitalize}"
+                     autoCorrect="#{pageFlowScope.componentProperties.autoCorrect}"
+                     keyboardDismiss="#{pageFlowScope.componentProperties.keyboardDismiss}"
+                     showClear="#{pageFlowScope.componentProperties.showClear}"
+                     inputType="#{pageFlowScope.componentProperties.inputType}"/>
+    </amx:panelFormLayout>
+    <amx:outputText id="outputText7" value="#{viewScope.valuechanged}"/>
+    <amx:outputText id="outputText5" value="#{viewScope.valuechangeold}"/>
+    <amx:outputText id="outputText6" value="#{viewScope.valuechangenew}"/>
+  </amx:panelPage>
+</amx:view>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Filmstrip" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="150px" height="224px" viewBox="0 0 150 224" enable-background="new 0 0 150 224" xml:space="preserve">
+<rect id="Background_Panel" fill="#FFFFFF" width="150" height="224"/>
+<path id="Title" fill="#F6F6F7" d="M0,0h150.05v30H0V0z"/>
+<rect id="Divide" y="29.88" fill="#D1D1D3" width="150" height="1"/>
+<text transform="matrix(1 0 0 1 60.584 20)" fill="#333333" font-family="'HelveticaNeue'" font-size="14">Title</text>
+<g id="Pagination_Controls">
+	<g id="Selected">
+		<circle fill="#0572CE" cx="62.5" cy="213.5" r="3"/>
+		<path fill="#00569F" d="M62.5,211c1.378,0,2.5,1.121,2.5,2.5s-1.122,2.5-2.5,2.5s-2.5-1.121-2.5-2.5S61.122,211,62.5,211
+			 M62.5,210c-1.93,0-3.5,1.57-3.5,3.5s1.57,3.5,3.5,3.5s3.5-1.57,3.5-3.5S64.43,210,62.5,210L62.5,210z"/>
+	</g>
+	<g id="Unselected">
+		<circle fill="#FFFFFF" cx="74.39" cy="213.5" r="3"/>
+		<path fill="#A4AFB4" d="M74.39,210c-1.93,0-3.5,1.57-3.5,3.5s1.57,3.5,3.5,3.5s3.5-1.57,3.5-3.5S76.32,210,74.39,210L74.39,210z
+			 M74.39,216c-1.38,0-2.5-1.12-2.5-2.5s1.12-2.5,2.5-2.5c1.379,0,2.5,1.12,2.5,2.5S75.77,216,74.39,216L74.39,216z"/>
+	</g>
+	<g id="Unselected_1_">
+		<circle fill="#FFFFFF" cx="86.391" cy="213.5" r="3"/>
+		<path fill="#A4AFB4" d="M86.391,210c-1.931,0-3.5,1.57-3.5,3.5s1.569,3.5,3.5,3.5c1.93,0,3.5-1.57,3.5-3.5S88.32,210,86.391,210
+			L86.391,210z M86.391,216c-1.381,0-2.5-1.12-2.5-2.5s1.119-2.5,2.5-2.5c1.379,0,2.5,1.12,2.5,2.5S87.77,216,86.391,216L86.391,216
+			z"/>
+	</g>
+</g>
+</svg>

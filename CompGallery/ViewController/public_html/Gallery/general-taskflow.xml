@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="general-taskflow">
+    <default-activity>General-Home</default-activity>
+    <managed-bean id="__24">
+      <managed-bean-name>componentProperties</managed-bean-name>
+      <managed-bean-class>mobile.Properties</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="General-Home">
+      <page>/General-Home.amx</page>
+    </view>
+    <view id="commandButton">
+      <page>/commandButton.amx</page>
+    </view>
+    <view id="commandButtonStyles">
+      <page>/commandButtonStyles.amx</page>
+    </view>
+    <view id="commandLink">
+      <page>/commandLink.amx</page>
+    </view>
+    <view id="commandLinkStyles">
+      <page>/commandLinkStyles.amx</page>
+    </view>
+    <view id="custom">
+      <page>/custom.amx</page>
+    </view>
+    <view id="image">
+      <page>/image.amx</page>
+    </view>
+    <view id="goLink">
+      <page>/goLink.amx</page>
+    </view>
+    <view id="goLinkStyles">
+      <page>/goLinkStyles.amx</page>
+    </view>
+    <task-flow-return id="return">
+      <outcome>
+        <name>return</name>
+      </outcome>
+    </task-flow-return>
+    <view id="Properties">
+      <page>/Properties.amx</page>
+    </view>
+    <view id="verbatim">
+      <page>/verbatim.amx</page>
+    </view>
+    <view id="outputHtml">
+      <page>/outputHtml.amx</page>
+    </view>
+    <view id="exampleEvents">
+      <page>/exampleEvents.amx</page>
+    </view>
+    <view id="exampleList">
+      <page>/exampleList.amx</page>
+    </view>
+    <view id="exampleOverflow">
+      <page>/exampleOverflow.amx</page>
+    </view>
+    <view id="exampleResizable">
+      <page>/exampleResizable.amx</page>
+    </view>
+    <view id="details">
+      <page>/details.amx</page>
+    </view>
+    <view id="fragment">
+      <page>/fragment.amx</page>
+    </view>
+    <view id="attribute">
+      <page>/attribute.amx</page>
+    </view>
+    <view id="fragmentDef">
+      <page>/fragmentDef.amx</page>
+    </view>
+    <view id="facetRef">
+      <page>/facetRef.amx</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>General-Home</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>goLink</from-outcome>
+        <to-activity-id>goLink</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>image</from-outcome>
+        <to-activity-id>image</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>commandLink</from-outcome>
+        <to-activity-id>commandLink</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>commandButton</from-outcome>
+        <to-activity-id>commandButton</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__6">
+        <from-outcome>return</from-outcome>
+        <to-activity-id>return</to-activity-id>
+        <transition>slideEnd</transition>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>custom</from-outcome>
+        <to-activity-id>custom</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome>verbatim</from-outcome>
+        <to-activity-id>verbatim</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__11">
+        <from-outcome>outputHtml</from-outcome>
+        <to-activity-id>outputHtml</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__19">
+        <from-outcome>fragment</from-outcome>
+        <to-activity-id>fragment</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__20">
+        <from-outcome>attribute</from-outcome>
+        <to-activity-id>attribute</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__21">
+        <from-outcome>fragmentDef</from-outcome>
+        <to-activity-id>fragmentDef</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__22">
+        <from-outcome>facetRef</from-outcome>
+        <to-activity-id>facetRef</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>properties</from-outcome>
+        <to-activity-id>Properties</to-activity-id>
+        <transition>flipStart</transition>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__CFRcommandButton">
+      <from-activity-id>commandButton</from-activity-id>
+      <control-flow-case id="__CFCcommandButton">
+        <from-outcome>styles</from-outcome>
+        <to-activity-id>commandButtonStyles</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__CFRcommandLink">
+      <from-activity-id>commandLink</from-activity-id>
+      <control-flow-case id="__CFCcommandLink">
+        <from-outcome>styles</from-outcome>
+        <to-activity-id>commandLinkStyles</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__CFRgoLink">
+      <from-activity-id>goLink</from-activity-id>
+      <control-flow-case id="__CFCgoLink">
+        <from-outcome>styles</from-outcome>
+        <to-activity-id>goLinkStyles</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id>custom</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome>exampleEvents</from-outcome>
+        <to-activity-id>exampleEvents</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__16">
+        <from-outcome>exampleList</from-outcome>
+        <to-activity-id>exampleList</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="cfcOverflow">
+        <from-outcome>exampleOverflow</from-outcome>
+        <to-activity-id>exampleOverflow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__23">
+        <from-outcome>exampleResizable</from-outcome>
+        <to-activity-id>exampleResizable</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id>exampleList</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome>details</from-outcome>
+        <to-activity-id>details</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-mobile-config>

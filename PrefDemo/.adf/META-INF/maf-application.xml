@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
+                   version="1.0" name="PrefDemo" id="com.oraclecorp.internal.PrefDemo" appControllerFolder="ApplicationController">
+  <adfmf:featureReference id="fr1" refId="About"/>
+  <adfmf:featureReference id="fr2" refId="App"/>
+  <adfmf:featureReference id="fr3" refId="Feature1"/>
+  <adfmf:featureReference id="fr4" refId="Feature2"/>
+  <adfmf:featureReference id="fr5" refId="Springboard" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:preferences>
+    <adfmf:preferenceGroup id="apptop" label="App Preferences">
+      <adfmf:preferenceBoolean id="appBoolean" label="App Boolean" default="true"/>
+      <adfmf:preferenceNumber id="appNumber" label="App Number" default="123"/>
+      <adfmf:preferenceList id="appList" label="App List" default="item1">
+        <adfmf:preferenceValue id="id1" name="item1" value="item1"/>
+        <adfmf:preferenceValue id="id2" name="item2" value="item2"/>
+        <adfmf:preferenceValue id="id3" name="item3" value="item3"/>
+      </adfmf:preferenceList>
+      <adfmf:preferenceText id="apptext" label="AppText" default="default text"/>
+      <adfmf:preferenceText id="appSecretText" label="App Secret Text" secret="true" default="secret text"/>
+      <adfmf:preferencePage id="appPage" label="App Page">
+        <adfmf:preferenceGroup id="appSubGroup" label="App Sub Group">
+          <adfmf:preferenceBoolean id="appSubBoolean" label="App Sub Boolean" default="true"/>
+          <adfmf:preferenceNumber id="appSubNumber" label="App Sub Number" default="456"/>
+          <adfmf:preferenceList id="appSubList" label="App Sub List" default="a">
+            <adfmf:preferenceValue id="id4" name="item1" value="item1"/>
+            <adfmf:preferenceValue id="id5" name="item2" value="item2"/>
+            <adfmf:preferenceValue id="id6" name="item3" value="item3"/>
+          </adfmf:preferenceList>
+          <adfmf:preferenceText id="appSubText" label="App Sub Text" default="default sub text"/>
+          <adfmf:preferenceText id="appSubSecretText" label="App Sub Secret Text" default="Sub Secret" secret="true"/>
+        </adfmf:preferenceGroup>
+      </adfmf:preferencePage>
+    </adfmf:preferenceGroup>
+  </adfmf:preferences>
+  <adfmf:navigation>
+    <adfmf:navigationBar enabled="false"/>
+    <adfmf:springboard enabled="true" showSpringboardAtStartup="false" displayGotoSpringboardControl="false"
+                       width="250">
+      <adfmf:springboardFeatureReference id="sfr1" refId="Springboard"/>
+    </adfmf:springboard>
+  </adfmf:navigation>
+</adfmf:application>

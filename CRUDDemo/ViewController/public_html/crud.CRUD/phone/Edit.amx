@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="#{bindings.first.inputValue}" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton id="cb1" action="__back" text="Cancel">
+                <amx:actionListener id="al6" binding="#{bindings.RemoveRow.execute}"
+                                    type="#{pageFlowScope.newMode ? 'action' : ''}"/>
+                <amx:actionListener id="al9" type="#{pageFlowScope.newMode ? '' : 'action'}"
+                                    binding="#{bindings.ReloadFromStore.execute}"/>
+            </amx:commandButton>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandButton id="cb2" action="__back" text="Save">
+                <amx:validationBehavior id="vb1" group="vg1"/>
+                <amx:actionListener id="al2" binding="#{bindings.SaveToStore.execute}"/>
+            </amx:commandButton>
+        </amx:facet>
+        <amx:validationGroup id="vg1">
+            <amx:panelFormLayout id="pfl1" fieldHalign="start" fieldWidth="70%" labelWidth="30%">
+                <amx:panelLabelAndMessage label="#{bindings.id.hints.label}" id="plam1">
+                    <amx:outputText value="#{bindings.id.inputValue}" id="ot2">
+                        <amx:convertNumber groupingUsed="false" id="cn1"/>
+                    </amx:outputText>
+                </amx:panelLabelAndMessage>
+                <amx:inputText value="#{bindings.first.inputValue}" label="#{bindings.first.hints.label}" id="it2"/>
+                <amx:inputText value="#{bindings.last.inputValue}" label="#{bindings.last.hints.label}" id="it5"/>
+                <amx:inputText value="#{bindings.phone.inputValue}" label="#{bindings.phone.hints.label}" id="it4"/>
+                <amx:inputText value="#{bindings.email.inputValue}" label="#{bindings.email.hints.label}" id="it6"/>
+                <amx:inputDate value="#{bindings.birthDate.inputValue}" label="#{bindings.birthDate.hints.label}"
+                               id="id1"/>
+                <amx:inputText value="#{bindings.address.inputValue}" label="#{bindings.address.hints.label}" id="it3"/>
+                <amx:inputText value="#{bindings.city.inputValue}" label="#{bindings.city.hints.label}" id="it1"/>
+                <amx:inputText value="#{bindings.state.inputValue}" label="#{bindings.state.hints.label}" id="it7"/>
+            </amx:panelFormLayout>
+        </amx:validationGroup>
+    </amx:panelPage>
+</amx:view>

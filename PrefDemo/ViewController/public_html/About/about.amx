@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="About" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png"
+                           id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:spacer height="5" id="s2"/>
+        <amx:outputText value="This application demonstrates how to create application-specific and feature-specific user setting pages."
+                        id="ot3"/>
+        <amx:spacer height="10" id="s1"/>
+        <amx:outputText value="Follow the instructions below to navigate to the application Preferences:" id="ot4"/>
+        <amx:panelGroupLayout id="pgl1" halign="center">
+            <amx:image source="/images/iOSPreferences.png" id="i2" rendered='#{deviceScope.device.os == "iOS"}'/>
+            <amx:image source="/images/AndroidPreferences.png" id="i3" rendered='#{deviceScope.device.os == "Android"}'/>
+        </amx:panelGroupLayout>
+    </amx:panelPage>
+</amx:view>

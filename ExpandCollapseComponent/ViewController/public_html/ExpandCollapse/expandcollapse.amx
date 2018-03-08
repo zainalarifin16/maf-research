@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt" xmlns:custom="http://xmlns.example.com/custom">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="ExpandCollapse" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+                <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png"
+                           id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <custom:expandcollapse id="test" value="test" rendered="true">
+            <?audit suppress oracle.ide.xml.validation-warning?>
+            <amx:facet name="header">
+                <?audit suppress oracle.maf.duplicate-facet?>
+                <amx:outputText value="My List" id="otd1"/>
+            </amx:facet>
+            <amx:listView var="row" showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1">
+                <amx:listItem showLinkIcon="false" id="li1">
+                    <amx:outputText value="ListItem Text" id="ot2"/>
+                </amx:listItem>
+                <amx:listItem showLinkIcon="false" id="li2">
+                    <amx:outputText value="ListItem Text" id="ot22"/>
+                </amx:listItem>
+                <amx:listItem showLinkIcon="false" id="liw1">
+                    <amx:outputText value="ListItem Text" id="ote2"/>
+                </amx:listItem>
+                <amx:listItem showLinkIcon="false" id="lie1">
+                    <amx:outputText value="ListItem Text" id="otea2"/>
+                </amx:listItem>
+            </amx:listView>
+        </custom:expandcollapse>
+           <amx:spacer id="s2"/>
+        <custom:expandcollapse id="pgl2" value="test2" rendered="true">
+            <amx:facet name="header">
+                <?audit suppress oracle.maf.duplicate-facet?>
+                <amx:outputText value="My Tasks" id="otdsd1"/>
+            </amx:facet>
+            <amx:panelGroupLayout layout="vertical" id="pgl1">
+                <amx:outputText value="Task1" id="ot3"/>
+                <amx:outputText value="Task2" id="ot4"/>
+                <amx:outputText value="Task3" id="ot5"/>
+            </amx:panelGroupLayout>
+        </custom:expandcollapse>
+        <custom:expandcollapse id="pgl4" value="test3" rendered="true">
+            <amx:facet name="header">
+                <?audit suppress oracle.maf.duplicate-facet?>
+                <amx:outputText value="My Form" id="otdsdd"/>
+            </amx:facet>
+            <amx:panelFormLayout id="pfl1">
+                <amx:panelLabelAndMessage label="field1" id="plam2">
+                    <amx:outputText value="value1" id="ot7"/>
+                </amx:panelLabelAndMessage>
+                <amx:panelLabelAndMessage label="field2" id="plam4">
+                    <amx:outputText value="value2" id="ot9"/>
+                </amx:panelLabelAndMessage>
+                <amx:panelLabelAndMessage label="field3" id="plam6">
+                    <amx:outputText value="value3" id="ot11"/>
+                </amx:panelLabelAndMessage>
+                <amx:panelLabelAndMessage label="field4" id="plam1">
+                    <amx:outputText value="value4" id="ot6"/>
+                </amx:panelLabelAndMessage>
+                <amx:panelLabelAndMessage label="field5" id="plam5">
+                    <amx:outputText value="value5" id="ot10"/>
+                </amx:panelLabelAndMessage>
+                <amx:panelLabelAndMessage label="field6" id="plam3">
+                    <amx:outputText value="value6" id="ot8"/>
+                </amx:panelLabelAndMessage>
+            </amx:panelFormLayout>
+        </custom:expandcollapse>
+
+    </amx:panelPage>
+</amx:view>

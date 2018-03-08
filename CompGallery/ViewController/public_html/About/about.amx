@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1" styleClass="custom-panelPage-with-springboard">
+    <amx:facet name="header">
+      <amx:outputText value="About" id="hdr"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandLink
+        id="clAppSB" rendered="#{!GlobalProperties['hostedMode']}"
+        actionListener="#{bindings.toggleSpringboard.execute}"
+        disabled="#{!bindings.toggleSpringboard.enabled}"
+        shortDesc="Springboard" styleClass="custom-springboard-link">
+        <amx:image id="i1" source="/images/springboard.svg" shortDesc="">
+          <?audit suppress oracle.maf.warning-missing-shortDesc?>
+        </amx:image>
+      </amx:commandLink>
+      <amx:commandLink
+        id="clMockSB" rendered="#{GlobalProperties['hostedMode']}"
+        shortDesc="Springboard" styleClass="custom-springboard-link">
+        <amx:image id="i2" source="/images/springboard.svg" shortDesc="">
+          <?audit suppress oracle.maf.warning-missing-shortDesc?>
+        </amx:image>
+        <amx:showPopupBehavior align="overlapTopStart" alignId="pp1" popupId="mockSB" type="action" id="spb1"/>
+      </amx:commandLink>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink
+        id="pBookmark" rendered="#{GlobalProperties['hostedMode']}"
+        url="public_html/bookmark.html?feature=About"
+        shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link">
+        <amx:image id="bookmarkIcon" source="../images/bookmark.svg" shortDesc="">
+          <?audit suppress oracle.maf.warning-missing-shortDesc?>
+        </amx:image>
+      </amx:goLink>
+    </amx:facet>
+    <amx:outputText id="ot1" value="This sample demonstrates various UI components and techniques."/>
+    <amx:outputText id="ot2" value="Components" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:outputText id="ot3"
+      value="This application demonstrates how AMX user interface components appear and behave. The components are organized into a few common categories. This application lets you view different skins. When viewing it on a device as a MAF application, the skin is platform-specific. When viewing it in a web browser at jdevadf.oracle.com, the application allows adjusting the skin platform."/>
+    <amx:outputText id="ot4"
+      value="This application allows adjusting of component properties, viewing alternate styles, and accessing tag documentation. Additionally when using the browser-based demo, the application provides page bookmarks and the ability to adjust reading direction between left-to-right and right-to-left."/>
+    <amx:outputText id="ot5"
+      value="Note: Formerly there was a separate UI Demo application. The styles section of that demo was moved into this application."/>
+  </amx:panelPage>
+  <amx:popup id="mockSB" shortDesc="Springboard"/>
+</amx:view>

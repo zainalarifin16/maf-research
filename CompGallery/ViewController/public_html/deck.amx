@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Deck"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Layout"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="properties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#amx:deck" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=layout/deck" shortDesc="Bookmarkable Link"
+                  styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:tableLayout id="tl1" inlineStyle="min-height:175px">
+      <amx:rowLayout id="rl1">
+        <amx:cellFormat id="cf1" valign="top">
+          <amx:outputText id="ot1" value="Explicit Size"
+                          styleClass="adfmf-outputText-sectionTitle adfmf-outputText-padded"/>
+          <amx:deck id="deck1"
+                    displayedChild="#{pageFlowScope.componentProperties.displayedChild}"
+                    inlineStyle="margin-left:15px;margin-right:15px;width:95px;height:137px;overflow:hidden;#{pageFlowScope.componentProperties.inlineStyle}"
+                    landmark="#{pageFlowScope.componentProperties.landmark}"
+                    rendered="#{pageFlowScope.componentProperties.rendered}"
+                    shortDesc="#{pageFlowScope.componentProperties.shortDesc}"
+                    styleClass="#{pageFlowScope.componentProperties.styleClass}">
+            <amx:transition triggerType="#{pageFlowScope.componentProperties.triggerType}"
+                            transition="#{pageFlowScope.componentProperties.transitionVal1}"/>
+            <amx:transition triggerType="#{pageFlowScope.componentProperties.triggerType2}"
+                            transition="#{pageFlowScope.componentProperties.transitionVal2}"/>
+            <amx:commandLink id="linkCardBack">
+              <amx:setPropertyListener from="linkCardA"
+                                       to="#{pageFlowScope.componentProperties.displayedChild}"/>
+              <amx:image id="imgCardBack1" source="images/card-back.png"
+                         inlineStyle="width:95px;height:137px;" shortDesc="Card Back"/>
+            </amx:commandLink>
+            <amx:commandLink id="linkCardA">
+              <amx:setPropertyListener from="linkCardB"
+                                       to="#{pageFlowScope.componentProperties.displayedChild}"/>
+              <amx:image id="imgCardA1" source="images/card-front-a.png"
+                         inlineStyle="width:95px;height:137px;" shortDesc="Card Front A"/>
+            </amx:commandLink>
+            <amx:commandLink id="linkCardB">
+              <amx:setPropertyListener from="linkCardC"
+                                       to="#{pageFlowScope.componentProperties.displayedChild}"/>
+              <amx:image id="imgCardB1" source="images/card-front-b.png"
+                         inlineStyle="width:95px;height:137px;" shortDesc="Card Front B"/>
+            </amx:commandLink>
+            <amx:commandLink id="linkCardC">
+              <amx:setPropertyListener from="linkCardD"
+                                       to="#{pageFlowScope.componentProperties.displayedChild}"/>
+              <amx:image id="imgCardC1" source="images/card-front-c.png"
+                         inlineStyle="width:95px;height:137px;" shortDesc="Card Front C"/>
+            </amx:commandLink>
+            <amx:commandLink id="linkCardD">
+              <amx:setPropertyListener from="linkCardE"
+                                       to="#{pageFlowScope.componentProperties.displayedChild}"/>
+              <amx:image id="imgCardD1" source="images/card-front-d.png"
+                         inlineStyle="width:95px;height:137px;" shortDesc="Card Front D"/>
+            </amx:commandLink>
+            <amx:commandLink id="linkCardE">
+              <amx:setPropertyListener from="linkCardBack"
+                                       to="#{pageFlowScope.componentProperties.displayedChild}"/>
+              <amx:image id="imgCardE1" source="images/card-front-e.png"
+                         inlineStyle="width:95px;height:137px;" shortDesc="Card Front E"/>
+            </amx:commandLink>
+          </amx:deck>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf2" valign="top">
+          <amx:outputText id="ot2" value="No Explicit Size"
+                          styleClass="adfmf-outputText-sectionTitle adfmf-outputText-padded"/>
+          <amx:deck id="deck2"
+                    displayedChild="#{pageFlowScope.componentProperties.displayedChild}2"
+                    inlineStyle="margin-left:15px;margin-right:15px;#{pageFlowScope.componentProperties.inlineStyle}"
+                    landmark="#{pageFlowScope.componentProperties.landmark}"
+                    rendered="#{pageFlowScope.componentProperties.rendered}"
+                    styleClass="#{pageFlowScope.componentProperties.styleClass}"
+                    shortDesc="#{pageFlowScope.componentProperties.shortDesc}">
+            <amx:transition triggerType="#{pageFlowScope.componentProperties.triggerType}"
+                            transition="#{pageFlowScope.componentProperties.transitionVal1}"/>
+            <amx:transition triggerType="#{pageFlowScope.componentProperties.triggerType2}"
+                            transition="#{pageFlowScope.componentProperties.transitionVal2}"/>
+            <amx:commandLink id="linkCardBack2" inlineStyle="font-size:1px;display:block;">
+              <amx:setPropertyListener from="linkCardA"
+                                       to="#{pageFlowScope.componentProperties.displayedChild}"/>
+              <amx:image id="imgCardBack2" source="images/card-back.png"
+                         inlineStyle="width:95px;height:137px;" shortDesc="Card Back"/>
+            </amx:commandLink>
+            <amx:commandLink id="linkCardA2" inlineStyle="font-size:1px;display:block;">
+              <amx:setPropertyListener from="linkCardB"
+                                       to="#{pageFlowScope.componentProperties.displayedChild}"/>
+              <amx:image id="imgCardA2" source="images/card-front-a.png"
+                         inlineStyle="width:95px;height:137px;" shortDesc="Card Front A"/>
+            </amx:commandLink>
+            <amx:commandLink id="linkCardB2" inlineStyle="font-size:1px;display:block;">
+              <amx:setPropertyListener from="linkCardC"
+                                       to="#{pageFlowScope.componentProperties.displayedChild}"/>
+              <amx:image id="imgCardB2" source="images/card-front-b.png"
+                         inlineStyle="width:95px;height:137px;" shortDesc="Card Front B"/>
+            </amx:commandLink>
+            <amx:commandLink id="linkCardC2" inlineStyle="font-size:1px;display:block;">
+              <amx:setPropertyListener from="linkCardD"
+                                       to="#{pageFlowScope.componentProperties.displayedChild}"/>
+              <amx:image id="imgCardC2" source="images/card-front-c.png"
+                         inlineStyle="width:95px;height:137px;" shortDesc="Card Front C"/>
+            </amx:commandLink>
+            <amx:commandLink id="linkCardD2" inlineStyle="font-size:1px;display:block;">
+              <amx:setPropertyListener from="linkCardE"
+                                       to="#{pageFlowScope.componentProperties.displayedChild}"/>
+              <amx:image id="imgCardD2" source="images/card-front-d.png"
+                         inlineStyle="width:95px;height:137px;" shortDesc="Card Front D"/>
+            </amx:commandLink>
+            <amx:commandLink id="linkCardE2" inlineStyle="font-size:1px;display:block;">
+              <amx:setPropertyListener from="linkCardBack"
+                                       to="#{pageFlowScope.componentProperties.displayedChild}"/>
+              <amx:image id="imgCardE2" source="images/card-front-e.png"
+                         inlineStyle="width:95px;height:137px;" shortDesc="Card Front E"/>
+            </amx:commandLink>
+          </amx:deck>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
+    <amx:outputText id="ot3" value="Displayed Child" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:selectOneButton id="sobDisplayedChild"
+                         value="#{pageFlowScope.componentProperties.displayedChild}"
+                         simple="true" label="Displayed Child" layout="horizontal">
+      <amx:selectItem label="Back" value="linkCardBack"/>
+      <amx:selectItem label="A" value="linkCardA"/>
+      <amx:selectItem label="B" value="linkCardB"/>
+      <amx:selectItem label="C" value="linkCardC"/>
+      <amx:selectItem label="D" value="linkCardD"/>
+      <amx:selectItem label="E" value="linkCardE"/>
+      <amx:selectItem label="n/a" value="bogus"/>
+    </amx:selectOneButton>
+    <amx:outputText id="ot4" value="Transistion Pairs" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:commandButton id="presetNone" text="none">
+      <amx:setPropertyListener from="none" to="#{pageFlowScope.componentProperties.transitionVal1}"/>
+      <amx:setPropertyListener from="none"
+                               to="#{pageFlowScope.componentProperties.transitionVal2}"/>
+    </amx:commandButton>
+    <amx:commandButton id="presetRevealCoverH" text="cover reveal h">
+      <amx:setPropertyListener from="coverStart"
+                               to="#{pageFlowScope.componentProperties.transitionVal1}"/>
+      <amx:setPropertyListener from="revealEnd"
+                               to="#{pageFlowScope.componentProperties.transitionVal2}"/>
+    </amx:commandButton>
+    <amx:commandButton id="presetRevealCoverV" text="cover reveal v">
+      <amx:setPropertyListener from="coverDown"
+                               to="#{pageFlowScope.componentProperties.transitionVal1}"/>
+      <amx:setPropertyListener from="revealUp"
+                               to="#{pageFlowScope.componentProperties.transitionVal2}"/>
+    </amx:commandButton>
+    <amx:commandButton id="presetFade" text="fade">
+      <amx:setPropertyListener from="fade" to="#{pageFlowScope.componentProperties.transitionVal1}"/>
+      <amx:setPropertyListener from="fade"
+                               to="#{pageFlowScope.componentProperties.transitionVal2}"/>
+    </amx:commandButton>
+    <amx:commandButton id="presetFlipV" text="flip v">
+      <amx:setPropertyListener from="flipDown"
+                               to="#{pageFlowScope.componentProperties.transitionVal1}"/>
+      <amx:setPropertyListener from="flipUp"
+                               to="#{pageFlowScope.componentProperties.transitionVal2}"/>
+    </amx:commandButton>
+    <amx:commandButton id="presetFlipHB" text="flip h bidi">
+      <amx:setPropertyListener from="flipEnd"
+                               to="#{pageFlowScope.componentProperties.transitionVal1}"/>
+      <amx:setPropertyListener from="flipStart"
+                               to="#{pageFlowScope.componentProperties.transitionVal2}"/>
+    </amx:commandButton>
+    <amx:commandButton id="presetFlipHE" text="flip h explicit">
+      <amx:setPropertyListener from="flipRight"
+                               to="#{pageFlowScope.componentProperties.transitionVal1}"/>
+      <amx:setPropertyListener from="flipLeft"
+                               to="#{pageFlowScope.componentProperties.transitionVal2}"/>
+    </amx:commandButton>
+    <amx:commandButton id="presetSlideV" text="slide v">
+      <amx:setPropertyListener from="slideDown"
+                               to="#{pageFlowScope.componentProperties.transitionVal1}"/>
+      <amx:setPropertyListener from="slideUp"
+                               to="#{pageFlowScope.componentProperties.transitionVal2}"/>
+    </amx:commandButton>
+    <amx:commandButton id="presetSlideHB" text="slide h bidi">
+      <amx:setPropertyListener from="slideEnd"
+                               to="#{pageFlowScope.componentProperties.transitionVal1}"/>
+      <amx:setPropertyListener from="slideStart"
+                               to="#{pageFlowScope.componentProperties.transitionVal2}"/>
+    </amx:commandButton>
+    <amx:commandButton id="presetSlideHE" text="slide h explicit">
+      <amx:setPropertyListener from="slideRight"
+                               to="#{pageFlowScope.componentProperties.transitionVal1}"/>
+      <amx:setPropertyListener from="slideLeft"
+                               to="#{pageFlowScope.componentProperties.transitionVal2}"/>
+    </amx:commandButton>
+    <amx:commandButton id="presetBogus" text="n/a">
+      <amx:setPropertyListener from="bogus"
+                               to="#{pageFlowScope.componentProperties.transitionVal1}"/>
+      <amx:setPropertyListener from="bogus"
+                               to="#{pageFlowScope.componentProperties.transitionVal2}"/>
+    </amx:commandButton>
+    <amx:outputText id="ot5" value="Transition Tag 1" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:panelFormLayout id="pfl1">
+      <amx:selectOneChoice id="socTriggerType"
+                           value="#{pageFlowScope.componentProperties.triggerType}"
+                           label="Trigger Type">
+        <amx:selectItem label="backNavigate" value="backNavigate"/>
+        <amx:selectItem label="forwardNavigate" value="forwardNavigate"/>
+        <amx:selectItem label="n/a" value="bogus"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="socTransition"
+                           value="#{pageFlowScope.componentProperties.transitionVal1}"
+                           label="Transition">
+        <amx:selectItem label="none" value="none"/>
+        <amx:selectItem label="coverUp" value="coverUp"/>
+        <amx:selectItem label="coverDown" value="coverDown"/>
+        <amx:selectItem label="coverStart" value="coverStart"/>
+        <amx:selectItem label="coverEnd" value="coverEnd"/>
+        <amx:selectItem label="coverLeft" value="coverLeft"/>
+        <amx:selectItem label="coverRight" value="coverRight"/>
+        <amx:selectItem label="fade" value="fade"/>
+        <amx:selectItem label="flipUp" value="flipUp"/>
+        <amx:selectItem label="flipDown" value="flipDown"/>
+        <amx:selectItem label="flipStart" value="flipStart"/>
+        <amx:selectItem label="flipEnd" value="flipEnd"/>
+        <amx:selectItem label="flipLeft" value="flipLeft"/>
+        <amx:selectItem label="flipRight" value="flipRight"/>
+        <amx:selectItem label="revealUp" value="revealUp"/>
+        <amx:selectItem label="revealDown" value="revealDown"/>
+        <amx:selectItem label="revealStart" value="revealStart"/>
+        <amx:selectItem label="revealEnd" value="revealEnd"/>
+        <amx:selectItem label="revealLeft" value="revealLeft"/>
+        <amx:selectItem label="revealRight" value="revealRight"/>
+        <amx:selectItem label="slideUp" value="slideUp"/>
+        <amx:selectItem label="slideDown" value="slideDown"/>
+        <amx:selectItem label="slideStart" value="slideStart"/>
+        <amx:selectItem label="slideEnd" value="slideEnd"/>
+        <amx:selectItem label="slideLeft" value="slideLeft"/>
+        <amx:selectItem label="slideRight" value="slideRight"/>
+        <amx:selectItem label="n/a" value="bogus"/>
+      </amx:selectOneChoice>
+    </amx:panelFormLayout>
+    <amx:outputText id="ot6" value="Transition Tag 2" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:panelFormLayout id="pfl2">
+      <amx:selectOneChoice id="socTriggerType2"
+                           value="#{pageFlowScope.componentProperties.triggerType2}"
+                           label="Trigger Type">
+        <amx:selectItem label="forwardNavigate" value="forwardNavigate"/>
+        <amx:selectItem label="backNavigate" value="backNavigate"/>
+        <amx:selectItem label="n/a" value="bogus"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice id="socTransition2"
+                           value="#{pageFlowScope.componentProperties.transitionVal2}"
+                           label="Transition">
+        <amx:selectItem label="none" value="none"/>
+        <amx:selectItem label="coverUp" value="coverUp"/>
+        <amx:selectItem label="coverDown" value="coverDown"/>
+        <amx:selectItem label="coverStart" value="coverStart"/>
+        <amx:selectItem label="coverEnd" value="coverEnd"/>
+        <amx:selectItem label="coverLeft" value="coverLeft"/>
+        <amx:selectItem label="coverRight" value="coverRight"/>
+        <amx:selectItem label="fade" value="fade"/>
+        <amx:selectItem label="flipUp" value="flipUp"/>
+        <amx:selectItem label="flipDown" value="flipDown"/>
+        <amx:selectItem label="flipStart" value="flipStart"/>
+        <amx:selectItem label="flipEnd" value="flipEnd"/>
+        <amx:selectItem label="flipLeft" value="flipLeft"/>
+        <amx:selectItem label="flipRight" value="flipRight"/>
+        <amx:selectItem label="revealUp" value="revealUp"/>
+        <amx:selectItem label="revealDown" value="revealDown"/>
+        <amx:selectItem label="revealStart" value="revealStart"/>
+        <amx:selectItem label="revealEnd" value="revealEnd"/>
+        <amx:selectItem label="revealLeft" value="revealLeft"/>
+        <amx:selectItem label="revealRight" value="revealRight"/>
+        <amx:selectItem label="slideUp" value="slideUp"/>
+        <amx:selectItem label="slideDown" value="slideDown"/>
+        <amx:selectItem label="slideStart" value="slideStart"/>
+        <amx:selectItem label="slideEnd" value="slideEnd"/>
+        <amx:selectItem label="slideLeft" value="slideLeft"/>
+        <amx:selectItem label="slideRight" value="slideRight"/>
+        <amx:selectItem label="n/a" value="bogus"/>
+      </amx:selectOneChoice>
+    </amx:panelFormLayout>
+  </amx:panelPage>
+</amx:view>

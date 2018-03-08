@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Download Config" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+            <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+        </amx:commandLink>
+    </amx:facet>
+    <amx:commandButton actionListener="#{bindings.updateConfig.execute}" text="Download"
+                       disabled="#{!bindings.updateConfig.enabled}" id="cb1"
+                       styleClass="adfmf-commandButton-large"/>
+    <amx:spacer id="s1" height="30"/>
+    <amx:outputText value="Download in progress" styleClass="adfmf-outputText-sectionTitle" id="ot3"
+                    rendered="#{bindings.downLoadInProgress.inputValue == true}"/>
+    <amx:outputText value="No download in progress" styleClass="adfmf-outputText-sectionTitle" id="ot5"
+                    rendered="#{bindings.downLoadInProgress.inputValue == false}"/>
+    <amx:outputText value="Status" id="ot7" styleClass="adfmf-outputText-sectionTitle"/>
+    <amx:outputText value="#{bindings.status.inputValue}" id="ot4"/>
+  </amx:panelPage>
+</amx:view>

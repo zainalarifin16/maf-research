@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.11.19" id="DataBindings"
+             SeparateXMLFiles="false" Package="mobile" ClientType="Generic">
+  <pageMap>
+    <page path="/Portfolio/stockList.amx" usageId="mobile_stockListPageDef"/>
+    <page path="/Portfolio/manageStocks.amx" usageId="mobile_manageStocksPageDef"/>
+    <page path="/About/about.amx" usageId="mobile_aboutPageDef"/>
+    <page path="/Portfolio/stockDetail.amx" usageId="mobile_stockDetailPageDef"/>
+    <page path="/Springboard/springboard.amx" usageId="mobile_springboardPageDef"/>
+    <page path="/Portfolio/editStock.amx" usageId="mobile_editStockPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="mobile_stockListPageDef" path="Portfolio.stockListPageDef"/>
+    <page id="mobile_manageStocksPageDef" path="Portfolio.manageStocksPageDef"/>
+    <page id="mobile_aboutPageDef" path="About.aboutPageDef"/>
+    <page id="mobile_stockDetailPageDef" path="Portfolio.stockDetailPageDef"/>
+    <page id="mobile_springboardPageDef" path="Springboard.springboardPageDef"/>
+    <page id="mobile_editStockPageDef" path="Portfolio.editStockPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="ApplicationFeatures" path="application.ApplicationFeatures"/>
+    <dc id="Portfolio" path="mobile.Portfolio"/>
+  </dataControlUsages>
+</Application>

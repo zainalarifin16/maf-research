@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.3.3" id="standaloneLegendSectionPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="LegendDataList" id="LegendDataListIterator"/>
+    <accessorIterator MasterBinding="LegendDataListIterator" Binds="legendData" RangeSize="25"
+                      DataControl="LegendDataList" BeanClass="model.LegendData" id="legendDataIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="legendDataIterator" id="legendData">
+      <nodeDefinition DefName="model.LegendData" Name="legendData0">
+        <AttrNames>
+          <Item Value="text"/>
+          <Item Value="color"/>
+          <Item Value="shape"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="legendDataIterator" id="legendData1">
+      <nodeDefinition DefName="model.LegendData" Name="legendData10">
+        <AttrNames>
+          <Item Value="text"/>
+          <Item Value="color"/>
+          <Item Value="shape"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

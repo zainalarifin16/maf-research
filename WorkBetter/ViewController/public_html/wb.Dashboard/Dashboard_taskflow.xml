@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+    <task-flow-definition id="taskflow">
+        <default-activity>Dashboard</default-activity>
+        <view id="Dashboard">
+            <page>/wb.Dashboard/Dashboard.amx</page>
+        </view>
+        <task-flow-call id="MyOrg">
+            <task-flow-reference>
+                <document>/wb.MyOrg/MyOrg_taskflow.xml</document>
+                <id>taskflow</id>
+            </task-flow-reference>
+            <input-parameter id="__6">
+                <name>showBackButton</name>
+                <value>true</value>
+            </input-parameter>
+        </task-flow-call>
+        <task-flow-call id="EmpDetailTF">
+            <task-flow-reference>
+                <document>/wb.Profile/EmpDetailTF.xml</document>
+                <id>EmpDetailTF</id>
+            </task-flow-reference>
+            <input-parameter id="__2">
+                <name>empid</name>
+                <value>#{pageFlowScope.drillEmpid}</value>
+            </input-parameter>
+            <input-parameter id="__7">
+                <name>isDirectory</name>
+                <value>false</value>
+            </input-parameter>
+            <input-parameter id="__8">
+                <name>showBackButton</name>
+                <value>true</value>
+            </input-parameter>
+            <input-parameter id="__9">
+                <name>summaryView</name>
+                <value>perf</value>
+            </input-parameter>
+        </task-flow-call>
+        <task-flow-call id="EmpDetailTF_MyProfile">
+            <task-flow-reference>
+                <document>/wb.Profile/EmpDetailTF.xml</document>
+                <id>EmpDetailTF</id>
+            </task-flow-reference>
+            <input-parameter id="__5">
+                <name>empid</name>
+                <value>#{UserBean.userEmpid}</value>
+            </input-parameter>
+            <input-parameter id="__10">
+                <name>isDirectory</name>
+                <value>false</value>
+            </input-parameter>
+            <input-parameter id="__11">
+                <name>showBackButton</name>
+                <value>true</value>
+            </input-parameter>
+            <input-parameter id="__14">
+                <name>summaryView</name>
+                <value>#{pageFlowScope.summaryView}</value>
+            </input-parameter>
+        </task-flow-call>
+        <control-flow-rule id="__3">
+            <from-activity-id>Dashboard</from-activity-id>
+            <control-flow-case id="__4">
+                <from-outcome>myOrg</from-outcome>
+                <to-activity-id>MyOrg</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__1">
+                <from-outcome>empDrill</from-outcome>
+                <to-activity-id>EmpDetailTF</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__13">
+                <from-outcome>myProfile</from-outcome>
+                <to-activity-id>EmpDetailTF_MyProfile</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <page-flow-scope-behavior>
+            <push-new/>
+        </page-flow-scope-behavior>
+    </task-flow-definition>
+</adfc-mobile-config>

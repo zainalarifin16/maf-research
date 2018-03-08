@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="MyOrg_Launcher">
+    <default-activity>taskflow</default-activity>
+    <task-flow-call id="taskflow">
+      <task-flow-reference>
+        <document>/wb.MyOrg/MyOrg_taskflow.xml</document>
+        <id>taskflow</id>
+      </task-flow-reference>
+      <input-parameter id="__1">
+        <name>showBackButton</name>
+        <value>false</value>
+      </input-parameter>
+    </task-flow-call>
+    <page-flow-scope-behavior>
+      <push-new/>
+    </page-flow-scope-behavior>
+  </task-flow-definition>
+</adfc-mobile-config>

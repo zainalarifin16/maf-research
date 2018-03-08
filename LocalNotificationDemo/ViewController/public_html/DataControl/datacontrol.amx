@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Data Control" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl1">
+        <amx:image inlineStyle="width:32px;height:32px" source="/images/springboard.png" id="i1"/>
+      </amx:commandLink>
+    </amx:facet>
+    <amx:panelFormLayout id="pfl1">
+      <amx:inputText value="#{bindings.title.inputValue}" label="#{bindings.title.hints.label}" id="it7"/>
+      <amx:inputText value="#{bindings.alert.inputValue}" label="#{bindings.alert.hints.label}" id="it3"/>
+      <amx:inputDate value="#{bindings.fireDate.inputValue}" label="#{bindings.fireDate.hints.label}" inputType="datetime" id="id1"/>
+      <amx:inputText value="#{bindings.repeat.inputValue}" label="#{bindings.repeat.hints.label}" id="it5"/>
+      <amx:inputText value="#{bindings.badge.inputValue}" label="#{bindings.badge.hints.label}" id="it6"/>
+      <amx:inputText value="#{bindings.sound.inputValue}" label="#{bindings.sound.hints.label}" id="it4"/>
+      <amx:inputText value="#{bindings.vibration.inputValue}" label="#{bindings.vibration.hints.label}" id="it2"/>
+      <amx:inputText value="#{bindings.jsonPayload.inputValue}" label="#{bindings.jsonPayload.hints.label}" id="it1"/>
+    </amx:panelFormLayout>
+    <amx:commandButton actionListener="#{bindings.addLocalNotification.execute}" text="Add Local Notification"
+                       disabled="#{!bindings.addLocalNotification.enabled}" id="cb1"/>
+   
+  </amx:panelPage>
+</amx:view>

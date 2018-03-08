@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText id="header" value="Details"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton id="commandButton1" text="Back" action="__back" styleClass="amx-commandButton-back" />
+        </amx:facet>
+        <amx:panelFormLayout id="panelFormLayout1" labelPosition="topStart" fieldHalign="start">
+            <amx:panelLabelAndMessage label="#{bindings.id.hints.label}" id="panelLabelAndMessage9">
+                <amx:outputText value="#{bindings.id.inputValue}" id="outputText9">
+                    <amx:convertNumber groupingUsed="false"/>
+                </amx:outputText>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.first.hints.label}" id="panelLabelAndMessage4">
+                <amx:outputText value="#{bindings.first.inputValue}" id="outputText4"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.last.hints.label}" id="panelLabelAndMessage10">
+                <amx:outputText value="#{bindings.last.inputValue}" id="outputText10"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.address.hints.label}" id="panelLabelAndMessage3">
+                <amx:outputText value="#{bindings.address.inputValue}" id="outputText3"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.city.hints.label}" id="panelLabelAndMessage8">
+                <amx:outputText value="#{bindings.city.inputValue}" id="outputText8"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.state.hints.label}" id="panelLabelAndMessage12">
+                <amx:outputText value="#{bindings.state.inputValue}" id="outputText12"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.zip.hints.label}" id="panelLabelAndMessage1">
+                <amx:outputText value="#{bindings.zip.inputValue}" id="outputText1"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.phone.hints.label}" id="panelLabelAndMessage7">
+                <amx:outputText value="#{bindings.phone.inputValue}" id="outputText7"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.mobile.hints.label}" id="panelLabelAndMessage2">
+                <amx:outputText value="#{bindings.mobile.inputValue}" id="outputText2"/>
+            </amx:panelLabelAndMessage>
+            <amx:panelLabelAndMessage label="#{bindings.salary.hints.label}" id="panelLabelAndMessage6">
+                <amx:outputText value="#{bindings.salary.inputValue}" id="outputText13">
+                    <amx:convertNumber currencySymbol="$" groupingUsed="true" minFractionDigits="2"
+                                       maxFractionDigits="2" type="currency"/>
+                </amx:outputText>
+            </amx:panelLabelAndMessage>
+        </amx:panelFormLayout>
+    </amx:panelPage>
+</amx:view>

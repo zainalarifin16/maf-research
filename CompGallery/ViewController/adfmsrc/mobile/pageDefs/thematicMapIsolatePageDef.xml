@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.62.33" id="thematicMapIsolatePageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="ThematicMapIsolateDataList"
+              id="ThematicMapIsolateDataListIterator"/>
+    <accessorIterator MasterBinding="ThematicMapIsolateDataListIterator" Binds="thematicMapIsolateData" RangeSize="-1"
+                      DataControl="ThematicMapIsolateDataList" BeanClass="model.ThematicMapIsolateData"
+                      id="thematicMapIsolateDataIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="thematicMapIsolateDataIterator" id="thematicMapIsolateData">
+      <nodeDefinition DefName="model.ThematicMapIsolateData" Name="thematicMapIsolateData0">
+        <AttrNames>
+          <Item Value="color"/>
+          <Item Value="name"/>
+          <Item Value="value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

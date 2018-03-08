@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
+    <adfmf:feature id="Javascript" name="JavaScript" icon="images/navbar-icon.png" image="images/springboard-icon.png">
+    <adfmf:content id="Javascript.1">
+      <adfmf:amx file="Javascript/taskflow.xml#taskflow">
+        <adfmf:includes>
+          <adfmf:include type="JavaScript" file="Javascript/methods.js"/>
+        </adfmf:includes>
+      </adfmf:amx>
+    </adfmf:content>
+    <adfmf:properties id="p15">
+      <adfmf:property name="iOSWebView" value="default" id="p16"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="Action" name="ActionListener" icon="images/navbar-icon.png" image="images/springboard-icon.png">
+    <adfmf:content id="Action.1">
+      <adfmf:amx file="ActionListener/actionListener.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p1">
+      <adfmf:property name="iOSWebView" value="default" id="p2"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="Success" name="Success" icon="images/navbar-icon.png" image="images/springboard-icon.png">
+    <adfmf:content id="Success.1">
+      <adfmf:amx file="Success/Success.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p11">
+      <adfmf:property name="iOSWebView" value="default" id="p12"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="Value" name="ValueChangeListener" icon="images/navbar-icon.png" image="images/springboard-icon.png">
+    <adfmf:content id="Value.1">
+      <adfmf:amx file="ValueListener/valueListener.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p7">
+      <adfmf:property name="iOSWebView" value="default" id="p8"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="Method" name="Method Invocation" icon="images/navbar-icon.png" image="images/springboard-icon.png">
+    <adfmf:content id="Method.1">
+      <adfmf:amx file="Method/Method.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p9">
+      <adfmf:property name="iOSWebView" value="default" id="p10"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="EL" name="EL Resolution" icon="images/navbar-icon.png" image="images/springboard-icon.png">
+    <adfmf:content id="EL.1">
+      <adfmf:amx file="ELResolution/ELResolution.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p3">
+      <adfmf:property name="iOSWebView" value="default" id="p4"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="About" name="About" icon="images/navbar-icon.png" image="images/springboard-icon.png">
+    <adfmf:content id="About.1">
+      <adfmf:amx file="About/about.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p13">
+      <adfmf:property name="iOSWebView" value="default" id="p14"/>
+    </adfmf:properties>
+  </adfmf:feature>
+  <adfmf:feature id="Springboard" name="Springboard" icon="images/navbar-icon.png" image="images/springboard-icon.png">
+    <adfmf:content id="Springboard.1">
+      <adfmf:amx file="Springboard/springboard.amx"/>
+    </adfmf:content>
+    <adfmf:properties id="p5">
+      <adfmf:property name="iOSWebView" value="default" id="p6"/>
+    </adfmf:properties>
+  </adfmf:feature>
+</adfmf:features>

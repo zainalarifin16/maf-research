@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+.login-filmstrip {
+    margin-left:10px;
+    margin-right:10px;
+    height:100%;
+}
+
+.login-filmstripitem {
+    margin:5px;
+}
+
+.login-avatar-container {
+    width:100%;
+    margin-top:30px;
+    margin-bottom:20px;
+}
+
+.amx-image.login-avatar {
+    border:2px solid #FFF;
+    box-shadow:0 0 2px rgba(0,0,0,0.4);
+    border-radius:50%;
+    margin:4px;
+    width:120px;
+    height:120px;
+}
+
+.amx-outputText.login-name {
+    color:white;
+    font-size:28px;
+    font-weight:lighter;
+}
+
+.amx-outputText.login-title {
+    color:white;
+    font-weight:bold;
+    font-size:16px;
+}
+
+.login-desc-container {
+    margin-left:25px;
+    margin-right:5px;
+    margin-top:15px;
+}
+
+.amx-outputText.login-desc {
+    font-size:16px;
+    color:white;
+}
+
+.login-nameblock {
+    margin-top: 5px;
+}
+
+.amx-outputText.login-help {
+    color:white;
+    font-weight:lighter;
+    font-size:24px;
+}

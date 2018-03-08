@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="task-flow">
+    <default-activity>Home</default-activity>
+    <view id="Home">
+      <page>/Home.amx</page>
+    </view>
+    <view id="GlobalProperties">
+      <page>/GlobalProperties.amx</page>
+    </view>
+    <task-flow-call id="general-taskflow">
+      <task-flow-reference>
+        <document>/Gallery/general-taskflow.xml</document>
+        <id>general-taskflow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="select-taskflow">
+      <task-flow-reference>
+        <document>/Gallery/textselect-taskflow.xml</document>
+        <id>select-taskflow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="dataviews-taskflow">
+      <task-flow-reference>
+        <document>/Gallery/dataviews-taskflow.xml</document>
+        <id>dataviews-taskflow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="layout-taskflow">
+      <task-flow-reference>
+        <document>/Gallery/layout-taskflow.xml</document>
+        <id>layout-taskflow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="operations-taskflow">
+      <task-flow-reference>
+        <document>/Gallery/operations-taskflow.xml</document>
+        <id>operations-taskflow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="dvt-taskflow">
+      <task-flow-reference>
+        <document>/Gallery/dvt-taskflow.xml</document>
+        <id>task-flow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <control-flow-rule id="__3">
+      <from-activity-id>Home</from-activity-id>
+      <control-flow-case id="__47">
+        <from-outcome>globalProperties</from-outcome>
+        <to-activity-id>GlobalProperties</to-activity-id>
+        <transition>flipStart</transition>
+      </control-flow-case>
+      <control-flow-case id="__77">
+        <from-outcome>general</from-outcome>
+        <to-activity-id>general-taskflow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__80">
+        <from-outcome>textselect</from-outcome>
+        <to-activity-id>select-taskflow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__81">
+        <from-outcome>layout</from-outcome>
+        <to-activity-id>layout-taskflow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__82">
+        <from-outcome>dvtComponents</from-outcome>
+        <to-activity-id>dvt-taskflow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__83">
+        <from-outcome>dataviews</from-outcome>
+        <to-activity-id>dataviews-taskflow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__84">
+        <from-outcome>operations</from-outcome>
+        <to-activity-id>operations-taskflow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__78">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__79">
+        <from-outcome>return</from-outcome>
+        <to-activity-id>Home</to-activity-id>
+        <transition>slideRight</transition>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-mobile-config>

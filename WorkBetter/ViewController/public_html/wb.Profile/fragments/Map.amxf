@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1"/>
+    <dvtm:geographicMap id="geomp1" rendered="#{bindings.loading.inputValue ne 'true'}" inlineStyle="#{deviceScope.hardware.screen.diagonalSize lt 6 ? 'margin-left:20px;margin-right:20px;' : ''"
+                        shortDesc="Profile Map">
+        <dvtm:pointDataLayer id="pdl1">
+            <dvtm:pointLocation id="pl2" type="address"
+                                address="#{bindings.address.inputValue}, #{bindings.city.inputValue}, #{bindings.state.inputValue}, #{bindings.country.inputValue}">
+                <dvtm:marker id="m2" shortDesc="Geomap Marker"/>
+            </dvtm:pointLocation>
+        </dvtm:pointDataLayer>
+    </dvtm:geographicMap>
+</amx:fragmentDef>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.3.43" id="electionsPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="ElectionDataList" id="ElectionDataListIterator"/>
+    <accessorIterator MasterBinding="ElectionDataListIterator" Binds="electionList" RangeSize="25"
+                      DataControl="ElectionDataList" BeanClass="java.lang.String" id="electionListIterator"/>
+    <accessorIterator MasterBinding="ElectionDataListIterator" Binds="electionDataList" RangeSize="-1"
+                      DataControl="ElectionDataList" BeanClass="model.ElectionData" id="electionDataListIterator"/>
+  </executables>
+  <bindings>
+    <list IterBinding="electionListIterator" ListOperMode="navigation" ListIter="electionListIterator"
+          id="electionList" DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="element"/>
+      </AttrNames>
+    </list>
+    <tree IterBinding="electionDataListIterator" id="electionDataList">
+      <nodeDefinition DefName="model.ElectionData" Name="electionDataList0">
+        <AttrNames>
+          <Item Value="value"/>
+          <Item Value="label"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

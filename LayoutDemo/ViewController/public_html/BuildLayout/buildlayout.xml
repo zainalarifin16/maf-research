@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="buildlayout">
+    <default-activity>selectPageLayout</default-activity>
+    <view id="selectPageLayout">
+      <page>/BuildLayout/Pages/selectPageLayout.amx</page>
+    </view>
+    <view id="selectContentLayout">
+      <page>/BuildLayout/Pages/selectContentLayout.amx</page>
+    </view>
+    <view id="selectLayoutOptions">
+      <page>/BuildLayout/Pages/selectLayoutOptions.amx</page>
+    </view>
+    <router id="router">
+      <case id="__9">
+        <expression>#{pageFlowScope.pageLayout=='basic'}</expression>
+        <outcome>basicPageLayout</outcome>
+      </case>
+      <case id="__11">
+        <expression>#{pageFlowScope.pageLayout=='navbartop'}</expression>
+        <outcome>navBarTopPageLayout</outcome>
+      </case>
+      <case id="__17">
+        <expression>#{pageFlowScope.pageLayout=='splitview'}</expression>
+        <outcome>splitPageLayout</outcome>
+      </case>
+      <case id="__23">
+        <expression>#{pageFlowScope.pageLayout=='tabsbottom'}</expression>
+        <outcome>tabsBottom</outcome>
+      </case>
+      <case id="__24">
+        <expression>#{pageFlowScope.pageLayout=='tabstop'}</expression>
+        <outcome>tabsTop</outcome>
+      </case>
+      <case id="__25">
+        <expression>#{pageFlowScope.pageLayout=='navbarbottom'}</expression>
+        <outcome>navBarBottom</outcome>
+      </case>
+      <case id="__28">
+        <expression>#{pageFlowScope.pageLayout=='filmstrip'}</expression>
+        <outcome>filmstrip</outcome>
+      </case>
+      <case id="__37">
+        <expression>#{pageFlowScope.pageLayout=='toptabsinheader'}</expression>
+        <outcome>tabsHeader</outcome>
+      </case>
+      <default-outcome>basicPageLayout</default-outcome>
+    </router>
+    <task-flow-call id="Call_Basic">
+      <task-flow-reference>
+        <document>/BuildLayout/Taskflows/basic.xml</document>
+        <id>basic</id>
+      </task-flow-reference>
+      <input-parameter id="__12">
+        <name>contentLayout</name>
+        <value>#{pageFlowScope.contentLayout}</value>
+      </input-parameter>
+      <input-parameter id="__15">
+        <name>useFixedSummaryView</name>
+        <value>#{pageFlowScope.useFixedSummaryView}</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-call id="Call_Split">
+      <task-flow-reference>
+        <document>/BuildLayout/Taskflows/split.xml</document>
+        <id>split</id>
+      </task-flow-reference>
+      <input-parameter id="__18">
+        <name>contentLayout</name>
+        <value>#{pageFlowScope.contentLayout}</value>
+      </input-parameter>
+      <input-parameter id="__10">
+        <name>useFixedSummaryView</name>
+        <value>#{pageFlowScope.useFixedSummaryView}</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-call id="Call_NavBarBottom">
+      <task-flow-reference>
+        <document>/BuildLayout/Taskflows/navbarbottom.xml</document>
+        <id>Call_NavbarBottom</id>
+      </task-flow-reference>
+      <input-parameter id="__26">
+        <name>contentLayout</name>
+        <value>#{pageFlowScope.contentLayout}</value>
+      </input-parameter>
+      <input-parameter id="__29">
+        <name>useFixedSummaryView</name>
+        <value>#{pageFlowScope.useFixedSummaryView}</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-call id="Call_TabsBottom">
+      <task-flow-reference>
+        <document>/BuildLayout/Taskflows/tabsbottom.xml</document>
+        <id>tabsbottom</id>
+      </task-flow-reference>
+      <input-parameter id="__30">
+        <name>useFixedSummaryView</name>
+        <value>#{pageFlowScope.useFixedSummaryView}</value>
+      </input-parameter>
+      <input-parameter id="__31">
+        <name>contentLayout</name>
+        <value>#{pageFlowScope.contentLayout}</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-call id="Call_TabsTop">
+      <task-flow-reference>
+        <document>/BuildLayout/Taskflows/tabstop.xml</document>
+        <id>tabstop</id>
+      </task-flow-reference>
+      <input-parameter id="__32">
+        <name>contentLayout</name>
+        <value>#{pageFlowScope.contentLayout}</value>
+      </input-parameter>
+      <input-parameter id="__33">
+        <name>useFixedSummaryView</name>
+        <value>#{pageFlowScope.useFixedSummaryView}</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-call id="filmstrip">
+      <task-flow-reference>
+        <document>/BuildLayout/Taskflows/filmstrip.xml</document>
+        <id>filmstrip</id>
+      </task-flow-reference>
+      <input-parameter id="__34">
+        <name>useFixedSummaryView</name>
+        <value>#{pageFlowScope.useFixedSummaryView}</value>
+      </input-parameter>
+      <input-parameter id="__35">
+        <name>contentLayout</name>
+        <value>#{pageFlowScope.contentLayout}</value>
+      </input-parameter>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>selectPageLayout</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>contentLayout</from-outcome>
+        <to-activity-id>selectContentLayout</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>selectContentLayout</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>layoutOptions</from-outcome>
+        <to-activity-id>selectLayoutOptions</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>selectLayoutOptions</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>showLayout</from-outcome>
+        <to-activity-id>router</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>router</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>basicPageLayout</from-outcome>
+        <to-activity-id>Call_Basic</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__16">
+        <from-outcome>splitPageLayout</from-outcome>
+        <to-activity-id>Call_Split</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__20">
+        <from-outcome>navBarBottom</from-outcome>
+        <to-activity-id>Call_NavBarBottom</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__21">
+        <from-outcome>tabsBottom</from-outcome>
+        <to-activity-id>Call_TabsBottom</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__22">
+        <from-outcome>tabsTop</from-outcome>
+        <to-activity-id>Call_TabsTop</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__27">
+        <from-outcome>filmstrip</from-outcome>
+        <to-activity-id>filmstrip</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <page-flow-scope-behavior>
+      <push-new/>
+    </page-flow-scope-behavior>
+  </task-flow-definition>
+</adfc-mobile-config>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText id="header" value="Layout"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton text="Home" id="back" action="return" styleClass="amx-commandButton-back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=layout" shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:fragment src="/fragments/compListView.amxf" id="f1" inlineStyle="height: 100%;">
+      <amx:attributeList name="components" id="al1">
+        <amx:attributeSet id="as1">
+          <amx:attribute name="name" value="cellFormat" id="a1"/>
+          <amx:attribute name="displayName" value="Cell" id="a2"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as2">
+          <amx:attribute name="name" value="deck" id="a3"/>
+          <amx:attribute name="displayName" value="Deck" id="a4"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as3">
+          <amx:attribute name="name" value="facet" id="a5"/>
+          <amx:attribute name="displayName" value="Facet" id="a6"/>
+          <amx:attribute name="hasDemoPage" value="false" id="a7"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as4">
+          <amx:attribute name="name" value="flexLayout" id="a38"/>
+          <amx:attribute name="displayName" value="Flexbox" id="a39"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as5">
+          <amx:attribute name="name" value="panelFormLayout" id="a8"/>
+          <amx:attribute name="displayName" value="Form" id="a9"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as16">
+          <amx:attribute name="name" value="masonryLayout" id="a36"/>
+          <amx:attribute name="displayName" value="Masonry" id="a37"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as10">
+          <amx:attribute name="name" value="panelPage" id="a20"/>
+          <amx:attribute name="displayName" value="Page" id="a21"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as6">
+          <amx:attribute name="name" value="panelGroupLayout" id="a10"/>
+          <amx:attribute name="displayName" value="Panel" id="a11"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as8">
+          <amx:attribute name="name" value="panelItem" id="a14"/>
+          <amx:attribute name="displayName" value="Panel Item" id="a15"/>
+          <amx:attribute name="hasDemoPage" value="false" id="a16"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as9">
+          <amx:attribute name="name" value="panelLabelAndMessage" id="a17"/>
+          <amx:attribute name="displayName" value="Panel Label And Message" id="a18"/>
+          <amx:attribute name="hasDemoPage" value="false" id="a19"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as12">
+          <amx:attribute name="name" value="popup" id="a25"/>
+          <amx:attribute name="displayName" value="Popup" id="a26"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as13">
+          <amx:attribute name="name" value="rowLayout" id="a27"/>
+          <amx:attribute name="displayName" value="Row" id="a28"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as14">
+          <amx:attribute name="name" value="spacer" id="a29"/>
+          <amx:attribute name="displayName" value="Spacer" id="a30"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as11">
+          <amx:attribute name="name" value="panelSplitter" id="a23"/>
+          <amx:attribute name="displayName" value="Split View" id="a24"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as7">
+          <amx:attribute name="name" value="panelStretchLayout" id="a12"/>
+          <amx:attribute name="displayName" value="Stretch" id="a13"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="asAccessoryLayout">
+          <amx:attribute name="name" value="accessoryLayout" id="a1AccessoryLayout"/>
+          <amx:attribute name="displayName" value="Swipe to Reveal" id="a2AccessoryLayout"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as15">
+          <amx:attribute name="name" value="tableLayout" id="a31"/>
+          <amx:attribute name="displayName" value="Table" id="a32"/>
+        </amx:attributeSet>
+        <amx:attributeSet id="as17">
+          <amx:attribute name="name" value="view" id="a33"/>
+          <amx:attribute name="displayName" value="View" id="a34"/>
+          <amx:attribute name="hasDemoPage" value="false" id="a35"/>
+        </amx:attributeSet>
+      </amx:attributeList>
+    </amx:fragment>
+  </amx:panelPage>
+</amx:view>

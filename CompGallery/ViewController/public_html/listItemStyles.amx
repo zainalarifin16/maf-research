@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="List Item Styles" id="hdr"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back" text="Back"
+                         shortDesc="Go back to the previous page"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dataviews/listItem/styles"
+                  shortDesc="Bookmarkable Link" styleClass="custom-bookmarkable-link"
+                  id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <amx:panelStretchLayout id="psl1">
+      <amx:facet name="top">
+        <amx:outputText value="#{pageFlowScope.listItemSelectionStyle} #{pageFlowScope.listItemCardAccentStyle} #{pageFlowScope.listItemCardShadowOn ? 'adfmf-listItem-shadow' : ''}" id="ot1"
+          styleClass="adfmf-outputText-sectionTitle adfmf-outputText-padded"
+          inlineStyle="text-transform: none;"/>
+        <amx:selectOneButton id="sob1" simple="true" label="Selection Style"
+          value="#{pageFlowScope.listItemSelectionStyle}">
+          <amx:selectItem id="si1" label="Default" value=""/>
+          <amx:selectItem id="si2" label="Alt Selection 1" value="adfmf-listItem-selected-alternate1"/>
+          <amx:selectItem id="si3" label="Alt Selection 2" value="adfmf-listItem-selected-alternate2"/>
+        </amx:selectOneButton>
+        <amx:selectOneButton id="sob2" simple="true" label="Card Accent Style"
+          value="#{pageFlowScope.listItemCardAccentStyle}">
+          <amx:selectItem id="siA" label="Default" value=""/>
+          <amx:selectItem id="siB" label="Accent 1" value="adfmf-listItem-accent1"/>
+          <amx:selectItem id="siC" label="Accent 2" value="adfmf-listItem-accent2"/>
+          <amx:selectItem id="siD" label="Accent 3" value="adfmf-listItem-accent3"/>
+          <amx:selectItem id="siE" label="Accent 4" value="adfmf-listItem-accent4"/>
+        </amx:selectOneButton>
+        <amx:panelGroupLayout id="toggles" layout="horizontal">
+          <amx:selectBooleanSwitch id="pCardLayout" label="Cards" value="#{pageFlowScope.listItemCardLayoutOn}"/>
+          <amx:selectBooleanSwitch id="pCardShadow" label="Shadow" value="#{pageFlowScope.listItemCardShadowOn}"/>
+        </amx:panelGroupLayout>
+      </amx:facet>
+      <amx:facet name="center">
+        <amx:listView var="row" value="#{bindings.contacts.collectionModel}"
+          layout="#{pageFlowScope.listItemCardLayoutOn ? 'cards' : 'rows'}"
+          fetchSize="#{bindings.contacts.rangeSize}"
+          selectedRowKeys="#{bindings.contacts.collectionModel.selectedRow}"
+          selectionListener="#{bindings.contacts.collectionModel.makeCurrent}"
+          dividerAttribute="last" dividerMode="firstLetter" id="lv1" collapsibleDividers="true"
+          showDividerCount="true" styleClass="#{pageFlowScope.listViewStyle}">
+          <amx:listItem id="li1" showLinkIcon="false"
+            styleClass="#{pageFlowScope.listItemSelectionStyle} #{pageFlowScope.listItemCardAccentStyle} #{pageFlowScope.listItemCardShadowOn ? 'adfmf-listItem-shadow' : ''}">
+            <amx:outputText value="#{row.first} #{row.last}" id="otl1"/>
+          </amx:listItem>
+        </amx:listView>
+      </amx:facet>
+    </amx:panelStretchLayout>
+  </amx:panelPage>
+</amx:view>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:fragmentDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+                 xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <fragment xmlns="http://xmlns.oracle.com/adf/mf/amx/fragment" id="f1"/>
+    <amx:tableLayout id="tl1" width="100%" shortDesc="table">
+        <amx:rowLayout id="rl2">
+            <amx:cellFormat id="cf23" width="100%" shortDesc="cell">
+                <amx:outputText value="Manager" id="ot8" styleClass="profileHeaderText"/>
+            </amx:cellFormat>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl3">
+            <amx:cellFormat id="cf31" inlineStyle="padding-right:20px; padding-top:5px;" shortDesc="cell">
+                <amx:commandLink id="cl4" action="empDrill" styleClass="fullSize" shortDesc="Manager Link">
+                    <amx:fragment src="/wb.Profile/fragments/ManagerCard.amxf" id="f6" inlineStyle="width:100%"/>
+                    <amx:setPropertyListener id="spl1" to="#{pageFlowScope.drillEmpid}"
+                                             from="#{bindings.mgrid.inputValue}"/>
+                </amx:commandLink>
+            </amx:cellFormat>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl9">
+            <amx:cellFormat id="cf11" height="30" rendered="#{deviceScope.hardware.screen.diagonalSize lt 6}"
+                            shortDesc="cell"/>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl4" rendered="#{deviceScope.hardware.screen.diagonalSize lt 6}">
+            <amx:cellFormat id="cf3" height="40" shortDesc="cell">
+                <amx:outputText value="Team Summary" id="ot2" styleClass="profileHeaderText"/>
+            </amx:cellFormat>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl5" rendered="#{deviceScope.hardware.screen.diagonalSize lt 6}">
+            <amx:cellFormat id="cf8" shortDesc="cell">
+                <amx:panelGroupLayout id="pgl6" layout="horizontal">
+                    <amx:panelGroupLayout id="pgl4" halign="center" styleClass="circle-container dkgraycolor"
+                                          inlineStyle="margin-right:10px">
+                        <amx:outputText value="#{bindings.mgrnum.inputValue}" id="ot11"
+                                        rendered="#{bindings.loading.inputValue ne 'true'}"
+                                        styleClass="circle-metrictext3"/>
+                        <amx:outputText value="Managers" id="ot9" rendered="#{bindings.loading.inputValue ne 'true'}"
+                                        styleClass="deptmetriclabel"/>
+                    </amx:panelGroupLayout>
+                    <amx:panelGroupLayout id="pgl5" halign="center" styleClass="circle-container ltgraycolor"
+                                          inlineStyle="margin-left:10px;margin-right:10px">
+                        <amx:outputText value="#{bindings.empnum.inputValue}" id="ot12"
+                                        rendered="#{bindings.loading.inputValue ne 'true'}"
+                                        styleClass="circle-metrictext3"/>
+                        <amx:outputText value="Employees" id="ot10" rendered="#{bindings.loading.inputValue ne 'true'}"
+                                        styleClass="deptmetriclabel"/>
+                    </amx:panelGroupLayout>
+                </amx:panelGroupLayout>
+            </amx:cellFormat>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl8">
+            <amx:cellFormat id="cf10" height="30" shortDesc="cell"/>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl1">
+            <amx:cellFormat id="cf1" height="40" shortDesc="cell">
+                <amx:outputText value="Team Performance" id="ot1" styleClass="profileHeaderText"/>
+            </amx:cellFormat>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl10">
+            <amx:cellFormat id="cf2" shortDesc="cell">
+                <amx:panelGroupLayout id="pgl7" layout="horizontal">
+                    <amx:panelGroupLayout id="pgl1" halign="center" styleClass="circle-container yellowcolor"
+                                          inlineStyle="margin-right:10px">
+                        <amx:outputText value="#{bindings.deptminrating.inputValue}" id="ot3"
+                                        rendered="#{bindings.loading.inputValue ne 'true'}"
+                                        styleClass="circle-metrictext3">
+                            <amx:convertNumber id="cn1" maxFractionDigits="1" minFractionDigits="1" minIntegerDigits="1"
+                                               maxIntegerDigits="1"/>
+                        </amx:outputText>
+                        <amx:outputText value="Minimum" id="ot4" rendered="#{bindings.loading.inputValue ne 'true'}"
+                                        styleClass="deptmetriclabel"/>
+                    </amx:panelGroupLayout>
+                    <amx:panelGroupLayout id="pgl2" halign="center" styleClass="circle-container solidbluecolor"
+                                          inlineStyle="margin-left:10px;margin-right:10px">
+                        <amx:outputText value="#{bindings.deptavgrating.inputValue}" id="ot5"
+                                        rendered="#{bindings.loading.inputValue ne 'true'}"
+                                        styleClass="circle-metrictext3">
+                            <amx:convertNumber id="cn2" maxFractionDigits="1" minFractionDigits="1" minIntegerDigits="1"
+                                               maxIntegerDigits="1"/>
+                                               </amx:outputText>
+                        <amx:outputText value="Average" id="ot6" rendered="#{bindings.loading.inputValue ne 'true'}"
+                                        styleClass="deptmetriclabel"/>
+                    </amx:panelGroupLayout>
+                    <amx:panelGroupLayout id="pgl3" halign="center" styleClass="circle-container solidgreencolor"
+                                          inlineStyle="margin-left:10px">
+                        <amx:outputText value="#{bindings.deptmaxrating.inputValue}" id="ot13"
+                                        rendered="#{bindings.loading.inputValue ne 'true'}"
+                                        styleClass="circle-metrictext3">
+                            <amx:convertNumber id="cn3" maxFractionDigits="1" minFractionDigits="1" minIntegerDigits="1"
+                                               maxIntegerDigits="1"/>
+                        </amx:outputText>
+                        <amx:outputText value="Maximum" id="ot14" rendered="#{bindings.loading.inputValue ne 'true'}"
+                                        styleClass="deptmetriclabel"/>
+                    </amx:panelGroupLayout>
+                </amx:panelGroupLayout>
+            </amx:cellFormat>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl11">
+            <amx:cellFormat id="cf9" height="30" shortDesc="cell"/>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl6">
+            <amx:cellFormat id="cf6" height="40" shortDesc="cell">
+                <amx:outputText value="Team Avg Compa Ratio" id="ot7" styleClass="profileHeaderText"/>
+            </amx:cellFormat>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl7">
+            <amx:cellFormat id="cf7" halign="center" shortDesc="cell">
+                <dvtm:statusMeterGauge id="compratiogauge" minValue="80" maxValue="120" color="transparent"
+                                       indicatorSize="1" animationOnDisplay="auto" animationDuration="300"
+                                       thresholdDisplay="all" animationOnDataChange="auto"
+                                       inlineStyle="width:80%;height:30px" visualEffects="none"
+                                       value="#{bindings.deptavgcompratio.inputValue}">
+                    <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                    <dvtm:threshold id="t8" maxValue="85" color="#ED6647"/>
+                    <dvtm:threshold id="t9" maxValue="93" color="#FAD55C"/>
+                    <dvtm:threshold id="t10" maxValue="107" color="#68C182"/>
+                    <dvtm:threshold id="t11" maxValue="115" color="#FAD55C"/>
+                    <dvtm:threshold id="t12" maxValue="120" color="#ED6647"/>
+                    <dvtm:referenceLine id="rl22" lineStyle="solid" value="#{bindings.deptavgcompratio.inputValue}"
+                                        color="black" shortDesc="CompRatio Reference Line"/>
+                    <dvtm:metricLabel id="ml1" rendered="false"/>
+                </dvtm:statusMeterGauge>
+            </amx:cellFormat>
+        </amx:rowLayout>
+    </amx:tableLayout>
+</amx:fragmentDef>

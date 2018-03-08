@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
+                   version="1.0" name="URLDemo" id="com.oraclecorp.internal.URLSchemeDemo"
+                   appControllerFolder="ApplicationController" urlScheme="usdemo"
+                   listener-class="application.LifeCycleListenerImpl">
+  <adfmf:featureReference id="fr1" refId="People"/>
+  <adfmf:navigation>
+    <adfmf:navigationBar displayHideShowNavigationBarControl="false" enabled="false"/>
+    <adfmf:springboard enabled="false" showSpringboardAtStartup="false" displayGotoSpringboardControl="false"
+                       width="250"/>
+  </adfmf:navigation>
+</adfmf:application>

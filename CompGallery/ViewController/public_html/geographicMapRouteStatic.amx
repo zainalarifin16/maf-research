@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:navigationDragBehavior id="ndb1" direction="back" action="__back">
+    <?audit suppress oracle.ide.xml.validation-error?>
+  </amx:navigationDragBehavior>
+  <amx:panelPage id="gmp2">
+    <amx:facet name="header">
+      <amx:outputText id="header" styleClass="amx-header-title" value="Map Routes (simple)"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" text="Back" action="__back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="props" action="geographicMapRouteProperties" shortDesc="Properties">
+        <amx:image id="propsIcon" source="images/properties.svg" shortDesc=""/>
+        <amx:setPropertyListener from="true" to="#{pageFlowScope.waypointsEditable}"/>
+      </amx:commandLink>
+      <amx:goLink url="#{GlobalProperties['tagdocUrl']}#dvtm:route" shortDesc="Tag documentation"
+                  disabled="#{GlobalProperties['tagdocUrl'] == ''}" id="pTagdocUrl">
+        <amx:image id="tagdocIcon" source="images/documentation.svg" shortDesc=""/>
+      </amx:goLink>
+      <amx:goLink url="public_html/bookmark.html?feature=Gallery&amp;p=dvtComponents/dvtGeo/geographicMapRouteStatic" shortDesc="Bookmarkable Link"
+                  styleClass="custom-bookmarkable-link" id="pBookmark">
+        <amx:image id="bookmarkIcon" source="images/bookmark.svg" shortDesc=""/>
+      </amx:goLink>
+    </amx:facet>
+    <dvtm:geographicMap id="geographicMap_2" mapType="ROADMAP">
+      <dvtm:route id="route2" travelMode="#{pageFlowScope.travelMode}" lineColor="#{pageFlowScope.lineColor}" lineWidth="#{pageFlowScope.lineWidth}" lineOpacity="#{pageFlowScope.lineOpacity}">
+        <dvtm:pointLocation id="pl2" type="address" address="#{pageFlowScope.origin}">
+          <dvtm:marker id="marker2" shortDesc="#{pageFlowScope.originLabel}" rendered="#{pageFlowScope.showMarkers}">
+            <amx:setPropertyListener from="#{pageFlowScope.originLabel}" to="#{pageFlowScope.desc}"/>
+            <amx:showPopupBehavior alignId="marker2" popupId="markerPopup" decoration="anchor"/>
+          </dvtm:marker>
+        </dvtm:pointLocation>
+        <dvtm:pointLocation id="pl3" address="#{pageFlowScope.destination}" type="address">
+          <dvtm:marker id="marker3" shortDesc="#{pageFlowScope.destinationLabel}" rendered="#{pageFlowScope.showMarkers}">
+            <amx:setPropertyListener from="#{pageFlowScope.destinationLabel}" to="#{pageFlowScope.desc}"/>
+            <amx:showPopupBehavior alignId="marker3" popupId="markerPopup" decoration="anchor"/>
+          </dvtm:marker>
+        </dvtm:pointLocation>
+        <amx:showPopupBehavior alignId="route2" popupId="routePopup" decoration="anchor"/>
+      </dvtm:route>
+    </dvtm:geographicMap>
+  </amx:panelPage>
+  <amx:popup id="markerPopup" animation="pop" autoDismiss="true" backgroundDimming="off">
+    <amx:outputText value="#{pageFlowScope.desc}"/>
+  </amx:popup>
+  <amx:popup id="routePopup" animation="pop" autoDismiss="true" inlineStyle="width:300px;">
+    <amx:outputText value="Route Info " inlineStyle="font-weight:bold"/>
+    <amx:outputText value="(#{pageFlowScope.travelMode})" inlineStyle="font-weight:bold" rendered="#{pageFlowScope.travelMode != null}"/>
+    <amx:panelFormLayout styleClass="routePopup" maxColumns="1" labelPosition="topStart" fieldHalign="start">
+      <amx:panelLabelAndMessage>
+        <amx:outputText value="#{pageFlowScope.originLabel}"/>
+      </amx:panelLabelAndMessage>
+      <amx:panelLabelAndMessage>
+        <amx:outputText value="#{pageFlowScope.destinationLabel}"/>
+      </amx:panelLabelAndMessage>
+    </amx:panelFormLayout>
+  </amx:popup>
+</amx:view>

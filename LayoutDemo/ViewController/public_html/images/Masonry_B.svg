@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Masonry_Layout" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="150px" height="194px" viewBox="-14.5 15.5 150 194" enable-background="new -14.5 15.5 150 194"
+	 xml:space="preserve">
+<rect id="Background_Panel" x="-14.5" y="15.5" fill="#FFFFFF" width="150" height="194"/>
+<g id="Squares">
+	<g id="Square_2_1_">
+		<g id="Top_Horizontal_Bar_20_">
+			<rect x="38.96" y="69.293" fill="#DAE9F5" width="90.375" height="43"/>
+			<path fill="#AED8FA" d="M128.835,69.793v42H39.46v-42H128.835 M129.835,68.793H38.46v44h91.375V68.793L129.835,68.793z"/>
+		</g>
+	</g>
+	<g id="Square_3_2_">
+		<g id="Top_Horizontal_Bar_5_">
+			<rect x="86.96" y="21.293" fill="#DAE9F5" width="43" height="43"/>
+			<path fill="#AED8FA" d="M129.46,21.793v42h-42v-42H129.46 M130.46,20.793h-44v44h44V20.793L130.46,20.793z"/>
+		</g>
+	</g>
+	<g id="Square_2">
+		<g id="Top_Horizontal_Bar_21_">
+			<rect x="38.96" y="21.293" fill="#DAE9F5" width="43" height="43"/>
+			<path fill="#AED8FA" d="M81.46,21.793v42h-42v-42H81.46 M82.46,20.793h-44v44h44V20.793L82.46,20.793z"/>
+		</g>
+	</g>
+	<g id="Square_1">
+		<g id="Top_Horizontal_Bar_8_">
+			<rect x="-9" y="21.293" fill="#DAE9F5" width="43" height="91"/>
+			<path fill="#AED8FA" d="M33.5,21.793v90h-42v-90H33.5 M34.5,20.793h-44v92h44V20.793L34.5,20.793z"/>
+		</g>
+	</g>
+</g>
+</svg>

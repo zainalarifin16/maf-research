@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.20.8" id="EditPageDef"
+                Package="crud.CRUD.phone">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="Service" id="ServiceIterator"/>
+    <accessorIterator MasterBinding="ServiceIterator" Binds="person" RangeSize="25" DataControl="Service"
+                      BeanClass="crudmodel.Person" id="personIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="personIterator" id="id">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="personIterator" id="first">
+      <AttrNames>
+        <Item Value="first"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="personIterator" id="last">
+      <AttrNames>
+        <Item Value="last"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="personIterator" id="phone">
+      <AttrNames>
+        <Item Value="phone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="personIterator" id="email">
+      <AttrNames>
+        <Item Value="email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="personIterator" id="birthDate">
+      <AttrNames>
+        <Item Value="birthDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="personIterator" id="address">
+      <AttrNames>
+        <Item Value="address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="personIterator" id="city">
+      <AttrNames>
+        <Item Value="city"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="personIterator" id="state">
+      <AttrNames>
+        <Item Value="state"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction IterBinding="personIterator" id="SaveToStore" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="saveToStore" IsViewObjectMethod="false" DataControl="Service"
+                  InstanceName="bindings.personIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <methodAction IterBinding="personIterator" id="ReloadFromStore" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="reloadFromStore" IsViewObjectMethod="false" DataControl="Service"
+                  InstanceName="bindings.personIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <action IterBinding="personIterator" id="RemoveRow" InstanceName="crudmodel.Service.person"
+            DataControl="Service" RequiresUpdateModel="false" Action="removeRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{bindings.id.inputValue}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>
